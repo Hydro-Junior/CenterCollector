@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CenterCollectSystem:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CenterCollectSystem_jar</output-path>
+    <root id="archive" name="CenterCollectSystem.jar">
+      <element id="module-output" name="CenterCollectSystem" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-all/5.0.0.Alpha1/netty-all-5.0.0.Alpha1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
