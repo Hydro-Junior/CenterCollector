@@ -1,13 +1,13 @@
-#�ɼ����������ļ���ע��������д����Ŀո�
-#�ڲ�Э����дInternal 130Э����дXT
+#采集程序配置文件，注意请勿填写多余的空格
+#内部协议填写Internal 130协议填写XT
 protocol=Internal
-#��д���������ʵķ������Ķ˿�
+#填写集中器访问的服务器的端口
 protocolPort=5000
-#��д���ݿ�������ĵ�ַ
-dbServer=114.119.9.181
-#���ݿ�Id
+#填写数据库服务器的地址
+dbServer=***
+#数据库Id
 dbId=sa
-#���ݿ�����
-dbPwd=kilotone@2012
-#���ݿ�����
-database=QBTT
+#数据库密码
+dbPwd=***
+#数据库名称
+database=***
