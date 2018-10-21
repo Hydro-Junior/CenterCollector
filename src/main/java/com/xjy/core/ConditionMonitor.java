@@ -25,11 +25,18 @@ public class ConditionMonitor implements Runnable {
                 e.printStackTrace();
             }
             ConcurrentHashMap<String,Center> map = GlobalMap.getMap();
-            System.out.println("当前在线集中器：");
+            System.out.println("在线集中器：");
             for(Map.Entry<String,Center> entry : map.entrySet()){
                 ChannelHandlerContext channelCtx = entry.getValue().getCtx();
-                if(channelCtx.channel().isActive()){
-                    System.out.println(entry.getKey()+ ":" + entry.getValue());
+                try{
+                    if(channelCtx.channel().isActive()){
+                        System.out.println(entry.getKey()+ ":" + entry.getValue());
+                    }else{
+                        //todo 更新数据库，将集中器设置为不在线
+                    }
+                }catch (NullPointerException e){
+                    //防止万一得不到context或channel报异常
+                    //todo 更新数据库，将集中器设置为不在线
                 }
             }
             try {

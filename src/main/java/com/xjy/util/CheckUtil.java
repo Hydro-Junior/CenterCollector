@@ -42,7 +42,7 @@ public class CheckUtil {
         System.out.println("crc:"+ConvertUtil.fixedLengthHex(crc) + " crcCode:"+ConvertUtil.fixedLengthHex(crcCode));
         return crc == crcCode;
     }
-    private static int getCrc(int initCRC, int[] buffer, int len) {
+    public static int getCrc(int initCRC, int[] buffer, int len) {
         int CrcA = buffer[0];
         int CrcB = buffer[1];
         int CrcC = buffer[2];

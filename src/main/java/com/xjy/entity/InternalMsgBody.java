@@ -3,6 +3,7 @@ package com.xjy.entity;
 import com.xjy.parms.Constants;
 import com.xjy.parms.InternalMsgType;
 import com.xjy.util.CheckUtil;
+import com.xjy.util.ConvertUtil;
 
 import java.io.UnsupportedEncodingException;
 
@@ -43,7 +44,7 @@ public class InternalMsgBody {
             if(isRecvPack) {
                 msgType = InternalMsgType.RECV_PACKAGE;
                 //给有效数据赋值
-                effectiveBytes = new int[data.length - 21 -3]; // 有效数据长度
+                effectiveBytes = new int[data.length - 21 -3]; // 有效数据长度,21是发送数据包头也不算在内
                 for(int i = 0; i < effectiveBytes.length ; i++){
                     effectiveBytes[i] = data[i+21];
                 }
@@ -58,7 +59,32 @@ public class InternalMsgBody {
     }
     //把消息实体转为字节数组，发送前调用
     public byte[] toBytes(){
-        return null;
+        if(deviceId == null) return null;
+        byte[] head = Constants.INTERNAL_DELIMETER;
+        byte[] addr = deviceId.getBytes();
+        byte[] sendHead = Constants.INTERNAL_SENDHEAD;
+        int[] msg = new int[head.length + addr.length + sendHead.length + effectiveBytes.length + 3];
+        for(int i = 0 ; i < msg.length - 3;i ++){
+            if(i < head.length) msg[i] = head[i];
+            else if(i < head.length + addr.length){
+                msg[i] = addr[i-head.length];
+            }
+            else if(i < head.length + addr.length + sendHead.length){
+                msg[i] = sendHead[i-head.length-addr.length];
+            }
+            else {
+                msg[i] =  effectiveBytes[i- head.length - addr.length - sendHead.length];
+            }
+        }
+        int crc = CheckUtil.getCrc(0,effectiveBytes,effectiveBytes.length);
+        msg[msg.length - 3] = crc >> 8;
+        msg[msg.length - 2] = crc & 0xFF;
+        msg[msg.length - 1] = 0x45;
+        byte[] res = new byte[msg.length];
+        for(int i = 0 ; i < msg.length ;i ++){
+            res[i] = (byte)msg[i];
+        }
+        return res;
     }
     //获取指令字，有效数据的前三个字节
     public String getInstruction(){

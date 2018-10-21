@@ -76,7 +76,8 @@ public class CollectServer   {
     }
 
     public static void main(String[] args) {
-        new CollectServer().bind(Integer.parseInt(Constants.protocolPort));
         new Thread(new ConditionMonitor()).start();
+        new CollectServer().bind(Integer.parseInt(Constants.protocolPort));
+
     }
 }
