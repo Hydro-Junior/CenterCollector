@@ -77,7 +77,8 @@ public class CollectServer   {
 
     public static void main(String[] args) {
         new Thread(new ConditionMonitor()).start();
+        new Thread(new CommandFetcher()).start();//轮询数据库命令的线程
+        new Thread(new CommandExecutor()).start();//命令执行线程
         new CollectServer().bind(Integer.parseInt(Constants.protocolPort));
-
     }
 }

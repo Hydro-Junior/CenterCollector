@@ -6,11 +6,12 @@ package com.xjy.entity;
  * @Description:水表实体类
  */
 public class Meter {
-    String id;
-    Double value = 0.0;
-    Integer state = 0; //通信状态 0-正常 1-数据读取失败 2 - 采集器失败
-    Integer valveState = 0; //阀门状态 0-无阀 1-开阀 2-关阀
-    Collector collector; //所属采集器
+    private String id;
+    private Double value = 0.0;
+    private Integer state = 0; //通信状态 0-正常 1-数据读取失败 2 - 采集器失败
+    private Integer valveState = 0; //阀门状态 0-无阀 1-开阀 2-关阀
+    private Collector collector; //所属采集器
+    private Integer collectorIndex; // 针对内部协议：采集器索引，下载档案时用到（动态数据）
     boolean valveStateChanged;
 
     public Double getValue() {
@@ -59,6 +60,14 @@ public class Meter {
 
     public void setValveStateChanged(boolean valveStateChanged) {
         this.valveStateChanged = valveStateChanged;
+    }
+
+    public Integer getCollectorIndex() {
+        return collectorIndex;
+    }
+
+    public void setCollectorIndex(Integer collectorIndex) {
+        this.collectorIndex = collectorIndex;
     }
 
     @Override

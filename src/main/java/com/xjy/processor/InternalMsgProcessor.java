@@ -1,15 +1,15 @@
 package com.xjy.processor;
 
-import com.xjy.entity.Center;
-import com.xjy.entity.Collector;
-import com.xjy.entity.InternalMsgBody;
-import com.xjy.entity.Meter;
-import com.xjy.parms.InternalOrders;
+import com.xjy.entity.*;
+import com.xjy.parms.CommandState;
 import com.xjy.util.ConvertUtil;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
+import com.xjy.util.DBUtil;
 
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static com.xjy.util.InternalProtocolSendHelper.readNextPage;
+import static com.xjy.util.InternalProtocolSendHelper.writePage;
 
 /**
  * @Author: Mr.Xu
@@ -17,13 +17,47 @@ import java.util.List;
  * @Description: 内部协议相关处理方法集合
  */
 public class InternalMsgProcessor {
+
     //内部协议的读页过程
     public static void readProcessor(Center center, InternalMsgBody msgBody) {
         int[] datas = msgBody.getEffectiveBytes();
-        if (datas.length <= 3) return;
+        if (datas.length <= 3) {
+            //报文传输失误
+            DBUtil.updateCommandState(CommandState.FAILED,center);
+            return;
+        }
         int pageNum = datas[3];
         if(pageNum == 0){ //第0页，读取集中器基本信息
+            DetailedInfoOfCenter detailedInfo = new DetailedInfoOfCenter();
+            char st[] = new char[16]; //定时抄表时间
+            char ct[] = new char[16]; //设备时钟
+            char ht[][] = new char[12][16]; //历史记录
+            int curIndex = 4 + 32;
+            //解析定时抄表时间
+            for(int j = 0; j < st.length; j++){
+                st[j] = (char) datas[curIndex++];
+            }
+            //设备时钟
+            for(int j = 0; j < ct.length; j++){
+                ct[j] = (char) datas[curIndex++];
+            }
+            for(int j = 0; j < ht.length; j++){
+                for(int k = 0; k < ht[0].length; k++){
+                    ht[j][k] = (char) datas[curIndex++];
+                }
+            }
+            detailedInfo.setTimingCollect(String.valueOf(st));
+            detailedInfo.setDeviceClock(String.valueOf(ct));
+            String[] records = new String[12];
+            for(int i = 0 ; i < records.length; i++){
+                records[i] = String.valueOf(ht[i]);
+            }
+            detailedInfo.setHistoryRecord(records);
+            center.setInformation(detailedInfo);
+            System.out.println("读完集中器基本信息：");
+            System.out.println(center.getInformation());
 
+            readNextPage(center,pageNum);
         }else if(pageNum == 1){ //第1页，读取采集器资料
             List<Collector> collectors = center.getCollectors();
             collectors.clear();
@@ -54,7 +88,9 @@ public class InternalMsgProcessor {
                 }
             }
             //读采集器结束，读下一页
+            System.out.println("读采集器结束，接下来读取表数据");
 
+            readNextPage(center,pageNum);
         } else{
             boolean keepReading = false;
             for (int i = 4; i < datas.length; ) {//省去前3个指令字和页码，接下来12个为一组
@@ -107,23 +143,32 @@ public class InternalMsgProcessor {
                 readNextPage(center,pageNum);
             } else {//重置集中器的命令执行状态
                 System.out.println("命令执行结束");
+                //todo 更新数据库中的命令状态
+                System.out.println(center);
             }
         }
     }
 
-    private static void readNextPage(Center center, int currentPageNum){
-        int[] effectiveData = new int[3 + 1];//指令字3个字节+页面号1个字节
-        for (int i = 0; i < effectiveData.length; i++) {
-            if (i < 3) effectiveData[i] = InternalOrders.READ.getBytes()[i];
-            else effectiveData[i] = currentPageNum + 1;
+    /**
+     * 下载档案命令的处理器，先读取页数，判断要不要写下一页
+     * @param currentCenter
+     * @param msgBody
+     */
+    public static void writeProcessor(Center currentCenter, InternalMsgBody msgBody) {
+        int[] datas = msgBody.getEffectiveBytes();
+        if (datas.length <= 3) {
+            //报文传输错误
+            currentCenter.getCurCommand().setState(CommandState.FAILED);
+            DBUtil.updateCommandState(CommandState.FAILED,currentCenter);
+            return;
         }
-        InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), effectiveData);
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        center.getCtx().writeAndFlush(buf);
-        System.out.println("发送读取下一页的命令");
-        byte[] theBytes = internalMsgBody.toBytes();
-        for (int i = 0; i < theBytes.length; i++) {
-            System.out.print(ConvertUtil.fixedLengthHex(theBytes[i]) + " ");
+        int pageNum = datas[3];
+        ConcurrentHashMap<Center,List<CenterPage>> infoMap = GlobalMap.getBasicInfo();
+        if(infoMap.get(currentCenter).size() != pageNum){
+            writePage(currentCenter,pageNum+1);
+        }else{
+            currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
+            DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
         }
     }
 }

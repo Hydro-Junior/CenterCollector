@@ -16,6 +16,8 @@ public class Command {
     Integer state; //0-未分派 1-集中器未连接 2-等待执行 3-执行中 4-执行错误，重试中 5-执行成功  6-执行失败
     String[] args; //命令的相关参数
     LocalDateTime startExcuteTime; //开始执行命令的时刻
+    LocalDateTime generateTime;
+    int minitesLimit = 5; //允许超时时间，默认5分钟
 
     public Integer getId() {
         return id;
@@ -55,6 +57,22 @@ public class Command {
 
     public void setStartExcuteTime(LocalDateTime startExcuteTime) {
         this.startExcuteTime = startExcuteTime;
+    }
+
+    public LocalDateTime getGenerateTime() {
+        return generateTime;
+    }
+
+    public void setGenerateTime(LocalDateTime generateTime) {
+        this.generateTime = generateTime;
+    }
+
+    public int getMinitesLimit() {
+        return minitesLimit;
+    }
+
+    public void setMinitesLimit(int minitesLimit) {
+        this.minitesLimit = minitesLimit;
     }
 
     @Override

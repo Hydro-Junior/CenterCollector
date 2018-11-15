@@ -13,6 +13,7 @@ import java.util.Properties;
 public final class Constants {
     public static final String protocol;
     public static final String protocolPort;
+    public static final String connectServer;
     public static final String dbServer;
     public static final String dbId;
     public static final String dbPwd;
@@ -72,6 +73,7 @@ public final class Constants {
         }
         protocol = properties.getProperty("protocol");
         protocolPort = properties.getProperty("protocolPort");
+        connectServer = properties.getProperty("connectServer");
         dbServer = properties.getProperty("dbServer");
         dbId = properties.getProperty("dbId");
         dbPwd = properties.getProperty("dbPwd");

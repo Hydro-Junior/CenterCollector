@@ -6,6 +6,7 @@ import com.xjy.util.CheckUtil;
 import com.xjy.util.ConvertUtil;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 
 /**
  * @Author: Mr.Xu
@@ -126,5 +127,15 @@ public class InternalMsgBody {
 
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
+    }
+
+    @Override
+    public String toString() {
+        return "InternalMsgBody{" +
+                "msgType=" + msgType +
+                ", deviceId='" + deviceId + '\'' +
+                ", effectiveBytes=" + Arrays.toString(effectiveBytes) +
+                ", crcCode=" + crcCode +
+                '}';
     }
 }

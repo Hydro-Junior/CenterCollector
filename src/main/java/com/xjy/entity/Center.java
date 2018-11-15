@@ -21,9 +21,10 @@ public class Center {
     private LocalDateTime readTime;//最近一次读取（成功）时间
     private ChannelHandlerContext ctx; //绑定ChannelHandler的上下文对象，用于发送数据，检测数据流向
     private String enprNo ; //所属水司
+    private DetailedInfoOfCenter information;
     private Command curCommand; // 当前正在执行的命令
-    private ConcurrentLinkedQueue<Command> commandQueue; //待执行的命令队列
-    private ConcurrentLinkedDeque<Command> failedCommands; // 执行过且失败的命令<读表指令考虑重新执行>，每天写入日志并清空
+    private ConcurrentLinkedQueue<Command> commandQueue = new ConcurrentLinkedQueue<>(); //待执行的命令队列
+    private ConcurrentLinkedDeque<Command> failedCommands = new ConcurrentLinkedDeque<>(); // 执行过且失败的命令<读表指令考虑重新执行>，每天写入日志并清空
 
     public Center(String id,ChannelHandlerContext ctx){
         this.id = id;
@@ -60,6 +61,54 @@ public class Center {
 
     public void setHeartBeatTime(LocalDateTime heartBeatTime) {
         this.heartBeatTime = heartBeatTime;
+    }
+
+    public LocalDateTime getReadTime() {
+        return readTime;
+    }
+
+    public void setReadTime(LocalDateTime readTime) {
+        this.readTime = readTime;
+    }
+
+    public String getEnprNo() {
+        return enprNo;
+    }
+
+    public void setEnprNo(String enprNo) {
+        this.enprNo = enprNo;
+    }
+
+    public DetailedInfoOfCenter getInformation() {
+        return information;
+    }
+
+    public void setInformation(DetailedInfoOfCenter information) {
+        this.information = information;
+    }
+
+    public Command getCurCommand() {
+        return curCommand;
+    }
+
+    public void setCurCommand(Command curCommand) {
+        this.curCommand = curCommand;
+    }
+
+    public ConcurrentLinkedQueue<Command> getCommandQueue() {
+        return commandQueue;
+    }
+
+    public void setCommandQueue(ConcurrentLinkedQueue<Command> commandQueue) {
+        this.commandQueue = commandQueue;
+    }
+
+    public ConcurrentLinkedDeque<Command> getFailedCommands() {
+        return failedCommands;
+    }
+
+    public void setFailedCommands(ConcurrentLinkedDeque<Command> failedCommands) {
+        this.failedCommands = failedCommands;
     }
 
     @Override

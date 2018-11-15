@@ -2,6 +2,7 @@ package com.xjy.core;
 
 import com.xjy.entity.Center;
 import com.xjy.entity.GlobalMap;
+import com.xjy.util.DBUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -17,7 +18,8 @@ import java.util.concurrent.TimeUnit;
 public class ConditionMonitor implements Runnable {
     @Override
     public void run() {
-        System.out.println("监控程序启动！");
+        System.out.println("监控程序启动！开始初始化：");
+        DBUtil.initCenters();
         while (true){
             try {
                 TimeUnit.SECONDS.sleep(5);
@@ -40,7 +42,7 @@ public class ConditionMonitor implements Runnable {
                 }
             }
             try {
-                TimeUnit.SECONDS.sleep(30);
+                TimeUnit.SECONDS.sleep(60);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

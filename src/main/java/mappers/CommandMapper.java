@@ -12,6 +12,6 @@ import java.util.List;
  * @Description:
  */
 public interface CommandMapper {
-    List<DBCommand> getCommands(@Param("centerAddress") String centerAddress, @Param("state") int state);
+    List<DBCommand> getCommands(@Param("centerAddress") String centerAddress, @Param("state") int state,@Param("portStr")String portStr);
     void updateCommandState(@Param("id") int id ,@Param("state") int state);
 }

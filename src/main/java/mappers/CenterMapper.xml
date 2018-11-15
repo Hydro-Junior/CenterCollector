@@ -3,6 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.CenterMapper">
     <select id="getIdByAddress" parameterType="String" resultType="int">
-        SELECT id from t_center where gprsNum = #{address}
+        select id from t_center where gprsNum = #{address}
     </select>
+
+    <select id="getCollectors" resultType="DBCollector">
+        select * from t_collection where centerId = #{centerId}
+    </select>
+    <select id="getMetersByCollector" resultType="DBMeter">
+        select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = #{collectorId})
+    </select>
+    <update id="initCenterState" >
+        update t_center set runStatue = 0 where portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
+    </update>
+    <update id="updateCenterOnline">
+        update t_center set runStatue = #{state} where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
+    </update>
+    <update id="updateHeartBeatTime">
+        update t_center set heartBeatTime = GETDATE() where gprsNum = #{address}
+    </update>
 </mapper>

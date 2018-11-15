@@ -1,11 +1,16 @@
 package com.xjy.test;
 
+import com.xjy.entity.Center;
 import com.xjy.entity.Command;
 import com.xjy.parms.CommandState;
+import com.xjy.parms.Constants;
+import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBCommand;
+import com.xjy.pojo.DBMeter;
 import com.xjy.test.mybatis.mappers.TempCommandMapper;
 import com.xjy.test.mybatis.pojo.TempCommand;
 import com.xjy.test.mybatis.util.MyBatisUtil;
+import com.xjy.util.DBUtil;
 import mappers.CenterMapper;
 import mappers.CommandMapper;
 import org.apache.ibatis.io.Resources;
@@ -33,7 +38,7 @@ public class TesterForMybatis {
     @Test
     public void testGetCommand() {
             CommandMapper mapper = session.getMapper(CommandMapper.class);
-            List<DBCommand> tempCommands = mapper.getCommands("00201709004" , CommandState.SUCCESSED);
+            List<DBCommand> tempCommands = mapper.getCommands("00201709004" , CommandState.SUCCESSED,"%"+Constants.connectServer+":"+Constants.protocolPort+"%");
             System.out.println(tempCommands);
     }
     @Test
@@ -47,7 +52,34 @@ public class TesterForMybatis {
         CenterMapper mapper = session.getMapper(CenterMapper.class);
         System.out.println(mapper.getIdByAddress("00020160811"));
     }
-
+    @Test
+    public void testInitCenterState(){
+        DBUtil.initCenters();
+    }
+    @Test
+    public void testUpdateCenterOnline(){
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        mapper.updateCenterOnline(1,"00201611251",Constants.connectServer,Integer.parseInt(Constants.protocolPort));
+        session.commit();
+    }
+    @Test
+    public void testUpdateHeartBeatTime(){
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        mapper.updateHeartBeatTime("650157587");
+        session.commit();
+    }
+    @Test
+    public void testGetInformation(){
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        int centerId = mapper.getIdByAddress("00201611251");
+        List<DBCollector> dbCollectors = mapper.getCollectors(centerId);
+        for(DBCollector dbCollector : dbCollectors){
+            System.out.print("【" + dbCollector+"】");
+            List<DBMeter> dbMeters = mapper.getMetersByCollector(dbCollector.getId());
+            System.out.println(" 采集器下的表个数："+dbMeters.size());
+            System.out.println(dbMeters);
+        }
+    }
     @After
     public void destroy(){
         session.close();
