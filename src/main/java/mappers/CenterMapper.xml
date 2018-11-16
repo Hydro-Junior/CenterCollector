@@ -12,8 +12,14 @@
     <select id="getMetersByCollector" resultType="DBMeter">
         select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = #{collectorId})
     </select>
+    <select id="getEnprNo" resultType="String" >
+        select enprNo from t_center where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
+    </select>
     <update id="initCenterState" >
         update t_center set runStatue = 0 where portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
+    </update>
+    <update id="updateCenterReadTime" parameterType="int">
+        update t_center set readTime= GETDATE() where id = #{id}
     </update>
     <update id="updateCenterOnline">
         update t_center set runStatue = #{state} where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})

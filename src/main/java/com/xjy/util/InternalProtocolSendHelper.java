@@ -23,6 +23,9 @@ import java.util.logging.Logger;
 public class InternalProtocolSendHelper {
     //内部协议，读取下一页
     public static void readNextPage(Center center, int currentPageNum){
+        if(currentPageNum == -1){//开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
+            DBUtil.preprocessOfRead(center);
+        }
         int[] effectiveData = new int[3 + 1];//指令字3个字节+页面号1个字节
         for (int i = 0; i < effectiveData.length; i++) {
             if (i < 3) effectiveData[i] = InternalOrders.READ.getBytes()[i];
@@ -31,11 +34,8 @@ public class InternalProtocolSendHelper {
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), effectiveData);
         ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
         center.getCtx().writeAndFlush(buf);
+        printMsgLog(internalMsgBody);
         System.out.println("发送读取下一页的命令");
-        byte[] theBytes = internalMsgBody.toBytes();
-        for (int i = 0; i < theBytes.length; i++) {
-            System.out.print(ConvertUtil.fixedLengthHex(theBytes[i]) + " ");
-        }
     }
     //内部协议，读取首页
     public static void readFirstPage(Center center){

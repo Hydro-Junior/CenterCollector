@@ -3,6 +3,7 @@ package com.xjy.util;
 import com.xjy.entity.Center;
 import com.xjy.entity.Collector;
 import com.xjy.entity.Command;
+import com.xjy.entity.Meter;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.Constants;
 import com.xjy.pojo.DBCollector;
@@ -34,9 +35,19 @@ public class DBUtil {
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);
         int centerId = mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
+        center.setDbId(centerId);//下载档案时可以重置集中器在数据库中的id，可用于重新导入资料后的数据更新
         List<DBCollector> collectors = mapper.getCollectors(centerId);
         session.close();
         return collectors;
+    }
+    public static void preprocessOfRead(Center center){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        int centerId = mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
+        center.setDbId(centerId);
+        if(center.getEnprNo() == null)
+            center.setEnprNo(mapper.getEnprNo(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort)));
+        session.close();
     }
     //根据采集器获取表集合
     public static List<DBMeter> getMetersByCollector(DBCollector collector){
@@ -75,17 +86,32 @@ public class DBUtil {
         CenterMapper mapper = session.getMapper(CenterMapper.class);
         mapper.initCenterState(ip,port);
         session.commit();
+        session.close();
     }
     public static void updateCommandState(int state ,Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CommandMapper mapper = session.getMapper(CommandMapper.class);
         mapper.updateCommandState(center.getCurCommand().getId(),state);
         session.commit();
+        session.close();
     }
     public static void updateCommandState(int state ,int commandId){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CommandMapper mapper = session.getMapper(CommandMapper.class);
         mapper.updateCommandState(commandId,state);
         session.commit();
+        session.close();
+    }
+
+    public static void refreshMeterData(Meter meter, Center center) {
+        System.out.println("将表读数写入数据库");
+    }
+
+    public static void updateCenterReadTime(Center center) {
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        mapper.updateCenterReadTime(center.getDbId());
+        session.commit();
+        session.close();
     }
 }

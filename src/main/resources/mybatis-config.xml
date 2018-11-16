@@ -10,6 +10,7 @@
     </properties>
     <typeAliases>
         <!--<typeAlias type="com.xjy.test.mybatis.pojo.TempCommand" alias="TempCommand"/>-->
+        <typeAlias type="com.xjy.pojo.DeviceTmp" alias="DeviceTmp"/>
         <typeAlias type="com.xjy.pojo.DBCommand" alias="DBCommand"/>
         <typeAlias type="com.xjy.pojo.DBCollector" alias="DBCollector"/>
         <typeAlias type="com.xjy.pojo.DBMeter" alias="DBMeter"/>

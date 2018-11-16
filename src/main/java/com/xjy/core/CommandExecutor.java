@@ -65,25 +65,42 @@ public class CommandExecutor implements Runnable{
     private void execute(Center center, Command currentCommand) {
         switch (currentCommand.getType()){
             case OPEN_VALVE:
+                //todo
+                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
                 break;
             case CLOSE_VALVE:
+                //todo
+                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
                 break;
             case WRITE_INFO:
                 InternalProtocolSendHelper.writeFirstPage(center);
                 break;
             case COLLECT_FOR_CENTER:
+                //todo
+                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
                 break;
             case READ_SINGLE_METER:
+                InternalProtocolSendHelper.readFirstPage(center);
                 break;
             case READ_ALL_METERS:
+                InternalProtocolSendHelper.readFirstPage(center);
                 break;
             case OPEN_VALVE_BATCH:
+                //todo
+                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
                 break;
             case CLOSE_VALVE_BATCH:
+                //todo
+                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
                 break;
             default:
+                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
                 break;
         }
 
+    }
+    private static void setCurCommandState(int state, Center center, Command currentCommand){
+        DBUtil.updateCommandState(state,center);
+        currentCommand.setState(state);
     }
 }

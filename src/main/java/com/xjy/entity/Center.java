@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public class Center {
     private String id; //集中器编号
+    private Integer dbId;//集中器在数据库中的索引
     private List<Collector> collectors = new ArrayList<>();
     private LocalDateTime heartBeatTime; //心跳时间
     private LocalDateTime readTime;//最近一次读取（成功）时间
@@ -37,6 +38,14 @@ public class Center {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Integer getDbId() {
+        return dbId;
+    }
+
+    public void setDbId(Integer dbId) {
+        this.dbId = dbId;
     }
 
     public ChannelHandlerContext getCtx() {
