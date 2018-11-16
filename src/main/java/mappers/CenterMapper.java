@@ -13,7 +13,7 @@ import java.util.List;
  * @Description:
  */
 public interface CenterMapper {
-    int getIdByAddress(String address);
+    int getIdByAddress(@Param("address") String address,@Param("ip") String ip, @Param("port") int port);
     void initCenterState(@Param("ip") String ip, @Param("port") int port);
     void updateCenterOnline(@Param("state")int state,@Param("address") String address,@Param("ip")String ip,@Param("port")int port);
     void updateHeartBeatTime(@Param("address") String address);

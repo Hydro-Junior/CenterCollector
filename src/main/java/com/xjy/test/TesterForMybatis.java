@@ -2,6 +2,7 @@ package com.xjy.test;
 
 import com.xjy.entity.Center;
 import com.xjy.entity.Command;
+import com.xjy.entity.InternalMsgBody;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.Constants;
 import com.xjy.pojo.DBCollector;
@@ -50,7 +51,7 @@ public class TesterForMybatis {
     @Test
     public void testSearchIdOfCenter(){
         CenterMapper mapper = session.getMapper(CenterMapper.class);
-        System.out.println(mapper.getIdByAddress("00020160811"));
+        System.out.println(mapper.getIdByAddress("00020160811",Constants.connectServer,Integer.parseInt(Constants.protocolPort)));
     }
     @Test
     public void testInitCenterState(){
@@ -71,7 +72,7 @@ public class TesterForMybatis {
     @Test
     public void testGetInformation(){
         CenterMapper mapper = session.getMapper(CenterMapper.class);
-        int centerId = mapper.getIdByAddress("00201611251");
+        int centerId = mapper.getIdByAddress("00201611251",Constants.connectServer, Integer.parseInt(Constants.protocolPort));
         List<DBCollector> dbCollectors = mapper.getCollectors(centerId);
         for(DBCollector dbCollector : dbCollectors){
             System.out.print("【" + dbCollector+"】");

@@ -9,6 +9,7 @@ import com.xjy.util.DBUtil;
 import com.xjy.util.InternalProtocolSendHelper;
 import io.netty.channel.ChannelHandlerContext;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,9 +29,10 @@ public class CommandExecutor implements Runnable{
                 Center center = entry.getValue();
                 //判断当前命令是否超时（默认）
                 Command cur = null;
-                if(( cur = center.getCurCommand()) != null){
+                if(( cur = center.getCurCommand()) != null && cur.getState()== CommandState.EXECUTING){
                     LocalDateTime start = cur.getStartExcuteTime();
-                    if(LocalDateTime.now().getMinute() - start.getMinute() > cur.getMinitesLimit()){
+                    Duration duration = Duration.between(start,LocalDateTime.now());
+                    if(duration.toMinutes() > cur.getMinitesLimit()){
                         cur.setState(CommandState.FAILED);
                         DBUtil.updateCommandState(CommandState.FAILED,center);
                     }

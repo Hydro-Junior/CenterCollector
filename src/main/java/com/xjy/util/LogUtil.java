@@ -1,6 +1,7 @@
 package com.xjy.util;
 
 
+import com.xjy.entity.InternalMsgBody;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -11,12 +12,12 @@ import java.io.File;
  * @Description: 日志工具类
  */
 public class LogUtil {
-    public static void DataMessageLog(Class clazz,String info){
+    private static final Logger dataLogger = Logger.getLogger(InternalMsgBody.class);
+    public static void DataMessageLog(String info){
         File f = new File("log");
         if(!f.exists()){
             f.mkdir();
         }
-        Logger dataLogger = Logger.getLogger(clazz);
         dataLogger.debug(info);
     }
 }

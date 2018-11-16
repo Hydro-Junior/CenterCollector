@@ -1,5 +1,7 @@
 package com.xjy.entity;
 
+import com.xjy.util.ConvertUtil;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -95,14 +97,14 @@ public class CenterPage {
         if (data[0] == 1) {//输出采集器页
             for (int i = 0; i < 64; i++) {
                 for (int j = 0; j < 6; j++) {
-                    sb.append(data[1+i * 6 + j] + " ");
+                    sb.append(ConvertUtil.fixedLengthHex(data[1+i * 6 + j]) + " ");
             }
                sb.append("\r\n");
             }
         } else {//输出表资料页
             for (int i = 0; i < 32; i++) {
                 for (int j = 0; j < 12; j++) {
-                    sb.append(data[1+i * 12 + j] + " ");
+                    sb.append(ConvertUtil.fixedLengthHex(data[1+i * 12 + j]) + " ");
                 }
                 sb.append("\r\n");
             }

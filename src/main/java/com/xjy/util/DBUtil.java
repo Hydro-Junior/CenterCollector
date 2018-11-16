@@ -33,7 +33,7 @@ public class DBUtil {
     public static List<DBCollector> getCollectorsByCenter(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);
-        int centerId = mapper.getIdByAddress(center.getId());
+        int centerId = mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
         List<DBCollector> collectors = mapper.getCollectors(centerId);
         session.close();
         return collectors;

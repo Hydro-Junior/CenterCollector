@@ -29,7 +29,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
             InternalMsgBody msgBody = (InternalMsgBody)msg;
-            LogUtil.DataMessageLog(InternalMsgBody.class,msgBody.toString());
+            LogUtil.DataMessageLog(msgBody.toString());
             String address = msgBody.getDeviceId();
             ConcurrentHashMap<String,Center> map = GlobalMap.getMap();
             if(!map.containsKey(address)){

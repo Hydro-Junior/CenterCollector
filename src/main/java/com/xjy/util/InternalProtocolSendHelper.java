@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
 /**
  * @Author: Mr.Xu
@@ -50,6 +51,8 @@ public class InternalProtocolSendHelper {
      * @param center 集中器
      */
     public static void writeFirstPage(Center center){
+        LogUtil.DataMessageLog("开始执行写页指令");
+
         ConcurrentHashMap<Center,List<CenterPage>> persistentDataOfInternalProtocol = GlobalMap.getBasicInfo();
         //查找数据库中该集中器对应的采集器;
         List<DBCollector> dbcollectors = DBUtil.getCollectorsByCenter(center);
@@ -73,9 +76,16 @@ public class InternalProtocolSendHelper {
 
         //按页构建资料
         List<CenterPage> pages = CenterPage.generateCenterPages(center);
+
+        LogUtil.DataMessageLog("页资料:\n"+pages.toString());
+
         persistentDataOfInternalProtocol.put(center,pages);
         //发送第一页（采集器页）
-        InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), pages.get(0).getData());
+        InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), addInstruction(pages.get(0).getData(),InternalOrders.DOWNLOAD));
+
+        //调试日志
+        printMsgLog(internalMsgBody);
+
         ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
         center.getCtx().writeAndFlush(buf);
     }
@@ -83,8 +93,29 @@ public class InternalProtocolSendHelper {
         //从persistentDataOfInternalProtocol中获取center相应页的资料，构建msg发送即可
         ConcurrentHashMap<Center,List<CenterPage>> persistentDataOfInternalProtocol = GlobalMap.getBasicInfo();
         List<CenterPage> pages = persistentDataOfInternalProtocol.get(center);
-        InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), pages.get(page-1).getData());
+        InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), addInstruction(pages.get(page-1).getData(),InternalOrders.DOWNLOAD));
+
+        //调试日志,打印待发送报文
+        printMsgLog(internalMsgBody);
+
         ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
         center.getCtx().writeAndFlush(buf);
+    }
+    private static int[] addInstruction(int[] originData,String instruction){
+        int[] res = new int[originData.length + 3];
+        for(int i = 0 ; i < 3; i++){
+            res[i] = instruction.charAt(i);
+        }
+        System.arraycopy(originData,0,res,3,originData.length);
+        return res;
+    }
+    private static void printMsgLog(InternalMsgBody internalMsgBody){
+        LogUtil.DataMessageLog("待发送报文：\n");
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0 ; i < internalMsgBody.toBytes().length; i++){
+            sb.append(ConvertUtil.fixedLengthHex(internalMsgBody.toBytes()[i])+" ");
+            if(i !=0 && i % 30 == 0) sb.append("\r\n");
+        }
+        LogUtil.DataMessageLog(sb.toString());
     }
 }

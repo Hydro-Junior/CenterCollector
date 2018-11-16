@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.CenterMapper">
-    <select id="getIdByAddress" parameterType="String" resultType="int">
-        select id from t_center where gprsNum = #{address}
+    <select id="getIdByAddress"  resultType="int">
+        select id from t_center where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
     </select>
 
     <select id="getCollectors" resultType="DBCollector">
