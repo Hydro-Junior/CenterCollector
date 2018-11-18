@@ -2,10 +2,12 @@ package com.xjy.processor;
 
 import com.xjy.entity.*;
 import com.xjy.parms.CommandState;
+import com.xjy.parms.CommandType;
 import com.xjy.util.ConvertUtil;
 import com.xjy.util.DBUtil;
 import com.xjy.util.LogUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -22,9 +24,11 @@ public class InternalMsgProcessor {
     //内部协议的读页过程
     public static void readProcessor(Center center, InternalMsgBody msgBody) {
         int[] datas = msgBody.getEffectiveBytes();
+        Command curCommand = center.getCurCommand();
+        List<Meter> tempMeterData = new ArrayList<>();
         if (datas.length <= 3) {
             //报文传输失误
-            center.getCurCommand().setState(CommandState.FAILED);
+            curCommand.setState(CommandState.FAILED);
             DBUtil.updateCommandState(CommandState.FAILED,center);
             return;
         }
@@ -58,7 +62,10 @@ public class InternalMsgProcessor {
             center.setInformation(detailedInfo);
             System.out.println("读完集中器基本信息：");
             System.out.println(center.getInformation());
-            readNextPage(center,pageNum);
+
+            center.getCurCommand().setState(CommandState.SUCCESSED);
+            DBUtil.updateCommandState(CommandState.SUCCESSED,center);
+            return;
         }else if(pageNum == 1){ //第1页，读取采集器资料
             List<Collector> collectors = center.getCollectors();
             collectors.clear();
@@ -132,27 +139,27 @@ public class InternalMsgProcessor {
                     } else {//读表失败
                         meter.setState(1);
                     }
-
-                    DBUtil.refreshMeterData(meter,center);//将表读数插入数据库，今日已有抄过则更新该条记录
-
+                    tempMeterData.add(meter);
                     try {
                         center.getCollectors().get(collectIdx).getMeters().add(meter);
                     }catch (Exception e){}
                     //如果是单个表读取，判断表地址是否与参数中的表地址相同，如果相同，直接更新数据库后不做其他处理
-                    String[] args =  center.getCurCommand().getArgs();
-                    if(args != null && args[2] != null && args[2].equals(meterAddress)){
-                        keepReading = false;
+                    if(curCommand.getType()== CommandType.READ_SINGLE_METER && curCommand.getArgs()[2].equals(meterAddress)){
+                        DBUtil.refreshMeterData(meter,center);//将表读数插入数据库，今日已有抄过则更新该条记录
+                        center.getCurCommand().setState(CommandState.SUCCESSED);
+                        DBUtil.updateCommandState(CommandState.SUCCESSED,center);
+                        return;
                     }
                 }
             }
+            DBUtil.batchlyRefreshData(tempMeterData,center);
             if (keepReading && pageNum < 256) { //发送读取下一页的命令
                 readNextPage(center,pageNum);
             } else {//重置集中器的命令执行状态
-                System.out.println("命令执行结束");
                 center.getCurCommand().setState(CommandState.SUCCESSED);
                 DBUtil.updateCommandState(CommandState.SUCCESSED,center);
                 DBUtil.updateCenterReadTime(center);//更新集中器最后一次读取时间为系统当前时间
-                LogUtil.DataMessageLog("读表后罗列当前集中器信息：\r\n"+center.toString());
+                LogUtil.DataMessageLog(InternalMsgProcessor.class,"读全部表后罗列当前集中器总信息：\r\n"+center.toString());
             }
         }
     }

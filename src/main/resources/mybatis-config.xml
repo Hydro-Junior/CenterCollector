@@ -30,5 +30,6 @@
         <!--<mapper resource="com/xjy/test/mybatis/mappers/TempCommandMapper.xml"/>-->
         <mapper resource="mappers/CommandMapper.xml"/>
         <mapper resource="mappers/CenterMapper.xml"/>
+        <mapper resource="mappers/DeviceTmpMapper.xml"/>
     </mappers>
 </configuration>

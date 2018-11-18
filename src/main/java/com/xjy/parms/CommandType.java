@@ -9,6 +9,7 @@ public enum CommandType {
     NONE(""), //无命令
     READ_SINGLE_METER("000106"), //读取单个表
     READ_ALL_METERS("000102"), //读取所有表
+    READ_CENTER_INFO("000103"),//读取集中器信息
     COLLECT_FOR_METER("000105"),//采集单个表
     COLLECT_FOR_COLLECTOR("待定"),//针对采集器采集
     COLLECT_FOR_CENTER("000101"), //针对集中器采集

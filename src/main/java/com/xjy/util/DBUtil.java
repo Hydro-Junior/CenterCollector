@@ -12,8 +12,11 @@ import com.xjy.pojo.DBMeter;
 import com.xjy.test.mybatis.util.MyBatisUtil;
 import mappers.CenterMapper;
 import mappers.CommandMapper;
+import mappers.DeviceTmpMapper;
 import org.apache.ibatis.session.SqlSession;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -22,12 +25,12 @@ import java.util.List;
  * @Description: 提供一系列对数据表的操作
  */
 public class DBUtil {
-    //获取某个集中器的待执行命令队列
-    public static List<DBCommand> getCommandByCenterAddress(String address){
-        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+    //获取某个集中器的待执行命令队列（这是很频繁的操作，需要复用同一个会话）
+    public static List<DBCommand> getCommandByCenterAddress(String address,SqlSession session){
+        //SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CommandMapper mapper = session.getMapper(CommandMapper.class);
         List<DBCommand> DBCommands = mapper.getCommands(address , CommandState.UN_ENQUEUED,"%"+Constants.connectServer+":"+Constants.protocolPort+"%");
-        session.close();
+        //session.close();
         return DBCommands;
     }
     //根据集中器获取采集器集合
@@ -69,7 +72,7 @@ public class DBUtil {
     public static void updateheartBeatTime(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);
-        mapper.updateHeartBeatTime(center.getId());
+        mapper.updateHeartBeatTime(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
         session.commit();
         session.close();
     }
@@ -104,13 +107,43 @@ public class DBUtil {
     }
 
     public static void refreshMeterData(Meter meter, Center center) {
-        System.out.println("将表读数写入数据库");
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
+        String enprNo = center.getEnprNo();
+        int centerId = center.getDbId();
+        //如果当天已有数据，则更新，否则插入
+        String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
+        if(mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meter.getId()) != null){
+            mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId());
+        }else{
+            mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getState(),enprNo);
+        }
+        session.commit();
+        session.close();
     }
 
     public static void updateCenterReadTime(Center center) {
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);
         mapper.updateCenterReadTime(center.getDbId());
+        session.commit();
+        session.close();
+    }
+
+    public static void batchlyRefreshData(List<Meter> tempMeterData, Center center) {
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
+        String enprNo = center.getEnprNo();
+        int centerId = center.getDbId();
+        String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
+        //如果当天已有数据，则更新，否则插入
+        for(Meter meter : tempMeterData){
+            if(mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meter.getId()) != null){
+                mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId());
+            }else{
+                mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getState(),enprNo);
+            }
+        }
         session.commit();
         session.close();
     }

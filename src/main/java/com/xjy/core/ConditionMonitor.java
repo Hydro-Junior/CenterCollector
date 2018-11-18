@@ -22,7 +22,7 @@ public class ConditionMonitor implements Runnable {
         DBUtil.initCenters();
         while (true){
             try {
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -32,13 +32,15 @@ public class ConditionMonitor implements Runnable {
                 ChannelHandlerContext channelCtx = entry.getValue().getCtx();
                 try{
                     if(channelCtx.channel().isActive()){
-                        System.out.println(entry.getKey()+ ":" + entry.getValue());
+                        System.out.println(entry.getKey()+  "   当前命令："+entry.getValue().getCurCommand());
                     }else{
-                        //todo 更新数据库，将集中器设置为不在线
+                        //更新数据库，将集中器设置为不在线
+                        DBUtil.updateCenterState(0,entry.getValue());
                     }
                 }catch (NullPointerException e){
                     //防止万一得不到context或channel报异常
-                    //todo 更新数据库，将集中器设置为不在线
+                    //更新数据库，将集中器设置为不在线
+                    DBUtil.updateCenterState(0,entry.getValue());
                 }
             }
             try {

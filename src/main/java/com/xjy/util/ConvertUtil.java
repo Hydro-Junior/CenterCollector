@@ -22,4 +22,17 @@ public class ConvertUtil {
         }
         return s;
     }
+    //把表地址或采集器地址转化为字节数组（内部协议）,返回类型为int[]是为了表示方便
+    public static int[] addressToBytes(String address){
+        String addr = address.trim();
+        while(addr.length() != 12){
+            addr = '0' + addr;
+        }
+        int[] res = new int[6];
+        for(int i = 0 ;i < 12; i+=2){
+            int idx = (12 - i) / 2;
+            res[idx-1] = Integer.valueOf(addr.substring(i,i+2));
+        }
+        return res;
+    }
 }

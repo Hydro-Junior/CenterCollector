@@ -1,0 +1,364 @@
+DEBUG 2018-11-17 10:48:34,691: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 10:48:35,051: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:48:35,051: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:48:35,051: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:48:35,051: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:49:32,563: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 10:49:32,798: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:49:32,798: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:49:32,798: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:49:32,798: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:04,422: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 10:51:04,638: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:04,638: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:04,638: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:04,638: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:04,779: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 10:51:05,966: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 548482954. 
+DEBUG 2018-11-17 10:51:05,966: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: a9b4f164-290a-431e-b8c2-bcd6d4894deb] 
+DEBUG 2018-11-17 10:51:05,997: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 10:51:06,044: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000006119727(String), 899(Integer), 6(Integer) 
+DEBUG 2018-11-17 10:51:06,122: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 1 
+DEBUG 2018-11-17 10:51:06,122: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: a9b4f164-290a-431e-b8c2-bcd6d4894deb] 
+DEBUG 2018-11-17 10:51:06,153: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: a9b4f164-290a-431e-b8c2-bcd6d4894deb] 
+DEBUG 2018-11-17 10:51:06,153: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 548482954 to pool. 
+DEBUG 2018-11-17 10:51:51,816: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 10:51:51,988: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:51,988: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:51,988: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:51,988: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 10:51:52,097: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 10:51:53,061: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 29183965. 
+DEBUG 2018-11-17 10:51:53,061: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 29c76fd1-d9b2-4b4b-bb8c-4b7621cb778d] 
+DEBUG 2018-11-17 10:51:53,093: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 10:51:53,155: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000006119727(String), 899(Integer), 7(Integer) 
+DEBUG 2018-11-17 10:51:53,202: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 0 
+DEBUG 2018-11-17 10:51:53,202: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 29c76fd1-d9b2-4b4b-bb8c-4b7621cb778d] 
+DEBUG 2018-11-17 10:51:53,233: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 29c76fd1-d9b2-4b4b-bb8c-4b7621cb778d] 
+DEBUG 2018-11-17 10:51:53,233: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 29183965 to pool. 
+DEBUG 2018-11-17 11:06:24,737: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:06:25,092: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:06:25,092: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:06:25,092: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:06:25,092: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:06:25,226: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 11:06:26,269: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 29183965. 
+DEBUG 2018-11-17 11:06:26,269: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 9cb1149f-f2b9-45fb-9494-00aa9c9a4b5d] 
+DEBUG 2018-11-17 11:06:26,322: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:06:26,414: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000006119727(String), 899(Integer), 6(Integer) 
+DEBUG 2018-11-17 11:06:26,559: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 1 
+DEBUG 2018-11-17 11:06:26,565: mappers.DeviceTmpMapper.updateDeviceData 
+ ==>  Preparing: update t_deviceTmp201811 set showValue=? where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:06:26,565: mappers.DeviceTmpMapper.updateDeviceData 
+ ==> Parameters: 237.6(Double), 000006119727(String), 899(Integer), 6(Integer) 
+DEBUG 2018-11-17 11:06:26,696: mappers.DeviceTmpMapper.updateDeviceData 
+ <==    Updates: 1 
+DEBUG 2018-11-17 11:06:26,697: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Rolling back JDBC Connection [ConnectionID:1 ClientConnectionId: 9cb1149f-f2b9-45fb-9494-00aa9c9a4b5d] 
+DEBUG 2018-11-17 11:06:26,824: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 9cb1149f-f2b9-45fb-9494-00aa9c9a4b5d] 
+DEBUG 2018-11-17 11:06:26,950: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 9cb1149f-f2b9-45fb-9494-00aa9c9a4b5d] 
+DEBUG 2018-11-17 11:06:26,950: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 29183965 to pool. 
+DEBUG 2018-11-17 11:06:57,013: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:06:57,342: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:06:57,342: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:06:57,342: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:06:57,342: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:06:57,528: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 11:06:58,638: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 548482954. 
+DEBUG 2018-11-17 11:06:58,638: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 775084d2-11b4-4d23-9512-b3b5d2ce71d1] 
+DEBUG 2018-11-17 11:06:58,690: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:06:58,785: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000006119727(String), 899(Integer), 6(Integer) 
+DEBUG 2018-11-17 11:06:58,882: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 1 
+DEBUG 2018-11-17 11:06:58,890: mappers.DeviceTmpMapper.updateDeviceData 
+ ==>  Preparing: update t_deviceTmp201811 set showValue=? where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:06:58,890: mappers.DeviceTmpMapper.updateDeviceData 
+ ==> Parameters: 237.6(Double), 000006119727(String), 899(Integer), 6(Integer) 
+DEBUG 2018-11-17 11:06:58,942: mappers.DeviceTmpMapper.updateDeviceData 
+ <==    Updates: 1 
+DEBUG 2018-11-17 11:06:58,942: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Committing JDBC Connection [ConnectionID:1 ClientConnectionId: 775084d2-11b4-4d23-9512-b3b5d2ce71d1] 
+DEBUG 2018-11-17 11:06:58,991: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 775084d2-11b4-4d23-9512-b3b5d2ce71d1] 
+DEBUG 2018-11-17 11:06:59,036: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 775084d2-11b4-4d23-9512-b3b5d2ce71d1] 
+DEBUG 2018-11-17 11:06:59,036: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 548482954 to pool. 
+DEBUG 2018-11-17 11:07:53,411: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:07:53,632: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:07:53,632: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:07:53,632: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:07:53,632: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:07:53,800: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 11:07:55,440: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 548482954. 
+DEBUG 2018-11-17 11:07:55,440: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: e18e6991-1315-4549-8c9a-9393b57a68da] 
+DEBUG 2018-11-17 11:07:55,526: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:07:55,584: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000006119727(String), 899(Integer), 6(Integer) 
+DEBUG 2018-11-17 11:07:55,726: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 1 
+DEBUG 2018-11-17 11:07:55,733: mappers.DeviceTmpMapper.updateDeviceData 
+ ==>  Preparing: update t_deviceTmp201811 set showValue=? where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:07:55,734: mappers.DeviceTmpMapper.updateDeviceData 
+ ==> Parameters: 243.0(Double), 000006119727(String), 899(Integer), 6(Integer) 
+DEBUG 2018-11-17 11:07:55,812: mappers.DeviceTmpMapper.updateDeviceData 
+ <==    Updates: 1 
+DEBUG 2018-11-17 11:07:55,812: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Committing JDBC Connection [ConnectionID:1 ClientConnectionId: e18e6991-1315-4549-8c9a-9393b57a68da] 
+DEBUG 2018-11-17 11:07:55,888: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: e18e6991-1315-4549-8c9a-9393b57a68da] 
+DEBUG 2018-11-17 11:07:55,968: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: e18e6991-1315-4549-8c9a-9393b57a68da] 
+DEBUG 2018-11-17 11:07:55,968: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 548482954 to pool. 
+DEBUG 2018-11-17 11:38:28,694: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:38:28,941: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:38:28,941: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:38:28,941: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:38:28,941: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:38:29,395: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 11:38:30,248: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 712627377. 
+DEBUG 2018-11-17 11:38:30,248: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: f9922659-bee1-41ac-8e99-774092d05c7a] 
+DEBUG 2018-11-17 11:38:30,274: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201817 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:38:30,324: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000070301698(String), 792(Integer), 10(Integer) 
+DEBUG 2018-11-17 11:38:30,353: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: f9922659-bee1-41ac-8e99-774092d05c7a] 
+DEBUG 2018-11-17 11:38:30,377: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: f9922659-bee1-41ac-8e99-774092d05c7a] 
+DEBUG 2018-11-17 11:38:30,377: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 712627377 to pool. 
+DEBUG 2018-11-17 11:39:22,867: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:39:23,116: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:39:23,117: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:39:23,117: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:39:23,117: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:40:19,053: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:40:19,262: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:40:19,262: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:40:19,262: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:40:19,262: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:40:19,520: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 11:40:20,367: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 712627377. 
+DEBUG 2018-11-17 11:40:20,367: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 3e592ba3-b7db-4b8c-a69c-50fc74610a45] 
+DEBUG 2018-11-17 11:40:20,393: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:40:20,444: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000070301698(String), 792(Integer), 10(Integer) 
+DEBUG 2018-11-17 11:40:20,511: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 1 
+DEBUG 2018-11-17 11:40:20,517: mappers.DeviceTmpMapper.updateDeviceData 
+ ==>  Preparing: update t_deviceTmp201811 set showValue=?,fshowValue=?,readTime=? where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:40:20,517: mappers.DeviceTmpMapper.updateDeviceData 
+ ==> Parameters: 123.0(Double), 123.0(Double), 2018-11-17 11:40:20.516(Timestamp), 000070301698(String), 792(Integer), 17(Integer) 
+DEBUG 2018-11-17 11:40:20,550: mappers.DeviceTmpMapper.updateDeviceData 
+ <==    Updates: 1 
+DEBUG 2018-11-17 11:40:20,550: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Committing JDBC Connection [ConnectionID:1 ClientConnectionId: 3e592ba3-b7db-4b8c-a69c-50fc74610a45] 
+DEBUG 2018-11-17 11:40:20,575: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 3e592ba3-b7db-4b8c-a69c-50fc74610a45] 
+DEBUG 2018-11-17 11:40:20,599: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 3e592ba3-b7db-4b8c-a69c-50fc74610a45] 
+DEBUG 2018-11-17 11:40:20,599: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 712627377 to pool. 
+DEBUG 2018-11-17 11:44:44,490: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:44:44,661: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:44:44,661: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:44:44,661: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:44:44,661: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:44:44,836: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 11:44:46,084: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 1239759990. 
+DEBUG 2018-11-17 11:44:46,085: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 47e7c716-c547-41f6-80b6-9f24651152a3] 
+DEBUG 2018-11-17 11:44:46,111: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:44:46,157: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000070301698(String), 792(Integer), 17(Integer) 
+DEBUG 2018-11-17 11:44:46,207: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 0 
+DEBUG 2018-11-17 11:44:46,213: mappers.DeviceTmpMapper.insertNewData 
+ ==>  Preparing: insert into t_deviceTmp201811 (addr,readDate,centerID,showValue,fshowValue,meterState,commState,isUse,readTime,enprNo) VALUES (?,?,?,?,?,?,?,0,?,?)  
+DEBUG 2018-11-17 11:44:46,213: mappers.DeviceTmpMapper.insertNewData 
+ ==> Parameters: 000070301698(String), 17(Integer), 792(Integer), 123.0(Double), 123.0(Double), 0(Integer), 0(Integer), 2018-11-17 11:44:46.212(Timestamp), cbxtd(String) 
+DEBUG 2018-11-17 11:44:46,243: mappers.DeviceTmpMapper.insertNewData 
+ <==    Updates: 1 
+DEBUG 2018-11-17 11:44:46,243: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Committing JDBC Connection [ConnectionID:1 ClientConnectionId: 47e7c716-c547-41f6-80b6-9f24651152a3] 
+DEBUG 2018-11-17 11:44:46,268: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 47e7c716-c547-41f6-80b6-9f24651152a3] 
+DEBUG 2018-11-17 11:44:46,292: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 47e7c716-c547-41f6-80b6-9f24651152a3] 
+DEBUG 2018-11-17 11:44:46,292: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 1239759990 to pool. 
+DEBUG 2018-11-17 11:45:28,086: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:45:28,253: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:45:28,253: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:45:28,253: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:45:28,254: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:45:28,398: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 11:45:29,795: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 1239759990. 
+DEBUG 2018-11-17 11:45:29,795: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 4a36340c-6b39-408e-bd18-ef32b480577a] 
+DEBUG 2018-11-17 11:45:29,820: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:45:29,863: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000070301698(String), 792(Integer), 17(Integer) 
+DEBUG 2018-11-17 11:45:29,921: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 1 
+DEBUG 2018-11-17 11:45:29,926: mappers.DeviceTmpMapper.updateDeviceData 
+ ==>  Preparing: update t_deviceTmp201811 set showValue=?,fshowValue=?,readTime=? where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:45:29,926: mappers.DeviceTmpMapper.updateDeviceData 
+ ==> Parameters: 123.0(Double), 123.0(Double), 2018-11-17 11:45:29.925(Timestamp), 000070301698(String), 792(Integer), 17(Integer) 
+DEBUG 2018-11-17 11:45:29,952: mappers.DeviceTmpMapper.updateDeviceData 
+ <==    Updates: 1 
+DEBUG 2018-11-17 11:45:29,952: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Committing JDBC Connection [ConnectionID:1 ClientConnectionId: 4a36340c-6b39-408e-bd18-ef32b480577a] 
+DEBUG 2018-11-17 11:45:29,977: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 4a36340c-6b39-408e-bd18-ef32b480577a] 
+DEBUG 2018-11-17 11:45:30,001: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 4a36340c-6b39-408e-bd18-ef32b480577a] 
+DEBUG 2018-11-17 11:45:30,001: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 1239759990 to pool. 
+DEBUG 2018-11-17 11:45:47,334: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2018-11-17 11:45:47,556: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:45:47,556: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:45:47,556: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:45:47,556: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2018-11-17 11:45:47,711: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2018-11-17 11:45:48,548: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 1239759990. 
+DEBUG 2018-11-17 11:45:48,549: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: fc119a15-e676-44e2-9a86-a6f826af09dc] 
+DEBUG 2018-11-17 11:45:48,575: mappers.DeviceTmpMapper.searchDeviceData 
+ ==>  Preparing: select * from t_deviceTmp201811 where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:45:48,619: mappers.DeviceTmpMapper.searchDeviceData 
+ ==> Parameters: 000070301698(String), 792(Integer), 17(Integer) 
+DEBUG 2018-11-17 11:45:48,678: mappers.DeviceTmpMapper.searchDeviceData 
+ <==      Total: 1 
+DEBUG 2018-11-17 11:45:48,683: mappers.DeviceTmpMapper.updateDeviceData 
+ ==>  Preparing: update t_deviceTmp201811 set showValue=?,fshowValue=?,readTime=? where addr=? and centerID = ? and readDate=?  
+DEBUG 2018-11-17 11:45:48,684: mappers.DeviceTmpMapper.updateDeviceData 
+ ==> Parameters: 124.0(Double), 124.0(Double), 2018-11-17 11:45:48.683(Timestamp), 000070301698(String), 792(Integer), 17(Integer) 
+DEBUG 2018-11-17 11:45:48,711: mappers.DeviceTmpMapper.updateDeviceData 
+ <==    Updates: 1 
+DEBUG 2018-11-17 11:45:48,711: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Committing JDBC Connection [ConnectionID:1 ClientConnectionId: fc119a15-e676-44e2-9a86-a6f826af09dc] 
+DEBUG 2018-11-17 11:45:48,736: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: fc119a15-e676-44e2-9a86-a6f826af09dc] 
+DEBUG 2018-11-17 11:45:48,760: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: fc119a15-e676-44e2-9a86-a6f826af09dc] 
+DEBUG 2018-11-17 11:45:48,760: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 1239759990 to pool. 

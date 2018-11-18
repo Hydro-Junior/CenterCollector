@@ -17,7 +17,7 @@ public interface CenterMapper {
     void initCenterState(@Param("ip") String ip, @Param("port") int port);
     void updateCenterOnline(@Param("state")int state,@Param("address") String address,@Param("ip")String ip,@Param("port")int port);
     void updateCenterReadTime(int id);
-    void updateHeartBeatTime(@Param("address") String address);
+    void updateHeartBeatTime(@Param("address") String address,@Param("ip") String ip, @Param("port") int port);
     String getEnprNo(@Param("address") String address,@Param("ip")String ip,@Param("port")int port);
     List<DBCollector> getCollectors(@Param("centerId") int centerId);
     List<DBMeter> getMetersByCollector(@Param("collectorId") int collectorId);

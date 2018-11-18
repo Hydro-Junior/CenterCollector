@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @Description: 与命令相关的实体类
  */
 public class Command {
-    CommandType type;
+    CommandType type=CommandType.NONE;
     Integer id; //命令对应的数据库中的Id
     Integer state; //0-未分派 1-集中器未连接 2-等待执行 3-执行中 4-执行错误，重试中 5-执行成功  6-执行失败
     String[] args; //命令的相关参数
@@ -78,6 +78,7 @@ public class Command {
     @Override
     public String toString() {
         return "Command{" +
+                "id=" + id +
                 "type=" + type +
                 ", state=" + state +
                 ", args=" + Arrays.toString(args) +

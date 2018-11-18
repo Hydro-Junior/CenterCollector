@@ -5,6 +5,7 @@ import com.xjy.entity.Command;
 import com.xjy.entity.GlobalMap;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.CommandType;
+import com.xjy.parms.Constants;
 import com.xjy.util.DBUtil;
 import com.xjy.util.InternalProtocolSendHelper;
 import io.netty.channel.ChannelHandlerContext;
@@ -49,20 +50,30 @@ public class CommandExecutor implements Runnable{
                        currentCommand.setState(CommandState.EXECUTING);
                        DBUtil.updateCommandState(CommandState.EXECUTING,center);
                        currentCommand.setStartExcuteTime(LocalDateTime.now());
-                       //根据不同的命令类型发送不同的指令
-                       execute(center ,currentCommand);
+                       //先判断当前协议，随后根据不同的命令类型发送不同的指令
+                        if(Constants.protocol != null && Constants.protocol.equals("XT")){
+                            executeForXTProtocol(center ,currentCommand);
+                        }else{
+                            executeForInternalProtocol(center ,currentCommand);
+                        }
+
                     }
                 }
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(200);
+                TimeUnit.MILLISECONDS.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void execute(Center center, Command currentCommand) {
+    private void executeForXTProtocol(Center center, Command currentCommand) {
+        setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
+    }
+
+
+    private static void executeForInternalProtocol(Center center, Command currentCommand) {
         switch (currentCommand.getType()){
             case OPEN_VALVE:
                 //todo
@@ -76,14 +87,20 @@ public class CommandExecutor implements Runnable{
                 InternalProtocolSendHelper.writeFirstPage(center);
                 break;
             case COLLECT_FOR_CENTER:
-                //todo
-                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
+                InternalProtocolSendHelper.collect(center);
+                break;
+            case READ_CENTER_INFO:
+                InternalProtocolSendHelper.readFirstPage(center);//获取集中器的时钟、计划采集时间等
                 break;
             case READ_SINGLE_METER:
-                InternalProtocolSendHelper.readFirstPage(center);
+                //开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
+                DBUtil.preprocessOfRead(center);
+                InternalProtocolSendHelper.readNextPage(center,1);//当前页是1，从第2页(表信息开始读)
                 break;
             case READ_ALL_METERS:
-                InternalProtocolSendHelper.readFirstPage(center);
+                //开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
+                DBUtil.preprocessOfRead(center);
+                InternalProtocolSendHelper.readNextPage(center,0);//从第一页读取
                 break;
             case OPEN_VALVE_BATCH:
                 //todo
@@ -104,3 +121,4 @@ public class CommandExecutor implements Runnable{
         currentCommand.setState(state);
     }
 }
+

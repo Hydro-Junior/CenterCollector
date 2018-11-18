@@ -21,11 +21,31 @@ import java.util.logging.Logger;
  * @Description: 针对内部协议，封装在不同情境下向集中器发送指令的语句
  */
 public class InternalProtocolSendHelper {
+
+    public static void collect(Center center,String collectorId,String meterId){
+        int[] effectiveData = new int[3 + 6 + 6];//指令字3个字节+采集器地址6个字节+表地址6个字节
+        effectiveData[0] = effectiveData[1] = effectiveData[2] = InternalOrders.COLLECT.getBytes()[0];
+        for(int i = 0 ; i < 12; i++){//默认对整个集中器采集，用FF填充地址
+            effectiveData[i+3] = 0xFF;
+        }
+        if(collectorId != null && meterId == null){//对采集器进行采集
+            int[] collectorBytes = ConvertUtil.addressToBytes(collectorId);
+            for(int i = 0; i < 6; i++){
+                effectiveData[i+3] = collectorBytes[i];
+            }
+        }else if(collectorId != null && meterId != null){//对单只表进行采集
+            int[] meterAddress = ConvertUtil.addressToBytes(meterId);
+            for (int i = 0; i< 6; i++){
+                effectiveData[i+3+6] = meterAddress[i];
+            }
+        }
+        InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), effectiveData);
+        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
+        center.getCtx().writeAndFlush(buf);
+        printMsgLog(internalMsgBody);
+    }
     //内部协议，读取下一页
     public static void readNextPage(Center center, int currentPageNum){
-        if(currentPageNum == -1){//开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
-            DBUtil.preprocessOfRead(center);
-        }
         int[] effectiveData = new int[3 + 1];//指令字3个字节+页面号1个字节
         for (int i = 0; i < effectiveData.length; i++) {
             if (i < 3) effectiveData[i] = InternalOrders.READ.getBytes()[i];
@@ -35,7 +55,6 @@ public class InternalProtocolSendHelper {
         ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
         center.getCtx().writeAndFlush(buf);
         printMsgLog(internalMsgBody);
-        System.out.println("发送读取下一页的命令");
     }
     //内部协议，读取首页
     public static void readFirstPage(Center center){
@@ -43,7 +62,7 @@ public class InternalProtocolSendHelper {
     }
     //采集
     public static void collect(Center center){
-
+        collect(center,null,null);
     }
 
     /**
@@ -51,7 +70,7 @@ public class InternalProtocolSendHelper {
      * @param center 集中器
      */
     public static void writeFirstPage(Center center){
-        LogUtil.DataMessageLog("开始执行写页指令");
+        LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"开始执行写页指令");
 
         ConcurrentHashMap<Center,List<CenterPage>> persistentDataOfInternalProtocol = GlobalMap.getBasicInfo();
         //查找数据库中该集中器对应的采集器;
@@ -77,7 +96,7 @@ public class InternalProtocolSendHelper {
         //按页构建资料
         List<CenterPage> pages = CenterPage.generateCenterPages(center);
 
-        LogUtil.DataMessageLog("页资料:\n"+pages.toString());
+        LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"页资料:\n"+pages.toString());
 
         persistentDataOfInternalProtocol.put(center,pages);
         //发送第一页（采集器页）
@@ -110,12 +129,12 @@ public class InternalProtocolSendHelper {
         return res;
     }
     private static void printMsgLog(InternalMsgBody internalMsgBody){
-        LogUtil.DataMessageLog("待发送报文：\n");
+        LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：\n");
         StringBuilder sb = new StringBuilder();
         for(int i = 0 ; i < internalMsgBody.toBytes().length; i++){
             sb.append(ConvertUtil.fixedLengthHex(internalMsgBody.toBytes()[i])+" ");
             if(i !=0 && i % 30 == 0) sb.append("\r\n");
         }
-        LogUtil.DataMessageLog(sb.toString());
+        LogUtil.DataMessageLog(InternalProtocolSendHelper.class, sb.toString());
     }
 }

@@ -3,5 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.DeviceTmpMapper">
-
+    <select id="searchDeviceData" resultType="DeviceTmp">
+        select * from ${tableName} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
+    </select>
+    <update id="updateDeviceData">
+        update ${tableName} set showValue=#{data},fshowValue=#{data},readTime=#{now} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
+    </update>
+    <insert id="insertNewData">
+        insert into  ${tableName} (addr,readDate,centerID,showValue,fshowValue,meterState,commState,isUse,readTime,enprNo)
+        VALUES  (#{meterAddress},#{day},#{centerId},#{data},#{data},#{state},#{state},0,#{now},#{enprNo})
+    </insert>
 </mapper>

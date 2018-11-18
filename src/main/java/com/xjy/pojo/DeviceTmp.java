@@ -98,4 +98,20 @@ public class DeviceTmp {
     public void setEnprNo(String enprNo) {
         this.enprNo = enprNo;
     }
+
+    @Override
+    public String toString() {
+        return "DeviceTmp{" +
+                "addr='" + addr + '\'' +
+                ", readDate=" + readDate +
+                ", centerID=" + centerID +
+                ", showValue=" + showValue +
+                ", fshowValue=" + fshowValue +
+                ", meterState=" + meterState +
+                ", commState=" + commState +
+                ", isUse=" + isUse +
+                ", readTime=" + readTime +
+                ", enprNo='" + enprNo + '\'' +
+                '}';
+    }
 }

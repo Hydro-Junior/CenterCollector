@@ -124,10 +124,13 @@ public class Center {
     public String toString() {
         return "Center{" +
                 "id='" + id + '\'' +
+                ", dbId=" + dbId +
                 ", collectors=" + collectors +
                 ", heartBeatTime=" + heartBeatTime +
+                ", readTime=" + readTime +
                 ", ctx=" + ctx +
                 ", enprNo='" + enprNo + '\'' +
+                ", information=" + information +
                 ", curCommand=" + curCommand +
                 ", commandQueue=" + commandQueue +
                 ", failedCommands=" + failedCommands +
