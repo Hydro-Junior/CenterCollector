@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 14:31 2018/9/28
- * @Description: 集中器实体类
+ * @Description: 集中器实体类（实际上叫Concentrator更为恰当，但为简洁起见，这个项目中集中器就叫center）
  */
 public class Center {
     private String id; //集中器编号

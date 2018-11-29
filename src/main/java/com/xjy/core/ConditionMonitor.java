@@ -6,6 +6,7 @@ import com.xjy.util.DBUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +29,9 @@ public class ConditionMonitor implements Runnable {
             }
             ConcurrentHashMap<String,Center> map = GlobalMap.getMap();
             System.out.println("在线集中器：");
-            for(Map.Entry<String,Center> entry : map.entrySet()){
+            Iterator<Map.Entry<String,Center>> it = map.entrySet().iterator();
+            while(it.hasNext()){
+                Map.Entry<String,Center> entry = it.next();
                 ChannelHandlerContext channelCtx = entry.getValue().getCtx();
                 try{
                     if(channelCtx.channel().isActive()){
@@ -36,6 +39,7 @@ public class ConditionMonitor implements Runnable {
                     }else{
                         //更新数据库，将集中器设置为不在线
                         DBUtil.updateCenterState(0,entry.getValue());
+                        it.remove();
                     }
                 }catch (NullPointerException e){
                     //防止万一得不到context或channel报异常

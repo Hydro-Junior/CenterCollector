@@ -17,6 +17,7 @@ public enum CommandType {
     CLOSE_VALVE("000304"),//关阀
     OPEN_VALVE_BATCH("000301"),//批量开阀
     CLOSE_VALVE_BATCH("000303"),//批量关阀
+    CHECK_CLOCK("000204"),//校验时钟
     WRITE_INFO("000208") ; //写入资料到集中器
     private String value;
     private CommandType(String value){

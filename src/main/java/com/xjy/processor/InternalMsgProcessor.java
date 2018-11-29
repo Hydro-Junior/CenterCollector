@@ -20,7 +20,6 @@ import static com.xjy.util.InternalProtocolSendHelper.writePage;
  * @Description: 内部协议相关处理方法集合
  */
 public class InternalMsgProcessor {
-
     //内部协议的读页过程
     public static void readProcessor(Center center, InternalMsgBody msgBody) {
         int[] datas = msgBody.getEffectiveBytes();
@@ -184,6 +183,30 @@ public class InternalMsgProcessor {
         }else{
             currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
             DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
+        }
+    }
+    //设置定时采集的处理器
+    public static void setTimingCollect(Center currentCenter) {
+
+    }
+    //获取开关阀信息并写入数据库
+    public static void getValveInfo(Center currentCenter, InternalMsgBody msgBody) {
+        String meterAddress = currentCenter.getCurCommand().getArgs()[2];
+        int[] datas = msgBody.getEffectiveBytes();
+        if(datas.length < 20) {
+            LogUtil.DataMessageLog(InternalMsgProcessor.class,"开关阀返回报文长度不够！");
+        }
+        if(datas[19]== 'C' || datas[19]=='c'){//成功关阀
+            currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
+            DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
+            DBUtil.updateValveStateOfTmp(2,meterAddress,currentCenter);
+        }else if(datas[19] == 'O' || datas[19]=='o'){//成功开阀
+            currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
+            DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
+            DBUtil.updateValveStateOfTmp(2,meterAddress,currentCenter);
+        }else{//失败
+            currentCenter.getCurCommand().setState(CommandState.FAILED);
+            DBUtil.updateCommandState(CommandState.FAILED,currentCenter);
         }
     }
 }

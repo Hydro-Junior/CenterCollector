@@ -25,12 +25,12 @@ import java.util.List;
  * @Description: 提供一系列对数据表的操作
  */
 public class DBUtil {
-    //获取某个集中器的待执行命令队列（这是很频繁的操作，需要复用同一个会话）
-    public static List<DBCommand> getCommandByCenterAddress(String address,SqlSession session){
-        //SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+    //获取某个集中器的待执行命令队列（这是很频繁的操作）
+    public static List<DBCommand> getCommandByCenterAddress(String address){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CommandMapper mapper = session.getMapper(CommandMapper.class);
         List<DBCommand> DBCommands = mapper.getCommands(address , CommandState.UN_ENQUEUED,"%"+Constants.connectServer+":"+Constants.protocolPort+"%");
-        //session.close();
+        session.close();
         return DBCommands;
     }
     //根据集中器获取采集器集合
@@ -105,7 +105,15 @@ public class DBUtil {
         session.commit();
         session.close();
     }
-
+    //更新deviceTmp表中的阀门状态
+    public static void updateValveStateOfTmp(int valveState,String meterAddress, Center center){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
+        int centerId = center.getDbId();
+        String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
+        mapper.updateValveState(tableName,valveState,centerId,LocalDateTime.now().getDayOfMonth(),meterAddress);
+    }
+    //更新表数据
     public static void refreshMeterData(Meter meter, Center center) {
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
@@ -114,9 +122,9 @@ public class DBUtil {
         //如果当天已有数据，则更新，否则插入
         String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
         if(mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meter.getId()) != null){
-            mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId());
+            mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState());
         }else{
-            mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getState(),enprNo);
+            mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
         }
         session.commit();
         session.close();
@@ -139,9 +147,9 @@ public class DBUtil {
         //如果当天已有数据，则更新，否则插入
         for(Meter meter : tempMeterData){
             if(mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meter.getId()) != null){
-                mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId());
+                mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState());
             }else{
-                mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getState(),enprNo);
+                mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
             }
         }
         session.commit();

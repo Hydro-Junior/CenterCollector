@@ -7,10 +7,13 @@
         select * from ${tableName} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
     </select>
     <update id="updateDeviceData">
-        update ${tableName} set showValue=#{data},fshowValue=#{data},readTime=#{now} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
+        update ${tableName} set showValue=#{data},fshowValue=#{data},meterState=#{valveState},commState=#{state},readTime=#{now} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
+    </update>
+    <update id = "updateValveState">
+        update ${tableName} set meterState=#{valveState} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
     </update>
     <insert id="insertNewData">
         insert into  ${tableName} (addr,readDate,centerID,showValue,fshowValue,meterState,commState,isUse,readTime,enprNo)
-        VALUES  (#{meterAddress},#{day},#{centerId},#{data},#{data},#{state},#{state},0,#{now},#{enprNo})
+        VALUES  (#{meterAddress},#{day},#{centerId},#{data},#{data},#{valveState},#{state},0,#{now},#{enprNo})
     </insert>
 </mapper>

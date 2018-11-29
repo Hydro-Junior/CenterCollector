@@ -23,6 +23,7 @@ public class CommandAdapter {
                 c.setType(type);
             }
         }
+        if(c.getType()== null) c.setType(CommandType.NONE);
         //设置参数
         c.setArgs(new String[]{dbCommand.getContentValue1(),dbCommand.getContentValue2(),dbCommand.getContentValue3(),dbCommand.getContentValue4()});
         c.setGenerateTime(dbCommand.getGenerateTime().toLocalDateTime());

@@ -5,9 +5,13 @@ import com.xjy.adapter.MeterAdapter;
 import com.xjy.entity.*;
 import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBMeter;
+import com.xjy.util.ConvertUtil;
 import com.xjy.util.DBUtil;
+import com.xjy.util.InternalProtocolSendHelper;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +26,28 @@ public class SyntaxTest {
         String[] args = new String[]{null,"yes"};
         for(String s : args){
             System.out.println(s);
+        }
+    }
+    @Test
+    public void changeAddrTest(){
+        int[] res = ConvertUtil.addressToBytes("111111111103");
+        for(int i = 0 ; i < res.length; i++){
+            System.out.println(ConvertUtil.fixedLengthHex(res[i]) + " ");
+        }
+    }
+    @Test
+    public void testTime2Str(){
+        int[] data = new int[19];
+        data[0] = 'T';data[1] = 'T';data[2] = 'T';
+        data[3] = 'C'; data[4] = 'T';//CT
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        LocalDateTime time = LocalDateTime.now();
+        String localTime = df.format(time);
+        for(int i = 0 ; i < localTime.length(); i++){
+            data[i+5] = localTime.charAt(i);
+        }
+        for(int i = 0 ; i < data.length; i++){
+            System.out.print(ConvertUtil.fixedLengthHex(data[i])+" ");
         }
     }
     @Test

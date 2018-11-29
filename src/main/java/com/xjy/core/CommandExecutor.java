@@ -8,6 +8,7 @@ import com.xjy.parms.CommandType;
 import com.xjy.parms.Constants;
 import com.xjy.util.DBUtil;
 import com.xjy.util.InternalProtocolSendHelper;
+import com.xjy.util.LogUtil;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.time.Duration;
@@ -75,13 +76,23 @@ public class CommandExecutor implements Runnable{
 
     private static void executeForInternalProtocol(Center center, Command currentCommand) {
         switch (currentCommand.getType()){
-            case OPEN_VALVE:
-                //todo
-                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
+            case OPEN_VALVE://开阀：先打开节点
+                String collector = center.getCurCommand().getArgs()[1];//得到采集器编号
+                LogUtil.DataMessageLog(CommandExecutor.class,"要开阀的采集器通道编号："+collector);
+                if(collector.endsWith("00")){//无线，没有通道
+                    InternalProtocolSendHelper.openValve(center);
+                }else{//有线，先打开通道
+                    InternalProtocolSendHelper.openChannel(center,currentCommand);
+                }
                 break;
-            case CLOSE_VALVE:
-                //todo
-                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
+            case CLOSE_VALVE://关阀：先打开节点
+                String collector2 = center.getCurCommand().getArgs()[1];//得到采集器编号
+                LogUtil.DataMessageLog(CommandExecutor.class,"要关阀的采集器通道编号："+collector2);
+                if(collector2.endsWith("00")){//无线，没有通道
+                    InternalProtocolSendHelper.closeValve(center);
+                }else{//有线，先打开通道
+                    InternalProtocolSendHelper.openChannel(center,currentCommand);
+                }
                 break;
             case WRITE_INFO:
                 InternalProtocolSendHelper.writeFirstPage(center);
@@ -102,13 +113,8 @@ public class CommandExecutor implements Runnable{
                 DBUtil.preprocessOfRead(center);
                 InternalProtocolSendHelper.readNextPage(center,0);//从第一页读取
                 break;
-            case OPEN_VALVE_BATCH:
-                //todo
-                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
-                break;
-            case CLOSE_VALVE_BATCH:
-                //todo
-                setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
+            case CHECK_CLOCK: //设备校时，顺便设置定时采集
+                InternalProtocolSendHelper.setClock(center);
                 break;
             default:
                 setCurCommandState(CommandState.SUCCESSED,center,currentCommand);

@@ -31,7 +31,9 @@ public class ConvertUtil {
         int[] res = new int[6];
         for(int i = 0 ;i < 12; i+=2){
             int idx = (12 - i) / 2;
-            res[idx-1] = Integer.valueOf(addr.substring(i,i+2));
+            res[idx-1] = Integer.valueOf(addr.substring(i,i+1));
+            res[idx-1] <<= 4;
+            res[idx-1] += Integer.valueOf(addr.substring(i+1,i+2));
         }
         return res;
     }

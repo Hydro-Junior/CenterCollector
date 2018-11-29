@@ -24,13 +24,12 @@ public class CommandFetcher implements Runnable{
     private SqlSession session;
     @Override
     public void run() {
+        System.out.println("命令获取线程启动！");
         while(true){ //不断查找数据库中待执行的命令
             ConcurrentHashMap<String, Center> map = GlobalMap.getMap();
             for(Map.Entry<String,Center> entry : map.entrySet()){
                 Center c = entry.getValue();
-                //不断查询命令是最频繁的数据库操作，需要复用sqlsession
-                if(session == null) {session = MyBatisUtil.getSqlSessionFactory().openSession();}
-                List<DBCommand> dbCommands = DBUtil.getCommandByCenterAddress(c.getId(),session);
+                List<DBCommand> dbCommands = DBUtil.getCommandByCenterAddress(c.getId());
                 for(DBCommand dbCommand : dbCommands){
                     Command command = CommandAdapter.getCommand(dbCommand);
                     command.setState(CommandState.WAITING_IN_QUEUE);
