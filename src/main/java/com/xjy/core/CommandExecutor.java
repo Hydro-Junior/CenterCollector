@@ -83,6 +83,12 @@ public class CommandExecutor implements Runnable{
                     InternalProtocolSendHelper.openValve(center);
                 }else{//有线，先打开通道
                     InternalProtocolSendHelper.openChannel(center,currentCommand);
+                    try {
+                        TimeUnit.SECONDS.sleep(5);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    InternalProtocolSendHelper.openValve(center);
                 }
                 break;
             case CLOSE_VALVE://关阀：先打开节点
@@ -92,6 +98,12 @@ public class CommandExecutor implements Runnable{
                     InternalProtocolSendHelper.closeValve(center);
                 }else{//有线，先打开通道
                     InternalProtocolSendHelper.openChannel(center,currentCommand);
+                    try {
+                        TimeUnit.SECONDS.sleep(5);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    InternalProtocolSendHelper.closeValve(center);
                 }
                 break;
             case WRITE_INFO:

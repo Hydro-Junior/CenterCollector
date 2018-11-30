@@ -8,6 +8,7 @@ package com.xjy.parms;
  */
 public final class InternalOrders {
     public static final String READ = "RRR"; //读取 0x52
+    public static final String D_READ = "DDD";//读取当前表
     public static final String COLLECT = "MMM"; //采集 0x4D
     public static final String CHANGE = "ccc"; //换表
     public static final String ADD = "aaa"; //添加表

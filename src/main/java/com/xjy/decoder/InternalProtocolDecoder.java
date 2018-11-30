@@ -1,16 +1,22 @@
 package com.xjy.decoder;
 
-import com.xjy.entity.InternalMsgBody;
-import com.xjy.entity.XtMsgBody;
+import com.xjy.entity.*;
+import com.xjy.parms.CommandState;
+import com.xjy.parms.CommandType;
 import com.xjy.parms.InternalMsgType;
+import com.xjy.processor.ExceptionProcessor;
 import com.xjy.util.CheckUtil;
 import com.xjy.util.ConvertUtil;
+import com.xjy.util.DBUtil;
 import com.xjy.util.LogUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author: Mr.Xu
@@ -22,6 +28,7 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         System.out.println("内部协议解码时异常");
         cause.printStackTrace();
+        ExceptionProcessor.processAfterException(ctx);//将对应集中器的命令状态置为失败
         ctx.close();
     }
 

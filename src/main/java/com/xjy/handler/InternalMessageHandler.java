@@ -2,6 +2,7 @@ package com.xjy.handler;
 
 import com.xjy.entity.*;
 import com.xjy.parms.*;
+import com.xjy.processor.ExceptionProcessor;
 import com.xjy.processor.InternalMsgProcessor;
 import com.xjy.util.ConvertUtil;
 import com.xjy.util.DBUtil;
@@ -17,6 +18,7 @@ import sun.rmi.runtime.Log;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -60,7 +62,11 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 LogUtil.DataMessageLog(InternalMessageHandler.class,"收到指令类型:" + instruction);
 
                 if(instruction.equals(InternalOrders.READ)){ //读取指令,按页解析读数
+                    if(currentCenter.getDbId() == null)DBUtil.preprocessOfRead(currentCenter);//针对定时读取尚未初始化的情况
                     InternalMsgProcessor.readProcessor(currentCenter,msgBody);
+                }
+                else if(instruction.equals(InternalOrders.D_READ)){//采集指令，说明采集器已经开始采集
+                    //todo
                 }
                 else if(instruction.equals(InternalOrders.COLLECT)){//采集指令，说明采集器已经开始采集
                     LogUtil.DataMessageLog(InternalMessageHandler.class,"集中器已经开始采集！");
@@ -74,18 +80,12 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                     DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
                     InternalMsgProcessor.setTimingCollect(currentCenter);
                 }
-                else if(instruction.equals(InternalOrders.SUCCESE)){//（采集）命令执行成功
-                    LogUtil.DataMessageLog(InternalMessageHandler.class,"(采集)命令执行成功！");
-                    currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
-                    DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
-                }
-                else if(instruction.equals(InternalOrders.OPEN_CHANNEL)){//打开通道成功（可能是开阀或关阀）
-                    if(currentCenter.getCurCommand().getType() == CommandType.OPEN_VALVE){
-                        LogUtil.DataMessageLog(InternalMessageHandler.class,"发送开阀指令！");
-                        InternalProtocolSendHelper.openValve(currentCenter);
-                    }else if(currentCenter.getCurCommand().getType() == CommandType.CLOSE_VALVE){
-                        LogUtil.DataMessageLog(InternalMessageHandler.class,"发送关阀指令！");
-                        InternalProtocolSendHelper.closeValve(currentCenter);
+                else if(instruction.equals(InternalOrders.SUCCESE)) {//（采集）命令执行成功
+                    LogUtil.DataMessageLog(InternalMessageHandler.class, "(采集)命令执行成功！");
+                    //非定时采集
+                    if(currentCenter.getCurCommand() != null || currentCenter.getCurCommand().getType()== CommandType.COLLECT_FOR_CENTER){//非定时采集
+                        currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
+                        DBUtil.updateCommandState(CommandState.SUCCESSED, currentCenter);
                     }
                 }
                 else if(instruction.equals(InternalOrders.OPCHANNEL_FAILED)){//打开节点失败
@@ -97,6 +97,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 }
                 else if(instruction.equals(InternalOrders.OPEN_VALVE) || instruction.equals(InternalOrders.CLOSE_VALVE)){//开关阀返回
                     System.out.println("开关阀返回！");
+                    if(currentCenter.getDbId() == null )DBUtil.preprocessOfRead(currentCenter);//初始化集中器在数据库中的id
                     InternalMsgProcessor.getValveInfo(currentCenter,msgBody);//获取开关阀信息
                     InternalProtocolSendHelper.closeChannel(currentCenter,currentCenter.getCurCommand());
                 }
@@ -120,6 +121,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         System.out.println("业务处理时异常");
         cause.printStackTrace();
+        ExceptionProcessor.processAfterException(ctx);//将对应集中器的命令状态置为失败
         ctx.close();
     }
 }
