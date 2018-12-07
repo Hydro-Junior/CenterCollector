@@ -1,6 +1,7 @@
 package com.xjy.core;
 
 import com.xjy.entity.Center;
+import com.xjy.entity.CenterPage;
 import com.xjy.entity.Command;
 import com.xjy.entity.GlobalMap;
 import com.xjy.parms.CommandState;
@@ -13,6 +14,7 @@ import io.netty.channel.ChannelHandlerContext;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
@@ -84,7 +86,7 @@ public class CommandExecutor implements Runnable{
                 }else{//有线，先打开通道
                     InternalProtocolSendHelper.openChannel(center,currentCommand);
                     try {
-                        TimeUnit.SECONDS.sleep(5);
+                        TimeUnit.SECONDS.sleep(2);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -99,7 +101,7 @@ public class CommandExecutor implements Runnable{
                 }else{//有线，先打开通道
                     InternalProtocolSendHelper.openChannel(center,currentCommand);
                     try {
-                        TimeUnit.SECONDS.sleep(5);
+                        TimeUnit.SECONDS.sleep(2);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -107,7 +109,17 @@ public class CommandExecutor implements Runnable{
                 }
                 break;
             case WRITE_INFO:
-                InternalProtocolSendHelper.writeFirstPage(center);
+                List<CenterPage> pages = InternalProtocolSendHelper.constructPages(center);
+                System.out.println("总页数" + pages.size());//总页数
+                InternalProtocolSendHelper.writePage(center,1);
+                /*for(int i = 0; i < pages.size(); i++){
+                    InternalProtocolSendHelper.writePage(center,i+1);//list中的第0项对应采集器页，也就是第一页
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }*/
                 break;
             case COLLECT_FOR_CENTER:
                 InternalProtocolSendHelper.collect(center);
@@ -118,12 +130,30 @@ public class CommandExecutor implements Runnable{
             case READ_SINGLE_METER:
                 //开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
                 DBUtil.preprocessOfRead(center);
-                InternalProtocolSendHelper.readNextPage(center,1);//当前页是1，从第2页(表信息开始读)
+                InternalProtocolSendHelper.readNextPage(center,1);
+                /*int num = getTotalPages(center);
+                for(int i = 1 ; i < num ; i++){
+                    InternalProtocolSendHelper.readNextPage(center,i);//从表信息页开始读取
+                    try {
+                        TimeUnit.SECONDS.sleep(2);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }*/
                 break;
             case READ_ALL_METERS:
                 //开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
                 DBUtil.preprocessOfRead(center);
-                InternalProtocolSendHelper.readNextPage(center,0);//从第一页读取
+                InternalProtocolSendHelper.readNextPage(center,0);
+                /*int num1 = getTotalPages(center);
+                for(int i = 0 ; i < num1 ; i++){
+                    InternalProtocolSendHelper.readNextPage(center,i);//从采集通道信息页开始读取
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(2);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }*/
                 break;
             case CHECK_CLOCK: //设备校时，顺便设置定时采集
                 InternalProtocolSendHelper.setClock(center);
@@ -137,6 +167,16 @@ public class CommandExecutor implements Runnable{
     private static void setCurCommandState(int state, Center center, Command currentCommand){
         DBUtil.updateCommandState(state,center);
         currentCommand.setState(state);
+    }
+    private static int getTotalPages(Center center){
+        ConcurrentHashMap<Center,List<CenterPage>> infos = GlobalMap.getBasicInfo();
+        int totalPages;
+        if(!infos.containsKey(center)){
+            totalPages = InternalProtocolSendHelper.constructPages(center).size();
+        }else{
+            totalPages = infos.get(center).size();
+        }
+        return totalPages;
     }
 }
 

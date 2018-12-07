@@ -62,23 +62,26 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 LogUtil.DataMessageLog(InternalMessageHandler.class,"收到指令类型:" + instruction);
 
                 if(instruction.equals(InternalOrders.READ)){ //读取指令,按页解析读数
-                    if(currentCenter.getDbId() == null)DBUtil.preprocessOfRead(currentCenter);//针对定时读取尚未初始化的情况
+                    if(currentCenter.getDbId() == null) DBUtil.preprocessOfRead(currentCenter);//针对定时读取尚未初始化的情况
                     InternalMsgProcessor.readProcessor(currentCenter,msgBody);
                 }
-                else if(instruction.equals(InternalOrders.D_READ)){//采集指令，说明采集器已经开始采集
-                    //todo
+                else if(instruction.equals(InternalOrders.D_READ)){//开关阀后返回的表状态
+                    InternalMsgProcessor.afterUpdateValveState(currentCenter,msgBody);
                 }
                 else if(instruction.equals(InternalOrders.COLLECT)){//采集指令，说明采集器已经开始采集
                     LogUtil.DataMessageLog(InternalMessageHandler.class,"集中器已经开始采集！");
                 }
                 else if(instruction.equals(InternalOrders.DOWNLOAD)){
-                    //下载档案命令的处理器，先读取页数，判断要不要写下一页。不需要的话命令成功结束
+                    //下载档案命令的处理器，先读取页数，是最后一页的话命令成功结束
                     InternalMsgProcessor.writeProcessor(currentCenter,msgBody);
                 }
                 else if(instruction.equals(InternalOrders.CLOCK)){//设备校时返回，设置命令成功，并设置定时采集
                     currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
                     DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
-                    InternalMsgProcessor.setTimingCollect(currentCenter);
+                    InternalProtocolSendHelper.setTimingCollect(currentCenter);
+                }
+                else if(instruction.equals(InternalOrders.SCHEDUEL)){
+                    LogUtil.DataMessageLog(InternalMessageHandler.class,"设置定时采集成功！");
                 }
                 else if(instruction.equals(InternalOrders.SUCCESE)) {//（采集）命令执行成功
                     LogUtil.DataMessageLog(InternalMessageHandler.class, "(采集)命令执行成功！");
@@ -87,6 +90,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                         currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
                         DBUtil.updateCommandState(CommandState.SUCCESSED, currentCenter);
                     }
+                    InternalProtocolSendHelper.readNextPage(currentCenter,1);
                 }
                 else if(instruction.equals(InternalOrders.OPCHANNEL_FAILED)){//打开节点失败
                     LogUtil.DataMessageLog(InternalMessageHandler.class,"打开节点失败！");

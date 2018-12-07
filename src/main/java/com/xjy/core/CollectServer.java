@@ -19,7 +19,7 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
  * @Date: Created in 15:01 2018/9/27
  * @Description: 基于Netty实现的水表采集总服务端
  */
-public class CollectServer   {
+public class CollectServer {
     private String protocol;
     private int port;
     public CollectServer(String protocol,int port){
@@ -53,6 +53,7 @@ public class CollectServer   {
             workerGroup.shutdownGracefully();
         }
     }
+
     private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
         protected void initChannel(SocketChannel socketChannel) throws Exception {
             // 拿到SocketChannel,进行一系列的配置
@@ -79,6 +80,14 @@ public class CollectServer   {
         new Thread(new ConditionMonitor()).start();
         new Thread(new CommandFetcher()).start();//轮询数据库命令的线程
         new Thread(new CommandExecutor()).start();//命令执行线程
-        new CollectServer().bind(Integer.parseInt(Constants.protocolPort));
+        ScheduleTask.startTimingCollect();//开启定时采集任务
+        try{
+            new CollectServer().bind(Integer.parseInt(Constants.protocolPort));
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            System.out.println("绑定地址错误！\r\n + IP:"+Constants.connectServer + "端口号："+Constants.protocolPort );
+        }
+
     }
 }

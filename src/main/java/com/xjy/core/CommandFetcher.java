@@ -21,7 +21,6 @@ import java.util.concurrent.TimeUnit;
  * @Description: 命令获取者类，用于不断从数据库中查找每个集中器的待执行命令，添加到其待执行队列中
  */
 public class CommandFetcher implements Runnable{
-    private SqlSession session;
     @Override
     public void run() {
         System.out.println("命令获取线程启动！");

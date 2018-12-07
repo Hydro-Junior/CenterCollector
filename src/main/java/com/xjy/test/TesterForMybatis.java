@@ -6,10 +6,7 @@ import com.xjy.entity.InternalMsgBody;
 import com.xjy.entity.Meter;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.Constants;
-import com.xjy.pojo.DBCollector;
-import com.xjy.pojo.DBCommand;
-import com.xjy.pojo.DBMeter;
-import com.xjy.pojo.DeviceTmp;
+import com.xjy.pojo.*;
 import com.xjy.test.mybatis.mappers.TempCommandMapper;
 import com.xjy.test.mybatis.pojo.TempCommand;
 import com.xjy.test.mybatis.util.MyBatisUtil;
@@ -53,6 +50,13 @@ public class TesterForMybatis {
         CommandMapper mapper = session.getMapper(CommandMapper.class);
         mapper.updateCommandState(25393,5);
         session.commit();
+    }
+    @Test
+    public void testScheme(){
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        int centerId = 901;
+        Scheme scheme =mapper.getScheme(mapper.getSchemeId(centerId));
+        System.out.println(scheme.getId() + "   " + "开始采集时间："+scheme.getBeginTime()+"   间隔时间："+scheme.getHourInterval());
     }
     @Test
     public void testSearchIdOfCenter(){

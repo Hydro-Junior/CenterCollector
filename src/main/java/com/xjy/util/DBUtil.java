@@ -6,9 +6,7 @@ import com.xjy.entity.Command;
 import com.xjy.entity.Meter;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.Constants;
-import com.xjy.pojo.DBCollector;
-import com.xjy.pojo.DBCommand;
-import com.xjy.pojo.DBMeter;
+import com.xjy.pojo.*;
 import com.xjy.test.mybatis.util.MyBatisUtil;
 import mappers.CenterMapper;
 import mappers.CommandMapper;
@@ -42,6 +40,13 @@ public class DBUtil {
         List<DBCollector> collectors = mapper.getCollectors(centerId);
         session.close();
         return collectors;
+    }
+    public static Scheme getScheme(Center center){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        if(center.getDbId() == null) center.setDbId(mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort)));
+        Scheme scheme = mapper.getScheme(mapper.getSchemeId(center.getDbId()));
+        return scheme;
     }
     public static void preprocessOfRead(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -105,13 +110,33 @@ public class DBUtil {
         session.commit();
         session.close();
     }
-    //更新deviceTmp表中的阀门状态
+    //更新deviceTmp表中的阀门状态(由于原来程序中数据库的commstate和meterstate字段混乱使用，导致一个字段被浪费，temp表中不再有
+    // 表示开关阀状态的字段，此方法暂时保留)
     public static void updateValveStateOfTmp(int valveState,String meterAddress, Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
         int centerId = center.getDbId();
         String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
         mapper.updateValveState(tableName,valveState,centerId,LocalDateTime.now().getDayOfMonth(),meterAddress);
+        session.commit();
+        session.close();
+    }
+    public static void updateValveState(int valveState,String meterAddress, Center center){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
+        int centerId = center.getDbId();
+        DBMeter meter = mapper.searchDevice(centerId,meterAddress);
+        if(meter == null) LogUtil.DataMessageLog(DBUtil.class,"找不到对应水表！\r\n centerId="+centerId+"   meterAddress="+meterAddress);
+        if(meter.getStrobeStatue() != 0)mapper.updateStrobeState(valveState,meter.getId());
+        session.commit();
+        session.close();
+    }
+    public static void updateValveState(int valveState,int meterId){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
+        mapper.updateStrobeState(valveState,meterId);
+        session.commit();
+        session.close();
     }
     //更新表数据
     public static void refreshMeterData(Meter meter, Center center) {
@@ -128,6 +153,17 @@ public class DBUtil {
         }
         session.commit();
         session.close();
+    }
+    public static DeviceTmp getTmpRecord(int centerId,String meterAddress){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
+        String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
+        return mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meterAddress);
+    }
+    public static DBMeter getDBMeter(int centerId,String meterAddress){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
+        return mapper.searchDevice(centerId,meterAddress);
     }
 
     public static void updateCenterReadTime(Center center) {

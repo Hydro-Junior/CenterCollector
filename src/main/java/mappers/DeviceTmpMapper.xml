@@ -7,13 +7,19 @@
         select * from ${tableName} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
     </select>
     <update id="updateDeviceData">
-        update ${tableName} set showValue=#{data},fshowValue=#{data},meterState=#{valveState},commState=#{state},readTime=#{now} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
+        update ${tableName} set showValue=#{data},fshowValue=#{data},meterState=#{state},commState=#{state},readTime=#{now} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
     </update>
     <update id = "updateValveState">
         update ${tableName} set meterState=#{valveState} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
     </update>
     <insert id="insertNewData">
         insert into  ${tableName} (addr,readDate,centerID,showValue,fshowValue,meterState,commState,isUse,readTime,enprNo)
-        VALUES  (#{meterAddress},#{day},#{centerId},#{data},#{data},#{valveState},#{state},0,#{now},#{enprNo})
+        VALUES  (#{meterAddress},#{day},#{centerId},#{data},#{data},#{state},#{state},0,#{now},#{enprNo})
     </insert>
+    <select id="searchDevice" resultType="DBMeter">
+        select * from t_device where id in (select deviceId from t_deviceRelation where centerId=#{centerId}) and iAddr = #{meterAddress}
+    </select>
+    <update id = "updateStrobeState">
+        update t_device set StrobeStatue = #{state} where id = #{id}
+    </update>
 </mapper>

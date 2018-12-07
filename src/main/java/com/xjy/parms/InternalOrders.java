@@ -27,6 +27,4 @@ public final class InternalOrders {
     public static final String BEFORE_CLOSE = "DDD";//集中器发送的读节点表命令
     public static final String OPCHANNEL_FAILED = "EEE";//打开通道失败
 
-
-
 }

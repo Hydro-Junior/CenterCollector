@@ -15,6 +15,12 @@
     <select id="getEnprNo" resultType="String" >
         select enprNo from t_center where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
     </select>
+    <select id="getSchemeId" resultType="int" parameterType="int">
+        select readSchemeId from t_center where id = #{centerId}
+    </select>
+    <select id="getScheme" resultType="Scheme" parameterType="int">
+        select * from t_readScheme where id=#{schemeId}
+    </select>
     <update id="initCenterState" >
         update t_center set runStatue = 0 where portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
     </update>

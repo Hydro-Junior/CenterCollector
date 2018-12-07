@@ -36,6 +36,14 @@ public class SyntaxTest {
         }
     }
     @Test
+    public void localDateTimeTest(){
+        LocalDateTime time = LocalDateTime.now();
+        time = LocalDateTime.of(2016,2,28,10,8,0);
+        int day1 = time.getDayOfMonth();
+        int day2 = time.plusDays(1).getDayOfMonth();
+        System.out.println(day1 + " "+ day2);
+    }
+    @Test
     public void testTime2Str(){
         int[] data = new int[19];
         data[0] = 'T';data[1] = 'T';data[2] = 'T';

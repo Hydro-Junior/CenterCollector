@@ -4,14 +4,18 @@ import com.xjy.entity.*;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.CommandType;
 import com.xjy.parms.InternalOrders;
+import com.xjy.pojo.DBMeter;
+import com.xjy.pojo.DeviceTmp;
 import com.xjy.util.ConvertUtil;
 import com.xjy.util.DBUtil;
+import com.xjy.util.InternalProtocolSendHelper;
 import com.xjy.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static com.xjy.entity.GlobalMap.getBasicInfo;
 import static com.xjy.util.InternalProtocolSendHelper.readNextPage;
 import static com.xjy.util.InternalProtocolSendHelper.writePage;
 
@@ -33,6 +37,7 @@ public class InternalMsgProcessor {
             return;
         }
         int pageNum = datas[3];
+        System.out.println("读到了第"+pageNum+"页数据");
         if(pageNum == 0){ //第0页，读取集中器基本信息
             DetailedInfoOfCenter detailedInfo = new DetailedInfoOfCenter();
             char st[] = new char[16]; //定时抄表时间
@@ -98,7 +103,8 @@ public class InternalMsgProcessor {
             //读采集器结束，读下一页
             System.out.println("读采集器结束，接下来读取表数据");
             //非定时读取，需要读取下一页
-            if(center.getCurCommand() != null && center.getCurCommand().getType()==CommandType.READ_ALL_METERS)readNextPage(center,pageNum);
+            if(center.getCurCommand() != null && center.getCurCommand().getType()==CommandType.READ_ALL_METERS)
+                readNextPage(center,pageNum);
         } else{
             boolean keepReading = false;
             for (int i = 4; i < datas.length; ) {//省去前3个指令字和页码，接下来12个为一组
@@ -143,7 +149,8 @@ public class InternalMsgProcessor {
                     tempMeterData.add(meter);
                     try {
                         center.getCollectors().get(collectIdx).getMeters().add(meter);
-                    }catch (Exception e){}
+                    }catch (Exception e){//可能采集器信息尚未初始化
+                    }
                     //如果是单个表读取，判断表地址是否与参数中的表地址相同，如果相同，直接更新数据库后不做其他处理
                     if(curCommand.getType()== CommandType.READ_SINGLE_METER && curCommand.getArgs()[2].equals(meterAddress)){
                         DBUtil.refreshMeterData(meter,center);//将表读数插入数据库，今日已有抄过则更新该条记录
@@ -154,19 +161,21 @@ public class InternalMsgProcessor {
                 }
             }
             DBUtil.batchlyRefreshData(tempMeterData,center);
-            if (keepReading && pageNum < 256 //需要继续读
-                    && center.getCurCommand() != null
-                    && center.getCurCommand().getType()==CommandType.READ_ALL_METERS
-                    && center.getCurCommand().getType()==CommandType.READ_SINGLE_METER) { //（非定时命令）
-                readNextPage(center,pageNum);//发送读取下一页的命令
-            } else {//重置集中器的命令执行状态(非定时命令)
-                if(center.getCurCommand() != null  && center.getCurCommand().getType()==CommandType.READ_ALL_METERS
-                        && center.getCurCommand().getType()==CommandType.READ_SINGLE_METER){
+            int totalPage ;
+            ConcurrentHashMap<Center,List<CenterPage>> info =  GlobalMap.getBasicInfo();
+            if(!info.containsKey(center)){
+                InternalProtocolSendHelper.constructPages(center);
+            }
+            info = GlobalMap.getBasicInfo();
+            totalPage = info.get(center).size();
+            if(!keepReading || pageNum == totalPage){ //如果已经读完
+                if(center.getCurCommand() != null  && center.getCurCommand().getType()==CommandType.READ_ALL_METERS){
                     center.getCurCommand().setState(CommandState.SUCCESSED);
                     DBUtil.updateCommandState(CommandState.SUCCESSED,center);
                 }
                 DBUtil.updateCenterReadTime(center);//更新集中器最后一次读取时间为系统当前时间
-                LogUtil.DataMessageLog(InternalMsgProcessor.class,"读全部表后罗列当前集中器总信息：\r\n"+center.toString());
+            }else{
+                readNextPage(center,pageNum);
             }
         }
     }
@@ -185,50 +194,59 @@ public class InternalMsgProcessor {
             return;
         }
         int pageNum = datas[3];
-        ConcurrentHashMap<Center,List<CenterPage>> infoMap = GlobalMap.getBasicInfo();
-        if(infoMap.get(currentCenter).size() != pageNum){
-            writePage(currentCenter,pageNum+1);
-        }else{
+        ConcurrentHashMap<Center,List<CenterPage>> infoMap = getBasicInfo();
+        int total = infoMap.get(currentCenter).size();
+        System.out.println("待写总页数："+total);
+        if(infoMap.get(currentCenter).size() == pageNum){
             currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
             DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
+        }else{
+            writePage(currentCenter,pageNum+1);
+            System.out.println("开始写下一页");
         }
     }
-    //设置定时采集的处理器
-    public static void setTimingCollect(Center currentCenter) {
 
-    }
     //获取开关阀信息并写入数据库
     public static void getValveInfo(Center currentCenter, InternalMsgBody msgBody) {
         String meterAddress = currentCenter.getCurCommand().getArgs()[2];
-        int[] datas = msgBody.getEffectiveBytes();
-        if(datas.length < 20) {//只有指令没有状态码，直接成功
-            StringBuilder sb = new StringBuilder();
-            for(int i = 0 ; i < datas.length ;i ++){
-                sb.append(ConvertUtil.fixedLengthHex(datas[i])+" ");
-            }
-            LogUtil.DataMessageLog(InternalMsgProcessor.class,"开关阀返回报文长度不够！\r\n"+ sb.toString());
-            if(msgBody.getInstruction().equals(InternalOrders.OPEN_VALVE)){
-                currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
-                DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
-                DBUtil.updateValveStateOfTmp(1,meterAddress,currentCenter);
-            }else if(msgBody.getInstruction().equals(InternalOrders.CLOSE_VALVE)){
-                currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
-                DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
-                DBUtil.updateValveStateOfTmp(2,meterAddress,currentCenter);
-            }
+        if(msgBody.getInstruction().equals(InternalOrders.OPEN_VALVE)){
+            currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
+            DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
+            DBUtil.updateValveState(1,meterAddress,currentCenter);
+        }else if(msgBody.getInstruction().equals(InternalOrders.CLOSE_VALVE)){
+            currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
+            DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
+            DBUtil.updateValveState(2,meterAddress,currentCenter);
+        }
+
+    }
+    //开关阀后读表返回的开关阀成功与失败
+    public static void afterUpdateValveState(Center currentCenter, InternalMsgBody msgBody) {
+        Command c = currentCenter.getCurCommand();
+        if(c == null || !(c.getType()==CommandType.CLOSE_VALVE || c.getType()==CommandType.OPEN_VALVE)){
             return;
         }
-        if(datas[19]== 'C' || datas[19]=='c'){//成功关阀
-            currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
-            DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
-            DBUtil.updateValveStateOfTmp(2,meterAddress,currentCenter);
-        }else if(datas[19] == 'O' || datas[19]=='o'){//成功开阀
-            currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
-            DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
-            DBUtil.updateValveStateOfTmp(1,meterAddress,currentCenter);
-        }else{//失败
-            currentCenter.getCurCommand().setState(CommandState.FAILED);
+        String meterAddress = currentCenter.getCurCommand().getArgs()[2];
+        if(currentCenter.getDbId() == null ) DBUtil.preprocessOfRead(currentCenter);
+        DBMeter meter = DBUtil.getDBMeter(currentCenter.getDbId(),meterAddress);
+        int[] data = msgBody.getEffectiveBytes();
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0 ; i < data.length; i++){
+            sb.append(ConvertUtil.fixedLengthHex(data[i])+" ");
+        }
+        LogUtil.DataMessageLog(InternalMsgProcessor.class,"开关阀后读取的字节内容：\r\n"+ sb.toString());
+        //实际上返回报文中还有表地址、表读数信息，暂不做处理
+        if(data[19] != 'C' && data[19] != 'O'){//开关阀失败
+            LogUtil.DataMessageLog(InternalMsgProcessor.class, "开关阀最终单表读取返回失败的状态码");
+            c.setState(CommandState.FAILED);
             DBUtil.updateCommandState(CommandState.FAILED,currentCenter);
+            if(meter != null){
+                if(meter.getStrobeStatue() == 1){//把之前改的状态改回来
+                    DBUtil.updateValveState(2,meter.getId());
+                }else if(meter.getStrobeStatue() == 2){
+                    DBUtil.updateValveState(1,meter.getId());
+                }
+            }
         }
     }
 }

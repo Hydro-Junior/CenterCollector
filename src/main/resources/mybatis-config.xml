@@ -14,6 +14,7 @@
         <typeAlias type="com.xjy.pojo.DBCommand" alias="DBCommand"/>
         <typeAlias type="com.xjy.pojo.DBCollector" alias="DBCollector"/>
         <typeAlias type="com.xjy.pojo.DBMeter" alias="DBMeter"/>
+        <typeAlias type="com.xjy.pojo.Scheme" alias="Scheme"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">

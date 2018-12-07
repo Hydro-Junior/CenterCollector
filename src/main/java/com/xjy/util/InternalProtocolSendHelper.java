@@ -74,34 +74,11 @@ public class InternalProtocolSendHelper {
      */
     public static void writeFirstPage(Center center){
         LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"开始执行写页指令");
-
-        ConcurrentHashMap<Center,List<CenterPage>> persistentDataOfInternalProtocol = GlobalMap.getBasicInfo();
-        //查找数据库中该集中器对应的采集器;
-        List<DBCollector> dbcollectors = DBUtil.getCollectorsByCenter(center);
-        List<Collector> collectors = new ArrayList<>();
-        //遍历采集器集合，查询获得总表集合，构建集中器资料
-        for(int i = 0 ; i < dbcollectors.size(); i++){
-            DBCollector dbCollector = dbcollectors.get(i);
-            Collector theCollector = CollectorAdapter.getCollector(dbCollector);
-            collectors.add(theCollector);
-            List<DBMeter> dbMeters = DBUtil.getMetersByCollector(dbcollectors.get(i));
-            List<Meter> meters = new ArrayList<>();
-            for(DBMeter dbMeter : dbMeters){
-                Meter theMeter = MeterAdapter.getMeter(dbMeter);
-                theMeter.setCollectorIndex(i);//设置对应采集器序号
-                theMeter.setCollector(theCollector); //设置所属采集器
-                meters.add(theMeter);
-            }
-            theCollector.setMeters(meters);//更新每个采集器的表资料
-        }
-        center.setCollectors(collectors);//更新集中器的采集器资料
-
-        //按页构建资料
-        List<CenterPage> pages = CenterPage.generateCenterPages(center);
+        //按页构建资料(同时写入全局变量)
+        List<CenterPage> pages = constructPages(center);
 
         LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"页资料:\n"+pages.toString());
 
-        persistentDataOfInternalProtocol.put(center,pages);
         //发送第一页（采集器页）
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), addInstruction(pages.get(0).getData(),InternalOrders.DOWNLOAD));
 
@@ -126,6 +103,61 @@ public class InternalProtocolSendHelper {
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(),data);
         ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
         center.getCtx().writeAndFlush(buf);
+    }
+    //从数据库中查询集中器下的采集通道信息与表信息，构建页资料，同时放入信息全局变量
+    public static  List<CenterPage> constructPages(Center center){
+        ConcurrentHashMap<Center,List<CenterPage>> persistentDataOfInternalProtocol = GlobalMap.getBasicInfo();
+        //查找数据库中该集中器对应的采集器;
+        List<DBCollector> dbcollectors = DBUtil.getCollectorsByCenter(center);
+        List<Collector> collectors = new ArrayList<>();
+        //遍历采集器集合，查询获得总表集合，构建集中器资料
+        for(int i = 0 ; i < dbcollectors.size(); i++){
+            DBCollector dbCollector = dbcollectors.get(i);
+            Collector theCollector = CollectorAdapter.getCollector(dbCollector);
+            theCollector.setCenter(center);
+            collectors.add(theCollector);
+            List<DBMeter> dbMeters = DBUtil.getMetersByCollector(dbcollectors.get(i));
+            List<Meter> meters = new ArrayList<>();
+            for(DBMeter dbMeter : dbMeters){
+                Meter theMeter = MeterAdapter.getMeter(dbMeter);
+                theMeter.setCollectorIndex(i);//设置对应采集器序号
+                theMeter.setCollector(theCollector); //设置所属采集器
+                meters.add(theMeter);
+            }
+            theCollector.setMeters(meters);//更新每个采集器的表资料
+        }
+        center.setCollectors(collectors);//更新集中器的采集器资料
+        //按页构建资料
+        List<CenterPage> pages = CenterPage.generateCenterPages(center);
+        persistentDataOfInternalProtocol.put(center,pages);
+        return pages;
+    }
+    //设置定时采集的处理器(设置为当天x点和第二天x点，时间参考数据库，测试阶段先写死)
+    public static void setTimingCollect(Center currentCenter) {//数据格式PT1(Y/N)dd2(Y/N)ddhhmmss
+        int[] data = new int[19];//3字节指令字+数据
+        data[0] = 'P';data[1] = 'P';data[2]='P';
+        data[3] = 'P'; data[4] = 'T';//后面2个字节是dd(这里处理均为Y，每天采集)
+        data[5] = 1+'0';data[6] = 'Y'; //7|8 dd
+        data[9] = 2+'0';data[10] = 'Y';//11|12 dd
+
+        LocalDateTime time = LocalDateTime.now();
+        //设置两个dd(默认是每天采集)
+        int day1 = time.getDayOfMonth();//今天
+        int day2 = time.plusDays(1).getDayOfMonth();//明天
+        int hi1 = day1/10, hi2 = day2/10, lo1 = day1%10, lo2 = day2%10;
+        data[7] = hi1+'0'; data[8] = lo1+'0';
+        data[11] = hi2+'0'; data[12] = lo2+'0';
+        //设置hhmmss(查找数据库，有特定时间的话设置为特定时间，没有的话默认0点)
+        int h = 23, m = 30, s = 0;
+        int h1 = h / 10, h2 = h % 10, m1 = m /10, m2 = m % 10, s1 = s/10, s2 = s % 10;
+        data[13] = h1+'0'; data[14] = h2+'0';
+        data[15] = m1+'0';data[16] = m2+'0';
+        data[17] = s1+'0'; data[18] = s2+'0';
+        InternalMsgBody internalMsgBody = new InternalMsgBody(currentCenter.getId() ,data);
+        //调试日志,打印待发送报文
+        printMsgLog(internalMsgBody);
+        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
+        currentCenter.getCtx().writeAndFlush(buf);
     }
     public static void writePage(Center center,int page){
         //从persistentDataOfInternalProtocol中获取center相应页的资料，构建msg发送即可

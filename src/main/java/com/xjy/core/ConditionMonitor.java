@@ -1,8 +1,11 @@
 package com.xjy.core;
 
 import com.xjy.entity.Center;
+import com.xjy.entity.Command;
 import com.xjy.entity.GlobalMap;
+import com.xjy.parms.CommandState;
 import com.xjy.util.DBUtil;
+import com.xjy.util.InternalProtocolSendHelper;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -23,7 +26,7 @@ public class ConditionMonitor implements Runnable {
         DBUtil.initCenters();
         while (true){
             try {
-                TimeUnit.SECONDS.sleep(30);
+                TimeUnit.MINUTES.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -35,7 +38,12 @@ public class ConditionMonitor implements Runnable {
                 ChannelHandlerContext channelCtx = entry.getValue().getCtx();
                 try{
                     if(channelCtx.channel().isActive()){
-                        System.out.println(entry.getKey()+  "   当前命令："+entry.getValue().getCurCommand());
+                        Command c = entry.getValue().getCurCommand();
+                        System.out.println(entry.getKey()+  "   当前命令："+c);
+                        //定时采集设置命令可以成功执行，然后似乎硬件实际并没有执行，为了确保定时采集成功，
+                        //用quartz定时任务替代：由程序亲自发送采集命令
+                        /*if(c == null || c.getState()== CommandState.FAILED || c.getState()==CommandState.SUCCESSED)
+                                InternalProtocolSendHelper.setTimingCollect(entry.getValue());*/
                     }else{
                         //更新数据库，将集中器设置为不在线
                         DBUtil.updateCenterState(0,entry.getValue());
