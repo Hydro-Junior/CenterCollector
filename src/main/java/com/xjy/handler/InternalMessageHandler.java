@@ -86,7 +86,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 else if(instruction.equals(InternalOrders.SUCCESE)) {//（采集）命令执行成功
                     LogUtil.DataMessageLog(InternalMessageHandler.class, "(采集)命令执行成功！");
                     //非定时采集
-                    if(currentCenter.getCurCommand() != null || currentCenter.getCurCommand().getType()== CommandType.COLLECT_FOR_CENTER){//非定时采集
+                    if(currentCenter.getCurCommand() != null && currentCenter.getCurCommand().getType()== CommandType.COLLECT_FOR_CENTER){//非定时采集
                         currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
                         DBUtil.updateCommandState(CommandState.SUCCESSED, currentCenter);
                     }
