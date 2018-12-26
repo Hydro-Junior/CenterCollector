@@ -1,260 +1,1942 @@
-DEBUG 2018-12-07 10:34:40,676: org.apache.ibatis.logging.LogFactory 
- Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
-DEBUG 2018-12-07 10:34:40,936: org.apache.ibatis.datasource.pooled.PooledDataSource 
- PooledDataSource forcefully closed/removed all connections. 
-DEBUG 2018-12-07 10:34:40,937: org.apache.ibatis.datasource.pooled.PooledDataSource 
- PooledDataSource forcefully closed/removed all connections. 
-DEBUG 2018-12-07 10:34:40,937: org.apache.ibatis.datasource.pooled.PooledDataSource 
- PooledDataSource forcefully closed/removed all connections. 
-DEBUG 2018-12-07 10:34:40,937: org.apache.ibatis.datasource.pooled.PooledDataSource 
- PooledDataSource forcefully closed/removed all connections. 
-DEBUG 2018-12-07 10:34:41,034: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
- Opening JDBC Connection 
-DEBUG 2018-12-07 10:34:42,129: org.apache.ibatis.datasource.pooled.PooledDataSource 
- Created connection 728115831. 
-DEBUG 2018-12-07 10:34:42,129: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
- Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 2635817a-aa3d-407d-a544-0aecf0b2e3cb] 
-DEBUG 2018-12-07 10:34:42,156: mappers.CenterMapper.getSchemeId 
- ==>  Preparing: select readSchemeId from t_center where id = ?  
-DEBUG 2018-12-07 10:34:42,225: mappers.CenterMapper.getSchemeId 
- ==> Parameters: 901(Integer) 
-DEBUG 2018-12-07 10:34:42,304: mappers.CenterMapper.getSchemeId 
- <==      Total: 1 
-DEBUG 2018-12-07 10:34:42,304: mappers.CenterMapper.getScheme 
- ==>  Preparing: select * from t_readScheme where id=?  
-DEBUG 2018-12-07 10:34:42,304: mappers.CenterMapper.getScheme 
- ==> Parameters: 174(Integer) 
-DEBUG 2018-12-07 10:34:42,334: mappers.CenterMapper.getScheme 
- <==      Total: 1 
-DEBUG 2018-12-07 10:34:42,334: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
- Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 2635817a-aa3d-407d-a544-0aecf0b2e3cb] 
-DEBUG 2018-12-07 10:34:42,365: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
- Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 2635817a-aa3d-407d-a544-0aecf0b2e3cb] 
-DEBUG 2018-12-07 10:34:42,365: org.apache.ibatis.datasource.pooled.PooledDataSource 
- Returned connection 728115831 to pool. 
-DEBUG 2018-12-07 10:36:01,710: org.apache.ibatis.logging.LogFactory 
- Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
-DEBUG 2018-12-07 10:36:01,900: org.apache.ibatis.datasource.pooled.PooledDataSource 
- PooledDataSource forcefully closed/removed all connections. 
-DEBUG 2018-12-07 10:36:01,900: org.apache.ibatis.datasource.pooled.PooledDataSource 
- PooledDataSource forcefully closed/removed all connections. 
-DEBUG 2018-12-07 10:36:01,900: org.apache.ibatis.datasource.pooled.PooledDataSource 
- PooledDataSource forcefully closed/removed all connections. 
-DEBUG 2018-12-07 10:36:01,900: org.apache.ibatis.datasource.pooled.PooledDataSource 
- PooledDataSource forcefully closed/removed all connections. 
-DEBUG 2018-12-07 10:36:01,988: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
- Opening JDBC Connection 
-DEBUG 2018-12-07 10:36:03,093: org.apache.ibatis.datasource.pooled.PooledDataSource 
- Created connection 728115831. 
-DEBUG 2018-12-07 10:36:03,093: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
- Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 4a2b45ed-c6d7-45ac-86b4-d55358fc9e15] 
-DEBUG 2018-12-07 10:36:03,113: mappers.CenterMapper.getSchemeId 
- ==>  Preparing: select readSchemeId from t_center where id = ?  
-DEBUG 2018-12-07 10:36:03,213: mappers.CenterMapper.getSchemeId 
- ==> Parameters: 901(Integer) 
-DEBUG 2018-12-07 10:36:03,283: mappers.CenterMapper.getSchemeId 
- <==      Total: 1 
-DEBUG 2018-12-07 10:36:03,293: mappers.CenterMapper.getScheme 
- ==>  Preparing: select * from t_readScheme where id=?  
-DEBUG 2018-12-07 10:36:03,293: mappers.CenterMapper.getScheme 
- ==> Parameters: 196(Integer) 
-DEBUG 2018-12-07 10:36:03,313: mappers.CenterMapper.getScheme 
- <==      Total: 1 
-DEBUG 2018-12-07 10:36:03,313: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
- Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 4a2b45ed-c6d7-45ac-86b4-d55358fc9e15] 
-DEBUG 2018-12-07 10:36:03,343: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
- Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 4a2b45ed-c6d7-45ac-86b4-d55358fc9e15] 
-DEBUG 2018-12-07 10:36:03,343: org.apache.ibatis.datasource.pooled.PooledDataSource 
- Returned connection 728115831 to pool. 
-DEBUG 2018-12-07 10:48:13,273: io.netty.util.internal.logging.InternalLoggerFactory 
+DEBUG 2018-12-26 09:22:41,809: io.netty.util.internal.logging.InternalLoggerFactory 
  Using Log4J as the default logging framework 
-DEBUG 2018-12-07 10:48:13,275: io.netty.channel.MultithreadEventLoopGroup 
+DEBUG 2018-12-26 09:22:41,819: io.netty.channel.MultithreadEventLoopGroup 
  -Dio.netty.eventLoopThreads: 8 
-DEBUG 2018-12-07 10:48:13,293: io.netty.channel.nio.NioEventLoop 
+DEBUG 2018-12-26 09:22:41,839: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.noKeySetOptimization: false 
-DEBUG 2018-12-07 10:48:13,293: io.netty.channel.nio.NioEventLoop 
+DEBUG 2018-12-26 09:22:41,839: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.selectorAutoRebuildThreshold: 512 
-DEBUG 2018-12-07 10:48:14,701: io.netty.channel.DefaultChannelId 
+DEBUG 2018-12-26 09:22:42,883: io.netty.channel.DefaultChannelId 
  -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
-DEBUG 2018-12-07 10:48:14,710: io.netty.channel.DefaultChannelId 
- -Dio.netty.processId: 6604 (auto-detected) 
-DEBUG 2018-12-07 10:48:14,712: io.netty.util.internal.ThreadLocalRandom 
- -Dio.netty.initialSeedUniquifier: 0xe739e3416c160faa 
-DEBUG 2018-12-07 10:48:14,721: io.netty.channel.ChannelOutboundBuffer 
+DEBUG 2018-12-26 09:22:42,913: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 11048 (auto-detected) 
+DEBUG 2018-12-26 09:22:42,913: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x5677a5fdc176ea85 
+DEBUG 2018-12-26 09:22:42,913: io.netty.channel.ChannelOutboundBuffer 
  -Dio.netty.threadLocalDirectBufferSize: 65536 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent 
  Platform: Windows 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent 
  Java version: 8 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noUnsafe: false 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent0 
  java.nio.ByteBuffer.cleaner: available 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent0 
  java.nio.Buffer.address: available 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.theUnsafe: available 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.copyMemory: available 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent0 
  java.nio.Bits.unaligned: true 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent 
  sun.misc.Unsafe: available 
-DEBUG 2018-12-07 10:48:14,731: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noJavassist: false 
-DEBUG 2018-12-07 10:48:14,741: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent 
  Javassist: unavailable 
-DEBUG 2018-12-07 10:48:14,741: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent 
  You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
-DEBUG 2018-12-07 10:48:14,741: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 09:22:42,933: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noPreferDirect: false 
-DEBUG 2018-12-07 10:48:15,127: io.netty.util.NetUtil 
+DEBUG 2018-12-26 09:22:43,021: io.netty.util.NetUtil 
  Loopback interface: Software Loopback Interface 1 
-DEBUG 2018-12-07 10:48:15,127: io.netty.util.NetUtil 
+DEBUG 2018-12-26 09:22:43,021: io.netty.util.NetUtil 
  Loopback address: /127.0.0.1 (primary) 
-DEBUG 2018-12-07 10:48:15,127: io.netty.util.NetUtil 
+DEBUG 2018-12-26 09:22:43,021: io.netty.util.NetUtil 
  Loopback address: /0:0:0:0:0:0:0:1 
-DEBUG 2018-12-07 10:50:26,830: io.netty.util.internal.logging.InternalLoggerFactory 
+DEBUG 2018-12-26 09:23:17,624: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 09:23:25,132: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 09:23:25,132: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 09:23:30,140: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 09:23:30,150: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 09:23:30,341: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 09:27:11,918: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 09:29:58,215: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:03:54,473: io.netty.util.internal.logging.InternalLoggerFactory 
  Using Log4J as the default logging framework 
-DEBUG 2018-12-07 10:50:26,833: io.netty.channel.MultithreadEventLoopGroup 
+DEBUG 2018-12-26 10:03:54,478: io.netty.channel.MultithreadEventLoopGroup 
  -Dio.netty.eventLoopThreads: 8 
-DEBUG 2018-12-07 10:50:26,847: io.netty.channel.nio.NioEventLoop 
+DEBUG 2018-12-26 10:03:54,517: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.noKeySetOptimization: false 
-DEBUG 2018-12-07 10:50:26,847: io.netty.channel.nio.NioEventLoop 
+DEBUG 2018-12-26 10:03:54,517: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.selectorAutoRebuildThreshold: 512 
-DEBUG 2018-12-07 10:50:28,445: io.netty.channel.DefaultChannelId 
+DEBUG 2018-12-26 10:03:55,707: io.netty.channel.DefaultChannelId 
  -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
-DEBUG 2018-12-07 10:50:28,445: io.netty.channel.DefaultChannelId 
- -Dio.netty.processId: 7884 (auto-detected) 
-DEBUG 2018-12-07 10:50:28,445: io.netty.util.internal.ThreadLocalRandom 
- -Dio.netty.initialSeedUniquifier: 0xfc96dc07ff0edb67 
-DEBUG 2018-12-07 10:50:28,455: io.netty.channel.ChannelOutboundBuffer 
+DEBUG 2018-12-26 10:03:55,717: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 18960 (auto-detected) 
+DEBUG 2018-12-26 10:03:55,717: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x2a0d50dcf5ec4089 
+DEBUG 2018-12-26 10:03:55,727: io.netty.channel.ChannelOutboundBuffer 
  -Dio.netty.threadLocalDirectBufferSize: 65536 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:03:55,757: io.netty.util.internal.PlatformDependent 
  Platform: Windows 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:03:55,757: io.netty.util.internal.PlatformDependent 
  Java version: 8 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:03:55,757: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noUnsafe: false 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:03:55,757: io.netty.util.internal.PlatformDependent0 
  java.nio.ByteBuffer.cleaner: available 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent0 
  java.nio.Buffer.address: available 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.theUnsafe: available 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.copyMemory: available 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent0 
  java.nio.Bits.unaligned: true 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent 
  sun.misc.Unsafe: available 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noJavassist: false 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent 
  Javassist: unavailable 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent 
  You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
-DEBUG 2018-12-07 10:50:28,465: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:03:55,767: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noPreferDirect: false 
-DEBUG 2018-12-07 10:50:28,604: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:03:55,877: io.netty.util.NetUtil 
  Loopback interface: Software Loopback Interface 1 
-DEBUG 2018-12-07 10:50:28,604: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:03:55,877: io.netty.util.NetUtil 
  Loopback address: /127.0.0.1 (primary) 
-DEBUG 2018-12-07 10:50:28,604: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:03:55,877: io.netty.util.NetUtil 
  Loopback address: /0:0:0:0:0:0:0:1 
-DEBUG 2018-12-07 10:50:46,775: io.netty.util.internal.logging.InternalLoggerFactory 
+DEBUG 2018-12-26 10:04:03,267: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 10:06:56,759: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:06:58,172: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 10:07:05,838: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:07:46,405: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:07:57,733: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:07:57,743: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:07:57,743: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:07:57,743: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:08:06,970: io.netty.util.internal.logging.InternalLoggerFactory 
  Using Log4J as the default logging framework 
-DEBUG 2018-12-07 10:50:46,785: io.netty.channel.MultithreadEventLoopGroup 
+DEBUG 2018-12-26 10:08:06,970: io.netty.channel.MultithreadEventLoopGroup 
  -Dio.netty.eventLoopThreads: 8 
-DEBUG 2018-12-07 10:50:46,809: io.netty.channel.nio.NioEventLoop 
+DEBUG 2018-12-26 10:08:06,980: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.noKeySetOptimization: false 
-DEBUG 2018-12-07 10:50:46,809: io.netty.channel.nio.NioEventLoop 
+DEBUG 2018-12-26 10:08:06,980: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.selectorAutoRebuildThreshold: 512 
-DEBUG 2018-12-07 10:50:48,226: io.netty.channel.DefaultChannelId 
+DEBUG 2018-12-26 10:08:08,162: io.netty.channel.DefaultChannelId 
  -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
-DEBUG 2018-12-07 10:50:48,226: io.netty.channel.DefaultChannelId 
- -Dio.netty.processId: 19480 (auto-detected) 
-DEBUG 2018-12-07 10:50:48,226: io.netty.util.internal.ThreadLocalRandom 
- -Dio.netty.initialSeedUniquifier: 0x9bce3620b268eda8 
-DEBUG 2018-12-07 10:50:48,236: io.netty.channel.ChannelOutboundBuffer 
+DEBUG 2018-12-26 10:08:08,165: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 8660 (auto-detected) 
+DEBUG 2018-12-26 10:08:08,165: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x0c21822dd2587979 
+DEBUG 2018-12-26 10:08:08,165: io.netty.channel.ChannelOutboundBuffer 
  -Dio.netty.threadLocalDirectBufferSize: 65536 
-DEBUG 2018-12-07 10:50:48,246: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:08:08,185: io.netty.util.internal.PlatformDependent 
  Platform: Windows 
-DEBUG 2018-12-07 10:50:48,246: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:08:08,185: io.netty.util.internal.PlatformDependent 
  Java version: 8 
-DEBUG 2018-12-07 10:50:48,246: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:08:08,185: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noUnsafe: false 
-DEBUG 2018-12-07 10:50:48,248: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:08:08,185: io.netty.util.internal.PlatformDependent0 
  java.nio.ByteBuffer.cleaner: available 
-DEBUG 2018-12-07 10:50:48,248: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:08:08,185: io.netty.util.internal.PlatformDependent0 
  java.nio.Buffer.address: available 
-DEBUG 2018-12-07 10:50:48,248: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:08:08,185: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.theUnsafe: available 
-DEBUG 2018-12-07 10:50:48,248: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:08:08,185: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.copyMemory: available 
-DEBUG 2018-12-07 10:50:48,248: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:08:08,195: io.netty.util.internal.PlatformDependent0 
  java.nio.Bits.unaligned: true 
-DEBUG 2018-12-07 10:50:48,248: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:08:08,195: io.netty.util.internal.PlatformDependent 
  sun.misc.Unsafe: available 
-DEBUG 2018-12-07 10:50:48,248: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:08:08,195: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noJavassist: false 
-DEBUG 2018-12-07 10:50:48,249: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:08:08,195: io.netty.util.internal.PlatformDependent 
  Javassist: unavailable 
-DEBUG 2018-12-07 10:50:48,249: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:08:08,195: io.netty.util.internal.PlatformDependent 
  You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
-DEBUG 2018-12-07 10:50:48,249: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:08:08,195: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noPreferDirect: false 
-DEBUG 2018-12-07 10:50:48,383: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:08:08,285: io.netty.util.NetUtil 
  Loopback interface: Software Loopback Interface 1 
-DEBUG 2018-12-07 10:50:48,383: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:08:08,285: io.netty.util.NetUtil 
  Loopback address: /127.0.0.1 (primary) 
-DEBUG 2018-12-07 10:50:48,383: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:08:08,285: io.netty.util.NetUtil 
  Loopback address: /0:0:0:0:0:0:0:1 
-DEBUG 2018-12-07 10:51:48,944: io.netty.util.internal.logging.InternalLoggerFactory 
+DEBUG 2018-12-26 10:08:17,846: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 10:08:47,837: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:08:47,837: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 10:09:06,702: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:09:17,847: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:10:07,767: io.netty.util.internal.logging.InternalLoggerFactory 
  Using Log4J as the default logging framework 
-DEBUG 2018-12-07 10:51:48,946: io.netty.channel.MultithreadEventLoopGroup 
+DEBUG 2018-12-26 10:10:07,767: io.netty.channel.MultithreadEventLoopGroup 
  -Dio.netty.eventLoopThreads: 8 
-DEBUG 2018-12-07 10:51:48,966: io.netty.channel.nio.NioEventLoop 
+DEBUG 2018-12-26 10:10:07,787: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.noKeySetOptimization: false 
-DEBUG 2018-12-07 10:51:48,966: io.netty.channel.nio.NioEventLoop 
+DEBUG 2018-12-26 10:10:07,787: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.selectorAutoRebuildThreshold: 512 
-DEBUG 2018-12-07 10:51:50,390: io.netty.channel.DefaultChannelId 
+DEBUG 2018-12-26 10:10:08,981: io.netty.channel.DefaultChannelId 
  -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
-DEBUG 2018-12-07 10:51:50,396: io.netty.channel.DefaultChannelId 
- -Dio.netty.processId: 11596 (auto-detected) 
-DEBUG 2018-12-07 10:51:50,400: io.netty.util.internal.ThreadLocalRandom 
- -Dio.netty.initialSeedUniquifier: 0xfcabf759f5239ecb 
-DEBUG 2018-12-07 10:51:50,407: io.netty.channel.ChannelOutboundBuffer 
+DEBUG 2018-12-26 10:10:08,981: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 19968 (auto-detected) 
+DEBUG 2018-12-26 10:10:08,981: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xb8f644721b691be2 
+DEBUG 2018-12-26 10:10:08,991: io.netty.channel.ChannelOutboundBuffer 
  -Dio.netty.threadLocalDirectBufferSize: 65536 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent 
  Platform: Windows 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent 
  Java version: 8 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noUnsafe: false 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent0 
  java.nio.ByteBuffer.cleaner: available 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent0 
  java.nio.Buffer.address: available 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.theUnsafe: available 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.copyMemory: available 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent0 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent0 
  java.nio.Bits.unaligned: true 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent 
  sun.misc.Unsafe: available 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noJavassist: false 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent 
  Javassist: unavailable 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent 
  You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
-DEBUG 2018-12-07 10:51:50,417: io.netty.util.internal.PlatformDependent 
+DEBUG 2018-12-26 10:10:09,011: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noPreferDirect: false 
-DEBUG 2018-12-07 10:51:50,566: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:10:09,293: io.netty.util.NetUtil 
  Loopback interface: Software Loopback Interface 1 
-DEBUG 2018-12-07 10:51:50,567: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:10:09,293: io.netty.util.NetUtil 
  Loopback address: /127.0.0.1 (primary) 
-DEBUG 2018-12-07 10:51:50,567: io.netty.util.NetUtil 
+DEBUG 2018-12-26 10:10:09,293: io.netty.util.NetUtil 
  Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 10:10:13,557: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 10:11:16,032: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:11:16,032: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 10:12:16,034: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:13:16,037: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:14:16,040: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:15:16,043: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:16:17,071: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 10:16:17,075: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 10:16:17,113: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 10:16:17,114: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 10:16:18,708: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 10:16:18,711: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 15284 (auto-detected) 
+DEBUG 2018-12-26 10:16:18,713: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xe131bef71ed9f25b 
+DEBUG 2018-12-26 10:16:18,727: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 10:16:18,743: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 10:16:18,743: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 10:16:18,743: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 10:16:18,744: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 10:16:18,745: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 10:16:18,745: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 10:16:18,745: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 10:16:18,745: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 10:16:18,745: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 10:16:18,745: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 10:16:18,746: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 10:16:18,746: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 10:16:18,746: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 10:16:19,059: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 10:16:19,059: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 10:16:19,059: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 10:16:22,963: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 10:17:27,164: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 10:17:27,167: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 10:17:27,210: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 10:17:27,210: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 10:17:28,447: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 10:17:28,449: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 9104 (auto-detected) 
+DEBUG 2018-12-26 10:17:28,451: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xfc3fef6538770470 
+DEBUG 2018-12-26 10:17:28,457: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 10:17:28,470: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 10:17:28,470: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 10:17:28,470: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 10:17:28,471: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 10:17:28,471: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 10:17:28,471: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 10:17:28,471: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 10:17:28,472: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 10:17:28,472: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 10:17:28,472: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 10:17:28,472: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 10:17:28,472: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 10:17:28,472: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 10:17:28,544: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 10:17:28,545: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 10:17:28,545: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 10:17:33,963: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:17:33,965: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 10:17:41,789: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 10:17:41,791: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 10:17:41,813: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 10:17:41,813: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 10:17:44,308: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 10:17:44,326: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 15312 (auto-detected) 
+DEBUG 2018-12-26 10:17:44,348: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x0920f7042812b8c7 
+DEBUG 2018-12-26 10:17:44,356: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 10:17:44,371: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 10:17:44,371: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 10:17:44,371: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 10:17:44,373: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 10:17:44,373: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 10:17:44,373: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 10:17:44,374: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 10:17:44,374: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 10:17:44,374: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 10:17:44,374: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 10:17:44,375: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 10:17:44,375: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 10:17:44,375: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 10:17:44,498: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 10:17:44,499: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 10:17:44,499: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 10:17:47,288: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 10:18:22,959: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 10:18:22,967: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 10:18:47,281: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:03:15,111: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:03:15,127: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:03:15,291: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:03:15,291: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:03:16,964: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:03:16,969: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 1268 (auto-detected) 
+DEBUG 2018-12-26 11:03:16,971: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xf8c1e4e82bb0dd2e 
+DEBUG 2018-12-26 11:03:16,978: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:03:16,992: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:03:16,992: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:03:16,992: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:03:16,993: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:03:16,993: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:03:16,993: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:03:16,993: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:03:16,993: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:03:16,993: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:03:16,994: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:03:16,994: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:03:16,994: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:03:16,994: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:03:17,083: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:03:17,084: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:03:17,084: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:03:24,672: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:05:22,995: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:05:42,519: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 11:05:47,678: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:05:47,681: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:05:47,714: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:05:47,714: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:05:49,126: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:05:49,129: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 8552 (auto-detected) 
+DEBUG 2018-12-26 11:05:49,148: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x8f55003537b096ed 
+DEBUG 2018-12-26 11:05:49,155: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:05:49,169: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:05:49,169: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:05:49,170: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:05:49,171: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:05:49,171: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:05:49,171: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:05:49,172: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:05:49,172: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:05:49,172: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:05:49,173: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:05:49,173: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:05:49,173: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:05:49,173: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:05:49,352: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:05:49,353: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:05:49,353: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:06:40,464: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:06:40,467: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:06:40,470: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 11:07:00,461: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:07:20,462: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:10:07,610: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 11:10:07,629: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 11:10:08,059: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 11:17:52,778: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:17:52,787: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:17:52,920: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:17:52,920: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:17:55,800: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:17:55,824: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 15232 (auto-detected) 
+DEBUG 2018-12-26 11:17:55,836: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x1cc32c2f030ce6e3 
+DEBUG 2018-12-26 11:17:55,847: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:17:55,868: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:17:55,868: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:17:55,868: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:17:55,870: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:17:55,870: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:17:55,870: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:17:55,871: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:17:55,871: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:17:55,871: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:17:55,871: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:17:55,886: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:17:55,886: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:17:55,886: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:17:56,226: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:17:56,226: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:17:56,227: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:18:01,593: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:18:17,305: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 11:18:17,312: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 11:18:20,132: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:18:20,134: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:18:20,157: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:18:20,157: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:18:21,345: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:18:21,347: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 21060 (auto-detected) 
+DEBUG 2018-12-26 11:18:21,367: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xe8facf340070b192 
+DEBUG 2018-12-26 11:18:21,373: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:18:21,385: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:18:21,385: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:18:21,385: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:18:21,386: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:18:21,387: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:18:21,387: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:18:21,387: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:18:21,387: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:18:21,387: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:18:21,387: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:18:21,388: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:18:21,388: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:18:21,388: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:18:21,652: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:18:21,652: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:18:21,652: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:18:28,266: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:18:28,270: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 11:18:28,273: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 11:18:28,794: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 11:23:13,606: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:23:13,607: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 11:23:23,606: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:23:33,608: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:23:35,617: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:23:45,619: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:23:55,620: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:23:57,621: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:24:07,624: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:24:17,626: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:24:19,627: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:26:34,007: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:27:04,073: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:27:04,094: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:27:04,304: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:27:04,304: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:27:07,620: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:27:07,623: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 10912 (auto-detected) 
+DEBUG 2018-12-26 11:27:07,625: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x95c129ba8cde948e 
+DEBUG 2018-12-26 11:27:07,634: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:27:07,650: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:27:07,650: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:27:07,650: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:27:07,651: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:27:07,651: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:27:07,651: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:27:07,651: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:27:07,651: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:27:07,652: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:27:07,652: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:27:07,652: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:27:07,652: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:27:07,652: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:27:07,727: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:27:07,727: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:27:07,727: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:29:47,136: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:31:20,372: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:31:26,190: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 11:46:34,047: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:46:34,049: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:46:34,066: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:46:34,066: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:46:35,156: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:46:35,159: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 17180 (auto-detected) 
+DEBUG 2018-12-26 11:46:35,163: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x1f6a6219149e11f2 
+DEBUG 2018-12-26 11:46:35,174: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:46:35,236: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:46:35,237: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:46:35,238: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:46:35,241: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:46:35,242: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:46:35,242: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:46:35,242: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:46:35,244: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:46:35,244: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:46:35,245: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:46:35,248: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:46:35,248: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:46:35,248: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:46:35,594: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:46:35,595: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:46:35,595: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:46:38,155: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:46:38,158: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：427 
+DEBUG 2018-12-26 11:46:48,151: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：427 
+DEBUG 2018-12-26 11:47:03,265: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:47:03,283: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:47:03,482: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:47:03,482: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:47:06,150: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:47:06,153: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 9260 (auto-detected) 
+DEBUG 2018-12-26 11:47:06,155: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x6b9c5d3a906c7409 
+DEBUG 2018-12-26 11:47:06,162: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:47:06,178: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:47:06,178: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:47:06,178: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:47:06,179: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:47:06,180: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:47:06,180: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:47:06,180: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:47:06,180: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:47:06,180: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:47:06,181: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:47:06,181: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:47:06,181: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:47:06,181: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:47:06,257: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:47:06,257: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:47:06,257: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:47:36,888: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:49:20,978: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:49:20,981: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:49:21,012: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:49:21,012: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:49:22,386: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:49:22,390: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 16896 (auto-detected) 
+DEBUG 2018-12-26 11:49:22,392: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x6867ce5b085f9d5d 
+DEBUG 2018-12-26 11:49:22,400: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:49:22,430: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:49:22,430: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:49:22,431: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:49:22,432: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:49:22,433: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:49:22,433: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:49:22,433: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:49:22,434: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:49:22,434: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:49:22,434: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:49:22,435: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:49:22,435: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:49:22,435: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:49:22,615: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:49:22,615: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:49:22,615: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:49:25,151: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:51:26,039: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：427 
+DEBUG 2018-12-26 11:51:31,596: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 11:51:31,599: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 11:51:31,620: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 11:51:31,620: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 11:51:33,782: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 11:51:33,785: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 5908 (auto-detected) 
+DEBUG 2018-12-26 11:51:33,799: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x342f6727354121ff 
+DEBUG 2018-12-26 11:51:33,805: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 11:51:33,819: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 11:51:33,819: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 11:51:33,819: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 11:51:33,820: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 11:51:33,820: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 11:51:33,820: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 11:51:33,820: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 11:51:33,821: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 11:51:33,821: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 11:51:33,821: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 11:51:33,822: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 11:51:33,822: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 11:51:33,822: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 11:51:34,063: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 11:51:34,063: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 11:51:34,063: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 11:51:34,103: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 11:51:34,108: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 11:51:34,109: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 11:51:34,112: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 11:51:34,576: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 11:51:34,984: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 13:41:21,668: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 13:41:21,671: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 13:41:21,684: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 13:41:21,684: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 13:41:24,421: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 13:41:24,430: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 15320 (auto-detected) 
+DEBUG 2018-12-26 13:41:24,453: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x945a27b57b740c54 
+DEBUG 2018-12-26 13:41:24,459: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 13:41:24,471: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 13:41:24,471: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 13:41:24,471: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 13:41:24,472: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 13:41:24,473: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 13:41:24,473: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 13:41:24,473: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 13:41:24,474: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 13:41:24,474: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 13:41:24,474: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 13:41:24,475: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 13:41:24,475: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 13:41:24,475: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 13:41:24,771: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 13:41:24,771: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 13:41:24,771: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 13:43:29,167: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 13:43:29,167: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 13:43:29,177: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201704131', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 13:43:41,177: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 13:43:53,188: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 13:45:58,531: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 13:45:58,531: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：25 
+DEBUG 2018-12-26 13:45:58,531: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 13:46:24,789: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 13:46:24,907: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 13:46:24,943: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 13:46:24,943: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 13:46:27,685: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 13:46:27,695: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 17564 (auto-detected) 
+DEBUG 2018-12-26 13:46:27,718: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xc34b27f0d085724e 
+DEBUG 2018-12-26 13:46:27,728: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 13:46:27,745: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 13:46:27,745: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 13:46:27,745: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 13:46:27,746: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 13:46:27,746: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 13:46:27,746: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 13:46:27,746: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 13:46:27,747: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 13:46:27,747: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 13:46:27,747: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 13:46:27,747: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 13:46:27,747: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 13:46:27,748: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 13:46:27,879: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 13:46:27,879: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 13:46:27,879: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 13:46:35,406: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 13:48:37,798: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 13:49:38,638: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：25 
+DEBUG 2018-12-26 13:50:08,007: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 13:51:14,963: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 13:51:14,963: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 13:51:14,973: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 13:51:14,983: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 13:51:16,054: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 13:51:16,054: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 712 (auto-detected) 
+DEBUG 2018-12-26 13:51:16,054: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xc28d43db2bc3612e 
+DEBUG 2018-12-26 13:51:16,064: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 13:51:16,074: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 13:51:16,184: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 13:51:16,184: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 13:51:16,184: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 13:51:28,478: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 13:51:28,478: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 13:51:28,478: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 13:51:40,483: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 15:47:00,313: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 15:47:00,313: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 15:47:12,324: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 15:47:24,339: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:18:12,908: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 16:18:12,918: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 16:18:12,938: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 16:18:12,938: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 16:18:14,083: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 16:18:14,095: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 16036 (auto-detected) 
+DEBUG 2018-12-26 16:18:14,097: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x5d5b25b135dfafdb 
+DEBUG 2018-12-26 16:18:14,109: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 16:18:14,129: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 16:18:14,129: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 16:18:14,129: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 16:18:14,133: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 16:18:14,133: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 16:18:14,133: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 16:18:14,134: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 16:18:14,134: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 16:18:14,135: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 16:18:14,135: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 16:18:14,135: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 16:18:14,135: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 16:18:14,135: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 16:18:14,339: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 16:18:14,348: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 16:18:14,348: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 16:18:16,679: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 16:18:16,679: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:18:16,689: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 16:18:18,660: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:18:18,662: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 16:18:19,394: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:19:59,980: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:20:09,990: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:20:09,990: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:20:09,990: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:22:26,585: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:22:36,593: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:22:36,593: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:22:36,593: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:28:14,034: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:28:24,036: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:28:24,036: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:28:24,037: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 16:28:24,755: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:32:41,361: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:32:51,353: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:32:51,353: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:32:51,353: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:38:17,913: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 16:38:17,943: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 16:38:17,953: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 16:38:17,953: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 16:38:20,551: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 16:38:20,561: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 524 (auto-detected) 
+DEBUG 2018-12-26 16:38:20,561: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x26af5442148a7a3b 
+DEBUG 2018-12-26 16:38:20,571: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 16:38:20,601: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 16:38:20,602: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 16:38:20,602: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 16:38:20,604: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 16:38:20,605: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 16:38:20,605: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 16:38:20,605: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 16:38:20,606: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 16:38:20,606: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 16:38:20,606: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 16:38:20,607: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 16:38:20,607: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 16:38:20,608: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 16:38:20,725: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 16:38:20,725: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 16:38:20,725: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 16:38:25,676: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 16:38:25,676: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:38:25,686: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 16:38:33,624: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:38:35,685: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:38:35,685: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:38:35,685: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 16:38:36,432: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:39:49,003: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 16:39:49,016: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 16:39:49,047: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 16:39:49,048: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 16:39:51,873: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 16:39:51,879: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 3184 (auto-detected) 
+DEBUG 2018-12-26 16:39:51,901: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x31a5616f7bdd0016 
+DEBUG 2018-12-26 16:39:51,912: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 16:39:51,934: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 16:39:51,934: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 16:39:51,935: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 16:39:51,936: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 16:39:51,937: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 16:39:51,937: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 16:39:51,937: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 16:39:51,938: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 16:39:51,938: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 16:39:51,939: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 16:39:51,940: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 16:39:51,940: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 16:39:51,940: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 16:39:52,496: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 16:39:52,497: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 16:39:52,497: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 16:39:56,182: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 16:39:56,186: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:39:56,188: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 16:39:57,711: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:39:59,712: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:39:59,712: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 16:40:00,456: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:50:56,062: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 16:50:56,062: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 16:50:56,102: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 16:50:56,102: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 16:50:58,177: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 16:50:58,180: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 1492 (auto-detected) 
+DEBUG 2018-12-26 16:50:58,182: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xf90c71b0d496ddce 
+DEBUG 2018-12-26 16:50:58,188: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 16:50:58,203: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 16:50:58,204: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 16:50:58,204: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 16:50:58,205: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 16:50:58,205: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 16:50:58,205: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 16:50:58,205: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 16:50:58,205: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 16:50:58,206: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 16:50:58,206: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 16:50:58,206: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 16:50:58,207: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 16:50:58,207: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 16:50:58,298: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 16:50:58,298: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 16:50:58,298: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 16:51:24,466: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 16:51:24,476: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:51:24,476: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 16:51:34,469: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:51:34,469: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:51:34,469: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 16:51:35,203: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:51:35,393: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 16:51:36,089: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 16:52:45,125: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 16:52:45,125: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 16:52:45,155: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 16:52:45,155: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 16:52:48,324: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 16:52:48,324: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 5032 (auto-detected) 
+DEBUG 2018-12-26 16:52:48,334: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x1933bef3c35cdb4b 
+DEBUG 2018-12-26 16:52:48,344: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 16:52:48,364: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 16:52:48,484: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 16:52:48,484: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 16:52:48,484: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 16:52:48,938: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 16:52:48,938: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:52:48,938: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 16:52:58,928: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:52:58,928: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:52:58,928: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 16:52:59,650: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:52:59,830: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 16:53:00,487: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 16:53:00,517: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 16:53:00,517: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 16:53:00,537: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:53:08,935: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:55:58,857: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:56:00,860: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:56:00,860: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:56:01,755: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 16:56:01,764: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 16:56:01,764: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 16:56:10,865: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:56:12,871: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:56:12,871: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 16:56:14,225: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 16:56:14,235: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 16:56:14,235: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 16:57:42,583: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 16:57:42,610: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 16:57:42,847: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 16:57:42,847: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 16:57:44,635: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 16:57:44,635: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 21412 (auto-detected) 
+DEBUG 2018-12-26 16:57:44,635: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x4197972976039de6 
+DEBUG 2018-12-26 16:57:44,645: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 16:57:44,655: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 16:57:44,655: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 16:57:44,655: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 16:57:44,665: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 16:57:44,745: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 16:57:44,745: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 16:57:44,745: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 16:57:54,722: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 16:58:26,018: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:58:30,718: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 16:58:37,467: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:58:37,467: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:58:37,467: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:58:37,467: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 16:58:37,467: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:58:37,467: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 16:58:37,467: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 16:58:41,998: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 16:58:42,025: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 16:58:42,221: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 16:58:42,222: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 16:58:43,815: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 16:58:43,825: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 21252 (auto-detected) 
+DEBUG 2018-12-26 16:58:43,825: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x243f81c40a21bdc0 
+DEBUG 2018-12-26 16:58:43,825: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 16:58:43,845: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 16:58:43,915: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 16:58:43,915: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 16:58:43,915: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 16:59:39,818: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 17:00:16,055: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:02:44,823: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 17:03:48,699: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:03:56,961: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:03:56,961: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:03:56,961: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:03:56,961: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 17:05:29,266: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 17:05:29,269: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 17:05:29,296: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 17:05:29,296: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 17:05:30,437: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 17:05:30,440: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 15860 (auto-detected) 
+DEBUG 2018-12-26 17:05:30,442: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x258f1310f92f2380 
+DEBUG 2018-12-26 17:05:30,447: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 17:05:30,465: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 17:05:30,465: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 17:05:30,465: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 17:05:30,467: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 17:05:30,467: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 17:05:30,467: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 17:05:30,467: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 17:05:30,467: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 17:05:30,467: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 17:05:30,485: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 17:05:30,485: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 17:05:30,486: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 17:05:30,486: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 17:05:30,701: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 17:05:30,702: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 17:05:30,702: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 17:06:22,929: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 17:06:22,932: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:06:22,935: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 17:06:24,929: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:06:24,932: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 17:06:25,847: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:06:26,058: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:06:26,748: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:06:26,755: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:06:26,755: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:06:34,932: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:06:36,934: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:06:36,935: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:06:37,724: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:06:37,726: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:06:37,726: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:06:46,937: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:06:48,939: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:06:48,940: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:06:49,138: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:06:49,139: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:06:49,139: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:06:58,944: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:07:00,945: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:07:00,946: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:07:01,836: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:07:01,837: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:07:01,837: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:07:10,948: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:07:12,950: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:07:12,951: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:07:13,739: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:07:13,739: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:07:13,740: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:07:35,021: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:07:35,022: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:07:35,022: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:07:35,277: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:07:35,277: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:07:35,278: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:07:45,021: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:07:45,022: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:07:45,022: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:07:45,878: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:07:45,880: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:07:45,880: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:07:55,025: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:07:55,026: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:07:55,026: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:07:55,769: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:07:55,770: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:07:55,770: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:08:05,026: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:08:05,026: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:08:05,026: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:08:05,315: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:08:05,315: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:08:05,316: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:10:14,424: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-26 17:10:14,429: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-26 17:10:14,447: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-26 17:10:14,447: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-26 17:10:15,596: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-26 17:10:15,599: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 14416 (auto-detected) 
+DEBUG 2018-12-26 17:10:15,600: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xdab51aebf6c42bf1 
+DEBUG 2018-12-26 17:10:15,606: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-26 17:10:15,622: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-26 17:10:15,622: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-26 17:10:15,622: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-26 17:10:15,623: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-26 17:10:15,624: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-26 17:10:15,624: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-26 17:10:15,624: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-26 17:10:15,624: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-26 17:10:15,625: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-26 17:10:15,625: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-26 17:10:15,625: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-26 17:10:15,626: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-26 17:10:15,626: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-26 17:10:15,731: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-26 17:10:15,732: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-26 17:10:15,732: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-26 17:10:21,234: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-26 17:10:21,240: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:10:21,241: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:10:21,242: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-26 17:10:22,096: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-26 17:10:22,859: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:10:23,033: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:10:23,702: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:10:23,707: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:10:23,707: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-26 17:10:31,230: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：11 
+DEBUG 2018-12-26 17:10:33,230: com.xjy.decoder.InternalProtocolDecoder 
+ 收到数据长度：412 
+DEBUG 2018-12-26 17:10:33,231: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-26 17:10:33,895: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-26 17:10:33,896: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-26 17:10:33,897: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  

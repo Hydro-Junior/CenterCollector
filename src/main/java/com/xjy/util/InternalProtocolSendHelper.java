@@ -136,9 +136,9 @@ public class InternalProtocolSendHelper {
     public static void setTimingCollect(Center currentCenter) {//数据格式PT1(Y/N)dd2(Y/N)ddhhmmss
         int[] data = new int[19];//3字节指令字+数据
         data[0] = 'P';data[1] = 'P';data[2]='P';
-        data[3] = 'P'; data[4] = 'T';//后面2个字节是dd(这里处理均为Y，每天采集)
-        data[5] = 1+'0';data[6] = 'Y'; //7|8 dd
-        data[9] = 2+'0';data[10] = 'Y';//11|12 dd
+        data[3] = 'P'; data[4] = 'T';//后面2个字节是dd(均为Y，每天采集,为N则都不采)
+        data[5] = 1+'0';data[6] = 'N'; //7|8 dd
+        data[9] = 2+'0';data[10] = 'N';//11|12 dd
 
         LocalDateTime time = LocalDateTime.now();
         //设置两个dd(默认是每天采集)
@@ -147,7 +147,7 @@ public class InternalProtocolSendHelper {
         int hi1 = day1/10, hi2 = day2/10, lo1 = day1%10, lo2 = day2%10;
         data[7] = hi1+'0'; data[8] = lo1+'0';
         data[11] = hi2+'0'; data[12] = lo2+'0';
-        //设置hhmmss(查找数据库，有特定时间的话设置为特定时间，没有的话默认0点)
+        //设置hhmmss
         int h = 23, m = 30, s = 0;
         int h1 = h / 10, h2 = h % 10, m1 = m /10, m2 = m % 10, s1 = s/10, s2 = s % 10;
         data[13] = h1+'0'; data[14] = h2+'0';

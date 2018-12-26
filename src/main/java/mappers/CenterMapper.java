@@ -14,7 +14,7 @@ import java.util.List;
  * @Description:
  */
 public interface CenterMapper {
-    int getIdByAddress(@Param("address") String address,@Param("ip") String ip, @Param("port") int port);
+    Integer getIdByAddress (@Param("address") String address,@Param("ip") String ip, @Param("port") int port);
     void initCenterState(@Param("ip") String ip, @Param("port") int port);
     void updateCenterOnline(@Param("state")int state,@Param("address") String address,@Param("ip")String ip,@Param("port")int port);
     void updateCenterReadTime(int id);

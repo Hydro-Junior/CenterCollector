@@ -1,6 +1,7 @@
 package com.xjy.entity;
 
 import com.xjy.util.ConvertUtil;
+import com.xjy.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,13 +67,18 @@ public class CenterPage {
         if (curIdx > 1) {
             res.add(curPage);
         }
+        for(int i = 0 ; i < collectors.size(); i++){
+            collectors.get(i).getMeters().clear(); //清空表结构，释放少量多余内存
+        }
         return res;
     }
 
     public static int[] getAdderssArray(String address) {
         address = address.trim();
         int[] arr = new int[6];
-        //todo 如果不是正常的12位地址长度，要警告提示
+        if(address.length() != 12){
+            LogUtil.DataMessageLog(CenterPage.class,"非12位长度地址："+address);
+        }
         while (address.length() < 12) {
             address = "0" + address;
         }

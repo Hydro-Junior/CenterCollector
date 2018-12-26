@@ -39,7 +39,7 @@ public class ConditionMonitor implements Runnable {
                 try{
                     if(channelCtx.channel().isActive()){
                         Command c = entry.getValue().getCurCommand();
-                        System.out.println(entry.getKey()+  "   当前命令："+c);
+                        System.out.println(entry.getKey()+  "   当前命令："+ c);
                         //定时采集设置命令可以成功执行，然后似乎硬件实际并没有执行，为了确保定时采集成功，
                         //用quartz定时任务替代：由程序亲自发送采集命令
                         /*if(c == null || c.getState()== CommandState.FAILED || c.getState()==CommandState.SUCCESSED)

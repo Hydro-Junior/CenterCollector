@@ -122,6 +122,7 @@ public class CommandExecutor implements Runnable{
                 }*/
                 break;
             case COLLECT_FOR_CENTER:
+                center.getCurCommand().setMinitesLimit(60);//采集时间不允许超过1小时
                 InternalProtocolSendHelper.collect(center);
                 break;
             case READ_CENTER_INFO:
@@ -131,29 +132,11 @@ public class CommandExecutor implements Runnable{
                 //开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
                 DBUtil.preprocessOfRead(center);
                 InternalProtocolSendHelper.readNextPage(center,1);
-                /*int num = getTotalPages(center);
-                for(int i = 1 ; i < num ; i++){
-                    InternalProtocolSendHelper.readNextPage(center,i);//从表信息页开始读取
-                    try {
-                        TimeUnit.SECONDS.sleep(2);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }*/
                 break;
             case READ_ALL_METERS:
                 //开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
                 DBUtil.preprocessOfRead(center);
-                InternalProtocolSendHelper.readNextPage(center,0);
-                /*int num1 = getTotalPages(center);
-                for(int i = 0 ; i < num1 ; i++){
-                    InternalProtocolSendHelper.readNextPage(center,i);//从采集通道信息页开始读取
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(2);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }*/
+                InternalProtocolSendHelper.readNextPage(center,1);
                 break;
             case CHECK_CLOCK: //设备校时，顺便设置定时采集
                 InternalProtocolSendHelper.setClock(center);

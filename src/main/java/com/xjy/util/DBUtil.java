@@ -15,6 +15,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,7 +36,11 @@ public class DBUtil {
     public static List<DBCollector> getCollectorsByCenter(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);
-        int centerId = mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
+        Integer centerId = mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
+        if(centerId == null) {
+            LogUtil.DataMessageLog(DBUtil.class,"找不到集中器id！请检查集中器IP和端口配置！");
+            return new ArrayList<>();
+        }
         center.setDbId(centerId);//下载档案时可以重置集中器在数据库中的id，可用于重新导入资料后的数据更新
         List<DBCollector> collectors = mapper.getCollectors(centerId);
         session.close();
@@ -45,13 +50,21 @@ public class DBUtil {
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);
         if(center.getDbId() == null) center.setDbId(mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort)));
+        if(center.getDbId()  == null) {
+            LogUtil.DataMessageLog(DBUtil.class,"找不到集中器id！请检查集中器IP和端口配置！");
+            return null;
+        }
         Scheme scheme = mapper.getScheme(mapper.getSchemeId(center.getDbId()));
         return scheme;
     }
     public static void preprocessOfRead(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);
-        int centerId = mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
+        Integer centerId = mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
+        if(centerId  == null) {
+            LogUtil.DataMessageLog(DBUtil.class,"找不到集中器id！请检查集中器IP和端口配置！");
+            return;
+        }
         center.setDbId(centerId);
         if(center.getEnprNo() == null)
             center.setEnprNo(mapper.getEnprNo(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort)));
@@ -151,6 +164,10 @@ public class DBUtil {
         }else{
             mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
         }
+        //阀门信息
+        DBMeter dbmeter = mapper.searchDevice(centerId,meter.getId());
+        if(meter == null) LogUtil.DataMessageLog(DBUtil.class,"找不到对应水表！\r\n centerId="+centerId+"   meterAddress="+meter.getId());
+        if(dbmeter.getStrobeStatue() != 0 && meter.getValveState()>=1) mapper.updateStrobeState(meter.getValveState(),dbmeter.getId());
         session.commit();
         session.close();
     }
@@ -178,7 +195,8 @@ public class DBUtil {
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
         String enprNo = center.getEnprNo();
-        int centerId = center.getDbId();
+        Integer centerId = center.getDbId();
+        if(centerId == null) return;
         String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
         //如果当天已有数据，则更新，否则插入
         for(Meter meter : tempMeterData){
@@ -187,6 +205,10 @@ public class DBUtil {
             }else{
                 mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
             }
+            //阀门信息
+            DBMeter dbmeter = mapper.searchDevice(centerId,meter.getId());
+            if(meter == null) LogUtil.DataMessageLog(DBUtil.class,"找不到对应水表！\r\n centerId="+centerId+"   meterAddress="+meter.getId());
+            if(dbmeter.getStrobeStatue() != 0 && meter.getValveState()>=1) mapper.updateStrobeState(meter.getValveState(),dbmeter.getId());
         }
         session.commit();
         session.close();

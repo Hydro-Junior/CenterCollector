@@ -66,10 +66,12 @@ public class CollectServer {
                 socketChannel.pipeline().addLast( new XtMessageHandler());
             }else{//默认内部协议
                 //内部协议以固定数据头作分隔符
-                ByteBuf internalDelimiter = Unpooled.copiedBuffer(Constants.INTERNAL_DELIMETER);//定义分隔符
+                //ByteBuf internalDelimiter = Unpooled.copiedBuffer(Constants.INTERNAL_DELIMETER);//定义分隔符
                 //管道流式处理字节流
-                socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,internalDelimiter),
-                        new InternalProtocolDecoder());
+    /*由于内部协议只有报文头，如果用delimiter解码会导致这样一个问题：只有在下一个消息到达时，当前消息才能被处理！这就导致了
+    接收消息的滞后！*/
+                //socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,internalDelimiter));
+                socketChannel.pipeline().addLast( new InternalProtocolDecoder());
                 socketChannel.pipeline().addLast( new InternalMessageHandler());
             }
         }

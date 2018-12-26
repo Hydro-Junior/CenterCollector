@@ -70,7 +70,8 @@ public class InternalMsgProcessor {
 
             center.getCurCommand().setState(CommandState.SUCCESSED);
             DBUtil.updateCommandState(CommandState.SUCCESSED,center);
-            return;
+            //读取采集器页
+            readNextPage(center,pageNum);
         }else if(pageNum == 1){ //第1页，读取采集器资料
             List<Collector> collectors = center.getCollectors();
             collectors.clear();
@@ -100,11 +101,11 @@ public class InternalMsgProcessor {
                     collectors.add(collector);
                 }
             }
-            //读采集器结束，读下一页
-            System.out.println("读采集器结束，接下来读取表数据");
-            //非定时读取，需要读取下一页
+            //读采集器结束(是读取集中器信息的一部分，但无关紧要，置命令成功后再读取)
+            LogUtil.DataMessageLog(InternalMsgProcessor.class,"读取采集器信息结束");
+            /*//非定时读取，需要读取下一页
             if(center.getCurCommand() != null && center.getCurCommand().getType()==CommandType.READ_ALL_METERS)
-                readNextPage(center,pageNum);
+                readNextPage(center,pageNum);*/
         } else{
             boolean keepReading = false;
             for (int i = 4; i < datas.length; ) {//省去前3个指令字和页码，接下来12个为一组
@@ -120,7 +121,7 @@ public class InternalMsgProcessor {
                 if (!keepReading) {//12位信息全为0，表明已经全部读完，跳出循环
                     break;
                 } else { //解析
-                    int collectIdx = meterData[0];
+                    //int collectIdx = meterData[0];//采集器的序号，暂时用不到，注释保留
                     Meter meter = new Meter();
                     String meterAddress = ConvertUtil.fixedLengthHex(meterData[6])
                             + ConvertUtil.fixedLengthHex(meterData[5])
@@ -147,12 +148,13 @@ public class InternalMsgProcessor {
                         meter.setState(1);
                     }
                     tempMeterData.add(meter);
-                    try {
+                    //表的信息还是放在持久层吧，这里不添加到center中
+                    /*try {
                         center.getCollectors().get(collectIdx).getMeters().add(meter);
                     }catch (Exception e){//可能采集器信息尚未初始化
-                    }
+                    }*/
                     //如果是单个表读取，判断表地址是否与参数中的表地址相同，如果相同，直接更新数据库后不做其他处理
-                    if(curCommand.getType()== CommandType.READ_SINGLE_METER && curCommand.getArgs()[2].equals(meterAddress)){
+                    if(curCommand != null && curCommand.getType()== CommandType.READ_SINGLE_METER && curCommand.getArgs()[2].equals(meterAddress)){
                         DBUtil.refreshMeterData(meter,center);//将表读数插入数据库，今日已有抄过则更新该条记录
                         center.getCurCommand().setState(CommandState.SUCCESSED);
                         DBUtil.updateCommandState(CommandState.SUCCESSED,center);
