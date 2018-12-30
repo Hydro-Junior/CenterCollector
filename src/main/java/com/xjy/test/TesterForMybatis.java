@@ -80,6 +80,12 @@ public class TesterForMybatis {
         session.commit();
     }
     @Test
+    public void testUpdateCommandEndTime(){
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        mapper.updateCommandEndTime("12345678911",Constants.connectServer,Integer.parseInt(Constants.protocolPort),Timestamp.valueOf(LocalDateTime.now()));
+        session.commit();
+    }
+    @Test
     public void testDeviceData(){
         DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
         Meter meter = new Meter();

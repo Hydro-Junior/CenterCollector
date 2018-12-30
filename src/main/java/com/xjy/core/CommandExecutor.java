@@ -12,6 +12,7 @@ import com.xjy.util.InternalProtocolSendHelper;
 import com.xjy.util.LogUtil;
 import io.netty.channel.ChannelHandlerContext;
 
+import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -64,7 +65,7 @@ public class CommandExecutor implements Runnable{
                 }
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(100);
+                TimeUnit.MILLISECONDS.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -85,12 +86,6 @@ public class CommandExecutor implements Runnable{
                     InternalProtocolSendHelper.openValve(center);
                 }else{//有线，先打开通道
                     InternalProtocolSendHelper.openChannel(center,currentCommand);
-                    try {
-                        TimeUnit.SECONDS.sleep(2);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    InternalProtocolSendHelper.openValve(center);
                 }
                 break;
             case CLOSE_VALVE://关阀：先打开节点
@@ -100,29 +95,24 @@ public class CommandExecutor implements Runnable{
                     InternalProtocolSendHelper.closeValve(center);
                 }else{//有线，先打开通道
                     InternalProtocolSendHelper.openChannel(center,currentCommand);
-                    try {
-                        TimeUnit.SECONDS.sleep(2);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    InternalProtocolSendHelper.closeValve(center);
                 }
                 break;
             case WRITE_INFO:
                 List<CenterPage> pages = InternalProtocolSendHelper.constructPages(center);
                 System.out.println("总页数" + pages.size());//总页数
+                int timeLimit = Math.max(pages.size() * 1,5);
+                center.getCurCommand().setMinitesLimit(timeLimit);//设置写页超时时间限制，与页数关联
+                Timestamp t = Timestamp.valueOf(LocalDateTime.now().plusMinutes(timeLimit));
+                DBUtil.updateCommandEndTime(center,t);
                 InternalProtocolSendHelper.writePage(center,1);
-                /*for(int i = 0; i < pages.size(); i++){
-                    InternalProtocolSendHelper.writePage(center,i+1);//list中的第0项对应采集器页，也就是第一页
-                    try {
-                        TimeUnit.SECONDS.sleep(3);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }*/
                 break;
             case COLLECT_FOR_CENTER:
-                center.getCurCommand().setMinitesLimit(60);//采集时间不允许超过1小时
+                //统计时间
+                int pageNum = getTotalPages(center);
+                int timeLimit1 = Math.max(pageNum * 2,5);
+                center.getCurCommand().setMinitesLimit(timeLimit1);//设置采集超时时间限制，与页数关联
+                Timestamp t1 = Timestamp.valueOf(LocalDateTime.now().plusMinutes(timeLimit1));
+                DBUtil.updateCommandEndTime(center,t1);
                 InternalProtocolSendHelper.collect(center);
                 break;
             case READ_CENTER_INFO:

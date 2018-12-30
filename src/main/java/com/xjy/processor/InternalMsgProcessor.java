@@ -103,9 +103,9 @@ public class InternalMsgProcessor {
             }
             //读采集器结束(是读取集中器信息的一部分，但无关紧要，置命令成功后再读取)
             LogUtil.DataMessageLog(InternalMsgProcessor.class,"读取采集器信息结束");
-            /*//非定时读取，需要读取下一页
+            //非定时读取，需要读取下一页
             if(center.getCurCommand() != null && center.getCurCommand().getType()==CommandType.READ_ALL_METERS)
-                readNextPage(center,pageNum);*/
+                readNextPage(center,pageNum);
         } else{
             boolean keepReading = false;
             for (int i = 4; i < datas.length; ) {//省去前3个指令字和页码，接下来12个为一组
@@ -123,17 +123,23 @@ public class InternalMsgProcessor {
                 } else { //解析
                     //int collectIdx = meterData[0];//采集器的序号，暂时用不到，注释保留
                     Meter meter = new Meter();
+                    double meterValue = 0.0;
                     String meterAddress = ConvertUtil.fixedLengthHex(meterData[6])
                             + ConvertUtil.fixedLengthHex(meterData[5])
                             + ConvertUtil.fixedLengthHex(meterData[4])
                             + ConvertUtil.fixedLengthHex(meterData[3])
                             + ConvertUtil.fixedLengthHex(meterData[2])
                             + ConvertUtil.fixedLengthHex(meterData[1]);
-                    double meterValue = Double.parseDouble(ConvertUtil.fixedLengthHex(meterData[10])
-                            + ConvertUtil.fixedLengthHex(meterData[9])
-                            + ConvertUtil.fixedLengthHex(meterData[8]) + "."
-                            + ConvertUtil.fixedLengthHex(meterData[7])
-                    );
+                    try{
+                        meterValue = Double.parseDouble(ConvertUtil.fixedLengthHex(meterData[10])
+                                + ConvertUtil.fixedLengthHex(meterData[9])
+                                + ConvertUtil.fixedLengthHex(meterData[8]) + "."
+                                + ConvertUtil.fixedLengthHex(meterData[7]));
+                    }catch (Exception e){
+                            LogUtil.DataMessageLog(InternalMsgProcessor.class,"表读数解析异常！      表地址："+meterAddress);
+                            e.printStackTrace();
+                    }
+
                     meter.setId(meterAddress);
                     meter.setValue(meterValue);
                     if (meterData[11] == 0x4f) {
@@ -170,6 +176,7 @@ public class InternalMsgProcessor {
             }
             info = GlobalMap.getBasicInfo();
             totalPage = info.get(center).size();
+            System.out.println("集中器"+center.getId()+"总页数:"+totalPage);
             if(!keepReading || pageNum == totalPage){ //如果已经读完
                 if(center.getCurCommand() != null  && center.getCurCommand().getType()==CommandType.READ_ALL_METERS){
                     center.getCurCommand().setState(CommandState.SUCCESSED);

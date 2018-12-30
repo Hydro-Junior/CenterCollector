@@ -40,7 +40,9 @@ public class CollectServer {
                     //绑定事件处理方法
                     .option(ChannelOption.SO_SNDBUF,32 * 1024)
                     .option(ChannelOption.SO_RCVBUF,32 * 1024)
+                    //.option(ChannelOption.ALLOW_HALF_CLOSURE,true)
                     .option(ChannelOption.SO_KEEPALIVE,true)
+                    .option(ChannelOption.SO_REUSEADDR,true)
                     .childHandler(new ChildChannelHandler()); // 拿到SocketChannel,交给具体数据的处理类
             //绑定端口，同步等待成功
             ChannelFuture f = b.bind(port).sync();
@@ -58,7 +60,7 @@ public class CollectServer {
         protected void initChannel(SocketChannel socketChannel) throws Exception {
             // 拿到SocketChannel,进行一系列的配置
             //socketChannel.config().setAllowHalfClosure(true);//允许半关闭
-            if(Constants.protocol != null && Constants.protocol.equals("XT")){
+            if(Constants.protocol != null && Constants.protocol.equals("XT")){//todo 新天通讯协议待做
                 ByteBuf xtdelimiter = Unpooled.copiedBuffer(Constants.XT_DELIMETER);//定义分隔符
                 //管道流式处理字节流
                 socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,xtdelimiter),

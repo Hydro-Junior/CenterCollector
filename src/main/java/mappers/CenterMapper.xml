@@ -33,4 +33,7 @@
     <update id="updateHeartBeatTime">
         update t_center set heartBeatTime = GETDATE() where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
     </update>
+    <update id ="updateCommandEndTime">
+        update t_center set commandEndTime = #{theTime} where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
+    </update>
 </mapper>

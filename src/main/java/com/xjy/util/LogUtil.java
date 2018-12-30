@@ -4,7 +4,8 @@ package com.xjy.util;
 import com.xjy.entity.InternalMsgBody;
 import org.apache.log4j.Logger;
 
-import java.io.File;
+import java.io.*;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,5 +28,21 @@ public class LogUtil {
             infoLog = Logger.getLogger(clazz);
         }
         infoLog.debug(info);
+    }
+    public static void channelLog(String addr, String msg) throws IOException {
+        File f = new File("log");
+        if(!f.exists()){
+            f.mkdir();
+        }
+        String path = "log/" + addr + ".txt";
+        File tf = new File(path);
+        if(!tf.exists()){
+            tf.createNewFile();
+        }
+        RandomAccessFile randomFile = new RandomAccessFile(path, "rw");
+        long fileLength = randomFile.length();
+        randomFile.seek(fileLength);
+        randomFile.writeBytes(LocalDateTime.now().toString() +"\r\n" + msg + "\r\n\r\n");
+        randomFile.close();
     }
 }

@@ -32,6 +32,14 @@ public class DBUtil {
         session.close();
         return DBCommands;
     }
+    //获取某个集中器特定状态的待执行命令队列
+    public static List<DBCommand> getCommandByCenterAddressAndState(String address,int state){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        CommandMapper mapper = session.getMapper(CommandMapper.class);
+        List<DBCommand> DBCommands = mapper.getCommands(address , state ,"%"+Constants.connectServer+":"+Constants.protocolPort+"%");
+        session.close();
+        return DBCommands;
+    }
     //根据集中器获取采集器集合
     public static List<DBCollector> getCollectorsByCenter(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -94,7 +102,13 @@ public class DBUtil {
         session.commit();
         session.close();
     }
-
+    public static void updateCommandEndTime(Center center, Timestamp time){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        mapper.updateCommandEndTime(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort),time);
+        session.commit();
+        session.close();
+    }
     public static void initCenters() {
         String ip = Constants.connectServer;
         int port = 0;
@@ -208,7 +222,12 @@ public class DBUtil {
             //阀门信息
             DBMeter dbmeter = mapper.searchDevice(centerId,meter.getId());
             if(meter == null) LogUtil.DataMessageLog(DBUtil.class,"找不到对应水表！\r\n centerId="+centerId+"   meterAddress="+meter.getId());
-            if(dbmeter.getStrobeStatue() != 0 && meter.getValveState()>=1) mapper.updateStrobeState(meter.getValveState(),dbmeter.getId());
+            try{
+                if(dbmeter.getStrobeStatue() != 0 && meter.getValveState()>=1) mapper.updateStrobeState(meter.getValveState(),dbmeter.getId());
+            }catch (NullPointerException e){
+                //测试时出现空指针异常，很可能是数据库中不存在这个表！
+                LogUtil.DataMessageLog(DBUtil.class,"测试时出现空指针异常，很可能是数据库中不存在这个表！\r\n 集中器号："+center.getId()+"    表地址号："+meter.getId());
+            }
         }
         session.commit();
         session.close();

@@ -8,6 +8,7 @@ import com.xjy.parms.Constants;
 import com.xjy.pojo.Scheme;
 import com.xjy.util.DBUtil;
 import com.xjy.util.InternalProtocolSendHelper;
+import com.xjy.util.LogUtil;
 import io.netty.channel.ChannelHandlerContext;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -54,8 +55,9 @@ public class TimingCollect implements Job {
             }catch (NullPointerException e){
                 //防止万一得不到context或channel报异常
                 //更新数据库，将集中器设置为不在线
+                LogUtil.DataMessageLog(TimingCollect.class,"空指针异常（没有合法的信道）,集中器"+center.getId()+"掉线！");
                 DBUtil.updateCenterState(0,entry.getValue());
-                it.remove();
+                //it.remove();
             }
         }
     }

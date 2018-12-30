@@ -4,8 +4,10 @@ import com.xjy.entity.Center;
 import com.xjy.entity.Command;
 import com.xjy.entity.GlobalMap;
 import com.xjy.parms.CommandState;
+import com.xjy.subjob.TimingCollect;
 import com.xjy.util.DBUtil;
 import com.xjy.util.InternalProtocolSendHelper;
+import com.xjy.util.LogUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -26,7 +28,7 @@ public class ConditionMonitor implements Runnable {
         DBUtil.initCenters();
         while (true){
             try {
-                TimeUnit.MINUTES.sleep(10);
+                TimeUnit.MINUTES.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -46,12 +48,14 @@ public class ConditionMonitor implements Runnable {
                                 InternalProtocolSendHelper.setTimingCollect(entry.getValue());*/
                     }else{
                         //更新数据库，将集中器设置为不在线
+                        LogUtil.DataMessageLog(ConditionMonitor.class,"集中器"+entry.getValue().getId()+"掉线！");
                         DBUtil.updateCenterState(0,entry.getValue());
-                        it.remove();
+                        //it.remove();
                     }
                 }catch (NullPointerException e){
                     //防止万一得不到context或channel报异常
                     //更新数据库，将集中器设置为不在线
+                    LogUtil.DataMessageLog(ConditionMonitor.class,"空指针异常（没有合法的信道）,集中器"+entry.getValue().getId()+"掉线！");
                     DBUtil.updateCenterState(0,entry.getValue());
                 }
             }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @Author: Mr.Xu
@@ -24,6 +25,8 @@ public class Center {
     private String enprNo ; //所属水司
     private DetailedInfoOfCenter information;
     private Command curCommand; // 当前正在执行的命令
+    private InternalMsgBody latestMsg;
+    private AtomicInteger offLineTimesWhenExecuting = new AtomicInteger(0); //命令执行时的掉线次数，对应命令重发次数
     private ConcurrentLinkedQueue<Command> commandQueue = new ConcurrentLinkedQueue<>(); //待执行的命令队列
     private ConcurrentLinkedDeque<Command> failedCommands = new ConcurrentLinkedDeque<>(); // 执行过且失败的命令<读表指令考虑重新执行>，每天写入日志并清空
 
@@ -118,6 +121,22 @@ public class Center {
 
     public void setFailedCommands(ConcurrentLinkedDeque<Command> failedCommands) {
         this.failedCommands = failedCommands;
+    }
+
+    public InternalMsgBody getLatestMsg() {
+        return latestMsg;
+    }
+
+    public void setLatestMsg(InternalMsgBody latestMsg) {
+        this.latestMsg = latestMsg;
+    }
+
+    public AtomicInteger getOffLineTimesWhenExecuting() {
+        return offLineTimesWhenExecuting;
+    }
+
+    public void setOffLineTimesWhenExecuting(AtomicInteger offLineTimesWhenExecuting) {
+        this.offLineTimesWhenExecuting = offLineTimesWhenExecuting;
     }
 
     @Override

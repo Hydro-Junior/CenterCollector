@@ -9,7 +9,12 @@ import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBMeter;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.ReferenceCountUtil;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -43,9 +48,7 @@ public class InternalProtocolSendHelper {
             }
         }
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), effectiveData);
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        center.getCtx().writeAndFlush(buf);
-        printMsgLog(internalMsgBody);
+        writeAndFlush(center,internalMsgBody);
     }
     //内部协议，读取下一页
     public static void readNextPage(Center center, int currentPageNum){
@@ -55,9 +58,7 @@ public class InternalProtocolSendHelper {
             else effectiveData[i] = currentPageNum + 1;
         }
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), effectiveData);
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        center.getCtx().writeAndFlush(buf);
-        printMsgLog(internalMsgBody);
+        writeAndFlush(center,internalMsgBody);
     }
     //内部协议，读取首页
     public static void readFirstPage(Center center){
@@ -83,10 +84,7 @@ public class InternalProtocolSendHelper {
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), addInstruction(pages.get(0).getData(),InternalOrders.DOWNLOAD));
 
         //调试日志
-        printMsgLog(internalMsgBody);
-
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        center.getCtx().writeAndFlush(buf);
+        writeAndFlush(center,internalMsgBody);
     }
     //设置系统时钟，指令字 TTT + 16字节数据
     public static void setClock(Center center){
@@ -154,10 +152,7 @@ public class InternalProtocolSendHelper {
         data[15] = m1+'0';data[16] = m2+'0';
         data[17] = s1+'0'; data[18] = s2+'0';
         InternalMsgBody internalMsgBody = new InternalMsgBody(currentCenter.getId() ,data);
-        //调试日志,打印待发送报文
-        printMsgLog(internalMsgBody);
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        currentCenter.getCtx().writeAndFlush(buf);
+        writeAndFlush(currentCenter,internalMsgBody);
     }
     public static void writePage(Center center,int page){
         //从persistentDataOfInternalProtocol中获取center相应页的资料，构建msg发送即可
@@ -165,11 +160,7 @@ public class InternalProtocolSendHelper {
         List<CenterPage> pages = persistentDataOfInternalProtocol.get(center);
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), addInstruction(pages.get(page-1).getData(),InternalOrders.DOWNLOAD));
 
-        //调试日志,打印待发送报文
-        printMsgLog(internalMsgBody);
-
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        center.getCtx().writeAndFlush(buf);
+        writeAndFlush(center,internalMsgBody);
     }
     private static int[] addInstruction(int[] originData,String instruction){
         int[] res = new int[originData.length + 3];
@@ -179,12 +170,23 @@ public class InternalProtocolSendHelper {
         System.arraycopy(originData,0,res,3,originData.length);
         return res;
     }
+
+    /**
+     * 打印消息发送日志
+     * @param internalMsgBody
+     */
     private static void printMsgLog(InternalMsgBody internalMsgBody){
         LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：\n");
         StringBuilder sb = new StringBuilder();
         for(int i = 0 ; i < internalMsgBody.toBytes().length; i++){
             sb.append(ConvertUtil.fixedLengthHex(internalMsgBody.toBytes()[i])+" ");
             if(i !=0 && i % 30 == 0) sb.append("\r\n");
+        }
+        String channelLogContent = "[MESSAGE SEND]{\r\n" + sb.toString()+"}";
+        try {
+            LogUtil.channelLog(internalMsgBody.getDeviceId(),channelLogContent);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         LogUtil.DataMessageLog(InternalProtocolSendHelper.class, sb.toString());
     }
@@ -196,37 +198,48 @@ public class InternalProtocolSendHelper {
         System.out.println("通道号："+collector);
         int[] effectiveData = addInstruction(ConvertUtil.addressToBytes(collector),InternalOrders.OPEN_CHANNEL);
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(),effectiveData);
-        //调试日志,打印待发送报文
-        printMsgLog(internalMsgBody);
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        center.getCtx().writeAndFlush(buf);
+
+        writeAndFlush(center,internalMsgBody);
     }
     //关闭通道
     public static void closeChannel(Center center, Command currentCommand) {
         String collector = currentCommand.getArgs()[1];
         int[] effectiveData = addInstruction(ConvertUtil.addressToBytes(collector),InternalOrders.CLOSE_CHANNEL);
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(),effectiveData);
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        center.getCtx().writeAndFlush(buf);
-        //调试日志,打印待发送报文
-        printMsgLog(internalMsgBody);
+        writeAndFlush(center,internalMsgBody);
     }
     //开阀
     public static void openValve(Center currentCenter) {
         String meter = currentCenter.getCurCommand().getArgs()[2];
         int[] effectiveData = addInstruction(ConvertUtil.addressToBytes(meter),InternalOrders.OPEN_VALVE);
         InternalMsgBody internalMsgBody = new InternalMsgBody(currentCenter.getId(),effectiveData);
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        currentCenter.getCtx().writeAndFlush(buf);
-        printMsgLog(internalMsgBody);
+        writeAndFlush(currentCenter,internalMsgBody);
     }
     //关阀
     public static void closeValve(Center currentCenter) {
         String meter = currentCenter.getCurCommand().getArgs()[2];
         int[] effectiveData = addInstruction(ConvertUtil.addressToBytes(meter),InternalOrders.CLOSE_VALVE);
         InternalMsgBody internalMsgBody = new InternalMsgBody(currentCenter.getId(),effectiveData);
-        ByteBuf buf = Unpooled.copiedBuffer(internalMsgBody.toBytes());
-        currentCenter.getCtx().writeAndFlush(buf);
-        printMsgLog(internalMsgBody);
+        writeAndFlush(currentCenter,internalMsgBody);
+    }
+
+    /**
+     * 封装消息发送
+     * 另外，存储集中器最新发送的消息->由于少数客户端在接收发送的消息后会出现掉线，需要缓存刚刚发送的消息给集中器
+     * @param center
+     * @param msgBody
+     */
+    public static void writeAndFlush(Center center,InternalMsgBody msgBody){
+        ByteBuf buf = Unpooled.copiedBuffer(msgBody.toBytes());
+        ChannelFuture f = center.getCtx().writeAndFlush(buf);
+        f.addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                System.out.println("写指令完成！");
+                assert f==future;
+            }
+        });
+        printMsgLog(msgBody);
+        center.setLatestMsg(msgBody);
     }
 }

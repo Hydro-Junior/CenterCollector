@@ -1,5 +1,7 @@
 package com.xjy.util;
 
+import java.net.SocketAddress;
+
 /**
  * @Author: Mr.Xu
  * @Date: Created in 19:29 2018/9/27
@@ -36,5 +38,9 @@ public class ConvertUtil {
             res[idx-1] += Integer.valueOf(addr.substring(i+1,i+2));
         }
         return res;
+    }
+    public static String getIP(String remoteAddr){
+        String remoteIP = remoteAddr.substring(1,remoteAddr.indexOf(":"));
+        return  remoteIP;
     }
 }

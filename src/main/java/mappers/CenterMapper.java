@@ -6,6 +6,7 @@ import com.xjy.pojo.DBMeter;
 import com.xjy.pojo.Scheme;
 import org.apache.ibatis.annotations.Param;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -19,6 +20,7 @@ public interface CenterMapper {
     void updateCenterOnline(@Param("state")int state,@Param("address") String address,@Param("ip")String ip,@Param("port")int port);
     void updateCenterReadTime(int id);
     void updateHeartBeatTime(@Param("address") String address,@Param("ip") String ip, @Param("port") int port);
+    void updateCommandEndTime(@Param("address")String address, @Param("ip")String ip, @Param("port")int port, @Param("theTime")Timestamp time);
     int getSchemeId(@Param("centerId")int centerId);
     Scheme getScheme(int schemeId);
     String getEnprNo(@Param("address") String address,@Param("ip")String ip,@Param("port")int port);

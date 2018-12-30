@@ -39,6 +39,11 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
         in.readBytes(bytes);//这里读取in中的字节，readerIndex发生变化
         List<Integer> res = DecodeUtil.findHead(bytes, Constants.INTERNAL_DELIMETER);
         if(res.size() == 0){//未找到报文头
+            //得到的消息中没有报文头，打印字节
+            System.out.println("得到的消息中没有报文头，打印字节");
+            for(int i = 0 ; i < bytes.length; i++){
+                System.out.print(ConvertUtil.fixedLengthHex(bytes[i])+ " ");
+            }
             in.readerIndex(rd);//重置读取位置
             return;
         }
@@ -52,21 +57,28 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
              * (可能要用到mark和reset)，降低异常发生的概率
              1. 心跳包长度是15
              2. 其他任何数据包结尾都是0x45（但是有可能报文中间有0x45）*/
-            if(end - start < 11 || (end -start > 11 && bytes[end-1]!= 0x45)){
+            if(end - start < 11 || (end -start > 11 && bytes[end-1]!= 0x45) && bytes[end-2] != 0x45){//恶心的自组网在数据包后面还跟个0x0d！
+                //检测到半包，打印字节
+                System.out.println("检测到半包，打印字节");
+                for(int j = start ; j < end; j++){
+                    System.out.print(ConvertUtil.fixedLengthHex(bytes[j])+ " ");
+                }
                 in.readerIndex(rd + res.get(i));
                 in.discardReadBytes();
                 return;
             }
+            if(bytes[end-1] == 0x0d && bytes[end-2]==0x45) end--;
             byte[] strippedBytes = new byte[end - start];
             System.arraycopy(bytes,start,strippedBytes,0,end - start);
             /**
              * 由于超过127的byte经java的强转后，高位都是1，为避免一些问题，统一 &0xff 取后8位，转为int处理
              */
             int[] data = ConvertUtil.bytesToInts(strippedBytes);
-            LogUtil.DataMessageLog(InternalProtocolDecoder.class,"收到数据长度："+data.length);
+            //LogUtil.DataMessageLog(InternalProtocolDecoder.class,"收到数据长度："+data.length);
             //通过消息实体构造方法确定其消息类型和设备地址
             InternalMsgBody msgBody = new InternalMsgBody(data);
             if(msgBody.getMsgType() != InternalMsgType.INVALID_PACKAGE ) out.add(msgBody);
         }
     }
+
 }

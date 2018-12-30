@@ -17,7 +17,7 @@ public class Command {
     String[] args; //命令的相关参数
     LocalDateTime startExcuteTime; //开始执行命令的时刻
     LocalDateTime generateTime;
-    int minitesLimit = 5; //允许超时时间，默认5分钟
+    int minitesLimit = 3; //允许超时时间，默认3分钟
 
     public Integer getId() {
         return id;
