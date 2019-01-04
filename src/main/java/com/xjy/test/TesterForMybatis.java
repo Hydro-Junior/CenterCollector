@@ -86,6 +86,10 @@ public class TesterForMybatis {
         session.commit();
     }
     @Test
+    public void testCreateTable(){
+        DBUtil.createTempDeviceTable();
+    }
+    @Test
     public void testDeviceData(){
         DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
         Meter meter = new Meter();

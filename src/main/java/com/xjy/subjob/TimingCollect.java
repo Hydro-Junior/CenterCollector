@@ -28,6 +28,7 @@ public class TimingCollect implements Job {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         ConcurrentHashMap<String,Center> map = GlobalMap.getMap();
+        DBUtil.createTempDeviceTable();//如果没有临时数据表，会自动创建
         Iterator<Map.Entry<String,Center>> it = map.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry<String,Center> entry = it.next();

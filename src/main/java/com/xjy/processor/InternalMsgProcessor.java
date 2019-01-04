@@ -203,6 +203,8 @@ public class InternalMsgProcessor {
             return;
         }
         int pageNum = datas[3];
+        System.out.println("数据返回的当前页："+pageNum+"\r\n"+"参数记录的当前页："+currentCenter.getCurCommand().getParameter());
+        pageNum = (int)currentCenter.getCurCommand().getParameter();
         ConcurrentHashMap<Center,List<CenterPage>> infoMap = getBasicInfo();
         int total = infoMap.get(currentCenter).size();
         System.out.println("待写总页数："+total);
@@ -210,6 +212,7 @@ public class InternalMsgProcessor {
             currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
             DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
         }else{
+            currentCenter.getCurCommand().setParameter(pageNum+1);
             writePage(currentCenter,pageNum+1);
             System.out.println("开始写下一页");
         }

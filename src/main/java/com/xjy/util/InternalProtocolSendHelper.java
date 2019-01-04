@@ -36,12 +36,13 @@ public class InternalProtocolSendHelper {
         for(int i = 0 ; i < 12; i++){//默认对整个集中器采集，用FF填充地址
             effectiveData[i+3] = 0xFF;
         }
-        if(collectorId != null && meterId == null){//对采集器进行采集
+        if(collectorId != null){//对采集器进行采集
             int[] collectorBytes = ConvertUtil.addressToBytes(collectorId);
             for(int i = 0; i < 6; i++){
                 effectiveData[i+3] = collectorBytes[i];
             }
-        }else if(collectorId != null && meterId != null){//对单只表进行采集
+        }
+        if(collectorId != null && meterId != null){//对单只表进行采集
             int[] meterAddress = ConvertUtil.addressToBytes(meterId);
             for (int i = 0; i< 6; i++){
                 effectiveData[i+3+6] = meterAddress[i];

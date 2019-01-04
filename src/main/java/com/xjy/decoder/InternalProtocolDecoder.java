@@ -57,7 +57,7 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
              * (可能要用到mark和reset)，降低异常发生的概率
              1. 心跳包长度是15
              2. 其他任何数据包结尾都是0x45（但是有可能报文中间有0x45）*/
-            if(end - start < 11 || (end -start > 11 && bytes[end-1]!= 0x45) && bytes[end-2] != 0x45){//恶心的自组网在数据包后面还跟个0x0d！
+            if(end - start < 11 || (end -start > 11 && bytes[end-1]!= 0x45) && bytes[end-2] != 0x45){//自组网在数据包后面还跟个0x0d！
                 //检测到半包，打印字节
                 System.out.println("检测到半包，打印字节");
                 for(int j = start ; j < end; j++){

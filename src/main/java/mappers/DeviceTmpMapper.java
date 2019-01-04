@@ -26,4 +26,6 @@ public interface DeviceTmpMapper {
             @Param("tableName") String tableName, @Param("data")double data, @Param("now")Timestamp now, @Param("centerId") int centerId,
             @Param("day") int day, @Param("meterAddress") String meterAddress,@Param("valveState")int valveState,@Param("state")int state,@Param("enprNo")String enprNo
     );
+    int existTable(@Param("tableName") String tableName);
+    void createNewTable(@Param("tableName")String tableName);
 }

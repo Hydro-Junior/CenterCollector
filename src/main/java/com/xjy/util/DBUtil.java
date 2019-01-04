@@ -191,6 +191,20 @@ public class DBUtil {
         String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
         return mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meterAddress);
     }
+    public static void createTempDeviceTable(){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
+        String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
+        if(mapper.existTable(tableName) > 0 ) {
+            //System.out.println("表已存在！");
+            session.close();
+        } else {
+            //System.out.println("创建新表！");
+            mapper.createNewTable(tableName);
+            session.commit();
+            session.close();
+        }
+    }
     public static DBMeter getDBMeter(int centerId,String meterAddress){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         DeviceTmpMapper mapper = session.getMapper(DeviceTmpMapper.class);
@@ -232,4 +246,5 @@ public class DBUtil {
         session.commit();
         session.close();
     }
+
 }

@@ -104,7 +104,17 @@ public class CommandExecutor implements Runnable{
                 center.getCurCommand().setMinitesLimit(timeLimit);//设置写页超时时间限制，与页数关联
                 Timestamp t = Timestamp.valueOf(LocalDateTime.now().plusMinutes(timeLimit));
                 DBUtil.updateCommandEndTime(center,t);
+                center.getCurCommand().setParameter(1);
                 InternalProtocolSendHelper.writePage(center,1);
+                break;
+            case COLLECT_FOR_METER:
+                String theCollector = null;
+                String theMeter = null;
+                if(currentCommand.getArgs()!= null && currentCommand.getArgs().length > 2){
+                    theCollector = currentCommand.getArgs()[1];
+                    theMeter = currentCommand.getArgs()[2];
+                }
+                InternalProtocolSendHelper.collect(center,theCollector,theMeter);
                 break;
             case COLLECT_FOR_CENTER:
                 //统计时间

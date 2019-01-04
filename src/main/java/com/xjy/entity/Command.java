@@ -18,6 +18,8 @@ public class Command {
     LocalDateTime startExcuteTime; //开始执行命令的时刻
     LocalDateTime generateTime;
     int minitesLimit = 3; //允许超时时间，默认3分钟
+    boolean suspend = false; //命令在执行中是否中断
+    Object parameter;
 
     public Integer getId() {
         return id;
@@ -37,6 +39,14 @@ public class Command {
 
     public Integer getState() {
         return state;
+    }
+
+    public boolean isSuspend() {
+        return suspend;
+    }
+
+    public void setSuspend(boolean suspend) {
+        this.suspend = suspend;
     }
 
     public void setState(Integer state) {
@@ -73,6 +83,14 @@ public class Command {
 
     public void setMinitesLimit(int minitesLimit) {
         this.minitesLimit = minitesLimit;
+    }
+
+    public Object getParameter() {
+        return parameter;
+    }
+
+    public void setParameter(Object parameter) {
+        this.parameter = parameter;
     }
 
     @Override
