@@ -16,7 +16,7 @@ public interface DeviceTmpMapper {
                                @Param("day") int day, @Param("meterAddress") String meterAddress);
     //valveState（阀门）参数由于旧程序中对数据库两个字段使用混乱而难以使用，因此阀门状态通常直接在device表上更新
     void updateDeviceData(@Param("tableName") String tableName, @Param("data")double data, @Param("now")Timestamp now, @Param("centerId") int centerId,
-                          @Param("day") int day, @Param("meterAddress") String meterAddress,@Param("valveState")int valveState,@Param("state")int state);
+                          @Param("day") int day, @Param("meterAddress") String meterAddress,@Param("valveState")int valveState,@Param("state")int state,@Param("enprNo")String enprNo);
     //修改temp表的阀门状态（暂时保留）
     void updateValveState(@Param("tableName") String tableName,@Param("valveState")int valveState, @Param("centerId") int centerId,
                           @Param("day") int day, @Param("meterAddress") String meterAddress);

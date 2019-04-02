@@ -16,7 +16,6 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
-import sun.rmi.runtime.Log;
 
 import java.net.SocketAddress;
 import java.time.Duration;
@@ -58,15 +57,15 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 Center center = map.get(address);
                 center.setCtx(ctx);
                 //特别处理
-                if(address.equals("00201707074")||address.equals("00201611251")){
+                /*if(address.equals("00201707074")||address.equals("00201611251")){
                     LogUtil.DataMessageLog(InternalMessageHandler.class,"收到从自组网集中器来的消息！\r\n"+msgBody);
-                }
-                if(center.getCurCommand()!=null && center.getCurCommand().getState()==CommandState.EXECUTING && center.getCurCommand().isSuspend()){//在执行命令时掉线
+                }*/
+                if(center.getCurCommand() != null && center.getCurCommand().getState()==CommandState.EXECUTING && center.getCurCommand().isSuspend()){//在执行命令时掉线
                    if(center.getLatestMsg() != null && center.getCurCommand().getType()!=CommandType.COLLECT_FOR_CENTER){//如果是采集命令，重发时间代价太大，且有些集中器执行采集命令会断开连接，结束后上线
                        LogUtil.DataMessageLog(InternalMessageHandler.class,"集中器"+center.getId()+"有缓存消息待发送！");
                        //发送缓存消息
                        InternalProtocolSendHelper.writeAndFlush(center,center.getLatestMsg());
-                   }else{//是采集命令的情况
+                   }else if(center.getCurCommand().getType() == CommandType.COLLECT_FOR_CENTER){//是采集命令的情况
                        center.getCurCommand().setState(CommandState.SUCCESSED);
                        DBUtil.updateCommandState(CommandState.SUCCESSED, center);
                        InternalProtocolSendHelper.readNextPage(center,1);

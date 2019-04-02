@@ -1,0 +1,1368 @@
+2018-12-28T09:41:43.971
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:41:53.961
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:42:03.946
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:42:15.951
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:42:25.951
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:42:35.955
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:42:47.957
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:42:57.960
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:43:07.960
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:43:19.964
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:43:29.965
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:43:39.969
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:43:51.970
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:44:01.975
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:44:11.977
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:44:23.984
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:44:33.986
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:44:43.988
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:44:55.993
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:45:05.994
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:45:15.997
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:45:31.580
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:45:41.581
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:45:51.584
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:03.585
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:13.587
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:19.736
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:23.588
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:33.408
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:35.594
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:39.738
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:48.614
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:51.740
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:53.408
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:55.594
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:46:58.614
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:50:22.891
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:50:32.893
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:50:42.892
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:50:54.900
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:51:04.905
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:51:14.905
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:51:26.916
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:51:36.915
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:51:46.915
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:51:58.919
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:52:08.927
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:52:18.929
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:52:30.930
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:52:40.931
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:52:50.949
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:53:02.956
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:53:12.957
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:53:22.958
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:53:34.969
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:53:44.970
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:53:54.971
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:06.975
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:16.975
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:20.044
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:26.978
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:30.045
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:38.991
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:40.046
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:48.992
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:52.067
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:54:58.993
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:02.077
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:10.996
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:12.081
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:20.997
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:24.099
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:31.014
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:34.105
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:43.021
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:44.130
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:53.038
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:55:56.176
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:03.040
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:06.177
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:15.049
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:16.179
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:25.050
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:28.184
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:35.052
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:38.185
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:47.057
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:48.187
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:56:57.058
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:00.190
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:07.060
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:10.192
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:19.066
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:20.229
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:29.075
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:32.243
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:39.080
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:42.244
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:51.094
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:57:52.257
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:01.096
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:04.268
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:11.114
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:14.272
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:23.118
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:24.273
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:33.119
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:36.283
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:43.122
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:46.284
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:55.137
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:58:56.290
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:59:05.139
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:59:08.293
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:59:15.142
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T09:59:18.301
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:05:51.439
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:01.418
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:10.839
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:11.407
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:20.846
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:23.409
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:30.846
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:33.409
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:42.848
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:43.410
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:06:58.699
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:07:02.852
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:07:14.807
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:07:14.854
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:07:18.679
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:08:24.752
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:08:29.585
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:13:01.118
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:13:11.097
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:24:28.915
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:24:38.898
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:26:37.214
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:47:29.528
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:47:39.512
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:47:46.989
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:47:49.513
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:47:55.808
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:47:56.990
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:01.516
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:04.933
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:05.810
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:06.990
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:09.142
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:11.517
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:14.934
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:15.811
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:18.993
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:19.144
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:21.522
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:24.935
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:27.834
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:28.994
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:29.144
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:33.541
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:36.943
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:37.836
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:38.994
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:41.146
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:43.547
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:46.948
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:47.835
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:51.040
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:51.149
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:53.550
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:56.948
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:48:59.837
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:01.041
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:01.150
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:05.552
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:22.079
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:23.071
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:25.584
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:44.675
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:52.834
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:54.060
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:54.677
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:49:55.299
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:50:02.836
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:50:04.059
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:50:04.676
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:50:41.282
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:50:48.649
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:50:51.284
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:54:09.537
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:54:19.539
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:54:29.538
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:54:41.541
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:54:51.542
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:55:01.543
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:55:13.549
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:55:23.549
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:55:33.570
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:55:45.576
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:55:55.577
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:56:05.578
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:56:17.578
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:56:27.590
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:56:37.596
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:56:49.600
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:56:59.605
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:57:09.607
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:57:21.621
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:57:31.627
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:57:41.636
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:57:53.650
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:58:03.650
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:58:13.660
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:58:25.661
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:58:35.661
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:58:45.663
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:58:57.664
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:59:07.670
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:59:17.672
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:59:29.681
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:59:39.682
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T10:59:49.683
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:00:01.689
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:00:11.690
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:00:21.695
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:00:33.696
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:00:43.700
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:00:53.701
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:01:05.702
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:01:15.704
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:01:25.707
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:01:37.711
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:01:47.750
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:01:57.757
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:02:09.758
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:02:19.760
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:02:29.759
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:02:41.768
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:02:51.768
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:03:01.768
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:03:13.776
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:03:23.783
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:03:33.785
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:03:45.788
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:03:55.790
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:04:05.790
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:04:17.807
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:04:27.808
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:04:37.809
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:04:49.811
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:04:59.812
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:05:09.812
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:05:21.815
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:05:31.816
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:05:41.816
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:05:53.817
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:06:03.820
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:06:13.827
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:06:25.829
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:06:35.831
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:06:45.835
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:06:57.836
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:07:07.836
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:07:17.856
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:07:29.866
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:07:39.866
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:07:49.870
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:08:01.871
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:08:11.876
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:08:21.877
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:08:33.888
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:08:43.888
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:08:53.888
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:09:05.896
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:09:15.899
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:09:25.899
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:09:37.901
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:09:47.900
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:09:57.900
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:10:09.902
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:10:19.902
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:10:29.909
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:10:41.911
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:10:51.914
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:11:01.916
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:11:13.921
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:11:23.920
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:11:33.921
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:11:45.926
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:11:55.927
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:12:34.578
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:14:57.912
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:15:07.889
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:22:58.111
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:23:27.593
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:23:30.164
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:23:37.574
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:23:40.164
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:23:42.919
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:52:01.430
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:52:12.242
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:52:21.403
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:06.814
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:16.818
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:26.819
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:34.038
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:38.822
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:44.041
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:48.825
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:54.042
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:53:58.825
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:55:47.294
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:55:57.272
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:56:06.711
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:56:07.274
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:56:34.326
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:56:38.715
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:56:44.327
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:56:47.782
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T11:56:48.716
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T12:05:08.610
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T12:05:14.141
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T12:05:18.592
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T12:12:11.512
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T12:12:28.841
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T12:12:31.490
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T16:56:10.875
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T16:56:20.829
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T16:56:24.641
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:20:44.209
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:20:54.198
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:21:04.200
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:21:16.199
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:21:26.200
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:21:36.200
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:21:48.202
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:29:13.418
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:29:23.419
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:29:33.420
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:29:45.423
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:29:55.424
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:30:05.429
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:30:17.434
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:30:27.437
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:30:37.439
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:30:49.441
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:30:59.446
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:31:09.451
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:31:21.455
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:31:31.459
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:31:41.461
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:31:53.511
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:32:03.516
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:32:13.517
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:32:25.523
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:32:35.532
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-28T17:32:45.553
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:17:14.215
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:17:24.168
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:17:38.834
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:17:46.157
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:17:48.835
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:29:23.500
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:29:33.502
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:29:43.503
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:29:55.512
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:30:05.513
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:30:15.518
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:30:27.519
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:30:37.528
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:30:47.532
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:30:59.536
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:31:09.542
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:31:19.549
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:31:31.556
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:31:41.559
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:31:51.560
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:32:03.562
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:32:13.570
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:32:23.573
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:32:35.587
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:32:45.593
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:32:55.602
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:33:07.618
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:33:17.623
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:33:27.628
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:33:39.635
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:33:49.637
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:33:59.647
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:34:11.656
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:34:21.663
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:34:31.673
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:34:43.681
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:34:53.690
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:35:03.691
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:06.966
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.021
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.111
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.171
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.301
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.401
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.471
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.566
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.666
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.725
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:07.860
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:27.952
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:28.012
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:37.710
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:37.807
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:37.874
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:37.962
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:38.065
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:38.125
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:38.226
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:38.315
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:38.376
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:58.480
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:36:58.568
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:22.489
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:23.173
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:23.293
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:23.383
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:23.492
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:23.612
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:23.704
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:23.830
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:23.944
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:24.020
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:24.273
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:44.402
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T10:46:44.488
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:31:47.890
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:31:57.849
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:32:07.831
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:32:19.840
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:32:29.843
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:32:39.854
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:32:51.864
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:33:01.865
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:33:31.922
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:33:41.895
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:33:51.899
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:34:03.910
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:34:13.924
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:34:44.177
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:34:54.157
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:35:04.162
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:35:16.172
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-29T11:35:26.178
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-30T09:19:48.393
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-30T09:19:58.421
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-30T09:20:08.371
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-30T09:21:42.215
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-30T09:21:44.204
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+
+2018-12-30T09:21:51.630
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0}
+

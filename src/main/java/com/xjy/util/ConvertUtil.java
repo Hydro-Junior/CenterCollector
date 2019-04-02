@@ -24,6 +24,15 @@ public class ConvertUtil {
         }
         return s;
     }
+    public static String fixedLengthHex(int[] a){
+        if(a == null || a.length == 0) return "";
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0 ; i < a.length; i++){
+            sb.append(fixedLengthHex(a[i])+ " ");
+        }
+        sb.append("\r\n");
+        return sb.toString();
+    }
     //把表地址或采集器地址转化为字节数组（内部协议）,返回类型为int[]是为了表示方便
     public static int[] addressToBytes(String address){
         String addr = address.trim();

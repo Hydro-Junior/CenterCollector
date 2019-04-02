@@ -1,0 +1,1552 @@
+DEBUG 2018-12-29 10:16:56,187: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-29 10:16:56,197: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-29 10:16:56,217: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-29 10:16:56,217: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-29 10:16:57,522: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-29 10:16:57,529: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 14400 (auto-detected) 
+DEBUG 2018-12-29 10:16:57,531: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x36fa72ffc2ea7820 
+DEBUG 2018-12-29 10:16:57,542: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-29 10:16:57,562: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-29 10:16:57,653: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-29 10:16:57,653: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-29 10:16:57,653: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-29 10:17:11,146: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@7a8d7195 
+DEBUG 2018-12-29 10:17:14,143: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-29 10:17:14,235: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:17:24,171: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:17:24,190: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-29 10:17:24,488: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:17:24,539: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:17:24,761: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:17:24,781: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:17:24,781: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:17:26,043: com.xjy.handler.InternalMessageHandler 
+ 一个客户端断开连接,集中器编号：00201704131 ctx:io.netty.channel.DefaultChannelHandlerContext@7a8d7195   通道信息：[id: 0x1d95b975, /127.0.0.1:62303 :> 0.0.0.0/0.0.0.0:5100]    通道是否活跃：false 
+DEBUG 2018-12-29 10:17:38,834: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@5aa1b4d7 
+DEBUG 2018-12-29 10:17:38,834: com.xjy.handler.InternalMessageHandler 
+ 刚刚掉线的集中器：00201704131
+原来的ctx：io.netty.channel.DefaultChannelHandlerContext@7a8d7195  false
+新的ctx:io.netty.channel.DefaultChannelHandlerContext@5aa1b4d7    true 
+DEBUG 2018-12-29 10:17:38,834: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:17:46,157: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:17:48,835: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:17:48,845: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:17:49,025: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:17:49,025: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:17:49,035: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:17:49,572: com.xjy.handler.InternalMessageHandler 
+ 一个客户端断开连接,集中器编号：00201704131 ctx:io.netty.channel.DefaultChannelHandlerContext@5aa1b4d7   通道信息：[id: 0xbf90408f, /127.0.0.1:62311 :> 0.0.0.0/0.0.0.0:5100]    通道是否活跃：false 
+DEBUG 2018-12-29 10:19:57,630: com.xjy.core.ConditionMonitor 
+ 集中器00201704131掉线！ 
+DEBUG 2018-12-29 10:19:57,885: com.xjy.core.ConditionMonitor 
+ 集中器00201611251掉线！ 
+DEBUG 2018-12-29 10:23:58,004: com.xjy.core.ConditionMonitor 
+ 集中器00201704131掉线！ 
+DEBUG 2018-12-29 10:23:58,094: com.xjy.core.ConditionMonitor 
+ 集中器00201611251掉线！ 
+DEBUG 2018-12-29 10:27:58,215: com.xjy.core.ConditionMonitor 
+ 集中器00201704131掉线！ 
+DEBUG 2018-12-29 10:27:58,315: com.xjy.core.ConditionMonitor 
+ 集中器00201611251掉线！ 
+DEBUG 2018-12-29 10:29:23,494: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@78610c6a 
+DEBUG 2018-12-29 10:29:23,494: com.xjy.handler.InternalMessageHandler 
+ 刚刚掉线的集中器：00201704131
+原来的ctx：io.netty.channel.DefaultChannelHandlerContext@5aa1b4d7  false
+新的ctx:io.netty.channel.DefaultChannelHandlerContext@78610c6a    true 
+DEBUG 2018-12-29 10:29:23,501: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:29:33,503: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:29:33,699: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:29:33,759: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:29:33,759: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:29:33,759: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:29:43,505: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:29:45,520: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:29:45,728: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:29:45,728: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:29:45,728: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:29:55,515: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:30:05,515: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:30:05,517: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:30:05,705: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:30:05,705: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:30:05,715: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:30:15,518: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:30:17,521: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:30:17,769: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:30:17,770: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:30:17,773: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:30:27,519: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:30:37,538: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:30:37,543: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:30:37,789: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:30:37,789: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:30:37,789: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:30:47,535: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:30:49,534: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:30:49,780: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:30:49,782: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:30:49,787: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:30:59,537: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:31:09,542: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:31:09,562: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:31:09,643: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:31:09,643: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:31:09,653: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:31:19,549: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:31:21,553: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:31:21,623: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:31:21,623: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:31:21,633: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:31:31,556: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:31:41,562: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:31:41,576: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:31:41,661: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:31:41,662: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:31:41,665: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:31:51,563: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:31:53,564: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:31:53,640: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:31:53,641: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:31:53,643: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:32:03,562: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:32:13,570: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:32:13,580: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:32:13,663: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:32:13,663: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:32:13,663: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:32:23,577: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:32:25,585: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:32:25,634: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:32:25,634: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:32:25,634: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:32:35,589: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:32:45,593: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:32:45,603: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:32:45,679: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:32:45,681: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:32:45,686: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:32:55,602: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:32:57,608: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:32:57,688: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:32:57,688: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:32:57,688: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:33:07,618: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:33:17,623: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:33:17,657: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:33:17,706: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:33:17,708: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:33:17,713: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:33:27,628: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:33:29,630: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:33:29,687: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:33:29,688: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:33:29,694: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:33:39,635: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:33:49,637: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:33:49,867: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:33:49,915: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:33:49,915: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:33:49,915: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:33:59,651: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:34:01,654: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:34:01,734: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:34:01,734: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:34:01,734: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:34:11,660: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:34:21,663: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:34:21,673: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:34:21,753: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:34:21,753: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:34:21,753: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:34:31,673: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:34:33,681: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:34:33,761: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:34:33,761: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:34:33,761: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:34:43,681: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:34:53,690: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:34:53,700: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:34:53,770: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:34:53,770: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:34:53,770: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:35:03,691: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:35:05,694: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:35:05,788: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:35:05,788: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:35:05,798: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:35:11,448: com.xjy.handler.InternalMessageHandler 
+ 一个客户端断开连接,集中器编号：00201704131 ctx:io.netty.channel.DefaultChannelHandlerContext@78610c6a   通道信息：[id: 0xdd501747, /127.0.0.1:54411 :> 0.0.0.0/0.0.0.0:5100]    通道是否活跃：false 
+DEBUG 2018-12-29 10:35:58,448: com.xjy.core.ConditionMonitor 
+ 集中器00201704131掉线！ 
+DEBUG 2018-12-29 10:35:58,580: com.xjy.core.ConditionMonitor 
+ 集中器00201611251掉线！ 
+DEBUG 2018-12-29 10:36:00,778: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@6668eb1c 
+DEBUG 2018-12-29 10:36:00,778: com.xjy.handler.InternalMessageHandler 
+ 刚刚掉线的集中器：00201704131
+原来的ctx：io.netty.channel.DefaultChannelHandlerContext@78610c6a  false
+新的ctx:io.netty.channel.DefaultChannelHandlerContext@6668eb1c    true 
+DEBUG 2018-12-29 10:36:06,967: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:06,969: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,021: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,021: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,021: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,021: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,031: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,101: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,101: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,111: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,111: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,121: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,171: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,171: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,171: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,181: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,181: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,291: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,291: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,301: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,301: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,311: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,391: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,391: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,391: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,401: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,411: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,466: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,467: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,470: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,472: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,474: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,556: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,556: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,566: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,566: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,576: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,646: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,646: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,666: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,666: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,666: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,716: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,716: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,725: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,725: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,725: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:07,840: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:07,840: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:07,860: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:07,860: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:07,870: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:27,952: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:27,952: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:27,952: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:27,952: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:27,962: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:28,012: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:28,012: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:28,012: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:28,012: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:28,012: com.xjy.handler.InternalMessageHandler 
+ 一个客户端断开连接,集中器编号：00201704131 ctx:io.netty.channel.DefaultChannelHandlerContext@6668eb1c   通道信息：[id: 0x50992a04, /127.0.0.1:54487 :> 0.0.0.0/0.0.0.0:5100]    通道是否活跃：false 
+DEBUG 2018-12-29 10:36:37,710: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@54a66705 
+DEBUG 2018-12-29 10:36:37,710: com.xjy.handler.InternalMessageHandler 
+ 刚刚掉线的集中器：00201704131
+原来的ctx：io.netty.channel.DefaultChannelHandlerContext@6668eb1c  false
+新的ctx:io.netty.channel.DefaultChannelHandlerContext@54a66705    true 
+DEBUG 2018-12-29 10:36:37,720: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:37,720: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:37,797: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:37,798: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:37,803: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:37,810: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:37,814: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:37,864: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:37,864: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:37,864: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:37,874: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:37,884: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:37,962: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:37,962: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:37,962: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:37,992: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:37,992: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:38,065: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:38,065: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:38,065: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:38,065: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:38,075: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:38,115: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:38,125: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:38,125: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:38,135: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:38,144: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:38,222: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:38,223: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:38,226: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:38,228: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:38,230: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:38,310: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:38,311: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:38,314: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:38,321: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:38,324: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:38,373: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:38,373: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:38,375: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:38,378: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:38,382: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:58,472: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:58,474: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:58,478: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:58,483: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:58,488: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:36:58,568: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:36:58,568: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:36:58,568: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:36:58,568: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:36:58,568: com.xjy.handler.InternalMessageHandler 
+ 一个客户端断开连接,集中器编号：00201704131 ctx:io.netty.channel.DefaultChannelHandlerContext@54a66705   通道信息：[id: 0xde0c8111, /127.0.0.1:54492 :> 0.0.0.0/0.0.0.0:5100]    通道是否活跃：false 
+DEBUG 2018-12-29 10:39:58,687: com.xjy.core.ConditionMonitor 
+ 集中器00201704131掉线！ 
+DEBUG 2018-12-29 10:39:58,810: com.xjy.core.ConditionMonitor 
+ 集中器00201611251掉线！ 
+DEBUG 2018-12-29 10:43:58,927: com.xjy.core.ConditionMonitor 
+ 集中器00201704131掉线！ 
+DEBUG 2018-12-29 10:43:59,048: com.xjy.core.ConditionMonitor 
+ 集中器00201611251掉线！ 
+DEBUG 2018-12-29 10:46:22,482: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@7b6a002f 
+DEBUG 2018-12-29 10:46:22,482: com.xjy.handler.InternalMessageHandler 
+ 刚刚掉线的集中器：00201704131
+原来的ctx：io.netty.channel.DefaultChannelHandlerContext@54a66705  false
+新的ctx:io.netty.channel.DefaultChannelHandlerContext@7b6a002f    true 
+DEBUG 2018-12-29 10:46:22,490: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,103: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:23,173: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:23,173: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:23,173: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:23,173: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,183: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:23,293: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:23,293: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:23,293: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:23,293: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,303: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:23,373: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:23,373: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:23,373: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:23,383: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,383: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:23,492: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:23,492: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:23,492: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:23,502: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,502: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:23,612: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:23,612: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:23,612: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:23,612: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,622: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:23,691: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:23,691: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:23,703: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:23,705: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,708: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:23,826: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:23,826: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:23,829: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:23,831: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,833: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:23,944: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:23,944: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:23,944: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:23,944: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:23,944: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:24,020: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:24,020: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:24,020: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:24,020: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:24,030: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:24,273: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:24,273: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:24,273: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:24,283: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:24,283: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:44,402: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:44,402: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:44,402: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:44,402: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:44,402: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 10:46:44,484: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 10:46:44,485: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 10:46:44,487: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 10:46:44,489: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 10:46:44,489: com.xjy.handler.InternalMessageHandler 
+ 一个客户端断开连接,集中器编号：00201704131 ctx:io.netty.channel.DefaultChannelHandlerContext@7b6a002f   通道信息：[id: 0xd8b78dd9, /127.0.0.1:54612 :> 0.0.0.0/0.0.0.0:5100]    通道是否活跃：false 
+DEBUG 2018-12-29 11:31:15,260: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-29 11:31:15,264: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-29 11:31:15,293: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-29 11:31:15,293: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-29 11:31:16,887: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-29 11:31:16,892: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 7344 (auto-detected) 
+DEBUG 2018-12-29 11:31:16,895: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xe60ea251c77e47e9 
+DEBUG 2018-12-29 11:31:16,905: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-29 11:31:16,922: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-29 11:31:16,922: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-29 11:31:16,922: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-29 11:31:16,924: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-29 11:31:16,925: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-29 11:31:16,925: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-29 11:31:16,925: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-29 11:31:16,926: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-29 11:31:16,926: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-29 11:31:16,927: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-29 11:31:16,928: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-29 11:31:16,929: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-29 11:31:16,929: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-29 11:31:17,030: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-29 11:31:17,031: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-29 11:31:17,031: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-29 11:31:43,512: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@296718cf 
+DEBUG 2018-12-29 11:31:47,831: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-29 11:31:47,890: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:31:57,862: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:31:57,876: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-29 11:31:58,339: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:31:58,411: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 11:31:58,691: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+WARN 2018-12-29 11:31:58,701: io.netty.util.concurrent.DefaultPromise 
+ An exception was thrown by com.xjy.util.InternalProtocolSendHelper$1.operationComplete() 
+io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:115)
+	at io.netty.util.ReferenceCountUtil.release(ReferenceCountUtil.java:68)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:242)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:235)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:631)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener(DefaultPromise.java:608)
+	at io.netty.util.concurrent.DefaultPromise.addListener(DefaultPromise.java:130)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:93)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:28)
+	at com.xjy.util.InternalProtocolSendHelper.writeAndFlush(InternalProtocolSendHelper.java:235)
+	at com.xjy.util.InternalProtocolSendHelper.readNextPage(InternalProtocolSendHelper.java:61)
+	at com.xjy.processor.InternalMsgProcessor.readProcessor(InternalMsgProcessor.java:187)
+	at com.xjy.handler.InternalMessageHandler.channelRead(InternalMessageHandler.java:96)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+	at java.lang.Thread.run(Thread.java:748)
+DEBUG 2018-12-29 11:31:58,701: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:31:58,701: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:32:07,831: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:32:09,839: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:32:09,944: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+WARN 2018-12-29 11:32:09,944: io.netty.util.concurrent.DefaultPromise 
+ An exception was thrown by com.xjy.util.InternalProtocolSendHelper$1.operationComplete() 
+io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:115)
+	at io.netty.util.ReferenceCountUtil.release(ReferenceCountUtil.java:68)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:242)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:235)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:631)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener(DefaultPromise.java:608)
+	at io.netty.util.concurrent.DefaultPromise.addListener(DefaultPromise.java:130)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:93)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:28)
+	at com.xjy.util.InternalProtocolSendHelper.writeAndFlush(InternalProtocolSendHelper.java:235)
+	at com.xjy.util.InternalProtocolSendHelper.readNextPage(InternalProtocolSendHelper.java:61)
+	at com.xjy.processor.InternalMsgProcessor.readProcessor(InternalMsgProcessor.java:187)
+	at com.xjy.handler.InternalMessageHandler.channelRead(InternalMessageHandler.java:96)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+	at java.lang.Thread.run(Thread.java:748)
+DEBUG 2018-12-29 11:32:09,944: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:32:09,954: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:32:19,840: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:32:29,843: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:32:29,853: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:32:30,100: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+WARN 2018-12-29 11:32:30,100: io.netty.util.concurrent.DefaultPromise 
+ An exception was thrown by com.xjy.util.InternalProtocolSendHelper$1.operationComplete() 
+io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:115)
+	at io.netty.util.ReferenceCountUtil.release(ReferenceCountUtil.java:68)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:242)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:235)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:631)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener(DefaultPromise.java:608)
+	at io.netty.util.concurrent.DefaultPromise.addListener(DefaultPromise.java:130)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:93)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:28)
+	at com.xjy.util.InternalProtocolSendHelper.writeAndFlush(InternalProtocolSendHelper.java:235)
+	at com.xjy.util.InternalProtocolSendHelper.readNextPage(InternalProtocolSendHelper.java:61)
+	at com.xjy.processor.InternalMsgProcessor.readProcessor(InternalMsgProcessor.java:187)
+	at com.xjy.handler.InternalMessageHandler.channelRead(InternalMessageHandler.java:96)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+	at java.lang.Thread.run(Thread.java:748)
+DEBUG 2018-12-29 11:32:30,100: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:32:30,110: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:32:39,858: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:32:41,861: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:32:42,120: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+WARN 2018-12-29 11:32:42,122: io.netty.util.concurrent.DefaultPromise 
+ An exception was thrown by com.xjy.util.InternalProtocolSendHelper$1.operationComplete() 
+io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:115)
+	at io.netty.util.ReferenceCountUtil.release(ReferenceCountUtil.java:68)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:242)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:235)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:631)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener(DefaultPromise.java:608)
+	at io.netty.util.concurrent.DefaultPromise.addListener(DefaultPromise.java:130)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:93)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:28)
+	at com.xjy.util.InternalProtocolSendHelper.writeAndFlush(InternalProtocolSendHelper.java:235)
+	at com.xjy.util.InternalProtocolSendHelper.readNextPage(InternalProtocolSendHelper.java:61)
+	at com.xjy.processor.InternalMsgProcessor.readProcessor(InternalMsgProcessor.java:187)
+	at com.xjy.handler.InternalMessageHandler.channelRead(InternalMessageHandler.java:96)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+	at java.lang.Thread.run(Thread.java:748)
+DEBUG 2018-12-29 11:32:42,123: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:32:42,129: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:32:51,869: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:33:01,865: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:33:01,865: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:33:02,099: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+WARN 2018-12-29 11:33:02,109: io.netty.util.concurrent.DefaultPromise 
+ An exception was thrown by com.xjy.util.InternalProtocolSendHelper$1.operationComplete() 
+io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:115)
+	at io.netty.util.ReferenceCountUtil.release(ReferenceCountUtil.java:68)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:242)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:235)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:631)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener(DefaultPromise.java:608)
+	at io.netty.util.concurrent.DefaultPromise.addListener(DefaultPromise.java:130)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:93)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:28)
+	at com.xjy.util.InternalProtocolSendHelper.writeAndFlush(InternalProtocolSendHelper.java:235)
+	at com.xjy.util.InternalProtocolSendHelper.readNextPage(InternalProtocolSendHelper.java:61)
+	at com.xjy.processor.InternalMsgProcessor.readProcessor(InternalMsgProcessor.java:187)
+	at com.xjy.handler.InternalMessageHandler.channelRead(InternalMessageHandler.java:96)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+	at java.lang.Thread.run(Thread.java:748)
+DEBUG 2018-12-29 11:33:02,109: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:33:02,109: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:33:26,251: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-29 11:33:26,252: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-29 11:33:26,266: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-29 11:33:26,266: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-29 11:33:27,513: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-29 11:33:27,516: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 11348 (auto-detected) 
+DEBUG 2018-12-29 11:33:27,519: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x755b1b85ca3192d7 
+DEBUG 2018-12-29 11:33:27,526: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-29 11:33:27,541: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-29 11:33:27,542: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-29 11:33:27,542: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-29 11:33:27,543: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-29 11:33:27,543: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-29 11:33:27,543: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-29 11:33:27,543: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-29 11:33:27,543: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-29 11:33:27,544: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-29 11:33:27,544: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-29 11:33:27,545: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-29 11:33:27,545: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-29 11:33:27,545: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-29 11:33:27,636: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-29 11:33:27,636: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-29 11:33:27,636: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-29 11:33:31,904: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@144ac896 
+DEBUG 2018-12-29 11:33:31,908: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-29 11:33:31,925: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:33:41,895: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:33:41,895: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-29 11:33:42,218: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:33:42,279: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 11:33:42,486: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+WARN 2018-12-29 11:33:42,499: io.netty.util.concurrent.DefaultPromise 
+ An exception was thrown by com.xjy.util.InternalProtocolSendHelper$1.operationComplete() 
+io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:115)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:242)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:235)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:631)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener(DefaultPromise.java:608)
+	at io.netty.util.concurrent.DefaultPromise.addListener(DefaultPromise.java:130)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:93)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:28)
+	at com.xjy.util.InternalProtocolSendHelper.writeAndFlush(InternalProtocolSendHelper.java:235)
+	at com.xjy.util.InternalProtocolSendHelper.readNextPage(InternalProtocolSendHelper.java:61)
+	at com.xjy.processor.InternalMsgProcessor.readProcessor(InternalMsgProcessor.java:187)
+	at com.xjy.handler.InternalMessageHandler.channelRead(InternalMessageHandler.java:96)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+	at java.lang.Thread.run(Thread.java:748)
+DEBUG 2018-12-29 11:33:42,503: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:33:42,507: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:33:51,900: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:33:53,907: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:33:54,250: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+WARN 2018-12-29 11:33:54,250: io.netty.util.concurrent.DefaultPromise 
+ An exception was thrown by com.xjy.util.InternalProtocolSendHelper$1.operationComplete() 
+io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:115)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:242)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:235)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:631)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener(DefaultPromise.java:608)
+	at io.netty.util.concurrent.DefaultPromise.addListener(DefaultPromise.java:130)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:93)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:28)
+	at com.xjy.util.InternalProtocolSendHelper.writeAndFlush(InternalProtocolSendHelper.java:235)
+	at com.xjy.util.InternalProtocolSendHelper.readNextPage(InternalProtocolSendHelper.java:61)
+	at com.xjy.processor.InternalMsgProcessor.readProcessor(InternalMsgProcessor.java:187)
+	at com.xjy.handler.InternalMessageHandler.channelRead(InternalMessageHandler.java:96)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+	at java.lang.Thread.run(Thread.java:748)
+DEBUG 2018-12-29 11:33:54,250: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:33:54,260: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:34:03,914: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:34:13,928: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:34:13,932: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:34:14,226: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+WARN 2018-12-29 11:34:14,227: io.netty.util.concurrent.DefaultPromise 
+ An exception was thrown by com.xjy.util.InternalProtocolSendHelper$1.operationComplete() 
+io.netty.util.IllegalReferenceCountException: refCnt: 0, decrement: 1
+	at io.netty.buffer.AbstractReferenceCountedByteBuf.release(AbstractReferenceCountedByteBuf.java:115)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:242)
+	at com.xjy.util.InternalProtocolSendHelper$1.operationComplete(InternalProtocolSendHelper.java:235)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:631)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener(DefaultPromise.java:608)
+	at io.netty.util.concurrent.DefaultPromise.addListener(DefaultPromise.java:130)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:93)
+	at io.netty.channel.DefaultChannelPromise.addListener(DefaultChannelPromise.java:28)
+	at com.xjy.util.InternalProtocolSendHelper.writeAndFlush(InternalProtocolSendHelper.java:235)
+	at com.xjy.util.InternalProtocolSendHelper.readNextPage(InternalProtocolSendHelper.java:61)
+	at com.xjy.processor.InternalMsgProcessor.readProcessor(InternalMsgProcessor.java:187)
+	at com.xjy.handler.InternalMessageHandler.channelRead(InternalMessageHandler.java:96)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+	at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+	at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+	at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+	at java.lang.Thread.run(Thread.java:748)
+DEBUG 2018-12-29 11:34:14,229: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:34:14,233: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:34:14,372: com.xjy.handler.InternalMessageHandler 
+ 一个客户端断开连接,集中器编号：00201704131 ctx:io.netty.channel.DefaultChannelHandlerContext@144ac896   通道信息：[id: 0x493409e0, /127.0.0.1:60006 :> 0.0.0.0/0.0.0.0:5100]    通道是否活跃：false 
+DEBUG 2018-12-29 11:34:30,330: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-29 11:34:30,340: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-29 11:34:30,390: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-29 11:34:30,390: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-29 11:34:31,718: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-29 11:34:31,718: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 16852 (auto-detected) 
+DEBUG 2018-12-29 11:34:31,718: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x491746b4a2542257 
+DEBUG 2018-12-29 11:34:31,728: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-29 11:34:31,738: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-29 11:34:31,748: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-29 11:34:31,748: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-29 11:34:31,748: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-29 11:34:31,748: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-29 11:34:31,839: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-29 11:34:31,839: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-29 11:34:31,839: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2018-12-29 11:34:44,167: com.xjy.handler.InternalMessageHandler 
+ 新连接建立！io.netty.channel.DefaultChannelHandlerContext@4a70a413 
+DEBUG 2018-12-29 11:34:44,167: io.netty.util.ResourceLeakDetector 
+ -Dio.netty.leakDetectionLevel: simple 
+DEBUG 2018-12-29 11:34:44,187: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201611251的首条消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:34:54,157: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:34:54,177: com.xjy.handler.InternalMessageHandler 
+ 收到集中器00201704131的首条消息！
+InternalMsgBody{msgType=RECV_PACKAGE, deviceId='00201704131', effectiveBytes=[82, 82, 82, 2, 0, 117, 0, 48, 112, 1, 2, 64, 153, 9, 0, 79, 0, 83, 0, 48, 112, 1, 2, 64, 134, 9, 0, 79, 0, 146, 0, 48, 112, 1, 2, 64, 151, 9, 0, 79, 0, 39, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 9, 1, 0, 0, 0, 0, 0, 153, 0, 0, 77, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 77, 0, 2, 1, 0, 0, 0, 0, 16, 0, 0, 0, 77, 0, 120, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 151, 0, 64, 112, 1, 2, 0, 0, 0, 0, 77, 0, 0, 1, 64, 112, 1, 2, 0, 1, 16, 0, 77, 0, 80, 0, 48, 112, 1, 2, 80, 0, 16, 0, 77, 0, 0, 1, 0, 0, 0, 0, 144, 24, 1, 0, 79, 0, 5, 1, 0, 0, 0, 0, 80, 153, 9, 0, 79, 0, 6, 1, 0, 0, 0, 0, 96, 153, 9, 0, 79, 0, 8, 1, 0, 0, 0, 0, 16, 1, 16, 0, 79, 0, 149, 0, 64, 112, 1, 2, 32, 0, 32, 0, 79, 0, 1, 0, 25, 9, 23, 32, 0, 41, 9, 0, 79, 0, 152, 0, 64, 112, 1, 2, 0, 2, 16, 0, 77, 0, 153, 0, 64, 112, 1, 2, 144, 4, 16, 0, 79, 0, 89, 0, 48, 112, 1, 2, 96, 152, 17, 0, 77, 0, 3, 1, 0, 0, 0, 0, 112, 0, 16, 0, 79, 0, 35, 0, 48, 112, 1, 2, 64, 148, 9, 0, 77, 0, 48, 0, 48, 112, 1, 2, 80, 0, 16, 0, 79, 0, 103, 0, 48, 112, 1, 2, 0, 0, 0, 0, 77, 0, 136, 0, 48, 112, 1, 2, 112, 153, 9, 0, 79, 0, 146, 2, 114, 96, 112, 1, 144, 70, 153, 9, 79, 0, 102, 1, 32, 112, 1, 2, 0, 0, 0, 0, 77, 0, 121, 34, 0, 97, 1, 2, 112, 148, 36, 0, 79, 0, 118, 17, 128, 96, 1, 2, 96, 80, 153, 9, 79, 0, 128, 17, 128, 96, 1, 2, 80, 82, 4, 0, 79], crcCode=20622} 
+DEBUG 2018-12-29 11:34:54,745: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:34:54,845: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 11:34:55,253: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 11:34:55,273: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:34:55,273: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:35:04,162: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:35:06,189: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:35:06,444: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 11:35:06,445: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:35:06,448: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:35:16,176: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:35:26,178: com.xjy.handler.InternalMessageHandler 
+ 收到从自组网集中器来的消息！
+InternalMsgBody{msgType=HEARTBEAT_PACKAGE, deviceId='00201611251', effectiveBytes=null, crcCode=0} 
+DEBUG 2018-12-29 11:35:26,188: com.xjy.handler.InternalMessageHandler 
+ 收到指令类型:RRR 
+DEBUG 2018-12-29 11:35:26,384: com.xjy.util.DBUtil 
+ 找不到集中器id！请检查集中器IP和端口配置！ 
+DEBUG 2018-12-29 11:35:26,385: com.xjy.util.InternalProtocolSendHelper 
+ 待发送报文：
+ 
+DEBUG 2018-12-29 11:35:26,387: com.xjy.util.InternalProtocolSendHelper 
+ 7b 01 00 16 30 30 32 30 31 37 30 34 31 33 31 42 42 42 42 42 42 42 42 42 53 52 52 52 03 40 69 
+45  
+DEBUG 2018-12-29 11:35:31,437: com.xjy.handler.InternalMessageHandler 
+ 一个客户端断开连接,集中器编号：00201704131 ctx:io.netty.channel.DefaultChannelHandlerContext@4a70a413   通道信息：[id: 0xbc2049da, /127.0.0.1:60065 :> 0.0.0.0/0.0.0.0:5100]    通道是否活跃：false 
+DEBUG 2018-12-29 12:11:32,151: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2018-12-29 12:11:32,153: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2018-12-29 12:11:32,176: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2018-12-29 12:11:32,177: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2018-12-29 12:11:33,382: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2018-12-29 12:11:33,385: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 1332 (auto-detected) 
+DEBUG 2018-12-29 12:11:33,395: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xf4767137a72c75c1 
+DEBUG 2018-12-29 12:11:33,401: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2018-12-29 12:11:33,414: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2018-12-29 12:11:33,414: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2018-12-29 12:11:33,414: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2018-12-29 12:11:33,415: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2018-12-29 12:11:33,415: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2018-12-29 12:11:33,415: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2018-12-29 12:11:33,415: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2018-12-29 12:11:33,415: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2018-12-29 12:11:33,415: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2018-12-29 12:11:33,416: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2018-12-29 12:11:33,416: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2018-12-29 12:11:33,416: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2018-12-29 12:11:33,416: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2018-12-29 12:11:33,528: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2018-12-29 12:11:33,529: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2018-12-29 12:11:33,529: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 

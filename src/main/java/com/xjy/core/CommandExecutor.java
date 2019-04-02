@@ -60,7 +60,6 @@ public class CommandExecutor implements Runnable{
                         }else{
                             executeForInternalProtocol(center ,currentCommand);
                         }
-
                     }
                 }
             }

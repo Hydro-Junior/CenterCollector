@@ -174,7 +174,7 @@ public class DBUtil {
         //如果当天已有数据，则更新，否则插入
         String tableName = "t_deviceTmp"+ LocalDateTime.now().getYear()+String.format("%02d",LocalDateTime.now().getMonthValue());
         if(mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meter.getId()) != null){
-            mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState());
+            mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
         }else{
             mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
         }
@@ -229,13 +229,16 @@ public class DBUtil {
         //如果当天已有数据，则更新，否则插入
         for(Meter meter : tempMeterData){
             if(mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meter.getId()) != null){
-                mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState());
+                mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
             }else{
                 mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
             }
             //阀门信息
             DBMeter dbmeter = mapper.searchDevice(centerId,meter.getId());
-            if(meter == null) LogUtil.DataMessageLog(DBUtil.class,"找不到对应水表！\r\n centerId="+centerId+"   meterAddress="+meter.getId());
+            if(dbmeter == null){
+                LogUtil.DataMessageLog(DBUtil.class,"找不到对应水表！\r\n centerId="+centerId+"   meterAddress="+meter.getId());
+                continue;
+            }
             try{
                 if(dbmeter.getStrobeStatue() != 0 && meter.getValveState()>=1) mapper.updateStrobeState(meter.getValveState(),dbmeter.getId());
             }catch (NullPointerException e){
@@ -247,4 +250,11 @@ public class DBUtil {
         session.close();
     }
 
+    public static void getEnprNoByAddress(Center center) {
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        CenterMapper mapper = session.getMapper(CenterMapper.class);
+        String enprNo = mapper.getEnprNo(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));
+        center.setEnprNo(enprNo);
+        session.close();
+    }
 }

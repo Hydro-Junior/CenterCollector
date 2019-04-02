@@ -233,13 +233,13 @@ public class InternalProtocolSendHelper {
     public static void writeAndFlush(Center center,InternalMsgBody msgBody){
         ByteBuf buf = Unpooled.copiedBuffer(msgBody.toBytes());
         ChannelFuture f = center.getCtx().writeAndFlush(buf);
-        f.addListener(new ChannelFutureListener() {
+        /*f.addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 System.out.println("写指令完成！");
                 assert f==future;
             }
-        });
+        });*/
         printMsgLog(msgBody);
         center.setLatestMsg(msgBody);
     }

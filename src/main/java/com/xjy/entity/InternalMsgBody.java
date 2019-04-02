@@ -134,7 +134,7 @@ public class InternalMsgBody {
         return "InternalMsgBody{" +
                 "msgType=" + msgType +
                 ", deviceId='" + deviceId + '\'' +
-                ", effectiveBytes=" + Arrays.toString(effectiveBytes) +
+                ", effectiveBytes=" + ConvertUtil.fixedLengthHex(effectiveBytes) +
                 ", crcCode=" + crcCode +
                 '}';
     }

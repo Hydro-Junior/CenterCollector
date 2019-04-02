@@ -26,7 +26,7 @@
 				PRIMARY KEY (addr,readDate,centerID))
     </update>
     <update id="updateDeviceData">
-        update ${tableName} set showValue=#{data},fshowValue=#{data},meterState=#{state},commState=#{state},readTime=#{now} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
+        update ${tableName} set showValue=#{data},fshowValue=#{data},meterState=#{state},commState=#{state},readTime=#{now},enprNo=#{enprNo} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
     </update>
     <update id = "updateValveState">
         update ${tableName} set meterState=#{valveState} where addr=#{meterAddress} and centerID = #{centerId} and readDate=#{day}
