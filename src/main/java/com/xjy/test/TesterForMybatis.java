@@ -117,6 +117,13 @@ public class TesterForMybatis {
             System.out.println(dbMeters);
         }
     }
+    @Test
+    public void insertCommandTest(){
+        CommandMapper mapper = session.getMapper(CommandMapper.class);
+        mapper.insertNewCollectCommand(Timestamp.valueOf(LocalDateTime.now()),10000,
+                "20170828002",200,"114.119.9.181"+":"+Constants.protocolPort,"rzgs");
+        session.commit();
+    }
     @After
     public void destroy(){
         session.close();

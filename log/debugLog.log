@@ -1,48 +1,144 @@
-DEBUG 2019-01-06 11:16:16,277: io.netty.util.internal.logging.InternalLoggerFactory 
+DEBUG 2019-04-04 09:47:30,561: io.netty.util.internal.logging.InternalLoggerFactory 
  Using Log4J as the default logging framework 
-DEBUG 2019-01-06 11:16:16,286: io.netty.channel.MultithreadEventLoopGroup 
+DEBUG 2019-04-04 09:47:30,571: io.netty.channel.MultithreadEventLoopGroup 
  -Dio.netty.eventLoopThreads: 8 
-DEBUG 2019-01-06 11:16:16,314: io.netty.channel.nio.NioEventLoop 
+DEBUG 2019-04-04 09:47:30,591: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.noKeySetOptimization: false 
-DEBUG 2019-01-06 11:16:16,314: io.netty.channel.nio.NioEventLoop 
+DEBUG 2019-04-04 09:47:30,591: io.netty.channel.nio.NioEventLoop 
  -Dio.netty.selectorAutoRebuildThreshold: 512 
-DEBUG 2019-01-06 11:16:19,277: io.netty.channel.DefaultChannelId 
+DEBUG 2019-04-04 09:47:31,681: io.netty.channel.DefaultChannelId 
  -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
-DEBUG 2019-01-06 11:16:19,287: io.netty.channel.DefaultChannelId 
- -Dio.netty.processId: 15464 (auto-detected) 
-DEBUG 2019-01-06 11:16:19,323: io.netty.util.internal.ThreadLocalRandom 
- -Dio.netty.initialSeedUniquifier: 0x45e55949e657fae6 
-DEBUG 2019-01-06 11:16:19,332: io.netty.channel.ChannelOutboundBuffer 
+DEBUG 2019-04-04 09:47:31,689: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 12240 (auto-detected) 
+DEBUG 2019-04-04 09:47:31,689: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0xaa8571a10c573b03 
+DEBUG 2019-04-04 09:47:31,689: io.netty.channel.ChannelOutboundBuffer 
  -Dio.netty.threadLocalDirectBufferSize: 65536 
-DEBUG 2019-01-06 11:16:19,351: io.netty.util.internal.PlatformDependent 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
  Platform: Windows 
-DEBUG 2019-01-06 11:16:19,351: io.netty.util.internal.PlatformDependent 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
  Java version: 8 
-DEBUG 2019-01-06 11:16:19,351: io.netty.util.internal.PlatformDependent 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noUnsafe: false 
-DEBUG 2019-01-06 11:16:19,352: io.netty.util.internal.PlatformDependent0 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
  java.nio.ByteBuffer.cleaner: available 
-DEBUG 2019-01-06 11:16:19,353: io.netty.util.internal.PlatformDependent0 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
  java.nio.Buffer.address: available 
-DEBUG 2019-01-06 11:16:19,353: io.netty.util.internal.PlatformDependent0 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.theUnsafe: available 
-DEBUG 2019-01-06 11:16:19,353: io.netty.util.internal.PlatformDependent0 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
  sun.misc.Unsafe.copyMemory: available 
-DEBUG 2019-01-06 11:16:19,353: io.netty.util.internal.PlatformDependent0 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
  java.nio.Bits.unaligned: true 
-DEBUG 2019-01-06 11:16:19,354: io.netty.util.internal.PlatformDependent 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
  sun.misc.Unsafe: available 
-DEBUG 2019-01-06 11:16:19,354: io.netty.util.internal.PlatformDependent 
+DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noJavassist: false 
-DEBUG 2019-01-06 11:16:19,354: io.netty.util.internal.PlatformDependent 
+DEBUG 2019-04-04 09:47:31,711: io.netty.util.internal.PlatformDependent 
  Javassist: unavailable 
-DEBUG 2019-01-06 11:16:19,354: io.netty.util.internal.PlatformDependent 
+DEBUG 2019-04-04 09:47:31,711: io.netty.util.internal.PlatformDependent 
  You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
-DEBUG 2019-01-06 11:16:19,354: io.netty.util.internal.PlatformDependent 
+DEBUG 2019-04-04 09:47:31,711: io.netty.util.internal.PlatformDependent 
  -Dio.netty.noPreferDirect: false 
-DEBUG 2019-01-06 11:16:19,668: io.netty.util.NetUtil 
+DEBUG 2019-04-04 09:47:31,809: io.netty.util.NetUtil 
  Loopback interface: Software Loopback Interface 1 
-DEBUG 2019-01-06 11:16:19,669: io.netty.util.NetUtil 
+DEBUG 2019-04-04 09:47:31,809: io.netty.util.NetUtil 
  Loopback address: /127.0.0.1 (primary) 
-DEBUG 2019-01-06 11:16:19,669: io.netty.util.NetUtil 
+DEBUG 2019-04-04 09:47:31,809: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2019-04-04 19:38:46,772: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2019-04-04 19:38:46,774: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2019-04-04 19:38:46,790: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2019-04-04 19:38:46,790: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2019-04-04 19:38:50,135: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2019-04-04 19:38:50,138: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 2732 (auto-detected) 
+DEBUG 2019-04-04 19:38:50,140: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x3a8ad25e89ccd20c 
+DEBUG 2019-04-04 19:38:50,145: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2019-04-04 19:38:50,157: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2019-04-04 19:38:50,157: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2019-04-04 19:38:50,157: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2019-04-04 19:38:50,158: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2019-04-04 19:38:50,159: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2019-04-04 19:38:50,159: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2019-04-04 19:38:50,159: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2019-04-04 19:38:50,160: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2019-04-04 19:38:50,160: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2019-04-04 19:38:50,160: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2019-04-04 19:38:50,161: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2019-04-04 19:38:50,161: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2019-04-04 19:38:50,161: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2019-04-04 19:38:50,354: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2019-04-04 19:38:50,354: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2019-04-04 19:38:50,354: io.netty.util.NetUtil 
+ Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2019-04-04 20:29:45,979: io.netty.util.internal.logging.InternalLoggerFactory 
+ Using Log4J as the default logging framework 
+DEBUG 2019-04-04 20:29:45,983: io.netty.channel.MultithreadEventLoopGroup 
+ -Dio.netty.eventLoopThreads: 8 
+DEBUG 2019-04-04 20:29:46,000: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.noKeySetOptimization: false 
+DEBUG 2019-04-04 20:29:46,000: io.netty.channel.nio.NioEventLoop 
+ -Dio.netty.selectorAutoRebuildThreshold: 512 
+DEBUG 2019-04-04 20:29:48,100: io.netty.channel.DefaultChannelId 
+ -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
+DEBUG 2019-04-04 20:29:48,103: io.netty.channel.DefaultChannelId 
+ -Dio.netty.processId: 6616 (auto-detected) 
+DEBUG 2019-04-04 20:29:48,105: io.netty.util.internal.ThreadLocalRandom 
+ -Dio.netty.initialSeedUniquifier: 0x220a0612f87229f7 
+DEBUG 2019-04-04 20:29:48,110: io.netty.channel.ChannelOutboundBuffer 
+ -Dio.netty.threadLocalDirectBufferSize: 65536 
+DEBUG 2019-04-04 20:29:48,121: io.netty.util.internal.PlatformDependent 
+ Platform: Windows 
+DEBUG 2019-04-04 20:29:48,122: io.netty.util.internal.PlatformDependent 
+ Java version: 8 
+DEBUG 2019-04-04 20:29:48,122: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noUnsafe: false 
+DEBUG 2019-04-04 20:29:48,122: io.netty.util.internal.PlatformDependent0 
+ java.nio.ByteBuffer.cleaner: available 
+DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent0 
+ java.nio.Buffer.address: available 
+DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.theUnsafe: available 
+DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent0 
+ sun.misc.Unsafe.copyMemory: available 
+DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent0 
+ java.nio.Bits.unaligned: true 
+DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent 
+ sun.misc.Unsafe: available 
+DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noJavassist: false 
+DEBUG 2019-04-04 20:29:48,124: io.netty.util.internal.PlatformDependent 
+ Javassist: unavailable 
+DEBUG 2019-04-04 20:29:48,124: io.netty.util.internal.PlatformDependent 
+ You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
+DEBUG 2019-04-04 20:29:48,124: io.netty.util.internal.PlatformDependent 
+ -Dio.netty.noPreferDirect: false 
+DEBUG 2019-04-04 20:29:48,319: io.netty.util.NetUtil 
+ Loopback interface: Software Loopback Interface 1 
+DEBUG 2019-04-04 20:29:48,319: io.netty.util.NetUtil 
+ Loopback address: /127.0.0.1 (primary) 
+DEBUG 2019-04-04 20:29:48,319: io.netty.util.NetUtil 
  Loopback address: /0:0:0:0:0:0:0:1 

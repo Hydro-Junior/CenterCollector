@@ -8,4 +8,9 @@
     <update id="updateCommandState" >
         update t_tempCommandQueue set State = #{state} where id = #{id}
     </update>
+    <insert id="insertNewCollectCommand">
+        insert into t_tempCommandQueue(command,Operator,GenerateTime,ExecuteTime,ContentValue1,ContentValue2,
+        State,port,enprNo) VALUES ('000101','admin',#{generateTime},#{executeTime},#{centerAddress},#{meterCount},
+        0,#{portStr},#{enprNo})
+    </insert>
 </mapper>

@@ -21,7 +21,7 @@ public interface CenterMapper {
     void updateCenterReadTime(int id);
     void updateHeartBeatTime(@Param("address") String address,@Param("ip") String ip, @Param("port") int port);
     void updateCommandEndTime(@Param("address")String address, @Param("ip")String ip, @Param("port")int port, @Param("theTime")Timestamp time);
-    int getSchemeId(@Param("centerId")int centerId);
+    Integer getSchemeId(@Param("centerId")int centerId);
     Scheme getScheme(int schemeId);
     String getEnprNo(@Param("address") String address,@Param("ip")String ip,@Param("port")int port);
     List<DBCollector> getCollectors(@Param("centerId") int centerId);

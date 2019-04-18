@@ -30,7 +30,8 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
         ExceptionProcessor.processAfterException(ctx);//将对应集中器的命令状态置为失败
         ctx.close();
     }
-    //内部协议没有报文尾与长度提示，只存在报文头，理论上来讲这种协议设计并不是很合理，较难处理分包的情况，
+    //内部协议只存在报文头，报文尾0x45仅为数据包尾，心跳包没有报文尾
+    //理论上来讲这种协议设计并不是很合理，较难处理分包的情况，
     //为了效率优先，只能舍弃原来的分隔符解码器。
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
         int rd = in.readerIndex(); //获取最初的readerIndex
@@ -50,24 +51,27 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
         //报文分割处理
         for(int i = 0 ; i < res.size() ;i++){
             int start = res.get(i) + 4;
-            int end = ((i+1)==res.size() ? bytes.length : res.get(i+1));
+            int end = ((i+1)==res.size() ? bytes.length : res.get(i+1));//下一个报文头的位置
             /**
              * 【半包处理】
              * findHead方法是找两个报文头，对于粘包能顺利解决，对于分包，只能结合一下两个信息，另外添加判断处理
              * (可能要用到mark和reset)，降低异常发生的概率
              1. 心跳包长度是15
-             2. 其他任何数据包结尾都是0x45（但是有可能报文中间有0x45）*/
-            if(end - start < 11 || (end -start > 11 && bytes[end-1]!= 0x45) && bytes[end-2] != 0x45){//自组网在数据包后面还跟个0x0d！
-                //检测到半包，打印字节
-                System.out.println("检测到半包，打印字节");
+             2. 其他任何数据包结尾都是0x45（甚至有可能报文中间有0x45，如关节点失败EEE），且数据包都有指令码，且长度在25以上
+             3. 这里没有处理太过极端的情况（出现几率几乎为零），比如半包刚好截至指令位，且指令为0x45
+             */
+            //心跳包满足end - start == 11
+            if(end - start < 11 || (end -start > 11 && bytes[end-1]!= 0x45 && bytes[end-2] != 0x45)){
+                //自组网在数据包后面还跟个0x0d，因此检测最后两位即可，如果都不是0x45，认定为半包。
+                LogUtil.DataMessageLog(InternalProtocolDecoder.class,"检测到半包，打印字节");
                 for(int j = start ; j < end; j++){
                     System.out.print(ConvertUtil.fixedLengthHex(bytes[j])+ " ");
                 }
-                in.readerIndex(rd + res.get(i));
+                in.readerIndex(rd + res.get(i));//重置读取开始位指针
                 in.discardReadBytes();
                 return;
             }
-            if(bytes[end-1] == 0x0d && bytes[end-2]==0x45) end--;
+            if(end - start > 11 && bytes[end-1] == 0x0d && bytes[end-2]==0x45) end--;
             byte[] strippedBytes = new byte[end - start];
             System.arraycopy(bytes,start,strippedBytes,0,end - start);
             /**

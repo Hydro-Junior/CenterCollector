@@ -209,6 +209,13 @@ public class InternalProtocolSendHelper {
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(),effectiveData);
         writeAndFlush(center,internalMsgBody);
     }
+    //关闭之前未关闭的通道
+    public static void closeChannelBefore(Center center, InternalMsgBody msgBody) {
+        String collector = ConvertUtil.getCollectAddressFromMsgBody(msgBody);
+        int[] effectiveData = addInstruction(ConvertUtil.addressToBytes(collector),InternalOrders.CLOSE_CHANNEL);
+        InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(),effectiveData);
+        writeAndFlush(center,internalMsgBody);
+    }
     //开阀
     public static void openValve(Center currentCenter) {
         String meter = currentCenter.getCurCommand().getArgs()[2];
@@ -220,6 +227,13 @@ public class InternalProtocolSendHelper {
     public static void closeValve(Center currentCenter) {
         String meter = currentCenter.getCurCommand().getArgs()[2];
         int[] effectiveData = addInstruction(ConvertUtil.addressToBytes(meter),InternalOrders.CLOSE_VALVE);
+        InternalMsgBody internalMsgBody = new InternalMsgBody(currentCenter.getId(),effectiveData);
+        writeAndFlush(currentCenter,internalMsgBody);
+    }
+    //读节点表
+    public static void DRead(Center currentCenter) {
+        String meter = currentCenter.getCurCommand().getArgs()[2];
+        int[] effectiveData = addInstruction(ConvertUtil.addressToBytes(meter),InternalOrders.D_READ);
         InternalMsgBody internalMsgBody = new InternalMsgBody(currentCenter.getId(),effectiveData);
         writeAndFlush(currentCenter,internalMsgBody);
     }

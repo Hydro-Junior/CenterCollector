@@ -16,6 +16,7 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
+import org.omg.PortableInterceptor.INACTIVE;
 
 import java.net.SocketAddress;
 import java.time.Duration;
@@ -26,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.TimeUnit;
 
 import static com.xjy.entity.GlobalMap.getMap;
 
@@ -56,12 +58,8 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
             }else{
                 Center center = map.get(address);
                 center.setCtx(ctx);
-                //特别处理
-                /*if(address.equals("00201707074")||address.equals("00201611251")){
-                    LogUtil.DataMessageLog(InternalMessageHandler.class,"收到从自组网集中器来的消息！\r\n"+msgBody);
-                }*/
-                if(center.getCurCommand() != null && center.getCurCommand().getState()==CommandState.EXECUTING && center.getCurCommand().isSuspend()){//在执行命令时掉线
-                   if(center.getLatestMsg() != null && center.getCurCommand().getType()!=CommandType.COLLECT_FOR_CENTER){//如果是采集命令，重发时间代价太大，且有些集中器执行采集命令会断开连接，结束后上线
+                if(center.getCurCommand() != null && center.getCurCommand().isSuspend()){//在执行命令时掉线
+                   if(center.getLatestMsg() != null &&center.getCurCommand().getState()==CommandState.EXECUTING && center.getCurCommand().getType()!=CommandType.COLLECT_FOR_CENTER){//如果是采集命令，重发时间代价太大，且有些集中器执行采集命令会断开连接，结束后上线
                        LogUtil.DataMessageLog(InternalMessageHandler.class,"集中器"+center.getId()+"有缓存消息待发送！");
                        //发送缓存消息
                        InternalProtocolSendHelper.writeAndFlush(center,center.getLatestMsg());
@@ -72,6 +70,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                    }
                    center.getCurCommand().setSuspend(false);
                 }
+
             }
             Center currentCenter = map.get(address);
 
@@ -80,7 +79,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 DBUtil.updateheartBeatTime(currentCenter);
             }else{
                 Duration duration = Duration.between(currentCenter.getHeartBeatTime(),LocalDateTime.now());
-                if(duration.toMinutes() > 3){
+                if(duration.toMinutes() > 2){
                     //由于web后台程序的干预，时间超过一定值不更新心跳，会将集中器设为不在线，因此添加下面的语句，
                     //防止在线的集中器网页显示却是不在线！
                     currentCenter.setHeartBeatTime(LocalDateTime.now());
@@ -98,13 +97,33 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                     InternalMsgProcessor.readProcessor(currentCenter,msgBody);
                 }
                 else if(instruction.equals(InternalOrders.D_READ)){//开关阀后返回的表状态(或是单表采集)
+                    LogUtil.DataMessageLog(InternalMessageHandler.class,"指令类型:" + "进入D命令处理流程！");
                     Command c = currentCenter.getCurCommand();
-                    if(c != null && c.getType()==CommandType.COLLECT_FOR_METER){
+                    if(c != null && c.getType() == CommandType.COLLECT_FOR_METER){ //命令有可能是采集，返回成功
                         c.setState(CommandState.SUCCESSED);
                         DBUtil.updateCommandState(CommandState.SUCCESSED, currentCenter);
                         return;
                     }
-                    InternalMsgProcessor.afterUpdateValveState(currentCenter,msgBody);
+                    String lastInstruction ;//得到上次所发的指令
+                    if(currentCenter.getLatestMsg() != null)  lastInstruction = currentCenter.getLatestMsg().getInstruction();
+                    else  lastInstruction = "";
+                    if(c != null && lastInstruction.equals(InternalOrders.OPEN_CHANNEL)){
+                        //得到采集器地址，并关闭该节点
+                        c.setState(CommandState.FAILED);
+                        DBUtil.updateCommandState(CommandState.FAILED, currentCenter);
+                        InternalProtocolSendHelper.closeChannelBefore(currentCenter,msgBody);
+                        return;
+                    }
+                    //其他情况
+                    LogUtil.DataMessageLog(InternalMessageHandler.class,"正常开关阀情况处理！命令类型："+c.getType());
+                    if(c.getType() == CommandType.CLOSE_VALVE || c.getType() == CommandType.OPEN_VALVE){
+                        if(currentCenter.getDbId() == null ) DBUtil.preprocessOfRead(currentCenter);//初始化集中器在数据库中的id
+                        //InternalMsgProcessor.getValveInfo(currentCenter,msgBody);//获取开关阀信息
+                        LogUtil.DataMessageLog(InternalMessageHandler.class,"准备进入开关阀状态更新！");
+                        InternalMsgProcessor.afterUpdateValveState(currentCenter,msgBody);
+                        //关闭节点阀控
+                        InternalProtocolSendHelper.closeChannel(currentCenter,currentCenter.getCurCommand());
+                    }
                 }
                 else if(instruction.equals(InternalOrders.COLLECT)){//采集指令，说明采集器已经开始采集
                     LogUtil.DataMessageLog(InternalMessageHandler.class,"集中器已经开始采集！");
@@ -143,22 +162,27 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 else if(instruction.equals(InternalOrders.OPCHANNEL_FAILED)){//打开节点失败
                     LogUtil.DataMessageLog(InternalMessageHandler.class,"打开节点失败！");
                     //周全起见，关闭阀控节点
-                    InternalProtocolSendHelper.closeChannel(currentCenter,currentCenter.getCurCommand());
+                    //InternalProtocolSendHelper.closeChannel(currentCenter,currentCenter.getCurCommand());
                     currentCenter.getCurCommand().setState(CommandState.FAILED);
                     DBUtil.updateCommandState(CommandState.FAILED,currentCenter);
                 }
                 else if(instruction.equals(InternalOrders.OPEN_VALVE) || instruction.equals(InternalOrders.CLOSE_VALVE)){//开关阀返回
                     System.out.println("开关阀返回！");
-                    if(currentCenter.getDbId() == null )DBUtil.preprocessOfRead(currentCenter);//初始化集中器在数据库中的id
-                    InternalMsgProcessor.getValveInfo(currentCenter,msgBody);//获取开关阀信息
-                    InternalProtocolSendHelper.closeChannel(currentCenter,currentCenter.getCurCommand());
+                    //if(currentCenter.getDbId() == null ) DBUtil.preprocessOfRead(currentCenter);//初始化集中器在数据库中的id
+                    //InternalMsgProcessor.getValveInfo(currentCenter,msgBody);//获取开关阀信息
+                    //if(currentCenter.getCommandQueue().isEmpty()) InternalProtocolSendHelper.closeChannel(currentCenter,currentCenter.getCurCommand());
+                    //InternalProtocolSendHelper.DRead(currentCenter); //读节点表
                 }
-                else if(instruction.equals(InternalOrders.BEFORE_CLOSE)){//开关阀后读节点表返回
+               /* else if(instruction.equals(InternalOrders.BEFORE_CLOSE)){//开关阀后读节点表返回
                     InternalMsgProcessor.getValveInfo(currentCenter,msgBody);//获取开关阀信息
-                    InternalProtocolSendHelper.closeChannel(currentCenter,currentCenter.getCurCommand());
-                }
-                else if(instruction.equals(InternalOrders.CLOSE_CHANNEL)){//关通道，写入日志即可
+                    if(currentCenter.getCommandQueue().isEmpty())InternalProtocolSendHelper.closeChannel(currentCenter,currentCenter.getCurCommand());
+                }*/
+                else if(instruction.equals(InternalOrders.CLOSE_CHANNEL)){//关通道成功
                     LogUtil.DataMessageLog(InternalMessageHandler.class,"开关阀后关闭通道");
+                    Command c = currentCenter.getCurCommand();
+                    if(c != null && (c.getType() == CommandType.OPEN_VALVE || c.getType() == CommandType.CLOSE_VALVE)){
+                        c.setState(CommandState.SUCCESSED);
+                    }
                 }
             }
     }
@@ -218,8 +242,10 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
             if(entry.getValue().getCtx() == ctx){
                 centerAddr = entry.getKey();
                 center = entry.getValue();
-                if(center.getCurCommand()!=null && center.getCurCommand().getState()==CommandState.EXECUTING)
+                if(center.getCurCommand()!=null && center.getCurCommand().getState()==CommandState.EXECUTING){
                     center.getCurCommand().setSuspend(true);
+                    LogUtil.channelLog(centerAddr,"执行命令时断开，将"+center.getCurCommand().getType()+"命令挂起\r\n");
+                }
                 break;
             }
         }

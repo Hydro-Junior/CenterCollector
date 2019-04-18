@@ -1,9 +1,6 @@
 package com.xjy.util;
 
-import com.xjy.entity.Center;
-import com.xjy.entity.Collector;
-import com.xjy.entity.Command;
-import com.xjy.entity.Meter;
+import com.xjy.entity.*;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.Constants;
 import com.xjy.pojo.*;
@@ -17,6 +14,9 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static com.xjy.entity.GlobalMap.getBasicInfo;
 
 /**
  * @Author: Mr.Xu
@@ -40,6 +40,17 @@ public class DBUtil {
         session.close();
         return DBCommands;
     }
+    //插入一条新的采集命令
+    public static void insertNewCollectCommand(Center center){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        CommandMapper mapper = session.getMapper(CommandMapper.class);
+        ConcurrentHashMap<Center,List<CenterPage>> pageInfo = GlobalMap.getBasicInfo();
+        int meterCounts = pageInfo.containsKey(center)? pageInfo.get(center).size() * 32 : 16;
+        mapper.insertNewCollectCommand(Timestamp.valueOf(LocalDateTime.now()),meterCounts/16 * 2000,center.getId(),meterCounts,
+                Constants.connectServer+":"+Constants.protocolPort,center.getEnprNo());
+        session.commit();
+        session.close();
+    }
     //根据集中器获取采集器集合
     public static List<DBCollector> getCollectorsByCenter(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -57,12 +68,25 @@ public class DBUtil {
     public static Scheme getScheme(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);
-        if(center.getDbId() == null) center.setDbId(mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort)));
+        if(center.getDbId() == null) {
+            try{
+             center.setDbId(mapper.getIdByAddress(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort)));
+            }catch (Exception e){
+                e.printStackTrace();
+                return null;
+            }
+        }
         if(center.getDbId()  == null) {
             LogUtil.DataMessageLog(DBUtil.class,"找不到集中器id！请检查集中器IP和端口配置！");
             return null;
         }
-        Scheme scheme = mapper.getScheme(mapper.getSchemeId(center.getDbId()));
+        Scheme scheme = null;
+        try {
+            scheme = mapper.getScheme(mapper.getSchemeId(center.getDbId()));
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("查询计划命令时出错！");
+        }
         return scheme;
     }
     public static void preprocessOfRead(Center center){
@@ -74,8 +98,11 @@ public class DBUtil {
             return;
         }
         center.setDbId(centerId);
-        if(center.getEnprNo() == null)
-            center.setEnprNo(mapper.getEnprNo(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort)));
+        if(center.getEnprNo() == null){
+            String enprNo = mapper.getEnprNo(center.getId(),Constants.connectServer,Integer.parseInt(Constants.protocolPort));;
+            center.setEnprNo(enprNo);
+        }
+
         session.close();
     }
     //根据采集器获取表集合

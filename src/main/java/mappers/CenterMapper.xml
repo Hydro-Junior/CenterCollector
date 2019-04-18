@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.CenterMapper">
     <select id="getIdByAddress"  resultType="int">
-        select id from t_center where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
+        select top 1 id from t_center where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
     </select>
 
     <select id="getCollectors" resultType="DBCollector">
@@ -13,7 +13,7 @@
         select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = #{collectorId})
     </select>
     <select id="getEnprNo" resultType="String" >
-        select enprNo from t_center where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
+        select top 1 enprNo from t_center where gprsNum = #{address} and  portId in (select id from t_port where severId in(select id from t_server where localIp=#{ip})and portNum=#{port})
     </select>
     <select id="getSchemeId" resultType="int" parameterType="int">
         select readSchemeId from t_center where id = #{centerId}

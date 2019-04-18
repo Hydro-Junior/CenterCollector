@@ -8,7 +8,7 @@ package com.xjy.parms;
  */
 public final class InternalOrders {
     public static final String READ = "RRR"; //读取 0x52
-    public static final String D_READ = "DDD";//读取当前表
+    public static final String D_READ = "DDD";//读取当前表 0x44
     public static final String COLLECT = "MMM"; //采集 0x4D
     public static final String CHANGE = "ccc"; //换表
     public static final String ADD = "aaa"; //添加表
@@ -24,7 +24,7 @@ public final class InternalOrders {
     public static final String CLOSE_CHANNEL = "CCC";//关闭采集通道 0x43
     public static final String OPEN_VALVE = "KKK";//开阀指令 0x4B
     public static final String CLOSE_VALVE = "GGG";//关阀指令 0x47
-    public static final String BEFORE_CLOSE = "DDD";//集中器发送的读节点表命令
+    //public static final String BEFORE_CLOSE = "DDD";//集中器发送的读节点表命令
     public static final String OPCHANNEL_FAILED = "EEE";//打开通道失败
 
 }

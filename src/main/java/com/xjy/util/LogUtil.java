@@ -45,4 +45,20 @@ public class LogUtil {
         randomFile.writeBytes(LocalDateTime.now().toString() +"\r\n" + msg + "\r\n\r\n");
         randomFile.close();
     }
+    public static void PlanTaskLog (String info)throws IOException {
+        File f = new File("log");
+        if(!f.exists()){
+            f.mkdir();
+        }
+        String path = "log/planTask" + LocalDateTime.now().getYear() + "年"+LocalDateTime.now().getMonthValue()+"月" + ".txt";
+        File tf = new File(path);
+        if(!tf.exists()){
+            tf.createNewFile();
+        }
+        RandomAccessFile randomFile = new RandomAccessFile(path, "rw");
+        long fileLength = randomFile.length();
+        randomFile.seek(fileLength);
+        randomFile.writeBytes(LocalDateTime.now().toString() +"\r\n" + info + "\r\n\r\n");
+        randomFile.close();
+    }
 }

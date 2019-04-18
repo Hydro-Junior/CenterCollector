@@ -11,10 +11,14 @@ import com.xjy.util.LogUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
+import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
 
 /**
  * @Author: Mr.Xu
@@ -28,12 +32,12 @@ public class ConditionMonitor implements Runnable {
         DBUtil.initCenters();
         while (true){
             try {
-                TimeUnit.MINUTES.sleep(3);
+                TimeUnit.SECONDS.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             ConcurrentHashMap<String,Center> map = GlobalMap.getMap();
-            System.out.println("在线集中器：");
+            System.out.println("在线集中器(共 "+map.size()+" 台)：");
             Iterator<Map.Entry<String,Center>> it = map.entrySet().iterator();
             while(it.hasNext()){
                 Map.Entry<String,Center> entry = it.next();
@@ -43,13 +47,18 @@ public class ConditionMonitor implements Runnable {
                 }
                 ChannelHandlerContext channelCtx = entry.getValue().getCtx();
                 try{
+                    Command c = entry.getValue().getCurCommand();
+                    if(center.getHeartBeatTime() != null){ //长时间没有心跳且有命令在执行，挂起命令
+                        Duration duration = Duration.between(center.getHeartBeatTime(), LocalDateTime.now());
+                        if(duration.toMinutes() > 8){
+                            if(c.getState()==CommandState.EXECUTING){
+                                LogUtil.channelLog(center.getId(),"监控时发现执行命令时断开，将"+center.getCurCommand().getType()+"命令挂起\r\n");
+                                c.setSuspend(true);
+                            }
+                        }
+                    }
                     if(channelCtx.channel().isActive()){
-                        Command c = entry.getValue().getCurCommand();
-                        System.out.println(entry.getKey()+  "   当前命令："+ c + "  水司编码："+entry.getValue().getEnprNo());
-                        //定时采集设置命令可以成功执行，然后似乎硬件实际并没有执行，为了确保定时采集成功，
-                        //用quartz定时任务替代：由程序亲自发送采集命令
-                        /*if(c == null || c.getState()== CommandState.FAILED || c.getState()==CommandState.SUCCESSED)
-                                InternalProtocolSendHelper.setTimingCollect(entry.getValue());*/
+                        LogUtil.DataMessageLog(ConditionMonitor.class, entry.getKey()+  "   当前命令："+ c + "  水司编码："+entry.getValue().getEnprNo());
                     }else{
                         //更新数据库，将集中器设置为不在线
                         LogUtil.DataMessageLog(ConditionMonitor.class,"集中器"+entry.getValue().getId()+"掉线！");
@@ -61,10 +70,12 @@ public class ConditionMonitor implements Runnable {
                     //更新数据库，将集中器设置为不在线
                     LogUtil.DataMessageLog(ConditionMonitor.class,"空指针异常（没有合法的信道）,集中器"+entry.getValue().getId()+"掉线！");
                     DBUtil.updateCenterState(0,entry.getValue());
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
             try {
-                TimeUnit.SECONDS.sleep(60);
+                TimeUnit.SECONDS.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

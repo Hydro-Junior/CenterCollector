@@ -1,5 +1,7 @@
 package com.xjy.util;
 
+import com.xjy.entity.InternalMsgBody;
+
 import java.net.SocketAddress;
 
 /**
@@ -51,5 +53,31 @@ public class ConvertUtil {
     public static String getIP(String remoteAddr){
         String remoteIP = remoteAddr.substring(1,remoteAddr.indexOf(":"));
         return  remoteIP;
+    }
+
+    public static String getCollectAddressFromMsgBody(InternalMsgBody msgBody) {
+        int[] effectiveData = msgBody.getEffectiveBytes();
+        int[] collectorBytes = new int[6];
+        for(int i = 0; i < 6; i++){
+            collectorBytes[5-i] = effectiveData[i+3];
+        }
+        StringBuffer collectorAddress = new StringBuffer();
+        for(int i = 0 ; i < 6 ; i++){
+            collectorAddress.append(ConvertUtil.fixedLengthHex(collectorBytes[i]));
+        }
+        return collectorAddress.toString();
+    }
+
+    public static String getMeterAddressFromMsgBody(InternalMsgBody msgBody) {
+        int[] effectiveData = msgBody.getEffectiveBytes();
+        int[] collectorBytes = new int[6];
+        for(int i = 0; i < 6; i++){
+            collectorBytes[5-i] = effectiveData[i+9];
+        }
+        StringBuffer collectorAddress = new StringBuffer();
+        for(int i = 0 ; i < 6 ; i++){
+            collectorAddress.append(ConvertUtil.fixedLengthHex(collectorBytes[i]));
+        }
+        return collectorAddress.toString();
     }
 }

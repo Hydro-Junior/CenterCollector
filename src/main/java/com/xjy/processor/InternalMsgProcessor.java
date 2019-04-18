@@ -11,6 +11,7 @@ import com.xjy.util.DBUtil;
 import com.xjy.util.InternalProtocolSendHelper;
 import com.xjy.util.LogUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -230,35 +231,47 @@ public class InternalMsgProcessor {
             DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
             DBUtil.updateValveState(2,meterAddress,currentCenter);
         }
-
     }
     //开关阀后读表返回的开关阀成功与失败
-    public static void afterUpdateValveState(Center currentCenter, InternalMsgBody msgBody) {
-        Command c = currentCenter.getCurCommand();
-        if(c == null || !(c.getType()==CommandType.CLOSE_VALVE || c.getType()==CommandType.OPEN_VALVE)){
-            return;
-        }
-        String meterAddress = currentCenter.getCurCommand().getArgs()[2];
-        if(currentCenter.getDbId() == null ) DBUtil.preprocessOfRead(currentCenter);
-        DBMeter meter = DBUtil.getDBMeter(currentCenter.getDbId(),meterAddress);
-        int[] data = msgBody.getEffectiveBytes();
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0 ; i < data.length; i++){
-            sb.append(ConvertUtil.fixedLengthHex(data[i])+" ");
-        }
-        LogUtil.DataMessageLog(InternalMsgProcessor.class,"开关阀后读取的字节内容：\r\n"+ sb.toString());
-        //实际上返回报文中还有表地址、表读数信息，暂不做处理
-        if(data[19] != 'C' && data[19] != 'O'){//开关阀失败
-            LogUtil.DataMessageLog(InternalMsgProcessor.class, "开关阀最终单表读取返回失败的状态码");
-            c.setState(CommandState.FAILED);
-            DBUtil.updateCommandState(CommandState.FAILED,currentCenter);
-            if(meter != null){
-                if(meter.getStrobeStatue() == 1){//把之前改的状态改回来
-                    DBUtil.updateValveState(2,meter.getId());
-                }else if(meter.getStrobeStatue() == 2){
-                    DBUtil.updateValveState(1,meter.getId());
+    public static void afterUpdateValveState (Center currentCenter, InternalMsgBody msgBody) {
+        try {
+            //LogUtil.channelLog(currentCenter.getId() ,"进入开关阀状态更新方法！");
+            Command c = currentCenter.getCurCommand();
+            if(c == null || !(c.getType() == CommandType.CLOSE_VALVE || c.getType()==CommandType.OPEN_VALVE)){
+                //LogUtil.channelLog(currentCenter.getId(),"提前返回！");
+                return;
+            }
+            String meterAddress = currentCenter.getCurCommand().getArgs()[2];
+            //if(currentCenter.getDbId() == null ) DBUtil.preprocessOfRead(currentCenter);
+            //DBMeter meter = DBUtil.getDBMeter(currentCenter.getDbId(),meterAddress);
+            int[] data = msgBody.getEffectiveBytes();
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0 ; i < data.length; i++){
+                sb.append(ConvertUtil.fixedLengthHex(data[i])+" ");
+            }
+            LogUtil.channelLog(currentCenter.getId() ,"the read bytes：\r\n"+ sb.toString());
+            //实际上返回报文中还有表地址、表读数信息，暂不做处理
+            if(data[19] != 'C' && data[19] != 'O'){//开关阀失败
+                LogUtil.DataMessageLog(InternalMsgProcessor.class, "valve operation failed!");
+                c.setState(CommandState.FAILED);
+                DBUtil.updateCommandState(CommandState.FAILED,currentCenter);
+            }else{
+                System.out.println("data state code :"+ Integer.toHexString(data[19]) +",change the state of the valve");
+                if(c.getType()== CommandType.OPEN_VALVE && data[19] == 'O'){
+                    //currentCenter.getCurCommand().setState(CommandState.SUCCESSED); 暂时先不更新命令的逻辑状态
+                    DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
+                    DBUtil.updateValveState(1,meterAddress,currentCenter);
+                }else if(c.getType() == CommandType.CLOSE_VALVE && data[19] == 'C'){
+                    //currentCenter.getCurCommand().setState(CommandState.SUCCESSED);
+                    DBUtil.updateCommandState(CommandState.SUCCESSED,currentCenter);
+                    DBUtil.updateValveState(2,meterAddress,currentCenter);
+                }else{
+                    c.setState(CommandState.FAILED);
+                    DBUtil.updateCommandState(CommandState.FAILED,currentCenter);
                 }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
