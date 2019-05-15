@@ -4,6 +4,7 @@ import com.xjy.adapter.CollectorAdapter;
 import com.xjy.adapter.MeterAdapter;
 import com.xjy.entity.*;
 import com.xjy.parms.CommandType;
+import com.xjy.parms.Constants;
 import com.xjy.parms.InternalOrders;
 import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBMeter;
@@ -59,6 +60,8 @@ public class InternalProtocolSendHelper {
             else effectiveData[i] = currentPageNum + 1;
         }
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), effectiveData);
+        center.getCurCommand().setSecondsLimit(Constants.MAX_WAIT_TIME_FOR_READ_PAGES);//读取每一页的最长允许等待时间，建议45秒
+        center.getCurCommand().setStartExcuteTime(LocalDateTime.now());
         writeAndFlush(center,internalMsgBody);
     }
     //内部协议，读取首页

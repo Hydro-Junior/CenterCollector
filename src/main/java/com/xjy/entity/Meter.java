@@ -7,6 +7,7 @@ package com.xjy.entity;
  */
 public class Meter {
     private String id;
+    private Integer indexNo;
     private Double value = 0.0;
     private Integer state = 0; //通信状态 0-正常 1-数据读取失败 2 - 采集器失败
     private Integer valveState = 0; //阀门状态 0-无阀 1-开阀 2-关阀
@@ -36,6 +37,14 @@ public class Meter {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Integer getIndexNo() {
+        return indexNo;
+    }
+
+    public void setIndexNo(Integer indexNo) {
+        this.indexNo = indexNo;
     }
 
     public Collector getCollector() {

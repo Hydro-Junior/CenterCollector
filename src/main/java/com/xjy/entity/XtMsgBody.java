@@ -2,12 +2,14 @@ package com.xjy.entity;
 
 import com.xjy.util.ConvertUtil;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
  * @Author: Mr.Xu
  * @Date: Created in 9:30 2018/9/28
- * @Description: 新天协议（130）消息实体类
+ * @Description: 新天协议（130）消息实体类,实际上新天通讯协议也就是中原油田协议是130的改版，这里使用标准的130协议。
+ * 消息的类型由 控制域C AFN功能码 FN 3者唯一确定 文档有详细描述
  */
 public class XtMsgBody {
     /**
@@ -36,10 +38,11 @@ public class XtMsgBody {
      */
     private int AFN;//应用层功能码
     private int SEQ;//帧序列域
-    private int Fn;//数据单元标识
+    private int[] Fn = new int[4];//数据单元标识
     private int[] data;//数据单元
 
     public XtMsgBody(int[] effectiveData) {
+        if(effectiveData == null || effectiveData.length < 9) return;
         //初始化控制域
         C = effectiveData[0];
         //高低位转移,初始化地址域
@@ -50,18 +53,29 @@ public class XtMsgBody {
         A3 = effectiveData[5];//标志组地址和单地址
         AFN = effectiveData[6];
         SEQ = effectiveData[7];
-        Fn = effectiveData[8];
-        if (effectiveData.length > 9) {
-            data = new int[effectiveData.length - 9];
+        Fn[0] = effectiveData[8];
+        Fn[1] = effectiveData[9];
+        Fn[2] = effectiveData[10];
+        Fn[3] = effectiveData[11];
+        if (effectiveData.length > 12) {
+            data = new int[effectiveData.length - 12];
             for (int i = 0; i < data.length; i++) {
                 data[i] = effectiveData[9 + i];
             }
         }
     }
+    //将新天协议（130）的消息实体转为字节数组，发送命令前调用
+    public byte[] toBytes(){
 
-    public String getCenterAddr() {
+        return null;
+    }
+    public String getCenterAddress() {
         return ConvertUtil.fixedLengthHex(A1[0])  + ConvertUtil.fixedLengthHex(A1[1])
                 + String.format("%05d", (A2[0] << 8 | A2[1]));
+    }
+    public XtControlArea getControlArea(){
+        if(C == 0) return null;
+        return new XtControlArea(C);
     }
     @Override
     public String toString() {
@@ -72,9 +86,9 @@ public class XtMsgBody {
                 ", A3=" + ConvertUtil.fixedLengthHex(A3) +
                 ", AFN=" + ConvertUtil.fixedLengthHex(AFN) +
                 ", SEQ=" + ConvertUtil.fixedLengthHex(SEQ) +
-                ", Fn=" + ConvertUtil.fixedLengthHex(Fn) +
-                ", data=" + Arrays.toString(data) +
-                '}'+ "  centerAddr:" + getCenterAddr();
+                ", Fn=" + ConvertUtil.fixedLengthHex(Fn)+
+                ", data=" + ConvertUtil.fixedLengthHex(data) +
+                '}'+ "  centerAddr:" + getCenterAddress();
     }
 
     public int getC() {
@@ -125,11 +139,11 @@ public class XtMsgBody {
         this.SEQ = SEQ;
     }
 
-    public int getFn() {
+    public int[] getFn() {
         return Fn;
     }
 
-    public void setFn(int fn) {
+    public void setFn(int[] fn) {
         Fn = fn;
     }
 

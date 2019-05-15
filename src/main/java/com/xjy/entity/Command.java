@@ -17,9 +17,11 @@ public class Command {
     String[] args; //命令的相关参数
     LocalDateTime startExcuteTime; //开始执行命令的时刻
     LocalDateTime generateTime;
-    int minitesLimit = 5; //允许超时时间，默认3分钟
+    int secondsLimit = 5 * 60; //允许超时时间，默认5分钟
     boolean suspend = false; //命令在执行中是否中断
     Object parameter;
+    int retryNum = 0;
+    int allowedRetryTimes = 1;
 
     public Integer getId() {
         return id;
@@ -77,12 +79,12 @@ public class Command {
         this.generateTime = generateTime;
     }
 
-    public int getMinitesLimit() {
-        return minitesLimit;
+    public int getSecondsLimit() {
+        return secondsLimit;
     }
 
-    public void setMinitesLimit(int minitesLimit) {
-        this.minitesLimit = minitesLimit;
+    public void setSecondsLimit(int secondsLimit) {
+        this.secondsLimit = secondsLimit;
     }
 
     public Object getParameter() {
@@ -91,6 +93,22 @@ public class Command {
 
     public void setParameter(Object parameter) {
         this.parameter = parameter;
+    }
+
+    public int getRetryNum() {
+        return retryNum;
+    }
+
+    public void setRetryNum(int retryNum) {
+        this.retryNum = retryNum;
+    }
+
+    public int getAllowedRetryTimes() {
+        return allowedRetryTimes;
+    }
+
+    public void setAllowedRetryTimes(int allowedRetryTimes) {
+        this.allowedRetryTimes = allowedRetryTimes;
     }
 
     @Override

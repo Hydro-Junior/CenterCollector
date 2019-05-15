@@ -37,7 +37,7 @@ public class ConditionMonitor implements Runnable {
                 e.printStackTrace();
             }
             ConcurrentHashMap<String,Center> map = GlobalMap.getMap();
-            System.out.println("在线集中器(共 "+map.size()+" 台)：");
+            System.out.println("集中器(共 "+map.size()+" 台)：");
             Iterator<Map.Entry<String,Center>> it = map.entrySet().iterator();
             while(it.hasNext()){
                 Map.Entry<String,Center> entry = it.next();

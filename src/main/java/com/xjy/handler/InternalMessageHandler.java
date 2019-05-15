@@ -1,6 +1,7 @@
 package com.xjy.handler;
 
 import com.xjy.adapter.CommandAdapter;
+import com.xjy.core.CommandExecutor;
 import com.xjy.entity.*;
 import com.xjy.parms.*;
 import com.xjy.pojo.DBCommand;
@@ -61,16 +62,22 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 if(center.getCurCommand() != null && center.getCurCommand().isSuspend()){//在执行命令时掉线
                    if(center.getLatestMsg() != null &&center.getCurCommand().getState()==CommandState.EXECUTING && center.getCurCommand().getType()!=CommandType.COLLECT_FOR_CENTER){//如果是采集命令，重发时间代价太大，且有些集中器执行采集命令会断开连接，结束后上线
                        LogUtil.DataMessageLog(InternalMessageHandler.class,"集中器"+center.getId()+"有缓存消息待发送！");
-                       //发送缓存消息
-                       InternalProtocolSendHelper.writeAndFlush(center,center.getLatestMsg());
-                   }else if(center.getCurCommand().getType() == CommandType.COLLECT_FOR_CENTER){//是采集命令的情况
+                       //发送缓存消息(两种情况下会重试：1. 断开连接后重新收到心跳（此处） 2. 命令超时（见CommandExecutor）)
+                       Command cur = center.getCurCommand();
+                       int retry = cur.getRetryNum();
+                       if(retry < cur.getAllowedRetryTimes()){
+                           //主动重发上一条命令
+                           InternalProtocolSendHelper.writeAndFlush(center,center.getLatestMsg());
+                           cur.setStartExcuteTime(LocalDateTime.now()); //更新开始时间
+                           cur.setRetryNum(retry + 1); //重试次数加一
+                       }
+                   }else if(center.getCurCommand().getType() == CommandType.COLLECT_FOR_CENTER){//是采集命令的情况,重连通常命令成功，不用重发指令
                        center.getCurCommand().setState(CommandState.SUCCESSED);
                        DBUtil.updateCommandState(CommandState.SUCCESSED, center);
                        InternalProtocolSendHelper.readNextPage(center,1);
                    }
                    center.getCurCommand().setSuspend(false);
                 }
-
             }
             Center currentCenter = map.get(address);
 
@@ -194,9 +201,9 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        System.out.println("业务处理时异常");
+        LogUtil.DataMessageLog(InternalMessageHandler.class,"业务处理时异常");
         cause.printStackTrace();
-        ExceptionProcessor.processAfterException(ctx);//将对应集中器的命令状态置为失败
+        ExceptionProcessor.processAfterException(ctx);//将对应集中器的命令状态置为失败或增加命令重试次数
         ctx.close();
     }
 
@@ -243,13 +250,13 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 centerAddr = entry.getKey();
                 center = entry.getValue();
                 if(center.getCurCommand()!=null && center.getCurCommand().getState()==CommandState.EXECUTING){
-                    center.getCurCommand().setSuspend(true);
-                    LogUtil.channelLog(centerAddr,"执行命令时断开，将"+center.getCurCommand().getType()+"命令挂起\r\n");
+                    center.getCurCommand().setSuspend(true); //挂起命令
+                    LogUtil.channelLog(centerAddr,"handler removed when executing the command --> command "+ center.getCurCommand().getType() + " suspend");
                 }
                 break;
             }
         }
-        LogUtil.DataMessageLog(InternalMessageHandler.class,"一个客户端断开连接,集中器编号："+centerAddr +" ctx:"+ctx+"   通道信息："+ctx.channel() + "    通道是否活跃："+ctx.channel().isActive());
+        LogUtil.DataMessageLog(InternalMessageHandler.class,"one client disconnected ! center address："+centerAddr +" ctx:"+ctx+"   channel message："+ctx.channel() + "    is active ? ："+ctx.channel().isActive());
         ctx.close();
     }
 

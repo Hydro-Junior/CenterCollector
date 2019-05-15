@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class InternalProtocolDecoder extends ByteToMessageDecoder {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        System.out.println("内部协议解码时异常");
+        LogUtil.DataMessageLog(InternalProtocolDecoder.class,"内部协议解码时异常");
         cause.printStackTrace();
         ExceptionProcessor.processAfterException(ctx);//将对应集中器的命令状态置为失败
         ctx.close();

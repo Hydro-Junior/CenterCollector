@@ -26,6 +26,10 @@ public final class Constants {
     //内部协议数据返回包头
     public static final byte[] INTERNAL_RECVHEAD = new byte[]{0x53,0x53,0x53,0x53,0x53,0x53,0x53,0x53,0x53,0x42};
 
+    public static final int RETRY_TIMES_FOR_READ_PAGES = 5; //读页(读取集中器数据)时命令的最大允许重试次数（5次）
+    public static final int MAX_WAIT_TIME_FOR_READ_PAGES = 70; //读页时的最长允许等待时间（70秒）
+
+
     //crc 校验表
     public static final int[] CRC_HIGH ={
                 0x00,0x10,0x20,0x30,0x40,0x50,0x60,0x70,0x81,0x91,0xA1,0xB1,0xC1,0xD1,0xE1,0xF1,

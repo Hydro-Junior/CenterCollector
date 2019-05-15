@@ -12,6 +12,7 @@ public class MeterAdapter {
     public static Meter getMeter(DBMeter dbMeter){
         Meter meter = new Meter();
         meter.setId(dbMeter.getiAddr());
+        meter.setIndexNo(dbMeter.getIndexNo());
         meter.setValue(dbMeter.getShowValue());
         meter.setState(dbMeter.getStatue());
         return  meter;

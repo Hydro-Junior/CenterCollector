@@ -17,10 +17,12 @@ import java.util.Map;
 public class LogUtil {
     private static Map<String , Logger> loggerMap = new HashMap<>();
     public static void DataMessageLog(Class clazz, String info){
-        File f = new File("log");
-        if(!f.exists()){
-            f.mkdir();
-        }
+        String dateString =  LocalDateTime.now().getYear() + "年"+LocalDateTime.now().getMonthValue()+"月";
+        //String path = "log/" + addr + ".txt";
+        String parentPath = "log/" + dateString + "/";
+        File f = new File(parentPath);
+        if(!f.exists()) f.mkdirs();
+        //log4j 调试部分
         Logger infoLog;
         if(loggerMap.containsKey(clazz.getName())){
             infoLog = loggerMap.get(clazz.getName());
@@ -28,13 +30,29 @@ public class LogUtil {
             infoLog = Logger.getLogger(clazz);
         }
         infoLog.debug(info);
+        //dataMessage
+        String path = "log/" + dateString + "/" + "dataLog - " + LocalDateTime.now().getMonthValue()+"月"+LocalDateTime.now().getDayOfMonth()+"日.txt";
+        File tf = new File(path);
+        try {
+            if(!tf.exists()){
+                tf.createNewFile();
+            }
+            RandomAccessFile randomFile = new RandomAccessFile(path, "rw");
+            long fileLength = randomFile.length();
+            randomFile.seek(fileLength);
+            randomFile.writeBytes(LocalDateTime.now().toString() +"\r\n" + info + "\r\n\r\n");
+            randomFile.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
     public static void channelLog(String addr, String msg) throws IOException {
-        File f = new File("log");
-        if(!f.exists()){
-            f.mkdir();
-        }
-        String path = "log/" + addr + ".txt";
+        String dateString =  LocalDateTime.now().getYear() + "年"+LocalDateTime.now().getMonthValue()+"月";
+        //String path = "log/" + addr + ".txt";
+        String parentPath = "log/" + dateString + "/";
+        File f = new File(parentPath);
+        if(!f.exists()) f.mkdirs();
+        String path = "log/" + dateString + "/" + addr + "-" + LocalDateTime.now().getMonthValue()+"月"+LocalDateTime.now().getDayOfMonth()+"日.txt";
         File tf = new File(path);
         if(!tf.exists()){
             tf.createNewFile();
