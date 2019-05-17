@@ -1,144 +1,318 @@
-DEBUG 2019-04-04 09:47:30,561: io.netty.util.internal.logging.InternalLoggerFactory 
- Using Log4J as the default logging framework 
-DEBUG 2019-04-04 09:47:30,571: io.netty.channel.MultithreadEventLoopGroup 
- -Dio.netty.eventLoopThreads: 8 
-DEBUG 2019-04-04 09:47:30,591: io.netty.channel.nio.NioEventLoop 
- -Dio.netty.noKeySetOptimization: false 
-DEBUG 2019-04-04 09:47:30,591: io.netty.channel.nio.NioEventLoop 
- -Dio.netty.selectorAutoRebuildThreshold: 512 
-DEBUG 2019-04-04 09:47:31,681: io.netty.channel.DefaultChannelId 
- -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
-DEBUG 2019-04-04 09:47:31,689: io.netty.channel.DefaultChannelId 
- -Dio.netty.processId: 12240 (auto-detected) 
-DEBUG 2019-04-04 09:47:31,689: io.netty.util.internal.ThreadLocalRandom 
- -Dio.netty.initialSeedUniquifier: 0xaa8571a10c573b03 
-DEBUG 2019-04-04 09:47:31,689: io.netty.channel.ChannelOutboundBuffer 
- -Dio.netty.threadLocalDirectBufferSize: 65536 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
- Platform: Windows 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
- Java version: 8 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noUnsafe: false 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
- java.nio.ByteBuffer.cleaner: available 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
- java.nio.Buffer.address: available 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
- sun.misc.Unsafe.theUnsafe: available 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
- sun.misc.Unsafe.copyMemory: available 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent0 
- java.nio.Bits.unaligned: true 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
- sun.misc.Unsafe: available 
-DEBUG 2019-04-04 09:47:31,709: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noJavassist: false 
-DEBUG 2019-04-04 09:47:31,711: io.netty.util.internal.PlatformDependent 
- Javassist: unavailable 
-DEBUG 2019-04-04 09:47:31,711: io.netty.util.internal.PlatformDependent 
- You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
-DEBUG 2019-04-04 09:47:31,711: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noPreferDirect: false 
-DEBUG 2019-04-04 09:47:31,809: io.netty.util.NetUtil 
- Loopback interface: Software Loopback Interface 1 
-DEBUG 2019-04-04 09:47:31,809: io.netty.util.NetUtil 
- Loopback address: /127.0.0.1 (primary) 
-DEBUG 2019-04-04 09:47:31,809: io.netty.util.NetUtil 
- Loopback address: /0:0:0:0:0:0:0:1 
-DEBUG 2019-04-04 19:38:46,772: io.netty.util.internal.logging.InternalLoggerFactory 
- Using Log4J as the default logging framework 
-DEBUG 2019-04-04 19:38:46,774: io.netty.channel.MultithreadEventLoopGroup 
- -Dio.netty.eventLoopThreads: 8 
-DEBUG 2019-04-04 19:38:46,790: io.netty.channel.nio.NioEventLoop 
- -Dio.netty.noKeySetOptimization: false 
-DEBUG 2019-04-04 19:38:46,790: io.netty.channel.nio.NioEventLoop 
- -Dio.netty.selectorAutoRebuildThreshold: 512 
-DEBUG 2019-04-04 19:38:50,135: io.netty.channel.DefaultChannelId 
- -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
-DEBUG 2019-04-04 19:38:50,138: io.netty.channel.DefaultChannelId 
- -Dio.netty.processId: 2732 (auto-detected) 
-DEBUG 2019-04-04 19:38:50,140: io.netty.util.internal.ThreadLocalRandom 
- -Dio.netty.initialSeedUniquifier: 0x3a8ad25e89ccd20c 
-DEBUG 2019-04-04 19:38:50,145: io.netty.channel.ChannelOutboundBuffer 
- -Dio.netty.threadLocalDirectBufferSize: 65536 
-DEBUG 2019-04-04 19:38:50,157: io.netty.util.internal.PlatformDependent 
- Platform: Windows 
-DEBUG 2019-04-04 19:38:50,157: io.netty.util.internal.PlatformDependent 
- Java version: 8 
-DEBUG 2019-04-04 19:38:50,157: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noUnsafe: false 
-DEBUG 2019-04-04 19:38:50,158: io.netty.util.internal.PlatformDependent0 
- java.nio.ByteBuffer.cleaner: available 
-DEBUG 2019-04-04 19:38:50,159: io.netty.util.internal.PlatformDependent0 
- java.nio.Buffer.address: available 
-DEBUG 2019-04-04 19:38:50,159: io.netty.util.internal.PlatformDependent0 
- sun.misc.Unsafe.theUnsafe: available 
-DEBUG 2019-04-04 19:38:50,159: io.netty.util.internal.PlatformDependent0 
- sun.misc.Unsafe.copyMemory: available 
-DEBUG 2019-04-04 19:38:50,160: io.netty.util.internal.PlatformDependent0 
- java.nio.Bits.unaligned: true 
-DEBUG 2019-04-04 19:38:50,160: io.netty.util.internal.PlatformDependent 
- sun.misc.Unsafe: available 
-DEBUG 2019-04-04 19:38:50,160: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noJavassist: false 
-DEBUG 2019-04-04 19:38:50,161: io.netty.util.internal.PlatformDependent 
- Javassist: unavailable 
-DEBUG 2019-04-04 19:38:50,161: io.netty.util.internal.PlatformDependent 
- You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
-DEBUG 2019-04-04 19:38:50,161: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noPreferDirect: false 
-DEBUG 2019-04-04 19:38:50,354: io.netty.util.NetUtil 
- Loopback interface: Software Loopback Interface 1 
-DEBUG 2019-04-04 19:38:50,354: io.netty.util.NetUtil 
- Loopback address: /127.0.0.1 (primary) 
-DEBUG 2019-04-04 19:38:50,354: io.netty.util.NetUtil 
- Loopback address: /0:0:0:0:0:0:0:1 
-DEBUG 2019-04-04 20:29:45,979: io.netty.util.internal.logging.InternalLoggerFactory 
- Using Log4J as the default logging framework 
-DEBUG 2019-04-04 20:29:45,983: io.netty.channel.MultithreadEventLoopGroup 
- -Dio.netty.eventLoopThreads: 8 
-DEBUG 2019-04-04 20:29:46,000: io.netty.channel.nio.NioEventLoop 
- -Dio.netty.noKeySetOptimization: false 
-DEBUG 2019-04-04 20:29:46,000: io.netty.channel.nio.NioEventLoop 
- -Dio.netty.selectorAutoRebuildThreshold: 512 
-DEBUG 2019-04-04 20:29:48,100: io.netty.channel.DefaultChannelId 
- -Dio.netty.machineId: 00:50:56:c0:00:08:00:00 (auto-detected) 
-DEBUG 2019-04-04 20:29:48,103: io.netty.channel.DefaultChannelId 
- -Dio.netty.processId: 6616 (auto-detected) 
-DEBUG 2019-04-04 20:29:48,105: io.netty.util.internal.ThreadLocalRandom 
- -Dio.netty.initialSeedUniquifier: 0x220a0612f87229f7 
-DEBUG 2019-04-04 20:29:48,110: io.netty.channel.ChannelOutboundBuffer 
- -Dio.netty.threadLocalDirectBufferSize: 65536 
-DEBUG 2019-04-04 20:29:48,121: io.netty.util.internal.PlatformDependent 
- Platform: Windows 
-DEBUG 2019-04-04 20:29:48,122: io.netty.util.internal.PlatformDependent 
- Java version: 8 
-DEBUG 2019-04-04 20:29:48,122: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noUnsafe: false 
-DEBUG 2019-04-04 20:29:48,122: io.netty.util.internal.PlatformDependent0 
- java.nio.ByteBuffer.cleaner: available 
-DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent0 
- java.nio.Buffer.address: available 
-DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent0 
- sun.misc.Unsafe.theUnsafe: available 
-DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent0 
- sun.misc.Unsafe.copyMemory: available 
-DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent0 
- java.nio.Bits.unaligned: true 
-DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent 
- sun.misc.Unsafe: available 
-DEBUG 2019-04-04 20:29:48,123: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noJavassist: false 
-DEBUG 2019-04-04 20:29:48,124: io.netty.util.internal.PlatformDependent 
- Javassist: unavailable 
-DEBUG 2019-04-04 20:29:48,124: io.netty.util.internal.PlatformDependent 
- You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance. 
-DEBUG 2019-04-04 20:29:48,124: io.netty.util.internal.PlatformDependent 
- -Dio.netty.noPreferDirect: false 
-DEBUG 2019-04-04 20:29:48,319: io.netty.util.NetUtil 
- Loopback interface: Software Loopback Interface 1 
-DEBUG 2019-04-04 20:29:48,319: io.netty.util.NetUtil 
- Loopback address: /127.0.0.1 (primary) 
-DEBUG 2019-04-04 20:29:48,319: io.netty.util.NetUtil 
- Loopback address: /0:0:0:0:0:0:0:1 
+DEBUG 2019-05-17 09:40:12,469: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2019-05-17 09:40:12,834: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 09:40:12,834: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 09:40:12,834: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 09:40:12,834: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 09:40:12,957: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 09:40:14,876: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 2131670196. 
+DEBUG 2019-05-17 09:40:14,876: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:14,913: mappers.CenterMapper.getIdByAddress 
+ ==>  Preparing: select top 1 id from t_center where gprsNum = ? and portId in (select id from t_port where severId in(select id from t_server where localIp=?)and portNum=?)  
+DEBUG 2019-05-17 09:40:14,988: mappers.CenterMapper.getIdByAddress 
+ ==> Parameters: 201951401(String), 47.106.21.33(String), 5100(Integer) 
+DEBUG 2019-05-17 09:40:15,075: mappers.CenterMapper.getIdByAddress 
+ <==      Total: 1 
+DEBUG 2019-05-17 09:40:15,083: mappers.CenterMapper.getCollectors 
+ ==>  Preparing: select * from t_collection where centerId = ?  
+DEBUG 2019-05-17 09:40:15,084: mappers.CenterMapper.getCollectors 
+ ==> Parameters: 1443(Integer) 
+DEBUG 2019-05-17 09:40:15,121: mappers.CenterMapper.getCollectors 
+ <==      Total: 4 
+DEBUG 2019-05-17 09:40:15,122: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,157: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,157: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 09:40:15,158: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 09:40:15,158: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 09:40:15,158: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,193: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 09:40:15,193: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4095(Integer) 
+DEBUG 2019-05-17 09:40:15,235: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 09:40:15,235: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,270: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,271: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 09:40:15,273: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 09:40:15,273: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 09:40:15,273: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,309: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 09:40:15,310: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4096(Integer) 
+DEBUG 2019-05-17 09:40:15,352: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 09:40:15,353: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,388: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,388: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 09:40:15,389: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 09:40:15,389: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 09:40:15,389: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,423: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 09:40:15,424: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4097(Integer) 
+DEBUG 2019-05-17 09:40:15,463: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 09:40:15,464: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,497: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,497: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 09:40:15,498: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 09:40:15,498: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 09:40:15,498: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,532: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 09:40:15,533: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4098(Integer) 
+DEBUG 2019-05-17 09:40:15,573: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 09:40:15,573: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,608: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 1bd7e2de-579c-443c-85f6-aeb26f5029dd] 
+DEBUG 2019-05-17 09:40:15,608: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:10:43,418: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2019-05-17 10:10:43,755: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 10:10:43,755: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 10:10:43,755: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 10:10:43,755: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 10:10:43,897: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:10:46,231: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 2131670196. 
+DEBUG 2019-05-17 10:10:46,231: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,270: mappers.CenterMapper.getIdByAddress 
+ ==>  Preparing: select top 1 id from t_center where gprsNum = ? and portId in (select id from t_port where severId in(select id from t_server where localIp=?)and portNum=?)  
+DEBUG 2019-05-17 10:10:46,331: mappers.CenterMapper.getIdByAddress 
+ ==> Parameters: 201951401(String), 47.106.21.33(String), 5100(Integer) 
+DEBUG 2019-05-17 10:10:46,404: mappers.CenterMapper.getIdByAddress 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:10:46,411: mappers.CenterMapper.getCollectors 
+ ==>  Preparing: select * from t_collection where centerId = ?  
+DEBUG 2019-05-17 10:10:46,411: mappers.CenterMapper.getCollectors 
+ ==> Parameters: 1443(Integer) 
+DEBUG 2019-05-17 10:10:46,449: mappers.CenterMapper.getCollectors 
+ <==      Total: 4 
+DEBUG 2019-05-17 10:10:46,449: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,488: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,488: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:10:46,489: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:10:46,489: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 10:10:46,489: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,525: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 10:10:46,525: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4095(Integer) 
+DEBUG 2019-05-17 10:10:46,569: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:10:46,569: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,612: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,612: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:10:46,615: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:10:46,615: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 10:10:46,615: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,666: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 10:10:46,666: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4096(Integer) 
+DEBUG 2019-05-17 10:10:46,713: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:10:46,715: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,751: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,751: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:10:46,751: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:10:46,751: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 10:10:46,751: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,788: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 10:10:46,789: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4097(Integer) 
+DEBUG 2019-05-17 10:10:46,828: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:10:46,829: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,868: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,868: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:10:46,868: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:10:46,869: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 10:10:46,869: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:46,910: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 10:10:46,910: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4098(Integer) 
+DEBUG 2019-05-17 10:10:46,963: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:10:46,963: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:47,009: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: 5d102acb-6a7c-4b0d-9d33-0b6eb521855d] 
+DEBUG 2019-05-17 10:10:47,009: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:11:21,884: org.apache.ibatis.logging.LogFactory 
+ Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+DEBUG 2019-05-17 10:11:22,084: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 10:11:22,084: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 10:11:22,084: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 10:11:22,084: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ PooledDataSource forcefully closed/removed all connections. 
+DEBUG 2019-05-17 10:11:22,194: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:11:23,484: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Created connection 2131670196. 
+DEBUG 2019-05-17 10:11:23,485: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,520: mappers.CenterMapper.getIdByAddress 
+ ==>  Preparing: select top 1 id from t_center where gprsNum = ? and portId in (select id from t_port where severId in(select id from t_server where localIp=?)and portNum=?)  
+DEBUG 2019-05-17 10:11:23,574: mappers.CenterMapper.getIdByAddress 
+ ==> Parameters: 201951401(String), 47.106.21.33(String), 5100(Integer) 
+DEBUG 2019-05-17 10:11:23,646: mappers.CenterMapper.getIdByAddress 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:11:23,652: mappers.CenterMapper.getCollectors 
+ ==>  Preparing: select * from t_collection where centerId = ?  
+DEBUG 2019-05-17 10:11:23,652: mappers.CenterMapper.getCollectors 
+ ==> Parameters: 1443(Integer) 
+DEBUG 2019-05-17 10:11:23,690: mappers.CenterMapper.getCollectors 
+ <==      Total: 4 
+DEBUG 2019-05-17 10:11:23,690: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,724: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,724: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:11:23,726: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:11:23,726: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 10:11:23,726: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,759: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 10:11:23,759: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4095(Integer) 
+DEBUG 2019-05-17 10:11:23,800: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:11:23,800: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,834: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,835: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:11:23,836: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:11:23,836: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 10:11:23,836: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,871: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 10:11:23,871: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4096(Integer) 
+DEBUG 2019-05-17 10:11:23,911: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:11:23,914: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,949: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,949: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:11:23,949: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:11:23,949: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 10:11:23,949: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:23,985: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 10:11:23,985: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4097(Integer) 
+DEBUG 2019-05-17 10:11:24,026: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:11:24,026: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:24,061: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:24,061: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 
+DEBUG 2019-05-17 10:11:24,061: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Opening JDBC Connection 
+DEBUG 2019-05-17 10:11:24,061: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Checked out connection 2131670196 from pool. 
+DEBUG 2019-05-17 10:11:24,061: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Setting autocommit to false on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:24,096: mappers.CenterMapper.getMetersByCollector 
+ ==>  Preparing: select * from t_device where id in (select deviceId from t_deviceRelation where collectionId = ?)  
+DEBUG 2019-05-17 10:11:24,096: mappers.CenterMapper.getMetersByCollector 
+ ==> Parameters: 4098(Integer) 
+DEBUG 2019-05-17 10:11:24,134: mappers.CenterMapper.getMetersByCollector 
+ <==      Total: 1 
+DEBUG 2019-05-17 10:11:24,134: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Resetting autocommit to true on JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:24,169: org.apache.ibatis.transaction.jdbc.JdbcTransaction 
+ Closing JDBC Connection [ConnectionID:1 ClientConnectionId: a6c50559-0a2c-4b7b-b845-a998f9969567] 
+DEBUG 2019-05-17 10:11:24,169: org.apache.ibatis.datasource.pooled.PooledDataSource 
+ Returned connection 2131670196 to pool. 

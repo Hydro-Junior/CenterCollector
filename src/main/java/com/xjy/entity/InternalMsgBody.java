@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @Date: Created in 9:10 2018/9/29
  * @Description: 内部协议消息实体类
  */
-public class InternalMsgBody {
+public class InternalMsgBody implements MsgBody{
      InternalMsgType msgType = InternalMsgType.INVALID_PACKAGE; //3种类型，心跳包，发送数据包，接收数据包
      String deviceId; //11字节的设备号
      int[] effectiveBytes;//有效数据

@@ -179,7 +179,7 @@ public class InternalProtocolSendHelper {
      * 打印消息发送日志
      * @param internalMsgBody
      */
-    private static void printMsgLog(InternalMsgBody internalMsgBody){
+    private static void printInternalMsgLog(InternalMsgBody internalMsgBody){
         LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：\n");
         StringBuilder sb = new StringBuilder();
         for(int i = 0 ; i < internalMsgBody.toBytes().length; i++){
@@ -247,7 +247,7 @@ public class InternalProtocolSendHelper {
      * @param center
      * @param msgBody
      */
-    public static void writeAndFlush(Center center,InternalMsgBody msgBody){
+    public static void writeAndFlush(Center center,MsgBody msgBody){
         ByteBuf buf = Unpooled.copiedBuffer(msgBody.toBytes());
         ChannelFuture f = center.getCtx().writeAndFlush(buf);
         /*f.addListener(new ChannelFutureListener() {
@@ -257,7 +257,7 @@ public class InternalProtocolSendHelper {
                 assert f==future;
             }
         });*/
-        printMsgLog(msgBody);
+        printInternalMsgLog((InternalMsgBody) msgBody);
         center.setLatestMsg(msgBody);
     }
 }

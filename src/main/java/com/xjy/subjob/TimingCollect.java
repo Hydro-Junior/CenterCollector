@@ -4,11 +4,8 @@ import com.xjy.entity.Center;
 import com.xjy.entity.Command;
 import com.xjy.entity.GlobalMap;
 import com.xjy.parms.CommandState;
-import com.xjy.parms.CommandType;
-import com.xjy.parms.Constants;
 import com.xjy.pojo.Scheme;
 import com.xjy.util.DBUtil;
-import com.xjy.util.InternalProtocolSendHelper;
 import com.xjy.util.LogUtil;
 import io.netty.channel.ChannelHandlerContext;
 import org.quartz.Job;
@@ -33,7 +30,7 @@ public class TimingCollect implements Job {
         DBUtil.createTempDeviceTable();//如果没有临时数据表，会自动创建
         Iterator<Map.Entry<String,Center>> it = map.entrySet().iterator();
         try {
-            LogUtil.PlanTaskLog("---------------------Plan Collecting Polling "+map.size()+" centers--------------------------------");
+            LogUtil.planTaskLog("---------------------Plan Collecting Polling "+map.size()+" centers--------------------------------");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,20 +38,20 @@ public class TimingCollect implements Job {
             Map.Entry<String,Center> entry = it.next();
             Center center = entry.getValue();
             try {
-                LogUtil.PlanTaskLog("[TARGET CENTER: "+ entry.getKey()+"   center Address: "+center.getId()+" ]");
+                LogUtil.planTaskLog("[TARGET CENTER: "+ entry.getKey()+"   center Address: "+center.getId()+" ]");
             } catch (IOException e) {
                 e.printStackTrace();
             }
             ChannelHandlerContext channelCtx = center.getCtx();
             try{
                 if(channelCtx.channel().isActive()){
-                    LogUtil.PlanTaskLog("Active");
+                    LogUtil.planTaskLog("Active");
                     Command c = center.getCurCommand();
                     if(c == null || c.getState()== CommandState.FAILED || c.getState()== CommandState.SUCCESSED){
                         //查询数据库，判断这个整点是否可以执行
                         Scheme scheme = DBUtil.getScheme(center);
                         if(scheme == null){
-                            LogUtil.PlanTaskLog("empty schemeId of center ["+center.getId()+"]");
+                            LogUtil.planTaskLog("empty schemeId of center ["+center.getId()+"]");
                         }
                         int beginHour = 0;//开始执行时刻
                         int dayReadNum = 1;//读次数
@@ -66,11 +63,11 @@ public class TimingCollect implements Job {
                         }
                         if(24/dayReadNum > interval) interval = 24/dayReadNum;
                         if(interval == 1) beginHour = 0;
-                        LogUtil.PlanTaskLog(scheme.toString());
+                        LogUtil.planTaskLog(scheme.toString());
                         for(int i = beginHour; i < 24; i += interval){
                             if(i == LocalDateTime.now().getHour()){
                                 String info = "distribute the Task for  "+center.getId()+"  of  "+center.getEnprNo();
-                                LogUtil.PlanTaskLog(info);
+                                LogUtil.planTaskLog(info);
                                 DBUtil.insertNewCollectCommand(center);
                                 //else InternalProtocolSendHelper.collect(center);//默认当做内部协议处理
                                 break;
@@ -78,7 +75,7 @@ public class TimingCollect implements Job {
                         }
                     }
                 }else{
-                    LogUtil.PlanTaskLog("InActive");
+                    LogUtil.planTaskLog("InActive");
                 }
             }catch (NullPointerException e){
                 //防止万一得不到context或channel报异常

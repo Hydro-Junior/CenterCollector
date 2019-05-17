@@ -29,10 +29,11 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
         XtMsgBody msgBody = (XtMsgBody)msg;
         String address = msgBody.getCenterAddress();
         ConcurrentHashMap<String,Center> map = GlobalMap.getMap();
+        LogUtil.DataMessageLog(InternalMessageHandler.class,"来自集中器"+address+"的消息！\r\n"+msgBody.toString());
         if(!map.containsKey(address)){
             Center center = new Center(address,ctx);
             map.put(address,center);
-            LogUtil.DataMessageLog(InternalMessageHandler.class,"首次收到集中器"+address+"的消息！\r\n"+msgBody.toString());
+            //LogUtil.DataMessageLog(InternalMessageHandler.class,"首次收到集中器"+address+"的消息！\r\n"+msgBody.toString());
             //更新数据库中集中器状态
             DBUtil.updateCenterState(1,center);
             //首次上线，如果有命令正在执行，将其置为成功！(有些硬件的特殊情况：执行采集命令会断开连接，结束后上线)

@@ -25,7 +25,7 @@ public class Center {
     private String enprNo ; //所属水司
     private DetailedInfoOfCenter information;
     private Command curCommand; // 当前正在执行的命令
-    private InternalMsgBody latestMsg;
+    private MsgBody latestMsg;
     private ConcurrentLinkedQueue<Command> commandQueue = new ConcurrentLinkedQueue<>(); //待执行的命令队列
     private ConcurrentLinkedDeque<Command> failedCommands = new ConcurrentLinkedDeque<>(); // 执行过且失败的命令<读表指令考虑重新执行>，每天写入日志并清空
 
@@ -123,11 +123,11 @@ public class Center {
         this.failedCommands = failedCommands;
     }
 
-    public InternalMsgBody getLatestMsg() {
+    public MsgBody getLatestMsg() {
         return latestMsg;
     }
 
-    public void setLatestMsg(InternalMsgBody latestMsg) {
+    public void setLatestMsg(MsgBody latestMsg) {
         this.latestMsg = latestMsg;
     }
 

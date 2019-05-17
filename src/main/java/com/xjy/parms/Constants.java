@@ -20,6 +20,9 @@ public final class Constants {
     public static final String database;
 
     public static final byte[] INTERNAL_DELIMETER = new byte[]{0x7B,0x01,0x00,0x16};
+    public static final byte HEADOf_130 = 0x68;
+    public static final byte TAILOf_130 = 0x16;
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     public static final byte[] XT_DELIMETER = new byte[]{0x16};
     //内部协议数据发送包头
     public static final byte[] INTERNAL_SENDHEAD = new byte[]{0x42,0x42,0x42,0x42,0x42,0x42,0x42,0x42,0x42,0x53};

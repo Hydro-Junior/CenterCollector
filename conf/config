@@ -2,9 +2,9 @@
 #内部协议填写Internal 130协议填写XT
 protocol=Internal
 #填写集中器访问的服务器的IP（当前服务器的IP）
-connectServer=127.0.0.1
+connectServer=47.106.21.33
 #填写集中器访问的服务器的端口
-protocolPort=5000
+protocolPort=5100
 #填写数据库服务器的地址
 dbServer=114.119.9.181
 #数据库Id

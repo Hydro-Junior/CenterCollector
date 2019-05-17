@@ -7,9 +7,10 @@ import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBMeter;
 import com.xjy.util.ConvertUtil;
 import com.xjy.util.DBUtil;
-import com.xjy.util.InternalProtocolSendHelper;
+import com.xjy.util.LogUtil;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -105,5 +106,14 @@ public class SyntaxTest {
         //按页构建资料
         List<CenterPage> pages = CenterPage.generateCenterPages(center);
         System.out.println(pages);
+    }
+    @Test
+    public void testLogCode(){
+        try {
+            //出现乱码问题
+            LogUtil.planTaskLog("你好，handler removed when executing the command --> command");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

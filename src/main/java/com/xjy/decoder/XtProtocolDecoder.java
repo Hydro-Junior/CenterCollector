@@ -1,6 +1,7 @@
 package com.xjy.decoder;
 
 import com.xjy.entity.XtMsgBody;
+import com.xjy.parms.Constants;
 import com.xjy.util.CheckUtil;
 import com.xjy.util.ConvertUtil;
 import com.xjy.util.LogUtil;
@@ -9,6 +10,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.util.ReferenceCountUtil;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -47,10 +49,12 @@ public class XtProtocolDecoder extends ByteToMessageDecoder {
          * 由于超过127的byte经java的强转后，高位都是1，为避免一些问题，统一 &0xff 取后8位，转为int处理
          */
         int[] data = ConvertUtil.bytesToInts(bytes);
-        System.out.println("收到原始报文：\r\n");
+        StringBuffer sb = new StringBuffer();
+        sb.append("收到原始报文："+ Constants.LINE_SEPARATOR);
         for(int i = 0 ;  i < data.length; i++){
-            System.out.print(ConvertUtil.fixedLengthHex(data[i]) + " ");
+            sb.append(ConvertUtil.fixedLengthHex(data[i]) + " ");
         }
+        LogUtil.DataMessageLog(XtProtocolDecoder.class,sb.toString());
         int[] effectiveData = null;
         if(data[0] == 0x68){
            effectiveData = getEffectiveData(data);
@@ -72,18 +76,21 @@ public class XtProtocolDecoder extends ByteToMessageDecoder {
            // if(effectiveData != null) out.add(effectiveData);
         }
         //生成消息实体
-        if(effectiveData != null && effectiveData.length >= 9){
+        if(effectiveData != null && effectiveData.length >= 12){
             XtMsgBody xtMsgBody = new XtMsgBody(effectiveData);
             out.add(xtMsgBody);
+        }else{
+            LogUtil.DataMessageLog(XtProtocolDecoder.class,"无法生成有效数据包! effectiveData:" +
+                    ConvertUtil.fixedLengthHex(effectiveData)
+            );
         }
-
     }
     //过滤掉报文公共部分（包括做报文长度和校验和检测）
     public static int[] getEffectiveData(int[] data){
         if(data == null) return null;
         int LL = data[1]; //先低位
         int LH = data[2]; //后高位
-        int L = LH << 8 | LL >> 2; //得到长度（最后两位是规约标志位，忽略）
+        int L = (LH << 8 | LL) >> 2; //得到长度（最后两位是规约标志位，忽略）
         if(L + 7 == data.length){//长度符合要求（8个非数据字节去掉一个报文尾，剩7个）
             //校验和通过，得到有效消息
             if(CheckUtil.doSumCheck(data,6)){//偏置量为6，前6个字节的报文头不需要
@@ -93,6 +100,9 @@ public class XtProtocolDecoder extends ByteToMessageDecoder {
                 }
                 return effectiveData;
             }
+        }else{
+            LogUtil.DataMessageLog(XtProtocolDecoder.class,"报文长度对应不上！"
+            + Constants.LINE_SEPARATOR + "L + 7: "+ L + "  data.length:"+ data.length);
         }
         return null;
     }

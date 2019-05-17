@@ -86,12 +86,32 @@ public class CommandExecutor implements Runnable{
         switch (currentCommand.getType()) {
             //读取集中器信息，执行130中的读取档案命令
             case READ_CENTER_INFO:
+                currentCommand.setParameter(0); //这里的参数是表序号的偏置量
                 XTProtocolSendHelper.getFileInfo(center,currentCommand);
+                break;
+            /**
+             *  抄表
+             *  对于130协议，抄单个表和抄所有表数据单元格式是一致的：
+             *  数据单元表示（4字节 00 00 01 07）
+             *  抄表方式 （1字节，自动中继为 00）
+             *  表数量（2字节） 表序号（2字节） 表序号（2字节）...
+             */
+            case READ_SINGLE_METER:
+                XTProtocolSendHelper.readSingleMeter(center,currentCommand);
+                break;
+            //下载档案
+            case READ_ALL_METERS:
+                currentCommand.setParameter(0); //表序号的偏置量，表示已经读到了哪个表
+                XTProtocolSendHelper.readMeters(center,currentCommand);
+                break;
+            case WRITE_INFO:
+                XTProtocolSendHelper.setFileInfo(center,currentCommand,0);
                 break;
             default:
                 setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
                 break;
         }
+        setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
     }
 
 

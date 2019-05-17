@@ -63,7 +63,7 @@ public class LogUtil {
         randomFile.writeBytes(LocalDateTime.now().toString() +"\r\n" + msg + "\r\n\r\n");
         randomFile.close();
     }
-    public static void PlanTaskLog (String info)throws IOException {
+    public static void planTaskLog(String info)throws IOException {
         File f = new File("log");
         if(!f.exists()){
             f.mkdir();
@@ -76,7 +76,8 @@ public class LogUtil {
         RandomAccessFile randomFile = new RandomAccessFile(path, "rw");
         long fileLength = randomFile.length();
         randomFile.seek(fileLength);
-        randomFile.writeBytes(LocalDateTime.now().toString() +"\r\n" + info + "\r\n\r\n");
+        //info写入时出现了乱码现象
+        randomFile.writeBytes(LocalDateTime.now().toString() +"\r\n" + /*new String(info.getBytes("UTF-8"),"UTF-8")*/info + "\r\n\r\n");
         randomFile.close();
     }
 }

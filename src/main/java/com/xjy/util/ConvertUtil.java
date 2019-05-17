@@ -26,6 +26,10 @@ public class ConvertUtil {
         }
         return s;
     }
+    //获得一个整数（不超过两位）的BCD码
+    public static int  getBcdOf2digit(int num){
+       return (((num / 10) << 4) & 0xf0) |((num % 10) & 0x0f);
+    }
     public static String fixedLengthHex(int[] a){
         if(a == null || a.length == 0) return "";
         StringBuilder sb = new StringBuilder();

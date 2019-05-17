@@ -25,6 +25,7 @@ public class CheckUtil {
         if(checkSum == data[data.length-1]){
             return true;
         }else{
+            LogUtil.DataMessageLog(CheckUtil.class,"报文和校验错误！");
             return false;
         }
     }

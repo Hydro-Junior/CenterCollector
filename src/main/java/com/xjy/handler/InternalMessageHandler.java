@@ -112,7 +112,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                         return;
                     }
                     String lastInstruction ;//得到上次所发的指令
-                    if(currentCenter.getLatestMsg() != null)  lastInstruction = currentCenter.getLatestMsg().getInstruction();
+                    if(currentCenter.getLatestMsg() != null)  lastInstruction = ((InternalMsgBody)currentCenter.getLatestMsg()).getInstruction();
                     else  lastInstruction = "";
                     if(c != null && lastInstruction.equals(InternalOrders.OPEN_CHANNEL)){
                         //得到采集器地址，并关闭该节点

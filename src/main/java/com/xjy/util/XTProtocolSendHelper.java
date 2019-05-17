@@ -6,8 +6,14 @@ import com.xjy.entity.*;
 import com.xjy.parms.XTParams;
 import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBMeter;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -17,9 +23,11 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Description:
  */
 public class XTProtocolSendHelper {
+
+
     /**
      * 读取档案，根据130（网络版，文库可搜到，数据单元标识为00 00 01 00，4个字节）
-     * @param center 集中器
+     * @param center 集中器对象
      * @param currentCommand 当前命令
      */
     public static void getFileInfo(Center center, Command currentCommand) {
@@ -46,25 +54,92 @@ public class XTProtocolSendHelper {
 
         //5. 数据单元
         int f = 1; //读取档案，Fn = 1；
-        int[] fn = getFn(f); //长度为4
+        int[] Fn = getFn(f); //长度为4
 
         //6. 构造数据体中表个数与表序号，转为BCD码
         // 每个数据2字节，如50块表，其格式就是 50 00; 如序号为125，则格式为 25 01;
-        List<Meter> meters = constructAndGetMetersInfo(center);
-        int num = meters.size(); //表的总数
+        int offset = (Integer) currentCommand.getParameter() == null? 0 : (Integer) currentCommand.getParameter(); //命令参数为表序号的偏置量
+        List<MeterOf130> meters = constructAndGetMetersInfo(center);
+        int num = meters.size()- offset >= 10 ? 10 : meters.size() - offset; //表的总数
+        currentCommand.setParameter(offset+ num);
         int[] data = new int[num * 2 + 2];
-        //todo
+        data[1] = 0x00;
+        data[0] = (((num / 10) << 4) & 0xf0) |((num % 10) & 0x0f);
+        for(int i = 1; i <= num; i++){
+            Meter meter = meters.get(i - 1 + offset);
+            Integer index = meter.getIndexNo();
+            System.out.println(index);
+            if(index == null) {
+                LogUtil.DataMessageLog(XTProtocolSendHelper.class,"表序号错误！+ 集中器编号："+
+                        center.getId() + "表地址："+ meter.getId());
+                continue;
+            }
+            arrangeBcdCodeIn2Bytes(index,2 * i , data);
+        }
+        //7. 整理数据并发送
+        XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
+        System.out.println(msgBody);
+        System.out.println(ConvertUtil.fixedLengthHex(ConvertUtil.bytesToInts(msgBody.toBytes())));
+        writeAndFlush(center,msgBody);
+    }
+    /**
+     * 读取单个表
+     * @param center
+     * @param currentCommand
+     */
+    public static void readSingleMeter(Center center, Command currentCommand) {
+       String meterAddress =  currentCommand.getArgs()[2];
+
     }
 
     /**
-     * 为了确保内存中的表资料是最新的，建议获得
+     * 读表
+     * @param center
+     * @param currentCommand
      */
-    public static List<Meter> constructAndGetMetersInfo(Center center) {
-        ConcurrentHashMap<Center,List<Meter>> map = GlobalMap.getMeterInfo();
+    public static void readMeters(Center center, Command currentCommand) {
+        int C = XtControlArea.generateControlArea(XTParams.DIR_SERVER_TO_CENTER,XTParams.PRM_MASTER,XTParams.CTRL_FOR_DATA);
+        int[] A = getAddressArea(center.getId());
+        int AFN = XTParams.AFN_GET_REALTIME_DATA;
+        int SEQ = 0x60;
+        int[] Fn = getFn(57); //根据协议获得 F57：当前正向有功总电能、累计水量、累计气量
+        int offset = (Integer) currentCommand.getParameter()==null? 0 : (Integer) currentCommand.getParameter();
+        List<MeterOf130> meters = constructAndGetMetersInfo(center);
+        int num = meters.size()- offset >= 5 ? 5 : meters.size() - offset; //表的总数
+        currentCommand.setParameter(offset + num);
+        //数据单元字节数 抄表方式1字节(0x00) + 表数量2字节 + 表序号 2 * n
+        int[] data = new int[3 + 2 * num];
+        data[0] = 0x00;
+        arrangeBcdCodeIn2Bytes(num,1, data);
+        for(int i = 1; i <= num ; i++){
+            arrangeBcdCodeIn2Bytes(meters.get(offset+i-1).getIndexNo(),1+2 * i,data);
+        }
+        //7. 整理数据并发送
+        XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
+        System.out.println(msgBody);
+        System.out.println(ConvertUtil.fixedLengthHex(ConvertUtil.bytesToInts(msgBody.toBytes())));
+        writeAndFlush(center,msgBody);
+    }
+    //把某个数值的bcd码分配到两个字节，低位在前
+    public static void arrangeBcdCodeIn2Bytes(int num, int offset, int[] data){
+        int high = num % 100;
+        int low = num / 100;
+        data[offset] = ConvertUtil.getBcdOf2digit(high);
+        data[offset + 1] = ConvertUtil.getBcdOf2digit(low);
+    }
+
+    public static List<MeterOf130> constructAndGetMetersInfo(Center center) {
+        ConcurrentHashMap<Center,List<MeterOf130>> map = GlobalMap.get130MeterInfo();
         //查找数据库中该集中器对应的采集器;
+        if(map.containsKey(center)) return map.get(center);
+        constructMetersInfo(center);
+        return map.get(center);
+    }
+    public static void constructMetersInfo(Center center){
+        ConcurrentHashMap<Center,List<MeterOf130>> map = GlobalMap.get130MeterInfo();
         List<DBCollector> dbcollectors = DBUtil.getCollectorsByCenter(center);
         List<Collector> collectors = new ArrayList<>();
-        List<Meter> totalMeters = new ArrayList<>();
+        List<MeterOf130> totalMeters = new ArrayList<>();
         //遍历采集器集合，查询获得总表集合，构建集中器资料
         for(int i = 0 ; i < dbcollectors.size(); i++){
             DBCollector dbCollector = dbcollectors.get(i);
@@ -74,18 +149,20 @@ public class XTProtocolSendHelper {
             List<DBMeter> dbMeters = DBUtil.getMetersByCollector(dbcollectors.get(i));
             List<Meter> meters = new ArrayList<>();
             for(DBMeter dbMeter : dbMeters){
-                Meter theMeter = MeterAdapter.getMeter(dbMeter);
+                MeterOf130 theMeter = MeterAdapter.getMeterOf130(dbMeter);
                 //theMeter.setCollectorIndex(i);//设置对应采集器序号 130中用不上
                 theMeter.setCollector(theCollector); //设置所属采集器
                 meters.add(theMeter);
             }
             theCollector.setMeters(meters);//更新每个采集器的表资料
-            totalMeters.addAll(meters);
+            for(Meter m : meters){
+                totalMeters.add((MeterOf130) m );
+            }
         }
+        Collections.sort(totalMeters, Comparator.comparing(MeterOf130::getIndexNo));
         center.setCollectors(collectors);//更新集中器的采集器资料
         //构建集中器的表信息
         map.put(center,totalMeters);
-        return map.get(center);
     }
 
     public static int[] getFn(int f) {
@@ -121,4 +198,33 @@ public class XTProtocolSendHelper {
         A[0] = A1[1]; A[1] = A1[0]; A[2] = A2[1]; A[3] = A2[0]; //低位优先
         return A;
     }
+    public static void writeAndFlush(Center center,XtMsgBody msgBody){
+        ByteBuf buf = Unpooled.copiedBuffer(msgBody.toBytes());
+        ChannelFuture f = center.getCtx().writeAndFlush(buf);
+        printMsgLog(msgBody);
+        center.setLatestMsg(msgBody);
+    }
+    /**
+     * 打印消息发送日志
+     * @param xtMsgBody
+     */
+    private static void printMsgLog(XtMsgBody xtMsgBody){
+        LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：\n");
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0 ; i < xtMsgBody.toBytes().length; i++){
+            sb.append(ConvertUtil.fixedLengthHex(xtMsgBody.toBytes()[i])+" ");
+            if(i !=0 && i % 30 == 0) sb.append("\r\n");
+        }
+        String channelLogContent = "[MESSAGE SEND]{\r\n" + sb.toString()+"}";
+        try {
+            LogUtil.channelLog(xtMsgBody.getCenterAddress(),channelLogContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        LogUtil.DataMessageLog(XTProtocolSendHelper.class, sb.toString());
+    }
+    public static void setFileInfo(Center center, Command currentCommand, int i) {
+
+    }
+
 }

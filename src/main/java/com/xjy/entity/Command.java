@@ -4,6 +4,8 @@ import com.xjy.parms.CommandType;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author: Mr.Xu
@@ -19,8 +21,8 @@ public class Command {
     LocalDateTime generateTime;
     int secondsLimit = 5 * 60; //允许超时时间，默认5分钟
     boolean suspend = false; //命令在执行中是否中断
-    Object parameter;
     int retryNum = 0;
+    Object parameter;
     int allowedRetryTimes = 1;
 
     public Integer getId() {
@@ -87,14 +89,6 @@ public class Command {
         this.secondsLimit = secondsLimit;
     }
 
-    public Object getParameter() {
-        return parameter;
-    }
-
-    public void setParameter(Object parameter) {
-        this.parameter = parameter;
-    }
-
     public int getRetryNum() {
         return retryNum;
     }
@@ -109,6 +103,15 @@ public class Command {
 
     public void setAllowedRetryTimes(int allowedRetryTimes) {
         this.allowedRetryTimes = allowedRetryTimes;
+    }
+
+
+    public Object getParameter() {
+        return parameter;
+    }
+
+    public void setParameter(Object parameter) {
+        this.parameter = parameter;
     }
 
     @Override
