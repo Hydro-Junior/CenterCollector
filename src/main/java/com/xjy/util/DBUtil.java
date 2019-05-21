@@ -258,6 +258,9 @@ public class DBUtil {
             if(mapper.searchDeviceData(tableName,centerId,LocalDateTime.now().getDayOfMonth(),meter.getId()) != null){
                 mapper.updateDeviceData(tableName,meter.getValue(), Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
             }else{
+                System.out.println(
+                        "tableName:" + tableName + "meter:" + meter +"centerId: " + "enprNo: " + enprNo
+                );
                 mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
             }
             //阀门信息

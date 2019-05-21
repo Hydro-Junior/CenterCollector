@@ -4,8 +4,6 @@ import com.xjy.parms.CommandType;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Author: Mr.Xu
@@ -17,7 +15,7 @@ public class Command {
     Integer id; //命令对应的数据库中的Id
     Integer state; //0-未分派 1-集中器未连接 2-等待执行 3-执行中 4-执行错误，重试中 5-执行成功  6-执行失败
     String[] args; //命令的相关参数
-    LocalDateTime startExcuteTime; //开始执行命令的时刻
+    LocalDateTime startExecuteTime; //开始执行命令的时刻
     LocalDateTime generateTime;
     int secondsLimit = 5 * 60; //允许超时时间，默认5分钟
     boolean suspend = false; //命令在执行中是否中断
@@ -65,12 +63,12 @@ public class Command {
         this.args = args;
     }
 
-    public LocalDateTime getStartExcuteTime() {
-        return startExcuteTime;
+    public LocalDateTime getStartExecuteTime() {
+        return startExecuteTime;
     }
 
-    public void setStartExcuteTime(LocalDateTime startExcuteTime) {
-        this.startExcuteTime = startExcuteTime;
+    public void setStartExecuteTime(LocalDateTime startExecuteTime) {
+        this.startExecuteTime = startExecuteTime;
     }
 
     public LocalDateTime getGenerateTime() {
@@ -117,11 +115,17 @@ public class Command {
     @Override
     public String toString() {
         return "Command{" +
-                "id=" + id +
                 "type=" + type +
+                ", id=" + id +
                 ", state=" + state +
                 ", args=" + Arrays.toString(args) +
-                ", startExcuteTime=" + startExcuteTime +
+                ", startExecuteTime=" + startExecuteTime +
+                ", generateTime=" + generateTime +
+                ", secondsLimit=" + secondsLimit +
+                ", suspend=" + suspend +
+                ", retryNum=" + retryNum +
+                ", parameter=" + parameter +
+                ", allowedRetryTimes=" + allowedRetryTimes +
                 '}';
     }
 }

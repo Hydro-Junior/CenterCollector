@@ -60,7 +60,7 @@ public class CollectServer {
         protected void initChannel(SocketChannel socketChannel) throws Exception {
             // 拿到SocketChannel,进行一系列的配置
             //socketChannel.config().setAllowHalfClosure(true);//允许半关闭
-            if(Constants.protocol != null && Constants.protocol.equals("XT")){//todo 新天通讯协议待做
+            if(Constants.protocol != null && Constants.protocol.equals("XT")){
                 ByteBuf xtdelimiter = Unpooled.copiedBuffer(Constants.XT_DELIMETER);//定义分隔符
                 //管道流式处理字节流
                 socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,xtdelimiter),

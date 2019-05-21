@@ -1,7 +1,5 @@
 package com.xjy.handler;
 
-import com.xjy.adapter.CommandAdapter;
-import com.xjy.core.CommandExecutor;
 import com.xjy.entity.*;
 import com.xjy.parms.*;
 import com.xjy.pojo.DBCommand;
@@ -9,26 +7,19 @@ import com.xjy.processor.ExceptionProcessor;
 import com.xjy.processor.InternalMsgProcessor;
 import com.xjy.util.ConvertUtil;
 import com.xjy.util.DBUtil;
-import com.xjy.util.InternalProtocolSendHelper;
+import com.xjy.sender.InternalProtocolSendHelper;
 import com.xjy.util.LogUtil;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
-import org.omg.PortableInterceptor.INACTIVE;
 
 import java.net.SocketAddress;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.TimeUnit;
 
 import static com.xjy.entity.GlobalMap.getMap;
 
@@ -37,7 +28,6 @@ import static com.xjy.entity.GlobalMap.getMap;
  * @Date: Created in 15:23 2018/9/27
  * @Description: 内部协议业务消息处理器
  */
-@ChannelHandler.Sharable
 public class InternalMessageHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -68,7 +58,7 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                        if(retry < cur.getAllowedRetryTimes()){
                            //主动重发上一条命令
                            InternalProtocolSendHelper.writeAndFlush(center,center.getLatestMsg());
-                           cur.setStartExcuteTime(LocalDateTime.now()); //更新开始时间
+                           cur.setStartExecuteTime(LocalDateTime.now()); //更新开始时间
                            cur.setRetryNum(retry + 1); //重试次数加一
                        }
                    }else if(center.getCurCommand().getType() == CommandType.COLLECT_FOR_CENTER){//是采集命令的情况,重连通常命令成功，不用重发指令
@@ -239,9 +229,13 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
         super.channelActive(ctx);
     }
 
-    //处理客户端关闭的情况
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        super.handlerRemoved(ctx);
+    }
+
+    @Override
+    public void disconnect(ChannelHandlerContext ctx, ChannelPromise promise) throws Exception {
         ConcurrentHashMap<String,Center> map =  GlobalMap.getMap();
         String centerAddr = "";
         Center center;
@@ -251,13 +245,14 @@ public class InternalMessageHandler extends ChannelHandlerAdapter {
                 center = entry.getValue();
                 if(center.getCurCommand()!=null && center.getCurCommand().getState()==CommandState.EXECUTING){
                     center.getCurCommand().setSuspend(true); //挂起命令
-                    LogUtil.channelLog(centerAddr,"handler removed when executing the command --> command "+ center.getCurCommand().getType() + " suspend");
+                    LogUtil.channelLog(centerAddr,"center disconnected when executing the command --> command "+ center.getCurCommand().getType() + " suspend");
                 }
                 break;
             }
         }
         LogUtil.DataMessageLog(InternalMessageHandler.class,"one client disconnected ! center address："+centerAddr +" ctx:"+ctx+"   channel message："+ctx.channel() + "    is active ? ："+ctx.channel().isActive());
-        ctx.close();
+        super.disconnect(ctx, promise);
+        if(ctx != null) ctx.close();
     }
 
     @Override

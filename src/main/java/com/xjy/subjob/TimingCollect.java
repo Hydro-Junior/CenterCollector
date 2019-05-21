@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 9:18 2018/12/7
- * @Description:
+ * @Description: 定时采集任务实现
  */
 public class TimingCollect implements Job {
     @Override

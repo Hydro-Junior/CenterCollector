@@ -4,21 +4,18 @@ import com.xjy.entity.*;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.CommandType;
 import com.xjy.parms.InternalOrders;
-import com.xjy.pojo.DBMeter;
-import com.xjy.pojo.DeviceTmp;
 import com.xjy.util.ConvertUtil;
 import com.xjy.util.DBUtil;
-import com.xjy.util.InternalProtocolSendHelper;
+import com.xjy.sender.InternalProtocolSendHelper;
 import com.xjy.util.LogUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static com.xjy.entity.GlobalMap.getBasicInfo;
-import static com.xjy.util.InternalProtocolSendHelper.readNextPage;
-import static com.xjy.util.InternalProtocolSendHelper.writePage;
+import static com.xjy.sender.InternalProtocolSendHelper.readNextPage;
+import static com.xjy.sender.InternalProtocolSendHelper.writePage;
 
 /**
  * @Author: Mr.Xu

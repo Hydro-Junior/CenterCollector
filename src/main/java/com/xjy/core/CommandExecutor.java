@@ -1,16 +1,13 @@
 package com.xjy.core;
 
-import com.xjy.entity.Center;
-import com.xjy.entity.CenterPage;
-import com.xjy.entity.Command;
-import com.xjy.entity.GlobalMap;
+import com.xjy.entity.*;
 import com.xjy.parms.CommandState;
 import com.xjy.parms.CommandType;
 import com.xjy.parms.Constants;
 import com.xjy.util.DBUtil;
-import com.xjy.util.InternalProtocolSendHelper;
+import com.xjy.sender.InternalProtocolSendHelper;
 import com.xjy.util.LogUtil;
-import com.xjy.util.XTProtocolSendHelper;
+import com.xjy.sender.XTProtocolSendHelper;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.sql.Timestamp;
@@ -36,14 +33,20 @@ public class CommandExecutor implements Runnable{
                 //判断当前命令是否超时（默认）
                 Command cur = null;
                 if(( cur = center.getCurCommand()) != null && cur.getState()== CommandState.EXECUTING){
-                    LocalDateTime start = cur.getStartExcuteTime();
+                    LocalDateTime start = cur.getStartExecuteTime();
                     Duration duration = Duration.between(start,LocalDateTime.now());
                     if(duration.toMillis() / 1000 > cur.getSecondsLimit()){
                         int retry = cur.getRetryNum();
                         if(retry < cur.getAllowedRetryTimes() && cur.getType() != CommandType.COLLECT_FOR_CENTER){
                             //主动重发上一条命令
-                            InternalProtocolSendHelper.writeAndFlush(center,center.getLatestMsg());
-                            cur.setStartExcuteTime(LocalDateTime.now()); //一定要重置命令开始时间
+                            System.out.println("重发指令！命令类型："+cur.getType());
+                            if(Constants.protocol != null && Constants.protocol.equals("XT")){
+                                System.out.println("lastMessage:"+ center.getLatestMsg());
+                                XTProtocolSendHelper.writeAndFlush(center,(XtMsgBody) (center.getLatestMsg()));
+                            }else{
+                                InternalProtocolSendHelper.writeAndFlush(center,center.getLatestMsg());
+                            }
+                            cur.setStartExecuteTime(LocalDateTime.now()); //一定要重置命令开始时间
                             cur.setRetryNum(retry + 1);
                         }else{
                             LogUtil.DataMessageLog(CommandExecutor.class,"overTime causes command failed! The center address : "+center.getId()+" durationMillis: "+ duration.toMillis() + "current command allowed time gap:"+ cur.getSecondsLimit()
@@ -64,7 +67,7 @@ public class CommandExecutor implements Runnable{
                        Command currentCommand = center.getCurCommand();
                        currentCommand.setState(CommandState.EXECUTING);
                        DBUtil.updateCommandState(CommandState.EXECUTING,center);
-                       currentCommand.setStartExcuteTime(LocalDateTime.now());
+                       currentCommand.setStartExecuteTime(LocalDateTime.now());
                        //先判断当前协议，随后根据不同的命令类型发送不同的指令
                         if(Constants.protocol != null && Constants.protocol.equals("XT")){
                             executeForXTProtocol(center ,currentCommand);
@@ -86,6 +89,7 @@ public class CommandExecutor implements Runnable{
         switch (currentCommand.getType()) {
             //读取集中器信息，执行130中的读取档案命令
             case READ_CENTER_INFO:
+                timeLimitSetFor130(center);
                 currentCommand.setParameter(0); //这里的参数是表序号的偏置量
                 XTProtocolSendHelper.getFileInfo(center,currentCommand);
                 break;
@@ -99,21 +103,36 @@ public class CommandExecutor implements Runnable{
             case READ_SINGLE_METER:
                 XTProtocolSendHelper.readSingleMeter(center,currentCommand);
                 break;
-            //下载档案
             case READ_ALL_METERS:
+                timeLimitSetFor130(center);
                 currentCommand.setParameter(0); //表序号的偏置量，表示已经读到了哪个表
                 XTProtocolSendHelper.readMeters(center,currentCommand);
                 break;
+            case COLLECT_FOR_CENTER: //对于130协议，没有单独的采集命令，读取是实时的，所以与读取所有表处理方式相同
+                currentCommand.setType(CommandType.READ_ALL_METERS);
+                timeLimitSetFor130(center);
+                currentCommand.setParameter(0); //表序号的偏置量，表示已经读到了哪个表
+                XTProtocolSendHelper.readMeters(center,currentCommand);
+                break;
+            //下载档案
             case WRITE_INFO:
-                XTProtocolSendHelper.setFileInfo(center,currentCommand,0);
+                timeLimitSetFor130(center);
+                currentCommand.setParameter(0); //起始档案序号
+                XTProtocolSendHelper.writeFileInfo(center,currentCommand);
                 break;
             default:
                 setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
                 break;
         }
-        setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
+        //setCurCommandState(CommandState.SUCCESSED,center,currentCommand);
     }
-
+    private static void timeLimitSetFor130(Center center){
+        List<MeterOf130> meters = XTProtocolSendHelper.constructAndGetMetersInfo(center);
+        int timeLimit = Math.max(meters.size()/10 * 2,5);
+        center.getCurCommand().setSecondsLimit(timeLimit * 60);//设置超时时间限制，与表个数关联
+        Timestamp t3 = Timestamp.valueOf(LocalDateTime.now().plusMinutes(timeLimit));
+        DBUtil.updateCommandEndTime(center,t3);
+    }
 
     private static void executeForInternalProtocol(Center center, Command currentCommand) {
         switch (currentCommand.getType()){
@@ -174,6 +193,10 @@ public class CommandExecutor implements Runnable{
             case READ_ALL_METERS:
                 //开始读取之前，获取center在数据库中的id和水司编号，应对修改数据库中表具资料后的情况
                 DBUtil.preprocessOfRead(center);
+                int pageNum2 = getTotalPages(center);
+                int timeLimit2 = Math.max(pageNum2 * 1,5);
+                Timestamp t2 = Timestamp.valueOf(LocalDateTime.now().plusMinutes(timeLimit2));
+                DBUtil.updateCommandEndTime(center,t2); //设置允许整个命令结束时间，防止web程序中途将其设置为不在线
                 currentCommand.setAllowedRetryTimes(Constants.RETRY_TIMES_FOR_READ_PAGES); //允许最多重试次数，设置每次读页最长允许等待时间见readNestPage方法
                 InternalProtocolSendHelper.readNextPage(center,1);
                 break;

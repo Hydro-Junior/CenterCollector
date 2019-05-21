@@ -39,6 +39,15 @@ public class ConvertUtil {
         sb.append("\r\n");
         return sb.toString();
     }
+    public static int bcdBytesToInt(int[] data, int start, int end){
+        int res = 0, d = 1; //d表示乘以几个100
+        for(int i = start; i <= end; i++,d *= 100){
+            int hi = (data[i] >>> 4) & 0x0f;
+            int lo = data[i] & 0x0f;
+            res += ((hi) * 10 + lo) * d;
+        }
+        return res;
+    }
     //把表地址或采集器地址转化为字节数组（内部协议）,返回类型为int[]是为了表示方便
     public static int[] addressToBytes(String address){
         String addr = address.trim();
@@ -83,5 +92,17 @@ public class ConvertUtil {
             collectorAddress.append(ConvertUtil.fixedLengthHex(collectorBytes[i]));
         }
         return collectorAddress.toString();
+    }
+    //把字节
+    public static String bcdBytesToString(int[] data, int lo, int hi) {
+        StringBuilder sb = new StringBuilder();
+        for(int i = hi ;i >= lo; i--){
+            String s = String.valueOf(ConvertUtil.bcdBytesToInt(data,i,i));
+            while(s.length() < 2){
+                s = "0"+s;
+            }
+            sb.append(s);
+        }
+        return sb.toString();
     }
 }

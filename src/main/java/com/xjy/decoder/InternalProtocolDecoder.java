@@ -61,6 +61,9 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
              3. 这里没有处理太过极端的情况（出现几率几乎为零），比如半包刚好截至指令位，且指令为0x45
              */
             //心跳包满足end - start == 11
+            //值得一提的是，对于可能的数据包（大于11），只判断最后两个字节（无线集中器最后是0x45 0x0d），不合要求即算半包
+            //就实际测试来看，没有必要轮询往前找0x45，即便出现0x45在更前面的位置这种几乎不可能的情况（那0x45后面是什么？
+            // 等于没按照协议的规矩来，像无线集中器最后就是0x0d），也会打印出来
             if(end - start < 11 || (end -start > 11 && bytes[end-1]!= 0x45 && bytes[end-2] != 0x45)){
                 //自组网在数据包后面还跟个0x0d，因此检测最后两位即可，如果都不是0x45，认定为半包。
                 LogUtil.DataMessageLog(InternalProtocolDecoder.class,"检测到半包，打印字节");
@@ -71,7 +74,7 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
                 in.discardReadBytes();
                 return;
             }
-            if(end - start > 11 && bytes[end-1] == 0x0d && bytes[end-2]==0x45) end--;
+            if(end - start > 11 && bytes[end-1] == 0x0d && bytes[end-2]==0x45) end--;//无线集中器的特殊情况，数据包以0x0d结尾
             byte[] strippedBytes = new byte[end - start];
             System.arraycopy(bytes,start,strippedBytes,0,end - start);
             /**
@@ -81,7 +84,7 @@ public class InternalProtocolDecoder extends ByteToMessageDecoder {
             //LogUtil.DataMessageLog(InternalProtocolDecoder.class,"收到数据长度："+data.length);
             //通过消息实体构造方法确定其消息类型和设备地址
             InternalMsgBody msgBody = new InternalMsgBody(data);
-            if(msgBody.getMsgType() != InternalMsgType.INVALID_PACKAGE ) out.add(msgBody);
+            if(msgBody.getMsgType() != InternalMsgType.INVALID_PACKAGE) out.add(msgBody);
         }
     }
 

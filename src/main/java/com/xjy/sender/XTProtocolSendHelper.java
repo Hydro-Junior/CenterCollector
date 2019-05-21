@@ -1,4 +1,4 @@
-package com.xjy.util;
+package com.xjy.sender;
 
 import com.xjy.adapter.CollectorAdapter;
 import com.xjy.adapter.MeterAdapter;
@@ -6,6 +6,9 @@ import com.xjy.entity.*;
 import com.xjy.parms.XTParams;
 import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBMeter;
+import com.xjy.util.ConvertUtil;
+import com.xjy.util.DBUtil;
+import com.xjy.util.LogUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -60,7 +63,7 @@ public class XTProtocolSendHelper {
         // 每个数据2字节，如50块表，其格式就是 50 00; 如序号为125，则格式为 25 01;
         int offset = (Integer) currentCommand.getParameter() == null? 0 : (Integer) currentCommand.getParameter(); //命令参数为表序号的偏置量
         List<MeterOf130> meters = constructAndGetMetersInfo(center);
-        int num = meters.size()- offset >= 10 ? 10 : meters.size() - offset; //表的总数
+        int num = meters.size()- offset >= 10 ? 10 : meters.size() - offset; //表的总数，每次读取最多10个表的档案
         currentCommand.setParameter(offset+ num);
         int[] data = new int[num * 2 + 2];
         data[1] = 0x00;
@@ -68,7 +71,6 @@ public class XTProtocolSendHelper {
         for(int i = 1; i <= num; i++){
             Meter meter = meters.get(i - 1 + offset);
             Integer index = meter.getIndexNo();
-            System.out.println(index);
             if(index == null) {
                 LogUtil.DataMessageLog(XTProtocolSendHelper.class,"表序号错误！+ 集中器编号："+
                         center.getId() + "表地址："+ meter.getId());
@@ -89,7 +91,27 @@ public class XTProtocolSendHelper {
      */
     public static void readSingleMeter(Center center, Command currentCommand) {
        String meterAddress =  currentCommand.getArgs()[2];
-
+       List<MeterOf130> meters = constructAndGetMetersInfo(center);
+       int targetIndex = 1;
+       for(MeterOf130 m : meters){
+           if(m.getId().equals(meterAddress)){
+               targetIndex = m.getIndexNo();
+               break;
+           }
+       }
+       int C = XtControlArea.generateControlArea(XTParams.DIR_SERVER_TO_CENTER,XTParams.PRM_MASTER,XTParams.CTRL_FOR_DATA);
+       int[] A = getAddressArea(center.getId());
+       int AFN = XTParams.AFN_GET_REALTIME_DATA;
+       int SEQ = 0x60;
+       int[] Fn = getFn(57); //根据协议获得 F57：当前正向有功总电能、累计水量、累计气量
+       int[] data = new int[3+2];
+       data[0] = 0x00; //抄表方式：自动中继
+       arrangeBcdCodeIn2Bytes(1,1, data); //num:1 就一个表
+       arrangeBcdCodeIn2Bytes(targetIndex,3,data);
+       XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
+       System.out.println(msgBody);
+       System.out.println(ConvertUtil.fixedLengthHex(ConvertUtil.bytesToInts(msgBody.toBytes())));
+       writeAndFlush(center,msgBody);
     }
 
     /**
@@ -105,7 +127,7 @@ public class XTProtocolSendHelper {
         int[] Fn = getFn(57); //根据协议获得 F57：当前正向有功总电能、累计水量、累计气量
         int offset = (Integer) currentCommand.getParameter()==null? 0 : (Integer) currentCommand.getParameter();
         List<MeterOf130> meters = constructAndGetMetersInfo(center);
-        int num = meters.size()- offset >= 5 ? 5 : meters.size() - offset; //表的总数
+        int num = meters.size()- offset >= 5 ? 5 : meters.size() - offset; //表的总数,每次最多读5个表
         currentCommand.setParameter(offset + num);
         //数据单元字节数 抄表方式1字节(0x00) + 表数量2字节 + 表序号 2 * n
         int[] data = new int[3 + 2 * num];
@@ -113,6 +135,46 @@ public class XTProtocolSendHelper {
         arrangeBcdCodeIn2Bytes(num,1, data);
         for(int i = 1; i <= num ; i++){
             arrangeBcdCodeIn2Bytes(meters.get(offset+i-1).getIndexNo(),1+2 * i,data);
+        }
+        //7. 整理数据并发送
+        XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
+        System.out.println(msgBody);
+        System.out.println(ConvertUtil.fixedLengthHex(ConvertUtil.bytesToInts(msgBody.toBytes())));
+        writeAndFlush(center,msgBody);
+    }
+    public static void writeFileInfo(Center center, Command currentCommand) {
+        //下载档案必须重建导入的表具信息，而不能有资料就获取，接下来处理逻辑与读表类似
+        if(currentCommand.getParameter() == null || (Integer)currentCommand.getParameter() == 0){
+            currentCommand.setParameter(0); //参数在发命令时已经确定，这里可以不需要，因为基本不可能是null值，但加上也无妨
+            constructMetersInfo(center);
+        }
+        int C = XtControlArea.generateControlArea(XTParams.DIR_SERVER_TO_CENTER,XTParams.PRM_MASTER,XTParams.CTRL_FOR_ACK);
+        int[] A = getAddressArea(center.getId());
+        int AFN = XTParams.AFN_SET_PARAM;
+        int SEQ = 0x60;
+        int[] Fn = getFn(1); //根据协议获得 F1：新增、修改水电气档案数据库配置参数
+        int offset = (Integer) currentCommand.getParameter()==null? 0 : (Integer) currentCommand.getParameter();
+        List<MeterOf130> meters = constructAndGetMetersInfo(center);
+        int num = meters.size()- offset >= 10 ? 10 : meters.size() - offset; //表的总数,每次最多下10个
+        currentCommand.setParameter(offset + num);
+        //数据单元字节数 抄表方式1字节(0x00) + 表数量2字节 + 表序号 2 * n
+        int[] data = new int[2 + 22 * num];
+        arrangeBcdCodeIn2Bytes(num,0, data);
+        for(int i = 1; i <= num ; i++){
+            MeterOf130 meter = meters.get(i+offset-1);
+            //序号
+            int index = meter.getIndexNo();
+            arrangeBcdCodeIn2Bytes(index,(i-1) * 22 + 2, data);//每个表资料数据占22个字节，头两个字节是表数量
+            //表地址
+            String address = meter.getId();
+            int[] addressBytes = ConvertUtil.addressToBytes(address);
+            System.arraycopy(addressBytes,0,data,(i-1) * 22 + 4, 6);//表序号占两个字节，偏置量加2
+            //130表的基本参数
+            int[] basicProperty = meter.getGeneralPropertyBytes();
+            System.arraycopy(basicProperty,0,data,(i-1) * 22 + 10,8);//表地址占6个字节，偏置量加6
+            //采集器地址
+            int[] addressOfCollector = ConvertUtil.addressToBytes(meter.getCollector().getId());
+            System.arraycopy(addressOfCollector,0,data,(i-1)*22 + 18, 6);
         }
         //7. 整理数据并发送
         XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
@@ -209,7 +271,7 @@ public class XTProtocolSendHelper {
      * @param xtMsgBody
      */
     private static void printMsgLog(XtMsgBody xtMsgBody){
-        LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：\n");
+        LogUtil.DataMessageLog(XTProtocolSendHelper.class,"待发送报文：");
         StringBuilder sb = new StringBuilder();
         for(int i = 0 ; i < xtMsgBody.toBytes().length; i++){
             sb.append(ConvertUtil.fixedLengthHex(xtMsgBody.toBytes()[i])+" ");
@@ -223,8 +285,9 @@ public class XTProtocolSendHelper {
         }
         LogUtil.DataMessageLog(XTProtocolSendHelper.class, sb.toString());
     }
-    public static void setFileInfo(Center center, Command currentCommand, int i) {
 
+
+    public static void replyHeartBeat(Center center) {
+        //对于心跳，可以暂时不给回复
     }
-
 }

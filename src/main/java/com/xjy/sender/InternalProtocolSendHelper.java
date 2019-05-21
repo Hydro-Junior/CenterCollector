@@ -1,28 +1,25 @@
-package com.xjy.util;
+package com.xjy.sender;
 
 import com.xjy.adapter.CollectorAdapter;
 import com.xjy.adapter.MeterAdapter;
 import com.xjy.entity.*;
-import com.xjy.parms.CommandType;
 import com.xjy.parms.Constants;
 import com.xjy.parms.InternalOrders;
 import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBMeter;
+import com.xjy.util.ConvertUtil;
+import com.xjy.util.DBUtil;
+import com.xjy.util.LogUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.ReferenceCountUtil;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Logger;
 
 /**
  * @Author: Mr.Xu
@@ -61,7 +58,7 @@ public class InternalProtocolSendHelper {
         }
         InternalMsgBody internalMsgBody = new InternalMsgBody(center.getId(), effectiveData);
         center.getCurCommand().setSecondsLimit(Constants.MAX_WAIT_TIME_FOR_READ_PAGES);//读取每一页的最长允许等待时间，建议45秒
-        center.getCurCommand().setStartExcuteTime(LocalDateTime.now());
+        center.getCurCommand().setStartExecuteTime(LocalDateTime.now());
         writeAndFlush(center,internalMsgBody);
     }
     //内部协议，读取首页
@@ -180,7 +177,7 @@ public class InternalProtocolSendHelper {
      * @param internalMsgBody
      */
     private static void printInternalMsgLog(InternalMsgBody internalMsgBody){
-        LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：\n");
+        LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：");
         StringBuilder sb = new StringBuilder();
         for(int i = 0 ; i < internalMsgBody.toBytes().length; i++){
             sb.append(ConvertUtil.fixedLengthHex(internalMsgBody.toBytes()[i])+" ");

@@ -1,14 +1,19 @@
 package com.xjy.handler;
 
-import com.xjy.entity.Center;
-import com.xjy.entity.Command;
-import com.xjy.entity.GlobalMap;
-import com.xjy.entity.XtMsgBody;
+import com.xjy.entity.*;
 import com.xjy.parms.CommandState;
+import com.xjy.parms.CommandType;
+import com.xjy.parms.Constants;
+import com.xjy.parms.XTParams;
 import com.xjy.pojo.DBCommand;
+import com.xjy.processor.ExceptionProcessor;
+import com.xjy.processor.XtMsgProcessor;
+import com.xjy.util.ConvertUtil;
 import com.xjy.util.DBUtil;
-import com.xjy.util.InternalProtocolSendHelper;
+import com.xjy.sender.InternalProtocolSendHelper;
 import com.xjy.util.LogUtil;
+import com.xjy.sender.XTProtocolSendHelper;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
@@ -16,6 +21,7 @@ import io.netty.channel.ChannelPromise;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -52,8 +58,8 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
                     int retry = cur.getRetryNum();
                     if(retry < cur.getAllowedRetryTimes()){
                         //主动重发上一条命令
-                        InternalProtocolSendHelper.writeAndFlush(center,center.getLatestMsg());
-                        cur.setStartExcuteTime(LocalDateTime.now()); //更新开始时间
+                        XTProtocolSendHelper.writeAndFlush(center,(XtMsgBody) center.getLatestMsg());
+                        cur.setStartExecuteTime(LocalDateTime.now()); //更新开始时间
                         cur.setRetryNum(retry + 1); //重试次数加一
                     }
                 }
@@ -75,12 +81,104 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
             }
         }
         //接下来，根据不同的命令类型，对消息进行处理
-
+        int AFN = msgBody.getAFN();
+        Command command = currentCenter.getCurCommand();
+        if(AFN == XTParams.AFN_LINK_DETECTION){
+            XTProtocolSendHelper.replyHeartBeat(currentCenter);
+        } else if(AFN == XTParams.AFN_GET_REALTIME_DATA){ //请求1类数据报文
+            System.out.println("收到抄表数据报文！");
+            if(command.getType() == CommandType.READ_ALL_METERS){
+                List<MeterOf130> meters = XTProtocolSendHelper.constructAndGetMetersInfo(currentCenter);
+                XtMsgProcessor.readProcessor(currentCenter,msgBody);
+                if(meters.size() <= (Integer) command.getParameter()) {
+                    command.setState(CommandState.SUCCESSED);
+                    DBUtil.updateCommandState(CommandState.SUCCESSED, currentCenter);
+                    DBUtil.updateCenterReadTime(currentCenter);
+                }else{
+                    XTProtocolSendHelper.readMeters(currentCenter,command);
+                }
+            }else if(command.getType() == CommandType.READ_SINGLE_METER){
+                XtMsgProcessor.readProcessor(currentCenter,msgBody);
+                command.setState(CommandState.SUCCESSED);
+                DBUtil.updateCommandState(CommandState.SUCCESSED, currentCenter);
+            }
+        }else if(AFN == XTParams.AFN_CONFIRM_OR_DENY){//设置参数报文（下载档案到集中器）
+            if(command.getType() == CommandType.WRITE_INFO ){//下载档案回复处理
+                if(msgBody.getC() == 0x80){
+                    System.out.println("下载档案回复");
+                    List<MeterOf130> meters = XTProtocolSendHelper.constructAndGetMetersInfo(currentCenter);
+                    if((Integer)command.getParameter() >= meters.size()) {
+                        command.setState(CommandState.SUCCESSED);
+                        DBUtil.updateCommandState(CommandState.SUCCESSED, currentCenter);
+                    }else{
+                        XTProtocolSendHelper.writeFileInfo(currentCenter,command);
+                    }
+                }else if(msgBody.getC() == 0x89){
+                    command.setState(CommandState.FAILED);
+                    DBUtil.updateCommandState(CommandState.FAILED, currentCenter);
+                }
+            }
+        }else if(AFN == XTParams.AFN_GET_PARAM){//获取参数报文（如读取集中器档案）
+            if(command.getType() == CommandType.READ_CENTER_INFO){
+                List<MeterOf130> meters = XTProtocolSendHelper.constructAndGetMetersInfo(currentCenter);
+                //读取集中器信息的方式暂时就是写到日志，不做具体解析
+                arrangeFileInfo(currentCenter,command,msgBody); // 整理读取的集中器信息，将其打印到日志
+                if((Integer)command.getParameter() >= meters.size()) {
+                    command.setState(CommandState.SUCCESSED);
+                    DBUtil.updateCommandState(CommandState.SUCCESSED, currentCenter);
+                }else{
+                    XTProtocolSendHelper.getFileInfo(currentCenter,command);
+                }
+            }
+        }
     }
+
+    private void arrangeFileInfo(Center currentCenter, Command command, XtMsgBody msgBody) {
+        LogUtil.DataMessageLog(XtMessageHandler.class,"【file information of the Center "+currentCenter.getId()+"--> up to meter of "+
+                command.getParameter() +" 】");
+        int data[] = msgBody.getData();
+        int num = ConvertUtil.bcdBytesToInt(data,0,1);
+        LogUtil.DataMessageLog(XtMessageHandler.class,"此帧共包含 "+ num +" 块表的信息:" );
+        for(int i = 2; (i + 22) <= data.length; i += 22){
+            int index = ConvertUtil.bcdBytesToInt(data, i, i+1);
+            String address = ConvertUtil.bcdBytesToString(data, i+2, i+7);
+            String collector = ConvertUtil.bcdBytesToString(data,i+16,i+21);
+            LogUtil.DataMessageLog(XtMessageHandler.class,"表序号："+index + " 表地址："+address + "   采集通道号："+ collector);
+        }
+        LogUtil.DataMessageLog(XtMessageHandler.class,Constants.LINE_SEPARATOR);
+    }
+
 
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
         super.handlerRemoved(ctx);
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        super.channelInactive(ctx);
+    }
+
+    @Override
+    public void disconnect(ChannelHandlerContext ctx, ChannelPromise promise) throws Exception {
+        ConcurrentHashMap<String,Center> map =  GlobalMap.getMap();
+        String centerAddr = "";
+        Center center;
+        for(Map.Entry<String,Center> entry : map.entrySet()){
+            if(entry.getValue().getCtx() == ctx){
+                centerAddr = entry.getKey();
+                center = entry.getValue();
+                //如果命令状态正在执行
+                if(center.getCurCommand()!=null && center.getCurCommand().getState()==CommandState.EXECUTING){
+                    center.getCurCommand().setSuspend(true); //挂起命令
+                    LogUtil.channelLog(centerAddr,"disconnected when executing the command --> command "+ center.getCurCommand().getType() + " suspend");
+                }
+                break;
+            }
+        }
+        LogUtil.DataMessageLog(XtMessageHandler.class,"one client disconnected ! center address："+centerAddr +" ctx:"+ctx+"   channel message："+ctx.channel() + "    is active ? ："+ctx.channel().isActive());
+        super.disconnect(ctx, promise);
+        if(ctx != null) ctx.close();
     }
 
     @Override
@@ -90,8 +188,9 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        System.out.println("业务处理时异常");
+        LogUtil.DataMessageLog(InternalMessageHandler.class,"业务处理时异常");
         cause.printStackTrace();
+        ExceptionProcessor.processAfterException(ctx);//将对应集中器的命令状态置为失败或增加命令重试次数
         ctx.close();
     }
 
