@@ -2,14 +2,14 @@
 #内部协议填写Internal 130协议填写XT
 protocol=Internal
 #填写集中器访问的服务器的IP（当前服务器的IP）
-connectServer=47.106.21.33
+connectServer=***
 #填写集中器访问的服务器的端口
-protocolPort=5100
+protocolPort=***
 #填写数据库服务器的地址
-dbServer=114.119.9.181
+dbServer=***
 #数据库Id
-dbId=sa
+dbId=***
 #数据库密码
-dbPwd=kilotone@2012
+dbPwd=***
 #数据库名称
-database=QBTT
+database=***
