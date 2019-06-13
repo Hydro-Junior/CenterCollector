@@ -1,15 +1,15 @@
 #采集程序配置文件，注意请勿填写多余的空格
 #内部协议填写Internal 130协议填写XT
-protocol=Internal
+protocol=**
 #填写集中器访问的服务器的IP（当前服务器的IP）
-connectServer=47.106.21.33
+connectServer=**
 #填写集中器访问的服务器的端口
-protocolPort=5100
+protocolPort=**
 #填写数据库服务器的地址
-dbServer=47.112.118.186
+dbServer=**
 #数据库Id
-dbId=sa
+dbId=**
 #数据库密码
-dbPwd=kilotone@186
+dbPwd=**
 #数据库名称
-database=QBTT
+database=**
