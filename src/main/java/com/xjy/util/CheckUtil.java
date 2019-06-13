@@ -29,7 +29,19 @@ public class CheckUtil {
             return false;
         }
     }
-
+    public static boolean doSumCheck(int[] data,int start, int end , int target){
+        int checkSum = 0;
+        for(int i = start ; i < end; i++){
+            checkSum += data[i];
+            checkSum &= 0xff;
+        }
+        if(checkSum == target){
+            return true;
+        }else{
+            LogUtil.DataMessageLog(CheckUtil.class,"报文和校验错误！");
+            return false;
+        }
+    }
     /**
      *
      * @param data 待校验的有效数据

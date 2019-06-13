@@ -6,9 +6,9 @@ package com.xjy.entity;
  * @Description:水表实体类
  */
 public class Meter {
-    private String id;
-    private Integer indexNo;
-    private Double value = 0.0;
+    private String id; //表地址
+    private Integer indexNo;//表序号，在130协议中使用
+    private Double value = 0.0; //表读数
     private Integer state = 0; //通信状态 0-正常 1-数据读取失败 2 - 采集器失败
     private Integer valveState = 0; //阀门状态 0-无阀 1-开阀 2-关阀
     private Collector collector; //所属采集器

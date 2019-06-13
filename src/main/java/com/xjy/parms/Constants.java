@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 16:51 2018/9/28
- * @Description:
+ * @Description:全局的配置信息
  */
 public final class Constants {
     public static final String protocol;
@@ -31,7 +31,8 @@ public final class Constants {
 
     public static final int RETRY_TIMES_FOR_READ_PAGES = 5; //读页(读取集中器数据)时命令的最大允许重试次数（5次）
     public static final int MAX_WAIT_TIME_FOR_READ_PAGES = 70; //读页时的最长允许等待时间（70秒）
-
+    public static final double ERROR_VALUE_FOR130 = 1555555.54; //130表读不到数据通常显示值大于此值
+    public static final int GENERAL_TIME_LIMITS_FOR130 = 70; //130多为短帧交互，默认超时时间定为70秒
 
     //crc 校验表
     public static final int[] CRC_HIGH ={
@@ -70,6 +71,7 @@ public final class Constants {
                 0x2E,0x0F,0x6C,0x4D,0xAA,0x8B,0xE8,0xC9,0x26,0x07,0x64,0x45,0xA2,0x83,0xE0,0xC1,
                 0x1F,0x3E,0x5D,0x7C,0x9B,0xBA,0xD9,0xF8,0x17,0x36,0x55,0x74,0x93,0xB2,0xD1,0xF0
     };
+
 
     static {
         Properties properties = new Properties();

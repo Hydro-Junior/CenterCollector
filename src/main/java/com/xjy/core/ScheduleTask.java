@@ -8,7 +8,7 @@ import org.quartz.impl.StdSchedulerFactory;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 8:57 2018/12/7
- * @Description:
+ * @Description:定时任务处理
  */
 public class ScheduleTask {
     private static SchedulerFactory schedulerFactory = new StdSchedulerFactory();

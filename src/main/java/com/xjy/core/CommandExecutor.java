@@ -103,6 +103,10 @@ public class CommandExecutor implements Runnable{
             case READ_SINGLE_METER:
                 XTProtocolSendHelper.readSingleMeter(center,currentCommand);
                 break;
+            case COLLECT_FOR_METER://130实时读取，等同采集
+                currentCommand.setType(CommandType.READ_SINGLE_METER);
+                XTProtocolSendHelper.readSingleMeter(center,currentCommand);
+                break;
             case READ_ALL_METERS:
                 timeLimitSetFor130(center);
                 currentCommand.setParameter(0); //表序号的偏置量，表示已经读到了哪个表
@@ -129,8 +133,9 @@ public class CommandExecutor implements Runnable{
     private static void timeLimitSetFor130(Center center){
         List<MeterOf130> meters = XTProtocolSendHelper.constructAndGetMetersInfo(center);
         int timeLimit = Math.max(meters.size()/10 * 2,5);
-        center.getCurCommand().setSecondsLimit(timeLimit * 60);//设置超时时间限制，与表个数关联
+        center.getCurCommand().setSecondsLimit(Constants.GENERAL_TIME_LIMITS_FOR130);//设置超时时间限制，由于130都是短帧交互，超时时间设为70秒
         Timestamp t3 = Timestamp.valueOf(LocalDateTime.now().plusMinutes(timeLimit));
+        center.getCurCommand().setAllowedRetryTimes(Math.max(2,meters.size()/100 + 1)); //设置重试次数
         DBUtil.updateCommandEndTime(center,t3);
     }
 

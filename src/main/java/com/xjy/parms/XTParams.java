@@ -3,7 +3,7 @@ package com.xjy.parms;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 10:15 2019/5/14
- * @Description:
+ * @Description:130协议相关的参数
  */
 public class XTParams {
     //控制域参数dir和prm

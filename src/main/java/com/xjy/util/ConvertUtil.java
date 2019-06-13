@@ -48,6 +48,13 @@ public class ConvertUtil {
         }
         return res;
     }
+    public static int binBytesToInt(int[] data,int start, int end){
+        int res = 0,d = 1;
+        for(int i = start; i <= end; i++,d <<= 8){
+            res += data[i] * d;
+        }
+        return res;
+    }
     //把表地址或采集器地址转化为字节数组（内部协议）,返回类型为int[]是为了表示方便
     public static int[] addressToBytes(String address){
         String addr = address.trim();

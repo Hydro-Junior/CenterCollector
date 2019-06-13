@@ -11,17 +11,17 @@ import java.util.Arrays;
  * @Description: 与命令相关的实体类
  */
 public class Command {
-    CommandType type=CommandType.NONE;
+    CommandType type= CommandType.NONE;//命令类型
     Integer id; //命令对应的数据库中的Id
     Integer state; //0-未分派 1-集中器未连接 2-等待执行 3-执行中 4-执行错误，重试中 5-执行成功  6-执行失败
     String[] args; //命令的相关参数
     LocalDateTime startExecuteTime; //开始执行命令的时刻
-    LocalDateTime generateTime;
+    LocalDateTime generateTime; //命令生成时间
     int secondsLimit = 5 * 60; //允许超时时间，默认5分钟
     boolean suspend = false; //命令在执行中是否中断
-    int retryNum = 0;
-    Object parameter;
-    int allowedRetryTimes = 1;
+    int retryNum = 0; //重试次数
+    Object parameter; //自定义参数
+    int allowedRetryTimes = 1; //允许重试次数
 
     public Integer getId() {
         return id;

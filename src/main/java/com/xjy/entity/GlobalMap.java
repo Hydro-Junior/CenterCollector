@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 11:32 2018/9/28
- * @Description: 一个全局的单例，维护一个ConcurrentHashMap,监控集中器的实时状态
+ * @Description: 全局的单例，维护一个ConcurrentHashMap,监控集中器的实时状态
  */
 public class GlobalMap {
     private GlobalMap(){}

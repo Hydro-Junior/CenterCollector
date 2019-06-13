@@ -9,8 +9,8 @@ import java.util.List;
  * @Description: 采集器实体类
  */
 public class Collector {
-    private String id;
-    private List<Meter> meters = new ArrayList<>();
+    private String id;//采集器地址
+    private List<Meter> meters = new ArrayList<>(); //采集器下的所有水表
     private Center center; //所属集中器
 
     public Collector(){}

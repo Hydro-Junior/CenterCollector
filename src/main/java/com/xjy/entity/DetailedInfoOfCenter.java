@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 10:27 2018/10/25
- * @Description:
+ * @Description:集中器的具体信息，针对的是内部协议
  */
 public class DetailedInfoOfCenter {
     private String timingCollect ;

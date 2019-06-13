@@ -18,6 +18,8 @@ public interface CommandMapper {
     void updateCommandState(@Param("id") int id ,@Param("state") int state);
     void insertNewCollectCommand(@Param("generateTime")Timestamp generateTime,@Param("executeTime") int executeTime,@Param("centerAddress")String centerAdrress,
                                  @Param("meterCount")int meterCount,@Param("portStr")String portStr,@Param("enprNo")String enprNo);
+    void insertNewReadCommand(@Param("generateTime")Timestamp generateTime,@Param("executeTime") int executeTime,@Param("centerAddress")String centerAdrress,
+                                 @Param("meterCount")int meterCount,@Param("portStr")String portStr,@Param("enprNo")String enprNo);
     //#{generateTime},#{executeTime},#{centerAddress},#{meterCount},
     //        0,#{portStr},#{enprNo}
 }

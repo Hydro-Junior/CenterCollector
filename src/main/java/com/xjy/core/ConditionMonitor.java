@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 8:45 2018/10/3
- * @Description:
+ * @Description:状态监控程序
  */
 public class ConditionMonitor implements Runnable {
     @Override
@@ -28,7 +28,7 @@ public class ConditionMonitor implements Runnable {
         DBUtil.initCenters();
         while (true){
             try {
-                TimeUnit.SECONDS.sleep(30);
+                TimeUnit.MINUTES.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

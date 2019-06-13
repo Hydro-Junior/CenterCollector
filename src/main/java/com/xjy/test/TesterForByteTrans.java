@@ -1,6 +1,7 @@
 package com.xjy.test;
 
 import com.xjy.entity.InternalMsgBody;
+import com.xjy.sender.XTProtocolSendHelper;
 import com.xjy.util.ConvertUtil;
 import org.junit.Test;
 
@@ -24,5 +25,18 @@ public class TesterForByteTrans {
             res[i] = bytes[i];
             System.out.print(ConvertUtil.fixedLengthHex(res[i]) + " ");
         }
+    }
+    @Test
+    public void testBINNumIN2bytes(){
+        int[] data = new int[2];
+        XTProtocolSendHelper.arrangeBINCodeIn2Bytes(640,0,data);
+        System.out.print(ConvertUtil.fixedLengthHex(data[0]) + " " + ConvertUtil.fixedLengthHex(data[1]));
+    }
+
+    @Test
+    public void testbytesToInt(){
+        int[] data = new int[2];
+        data[0] = 0xff; data[1] = 0x02;
+        System.out.println(ConvertUtil.binBytesToInt(data,0,data.length-1));
     }
 }

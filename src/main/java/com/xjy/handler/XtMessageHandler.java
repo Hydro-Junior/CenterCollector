@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: Mr.Xu
@@ -35,11 +36,11 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
         XtMsgBody msgBody = (XtMsgBody)msg;
         String address = msgBody.getCenterAddress();
         ConcurrentHashMap<String,Center> map = GlobalMap.getMap();
-        LogUtil.DataMessageLog(InternalMessageHandler.class,"来自集中器"+address+"的消息！\r\n"+msgBody.toString());
+        //LogUtil.DataMessageLog(InternalMessageHandler.class,"来自集中器"+address+"的消息！\r\n"+msgBody.toString());
         if(!map.containsKey(address)){
             Center center = new Center(address,ctx);
             map.put(address,center);
-            //LogUtil.DataMessageLog(InternalMessageHandler.class,"首次收到集中器"+address+"的消息！\r\n"+msgBody.toString());
+            LogUtil.DataMessageLog(InternalMessageHandler.class,"首次收到集中器"+address+"的消息！\r\n"+msgBody.toString());
             //更新数据库中集中器状态
             DBUtil.updateCenterState(1,center);
             //首次上线，如果有命令正在执行，将其置为成功！(有些硬件的特殊情况：执行采集命令会断开连接，结束后上线)
@@ -86,7 +87,6 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
         if(AFN == XTParams.AFN_LINK_DETECTION){
             XTProtocolSendHelper.replyHeartBeat(currentCenter);
         } else if(AFN == XTParams.AFN_GET_REALTIME_DATA){ //请求1类数据报文
-            System.out.println("收到抄表数据报文！");
             if(command.getType() == CommandType.READ_ALL_METERS){
                 List<MeterOf130> meters = XTProtocolSendHelper.constructAndGetMetersInfo(currentCenter);
                 XtMsgProcessor.readProcessor(currentCenter,msgBody);
@@ -105,7 +105,8 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
         }else if(AFN == XTParams.AFN_CONFIRM_OR_DENY){//设置参数报文（下载档案到集中器）
             if(command.getType() == CommandType.WRITE_INFO ){//下载档案回复处理
                 if(msgBody.getC() == 0x80){
-                    System.out.println("下载档案回复");
+                    LogUtil.DataMessageLog(XtMessageHandler.class,"下载档案回复");
+                    //TimeUnit.SECONDS.sleep(1);
                     List<MeterOf130> meters = XTProtocolSendHelper.constructAndGetMetersInfo(currentCenter);
                     if((Integer)command.getParameter() >= meters.size()) {
                         command.setState(CommandState.SUCCESSED);
@@ -137,10 +138,10 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
         LogUtil.DataMessageLog(XtMessageHandler.class,"【file information of the Center "+currentCenter.getId()+"--> up to meter of "+
                 command.getParameter() +" 】");
         int data[] = msgBody.getData();
-        int num = ConvertUtil.bcdBytesToInt(data,0,1);
+        int num = ConvertUtil.binBytesToInt(data,0,1);
         LogUtil.DataMessageLog(XtMessageHandler.class,"此帧共包含 "+ num +" 块表的信息:" );
         for(int i = 2; (i + 22) <= data.length; i += 22){
-            int index = ConvertUtil.bcdBytesToInt(data, i, i+1);
+            int index = ConvertUtil.binBytesToInt(data, i, i+1);
             String address = ConvertUtil.bcdBytesToString(data, i+2, i+7);
             String collector = ConvertUtil.bcdBytesToString(data,i+16,i+21);
             LogUtil.DataMessageLog(XtMessageHandler.class,"表序号："+index + " 表地址："+address + "   采集通道号："+ collector);
@@ -188,8 +189,8 @@ public class XtMessageHandler extends ChannelHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        LogUtil.DataMessageLog(InternalMessageHandler.class,"业务处理时异常");
-        cause.printStackTrace();
+        LogUtil.DataMessageLog(XtMessageHandler.class,"业务处理时异常");
+        LogUtil.DataMessageLog(XtMessageHandler.class,cause.getMessage());
         ExceptionProcessor.processAfterException(ctx);//将对应集中器的命令状态置为失败或增加命令重试次数
         ctx.close();
     }

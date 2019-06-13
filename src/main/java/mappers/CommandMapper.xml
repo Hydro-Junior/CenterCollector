@@ -13,4 +13,9 @@
         State,port,enprNo) VALUES ('000101','admin',#{generateTime},#{executeTime},#{centerAddress},#{meterCount},
         0,#{portStr},#{enprNo})
     </insert>
+    <insert id="insertNewReadCommand">
+        insert into t_tempCommandQueue(command,Operator,GenerateTime,ExecuteTime,ContentValue1,ContentValue2,
+        State,port,enprNo) VALUES ('000102','admin',#{generateTime},#{executeTime},#{centerAddress},#{meterCount},
+        0,#{portStr},#{enprNo})
+    </insert>
 </mapper>

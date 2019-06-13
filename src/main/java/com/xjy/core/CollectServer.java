@@ -61,9 +61,10 @@ public class CollectServer {
             // 拿到SocketChannel,进行一系列的配置
             //socketChannel.config().setAllowHalfClosure(true);//允许半关闭
             if(Constants.protocol != null && Constants.protocol.equals("XT")){
-                ByteBuf xtdelimiter = Unpooled.copiedBuffer(Constants.XT_DELIMETER);//定义分隔符
+                //经过实际测试，130协议仅以报文尾为分隔符也是不行的，同样需要自定义解码器
+                /*ByteBuf xtdelimiter = Unpooled.copiedBuffer(Constants.XT_DELIMETER);//定义分隔符*/
                 //管道流式处理字节流
-                socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,xtdelimiter),
+                socketChannel.pipeline().addLast(/*new DelimiterBasedFrameDecoder(1024,xtdelimiter)*/
                         new XtProtocolDecoder());
                 socketChannel.pipeline().addLast( new XtMessageHandler());
             }else{//默认内部协议
@@ -81,7 +82,7 @@ public class CollectServer {
     }
 
     public static void main(String[] args) {
-        new Thread(new ConditionMonitor()).start();
+        new Thread(new ConditionMonitor()).start();//状态监控线程
         new Thread(new CommandFetcher()).start();//轮询数据库命令的线程
         new Thread(new CommandExecutor()).start();//命令执行线程
         ScheduleTask.startTimingCollect();//开启定时采集任务
@@ -89,9 +90,7 @@ public class CollectServer {
             new CollectServer().bind(Integer.parseInt(Constants.protocolPort));
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println(e.getMessage());
             System.out.println("绑定地址错误！\r\n + IP:"+Constants.connectServer + "端口号："+Constants.protocolPort );
         }
-
     }
 }

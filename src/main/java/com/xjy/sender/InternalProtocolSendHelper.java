@@ -177,8 +177,9 @@ public class InternalProtocolSendHelper {
      * @param internalMsgBody
      */
     private static void printInternalMsgLog(InternalMsgBody internalMsgBody){
-        LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：");
+        //LogUtil.DataMessageLog(InternalProtocolSendHelper.class,"待发送报文：");
         StringBuilder sb = new StringBuilder();
+        sb.append("【待发送报文】"+ Constants.LINE_SEPARATOR);
         for(int i = 0 ; i < internalMsgBody.toBytes().length; i++){
             sb.append(ConvertUtil.fixedLengthHex(internalMsgBody.toBytes()[i])+" ");
             if(i !=0 && i % 30 == 0) sb.append("\r\n");

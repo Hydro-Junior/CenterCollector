@@ -51,6 +51,16 @@ public class DBUtil {
         session.commit();
         session.close();
     }
+    public static void insertNewReadCommand(Center center){
+        SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+        CommandMapper mapper = session.getMapper(CommandMapper.class);
+        ConcurrentHashMap<Center,List<CenterPage>> pageInfo = GlobalMap.getBasicInfo();
+        int meterCounts = pageInfo.containsKey(center)? pageInfo.get(center).size() * 32 : 16;
+        mapper.insertNewCollectCommand(Timestamp.valueOf(LocalDateTime.now()),meterCounts/16 * 2000,center.getId(),meterCounts,
+                Constants.connectServer+":"+Constants.protocolPort,center.getEnprNo());
+        session.commit();
+        session.close();
+    }
     //根据集中器获取采集器集合
     public static List<DBCollector> getCollectorsByCenter(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -263,6 +273,7 @@ public class DBUtil {
                 );
                 mapper.insertNewData(tableName,meter.getValue(),Timestamp.valueOf(LocalDateTime.now()),centerId,LocalDateTime.now().getDayOfMonth(),meter.getId(),meter.getValveState(),meter.getState(),enprNo);
             }
+            //TODO 可在此处添加与前一天的数据比对，将读数异常的表信息插入t_warning表，也可交给web端做数据同步时操作
             //阀门信息
             DBMeter dbmeter = mapper.searchDevice(centerId,meter.getId());
             if(dbmeter == null){

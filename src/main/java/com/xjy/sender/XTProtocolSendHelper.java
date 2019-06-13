@@ -3,6 +3,7 @@ package com.xjy.sender;
 import com.xjy.adapter.CollectorAdapter;
 import com.xjy.adapter.MeterAdapter;
 import com.xjy.entity.*;
+import com.xjy.parms.Constants;
 import com.xjy.parms.XTParams;
 import com.xjy.pojo.DBCollector;
 import com.xjy.pojo.DBMeter;
@@ -14,6 +15,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -63,11 +65,12 @@ public class XTProtocolSendHelper {
         // 每个数据2字节，如50块表，其格式就是 50 00; 如序号为125，则格式为 25 01;
         int offset = (Integer) currentCommand.getParameter() == null? 0 : (Integer) currentCommand.getParameter(); //命令参数为表序号的偏置量
         List<MeterOf130> meters = constructAndGetMetersInfo(center);
-        int num = meters.size()- offset >= 10 ? 10 : meters.size() - offset; //表的总数，每次读取最多10个表的档案
+        int num = meters.size()- offset >= 5 ? 5 : meters.size() - offset; //表的总数，每次读取最多10个表的档案
         currentCommand.setParameter(offset+ num);
         int[] data = new int[num * 2 + 2];
-        data[1] = 0x00;
-        data[0] = (((num / 10) << 4) & 0xf0) |((num % 10) & 0x0f);
+        /*data[1] = 0x00;
+        data[0] = (((num / 10) << 4) & 0xf0) |((num % 10) & 0x0f);*/
+        arrangeBINCodeIn2Bytes(num,0,data);
         for(int i = 1; i <= num; i++){
             Meter meter = meters.get(i - 1 + offset);
             Integer index = meter.getIndexNo();
@@ -76,7 +79,7 @@ public class XTProtocolSendHelper {
                         center.getId() + "表地址："+ meter.getId());
                 continue;
             }
-            arrangeBcdCodeIn2Bytes(index,2 * i , data);
+            arrangeBINCodeIn2Bytes(index,2 * i , data);
         }
         //7. 整理数据并发送
         XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
@@ -106,8 +109,8 @@ public class XTProtocolSendHelper {
        int[] Fn = getFn(57); //根据协议获得 F57：当前正向有功总电能、累计水量、累计气量
        int[] data = new int[3+2];
        data[0] = 0x00; //抄表方式：自动中继
-       arrangeBcdCodeIn2Bytes(1,1, data); //num:1 就一个表
-       arrangeBcdCodeIn2Bytes(targetIndex,3,data);
+       arrangeBINCodeIn2Bytes(1,1, data); //num:1 就一个表
+       arrangeBINCodeIn2Bytes(targetIndex,3,data);
        XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
        System.out.println(msgBody);
        System.out.println(ConvertUtil.fixedLengthHex(ConvertUtil.bytesToInts(msgBody.toBytes())));
@@ -129,12 +132,13 @@ public class XTProtocolSendHelper {
         List<MeterOf130> meters = constructAndGetMetersInfo(center);
         int num = meters.size()- offset >= 5 ? 5 : meters.size() - offset; //表的总数,每次最多读5个表
         currentCommand.setParameter(offset + num);
+        LogUtil.DataMessageLog(XTProtocolSendHelper.class,"表总数："+ meters.size() + "     偏置数："+ offset);
         //数据单元字节数 抄表方式1字节(0x00) + 表数量2字节 + 表序号 2 * n
         int[] data = new int[3 + 2 * num];
         data[0] = 0x00;
-        arrangeBcdCodeIn2Bytes(num,1, data);
+        arrangeBINCodeIn2Bytes(num,1, data);
         for(int i = 1; i <= num ; i++){
-            arrangeBcdCodeIn2Bytes(meters.get(offset+i-1).getIndexNo(),1+2 * i,data);
+            arrangeBINCodeIn2Bytes(meters.get(offset+i-1).getIndexNo(),1+2 * i,data);
         }
         //7. 整理数据并发送
         XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
@@ -159,12 +163,13 @@ public class XTProtocolSendHelper {
         currentCommand.setParameter(offset + num);
         //数据单元字节数 抄表方式1字节(0x00) + 表数量2字节 + 表序号 2 * n
         int[] data = new int[2 + 22 * num];
-        arrangeBcdCodeIn2Bytes(num,0, data);
+        arrangeBINCodeIn2Bytes(num,0, data);
         for(int i = 1; i <= num ; i++){
             MeterOf130 meter = meters.get(i+offset-1);
             //序号
             int index = meter.getIndexNo();
-            arrangeBcdCodeIn2Bytes(index,(i-1) * 22 + 2, data);//每个表资料数据占22个字节，头两个字节是表数量
+            //LogUtil.DataMessageLog(XTProtocolSendHelper.class,"准备下载表具序号 ["+index+"]");
+            arrangeBINCodeIn2Bytes(index,(i-1) * 22 + 2, data);//每个表资料数据占22个字节，头两个字节是表序号
             //表地址
             String address = meter.getId();
             int[] addressBytes = ConvertUtil.addressToBytes(address);
@@ -178,16 +183,21 @@ public class XTProtocolSendHelper {
         }
         //7. 整理数据并发送
         XtMsgBody msgBody  = new XtMsgBody(C, A, AFN, SEQ, Fn, data);
-        System.out.println(msgBody);
-        System.out.println(ConvertUtil.fixedLengthHex(ConvertUtil.bytesToInts(msgBody.toBytes())));
         writeAndFlush(center,msgBody);
     }
-    //把某个数值的bcd码分配到两个字节，低位在前
+    //把某个数值的bcd码分配到两个字节，低位在前(原本以为表序号和表数量的表示都是用的BCD码，实际上是BIN码，被网络上的协议文档所误导)
     public static void arrangeBcdCodeIn2Bytes(int num, int offset, int[] data){
-        int high = num % 100;
-        int low = num / 100;
-        data[offset] = ConvertUtil.getBcdOf2digit(high);
-        data[offset + 1] = ConvertUtil.getBcdOf2digit(low);
+        int low = num % 100;
+        int high = num / 100;
+        data[offset] = ConvertUtil.getBcdOf2digit(low);
+        data[offset + 1] = ConvertUtil.getBcdOf2digit(high);
+    }
+    //把某个数值的bin码分配到两个字节，低位在前
+    public static void arrangeBINCodeIn2Bytes(int num, int offset, int[] data){
+        int high = (num >>> 8);
+        int low = num & 0xff;
+        data[offset] = low;
+        data[offset + 1] = high;
     }
 
     public static List<MeterOf130> constructAndGetMetersInfo(Center center) {
@@ -262,6 +272,7 @@ public class XTProtocolSendHelper {
     }
     public static void writeAndFlush(Center center,XtMsgBody msgBody){
         ByteBuf buf = Unpooled.copiedBuffer(msgBody.toBytes());
+        center.getCurCommand().setStartExecuteTime(LocalDateTime.now()); //刷新开始执行时间
         ChannelFuture f = center.getCtx().writeAndFlush(buf);
         printMsgLog(msgBody);
         center.setLatestMsg(msgBody);
@@ -271,8 +282,8 @@ public class XTProtocolSendHelper {
      * @param xtMsgBody
      */
     private static void printMsgLog(XtMsgBody xtMsgBody){
-        LogUtil.DataMessageLog(XTProtocolSendHelper.class,"待发送报文：");
         StringBuilder sb = new StringBuilder();
+        sb.append("【待发送报文】"+ Constants.LINE_SEPARATOR);
         for(int i = 0 ; i < xtMsgBody.toBytes().length; i++){
             sb.append(ConvertUtil.fixedLengthHex(xtMsgBody.toBytes()[i])+" ");
             if(i !=0 && i % 30 == 0) sb.append("\r\n");
