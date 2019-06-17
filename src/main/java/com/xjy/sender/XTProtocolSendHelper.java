@@ -271,11 +271,11 @@ public class XTProtocolSendHelper {
         return A;
     }
     public static void writeAndFlush(Center center,XtMsgBody msgBody){
-        ByteBuf buf = Unpooled.copiedBuffer(msgBody.toBytes());
+        ByteBuf buf = Unpooled.copiedBuffer(msgBody.toBytes());//拷贝字节数组
         center.getCurCommand().setStartExecuteTime(LocalDateTime.now()); //刷新开始执行时间
-        ChannelFuture f = center.getCtx().writeAndFlush(buf);
-        printMsgLog(msgBody);
-        center.setLatestMsg(msgBody);
+        ChannelFuture f = center.getCtx().writeAndFlush(buf);//发送数据
+        printMsgLog(msgBody);//打印日志
+        center.setLatestMsg(msgBody);//更新集中器最近发送的一条数据
     }
     /**
      * 打印消息发送日志

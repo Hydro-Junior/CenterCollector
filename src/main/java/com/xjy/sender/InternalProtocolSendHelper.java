@@ -28,6 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class InternalProtocolSendHelper {
 
+    //构建采集命令的字节数组并发送
     public static void collect(Center center,String collectorId,String meterId){
         int[] effectiveData = new int[3 + 6 + 6];//指令字3个字节+采集器地址6个字节+表地址6个字节
         effectiveData[0] = effectiveData[1] = effectiveData[2] = InternalOrders.COLLECT.getBytes()[0];

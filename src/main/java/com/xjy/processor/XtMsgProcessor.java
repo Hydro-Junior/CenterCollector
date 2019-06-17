@@ -13,9 +13,10 @@ import java.util.List;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 15:55 2019/5/17
- * @Description:
+ * @Description:消息处理器
  */
 public class XtMsgProcessor {
+    //读表指令返回的数据处理
     public static void readProcessor(Center center, XtMsgBody msgBody) {
         int[] data = msgBody.getData();
         //获得表个数

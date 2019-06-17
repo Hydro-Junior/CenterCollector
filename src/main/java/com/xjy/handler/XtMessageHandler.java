@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 15:03 2018/9/27
- * @Description: 新天通讯协议（130）业务消息处理器
+ * @Description: 130协议业务消息处理器
  */
 public class XtMessageHandler extends ChannelHandlerAdapter {
     @Override

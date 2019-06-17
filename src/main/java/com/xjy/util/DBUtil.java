@@ -99,6 +99,7 @@ public class DBUtil {
         }
         return scheme;
     }
+    //读表前的预处理，加载相关参数
     public static void preprocessOfRead(Center center){
         SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
         CenterMapper mapper = session.getMapper(CenterMapper.class);

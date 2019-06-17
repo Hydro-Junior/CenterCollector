@@ -7,7 +7,7 @@ import com.xjy.pojo.DBMeter;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 16:17 2018/11/1
- * @Description:
+ * @Description:适配器类，实现数据库表对象DBMeter到逻辑实体类Meter的转化
  */
 public class MeterAdapter {
     public static Meter getMeter(DBMeter dbMeter){
