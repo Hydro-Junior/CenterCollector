@@ -1,15 +1,15 @@
-#²É¼¯³ÌÐòÅäÖÃÎÄ¼þ£¬×¢ÒâÇëÎðÌîÐ´¶àÓàµÄ¿Õ¸ñ
-#ÄÚ²¿Ð­ÒéÌîÐ´Internal 130Ð­ÒéÌîÐ´XT
+#é‡‡é›†ç¨‹åºé…ç½®æ–‡ä»¶ï¼Œæ³¨æ„è¯·å‹¿å¡«å†™å¤šä½™çš„ç©ºæ ¼
+#å†…éƒ¨åè®®å¡«å†™Internal 130åè®®å¡«å†™XT
 protocol=**
-#ÌîÐ´¼¯ÖÐÆ÷·ÃÎÊµÄ·þÎñÆ÷µÄIP£¨µ±Ç°·þÎñÆ÷µÄIP£©
+#å¡«å†™é›†ä¸­å™¨è®¿é—®çš„æœåŠ¡å™¨çš„IPï¼ˆå½“å‰æœåŠ¡å™¨çš„IPï¼‰
 connectServer=**
-#ÌîÐ´¼¯ÖÐÆ÷·ÃÎÊµÄ·þÎñÆ÷µÄ¶Ë¿Ú
+#å¡«å†™é›†ä¸­å™¨è®¿é—®çš„æœåŠ¡å™¨çš„ç«¯å£
 protocolPort=**
-#ÌîÐ´Êý¾Ý¿â·þÎñÆ÷µÄµØÖ·
+#å¡«å†™æ•°æ®åº“æœåŠ¡å™¨çš„åœ°å€
 dbServer=**
-#Êý¾Ý¿âId
+#æ•°æ®åº“Id
 dbId=**
-#Êý¾Ý¿âÃÜÂë
+#æ•°æ®åº“å¯†ç 
 dbPwd=**
-#Êý¾Ý¿âÃû³Æ
+#æ•°æ®åº“åç§°
 database=**
