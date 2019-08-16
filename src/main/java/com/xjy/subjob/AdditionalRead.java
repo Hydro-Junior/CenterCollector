@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @Author: Mr.Xu
  * @Date: Created in 10:28 2019/1/6
- * @Description:
+ * @Description: 补充读取，暂不使用
  */
 public class AdditionalRead implements Job {
     @Override
